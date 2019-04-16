@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Used to control the character on the grid and keeps track of current stats, which may be effected by buffs or debuffs.
+///     also keep track of current hand
+/// </summary>
+
 public class Character : MonoBehaviour
 {
     public List<Vector3Int> destinations;
@@ -38,7 +43,7 @@ public class Character : MonoBehaviour
             hand.Add(DrawRandom());
         }
     }
-
+    //draw a random card from deck. untill all cards are drawn. They are then replenished.
     public Card DrawRandom()
     {
         int index = Random.Range(0, deck.Count);
@@ -50,7 +55,7 @@ public class Character : MonoBehaviour
         }
         return drawn;
     }
-    
+    //Gettors
     public Vector2Int GetHealth()
     {
         return new Vector2Int(currentHealth, stats.health);
@@ -74,7 +79,7 @@ public class Character : MonoBehaviour
     {
         return currentArmor;
     }
-
+    //Update function controls movement of character across grid.
     public void FixedUpdate()
     {
         if (destinations.Count > 0)
@@ -93,7 +98,7 @@ public class Character : MonoBehaviour
             }
         }
     }
-
+    //set movement path, found during pathfinding.
     public void Move(List<Vector3Int> d)
     {
         destinations = d;

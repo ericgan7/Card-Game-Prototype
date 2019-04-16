@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// InputController is used to detect player input and pass it onto the game controller.
+/// </summary>
+
 public class InputController : MonoBehaviour
 {
     GameController game;
@@ -25,6 +29,7 @@ public class InputController : MonoBehaviour
         mode = InputMode.None;
         previousTile = new Vector3Int(-1, -1, -1);
     }
+
     void Update()
     {
         PlayerInput();
@@ -40,6 +45,9 @@ public class InputController : MonoBehaviour
         mode = m;
     }
 
+    // Detetects player input.
+        //currently only detects tile clicking movement. 
+        //Card dragging is handled under CardMovement
     void PlayerInput()
     {
         if (Input.GetMouseButtonDown(0))
@@ -86,6 +94,7 @@ public class InputController : MonoBehaviour
         }
     }
 
+    //Cmaera controllers. WASD to be addded for keyboard camera control.
     void CameraMovement()
     {
         Vector3 t = Camera.main.transform.position;

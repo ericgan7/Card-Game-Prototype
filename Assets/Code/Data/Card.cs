@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Used to hold Card data. Should contain all behavior, strings, art, cost, etc.
+/// </summary>
+
 [CreateAssetMenu(fileName = "New Card", menuName = "Cards")]
 public class Card : ScriptableObject
 {

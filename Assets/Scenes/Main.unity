@@ -294,7 +294,7 @@ PrefabInstance:
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
@@ -954,7 +954,7 @@ PrefabInstance:
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
@@ -1895,7 +1895,7 @@ PrefabInstance:
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
@@ -2056,7 +2056,7 @@ TargetJoint2D:
   m_BreakTorque: Infinity
   m_Anchor: {x: 0, y: 0}
   m_Target: {x: 39.843018, y: 55.92}
-  m_AutoConfigureTarget: 1
+  m_AutoConfigureTarget: 0
   m_MaxForce: 30000
   m_DampingRatio: 1
   m_Frequency: 5
@@ -2430,10 +2430,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 767970421}
   - {fileID: 1832529337}
   - {fileID: 1645069469}
   - {fileID: 1419406274}
-  - {fileID: 767970421}
   - {fileID: 1895493697}
   m_Father: {fileID: 623508118}
   m_RootOrder: 0
@@ -2497,7 +2497,7 @@ TargetJoint2D:
   m_BreakTorque: Infinity
   m_Anchor: {x: 0, y: 0}
   m_Target: {x: 39.843018, y: 55.92}
-  m_AutoConfigureTarget: 1
+  m_AutoConfigureTarget: 0
   m_MaxForce: 30000
   m_DampingRatio: 1
   m_Frequency: 5
@@ -3453,7 +3453,7 @@ TargetJoint2D:
   m_BreakTorque: Infinity
   m_Anchor: {x: 0, y: 0}
   m_Target: {x: 39.843018, y: 55.92}
-  m_AutoConfigureTarget: 1
+  m_AutoConfigureTarget: 0
   m_MaxForce: 30000
   m_DampingRatio: 1
   m_Frequency: 5
@@ -3719,19 +3719,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1478974981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2c4ad19fede15f48bb691061f88c123, type: 3}
+  m_Script: {fileID: 11500000, guid: 55aa0fc8e7d0bbf4a903953e06634714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   game: {fileID: 2050344050}
   hand:
+  - {fileID: 767970424}
   - {fileID: 1047579605}
   - {fileID: 1645069472}
   - {fileID: 1419406277}
-  - {fileID: 767970424}
   - {fileID: 1895493700}
-  position: {fileID: 993346310}
+  parent: {fileID: 993346310}
   xSeperation: 50
-  ySeperation: 2
+  ySeperation: 3
 --- !u!1 &1510237911
 GameObject:
   m_ObjectHideFlags: 0
@@ -5125,7 +5125,7 @@ TargetJoint2D:
   m_BreakTorque: Infinity
   m_Anchor: {x: 0, y: 0}
   m_Target: {x: 39.843018, y: 55.92}
-  m_AutoConfigureTarget: 1
+  m_AutoConfigureTarget: 0
   m_MaxForce: 30000
   m_DampingRatio: 1
   m_Frequency: 5
@@ -5797,7 +5797,7 @@ TargetJoint2D:
   m_BreakTorque: Infinity
   m_Anchor: {x: 0, y: 0}
   m_Target: {x: 39.843018, y: 55.92}
-  m_AutoConfigureTarget: 1
+  m_AutoConfigureTarget: 0
   m_MaxForce: 30000
   m_DampingRatio: 1
   m_Frequency: 5
@@ -6192,7 +6192,7 @@ PrefabInstance:
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}

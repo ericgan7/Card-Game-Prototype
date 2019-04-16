@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+/// <summary>
+/// Used as an interface for tilemap coloring and handles pathfinding on the grid.
+/// </summary>
+
 public class MapController : MonoBehaviour
 {
     public GameController game;
@@ -26,6 +30,7 @@ public class MapController : MonoBehaviour
         InitCharacterMap();
     }
 
+    //Converts to grid coordinates
     public Vector3Int WorldToCellSpace(Vector3 position)
     {
         //if need to modify by starting x or y position, do it here.
@@ -34,26 +39,27 @@ public class MapController : MonoBehaviour
         {
             return l;
         }
-        return new Vector3Int(-1, -1, -1);  //-1 represnts invalid worldspace location
+        return new Vector3Int(-1, -1, -1);  //-1 represnts invalid worldspace location, grid starts with 0,0,0 as bottom left corner.
     }
 
+    //Highlights the tilemap for movement and card range.
     public void Highlight(Vector3 pos, int area, HighlightTiles.TileType type)
     {
         Vector3Int location = WorldToCellSpace(pos);
         highlights.FloodFill(location, area, type);
     }
-
+    //unhighlihgts a tile, currently used to make self an invalid target.
     public void UnHighlight(Vector3 pos)
     {
         Vector3Int location = WorldToCellSpace(pos);
         highlights.ChangeTile(location, HighlightTiles.TileType.None);
     }
-
+    //clears out highlights.
     public void ClearHighlight()
     {
         highlights.Clear();
     }
-
+    //highlights tiles when moused over a potential target in red.
     public void Target(Vector3 pos, Card.EffectType cardTag, int area, HighlightTiles.TileType type)
     {
         Vector3Int origin = WorldToCellSpace(pos);
@@ -74,12 +80,12 @@ public class MapController : MonoBehaviour
             targets.Clear();
         }
     }
-
+    //clears out target highlights.
     public void ClearTarget()
     {
         targets.Clear();
     }
-
+    //may be implemented properly in the furture, not important right now.
     void Chain(Vector3Int origin, HighlightTiles.TileType t)
     {
         HashSet<Vector3Int> explored = new HashSet<Vector3Int>();
@@ -108,6 +114,7 @@ public class MapController : MonoBehaviour
         }
     }
 
+    //updates charactermap locations
     void InitCharacterMap()
     {
         foreach (Character e in game.enemies)
@@ -122,12 +129,12 @@ public class MapController : MonoBehaviour
             characterLocations[loc.x, loc.y] = a;
         }
     }
-
+    //Gets the character at a specific location. can be null;
     public Character GetCharacter(Vector3Int location)
     {
         return characterLocations[location.x, location.y];
     }
-
+    //A* pathfinding
     public List<Vector3Int> FindPath(Vector3Int origin, Vector3Int destination)
     {
         Debug.Log("START");
@@ -179,7 +186,7 @@ public class MapController : MonoBehaviour
         }
         return pathFound;   //path return is in reverse order
     }
-
+    //heap implementation, insertion
     private void InsertFrontier(Vector3Int newLocation)
     {
         int index = frontier.Count;
@@ -194,7 +201,7 @@ public class MapController : MonoBehaviour
             parent = (index - 1) / 2;
         }
     }
-
+    //heap implementation, pop min element
     private Vector3Int PopFrontier()
     {
         Vector3Int min = frontier[0];
@@ -210,7 +217,7 @@ public class MapController : MonoBehaviour
         }
         return min;
     }
-
+    //heap implementation, change key
     private void DecreaseFrontier(Vector3Int target, int cost)
     {
         int index = 0;
@@ -254,9 +261,11 @@ public class MapController : MonoBehaviour
         }
 
     }
-
+    //check within grid bounds
     public bool WithinMapBounds(Vector3Int location)
     {
         return location.x >= 0 && location.x < mapx && location.y >= 0 && location.y < mapy;
     }
+    //TO DO: update character location maps during movement.
+    public void UpdateCharacterMap() { }
 }

@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Used to hold information about a character, including current deck and starting stats.
+/// </summary>
+
 [CreateAssetMenu(fileName = "New Character", menuName = "Character")]
 public class CharacterStats : ScriptableObject
 {

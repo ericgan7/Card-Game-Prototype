@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// UI controller is used to mainintain ui elements of the turn inidcator and stats screen.
+/// </summary>
+
 public class UIController : MonoBehaviour
 {
     Character selectedCharacter;
@@ -18,12 +22,13 @@ public class UIController : MonoBehaviour
 
     public Image[] turnOrder;
 
+    //when a new character is selected. Not currently used anywhere yet.
     public void SelectCharacter(Character c)
     {
         selectedCharacter = c;
         UpdateStats();
     }
-
+    //Character stats panel;
     public void UpdateStats()
     {
         portrait.sprite = selectedCharacter.stats.portrait;
@@ -36,7 +41,7 @@ public class UIController : MonoBehaviour
         eva.text = selectedCharacter.GetEvasion().ToString();
         arm.text = selectedCharacter.GetArmor().ToString();
     }
-
+    //updates the turn indicator, which shows which units will act.
     public void UpdateTurns(List<Character> order)
     {
         Debug.Log("portrait");

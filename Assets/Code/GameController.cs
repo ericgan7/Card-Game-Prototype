@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour
         StartGame();
     }
 
+    // Used to start game. Potentially can run an intro before calling this function
     public void StartGame()
     {
         hand.DrawCurrentCards(currentCharacter);
@@ -30,11 +31,14 @@ public class GameController : MonoBehaviour
         ui.UpdateTurns(new List<Character>(allies));
     }
 
+    // Used to move character from mouse input. Called from InputController
     public void MoveCharacter(Vector3 position)
     {
         currentCharacter.Move(map.FindPath(map.WorldToCellSpace(currentCharacter.transform.position), map.WorldToCellSpace(position)));
     }
 
+    //Used to select a tile from mouse input. Called from InputController.
+        //returns true if it is the current character, currently used to deteremine if play selects the current character's turn to enable movement.
     public bool SelectLocation(Vector3 position)
     {
         //check for current character & make tiles brighter?
@@ -47,15 +51,18 @@ public class GameController : MonoBehaviour
         return target == currentCharacter;
     }
 
+    //  Highlights the tile map to indicate possible attack targets
     public void HighlightTargets(int area,  HighlightTiles.TileType t)
     {
         map.Highlight(currentCharacter.transform.position, area, t);
     }
+    //  clears out tilemap for targeting.
     public void UnHiglightTarget(int area)
     {
         map.UnHighlight(currentCharacter.transform.position);
     }
     
+    //Used to cast a card. To be implemented.
     public void Cast(Vector3 position)
     {
 
