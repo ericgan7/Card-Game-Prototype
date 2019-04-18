@@ -37,7 +37,7 @@ public class InputController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        CameraMovement();
+        //CameraMovement();
     }
 
     public void SetInput(InputMode m)
@@ -70,7 +70,7 @@ public class InputController : MonoBehaviour
                         }
                         break;
                     case InputMode.Movement:
-                        if (previousTile.x > 1 && previousTile == game.map.WorldToCellSpace(hit.point))
+                        if (previousTile.x >= 0 && previousTile == game.map.WorldToCellSpace(hit.point))
                         {
                             game.MoveCharacter(hit.point);
                             mode = InputMode.None;

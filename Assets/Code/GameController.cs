@@ -34,7 +34,12 @@ public class GameController : MonoBehaviour
     // Used to move character from mouse input. Called from InputController
     public void MoveCharacter(Vector3 position)
     {
-        currentCharacter.Move(map.FindPath(map.WorldToCellSpace(currentCharacter.transform.position), map.WorldToCellSpace(position)));
+        Vector3Int location = map.WorldToCellSpace(position);
+        if (map.highlights.tilesFilled.ContainsKey(location))
+        {
+            Debug.Log("attempt move");
+            currentCharacter.Move(map.FindPath(map.WorldToCellSpace(currentCharacter.transform.position), location));
+        }
     }
 
     //Used to select a tile from mouse input. Called from InputController.
@@ -45,16 +50,16 @@ public class GameController : MonoBehaviour
         Character target = map.GetCharacter(map.WorldToCellSpace(position));
         if (target != null)
         {
-            map.Highlight(target.transform.position, target.GetSpeed(), HighlightTiles.TileType.Move);
+            map.Highlight(target.transform.position, target.GetSpeed(), HighlightTiles.TileType.Move, new List<Card.TargetType> { Card.TargetType.Ally, Card.TargetType.Enemy });
         }
         Debug.Log(target);
         return target == currentCharacter;
     }
 
     //  Highlights the tile map to indicate possible attack targets
-    public void HighlightTargets(int area,  HighlightTiles.TileType t)
+    public void HighlightTargets(int area,  HighlightTiles.TileType t, List<Card.TargetType> validTargets)
     {
-        map.Highlight(currentCharacter.transform.position, area, t);
+        map.Highlight(currentCharacter.transform.position, area, t, validTargets);
     }
     //  clears out tilemap for targeting.
     public void UnHiglightTarget(int area)

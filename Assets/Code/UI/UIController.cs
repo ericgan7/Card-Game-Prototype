@@ -38,7 +38,6 @@ public class UIController : MonoBehaviour
         h = selectedCharacter.GetEnergy();
         end.text = h.x.ToString() + " / " + h.y.ToString();
         spd.text = selectedCharacter.GetSpeed().ToString();
-        eva.text = selectedCharacter.GetEvasion().ToString();
         arm.text = selectedCharacter.GetArmor().ToString();
     }
     //updates the turn indicator, which shows which units will act.

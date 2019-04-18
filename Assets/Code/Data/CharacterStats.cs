@@ -14,8 +14,8 @@ public class CharacterStats : ScriptableObject
     public int health;
     public int energy;
     public int speed;
-    public int evasion;
     public int armor;
+    public int damage;
 
     public List<Card> cards;
 

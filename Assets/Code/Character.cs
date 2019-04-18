@@ -11,11 +11,14 @@ public class Character : MonoBehaviour
 {
     public List<Vector3Int> destinations;
     public CharacterStats stats;
+    public Card.TargetType team;
     int currentHealth;
     int currentEnergy;
     int currentSpeed;
-    int currentEvasion;
     int currentArmor;
+    int currentDamage;
+    public List<Effect> statusEffects;
+
     List<Card> deck;
     public List<Card> hand;
 
@@ -25,17 +28,20 @@ public class Character : MonoBehaviour
     Vector3 offset;
 
     int startingHand = 3;
+    GameController game;
 
     private void Start()
     {
+        game = FindObjectOfType<GameController>();
         destinations = new List<Vector3Int>();
         startLocation = transform.localPosition;
         offset = new Vector3(0.5f, 0.5f, 0f);
         currentHealth = stats.health;
         currentEnergy = stats.energy;
         currentSpeed = stats.speed;
-        currentEvasion = stats.evasion;
+        currentDamage = stats.damage;
         currentArmor = stats.armor;
+        statusEffects = new List<Effect>();
         deck = new List<Card>(stats.cards);
         hand = new List<Card>();
         for (int i = 0; i < startingHand; ++i)
@@ -71,14 +77,28 @@ public class Character : MonoBehaviour
         return currentSpeed;
     }
 
-    public int GetEvasion()
+    public int GetDamage()
     {
-        return currentEvasion;
+        return currentDamage;
     }
     public int GetArmor()
     {
         return currentArmor;
     }
+    //Settors
+    public void ChangeHealth(int amount)
+    {
+        currentHealth += amount;
+        if (currentHealth <= 0)
+        {
+            //call game for death
+        }
+    }
+    public void ChangeArmor(int amount)
+    {
+        currentArmor += amount;
+    }
+
     //Update function controls movement of character across grid.
     public void FixedUpdate()
     {
@@ -86,10 +106,10 @@ public class Character : MonoBehaviour
         { 
             if (Vector3.Distance(transform.localPosition, destinations[destinations.Count - 1]) < 0.01f)
             {
+                game.map.UpdateCharacterMap(this, destinations[destinations.Count - 1]);
                 destinations.RemoveAt(destinations.Count - 1);
                 startLocation = transform.localPosition;
                 elapsed = 0f;
-                Debug.Log("remove");
             }
             else
             {
