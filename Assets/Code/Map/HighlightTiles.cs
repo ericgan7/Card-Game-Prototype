@@ -10,9 +10,10 @@ using UnityEngine.Tilemaps;
 public class HighlightTiles : MonoBehaviour
 {
     public Tilemap highlights;
-    Dictionary<Vector3Int, int> tilesFilled;
+    public Dictionary<Vector3Int, int> tilesFilled;
     Vector3Int[] neighbors;
     MapController map;
+    List<Card.TargetType> blockingTags;
 
     public enum TileType
     {
@@ -26,6 +27,7 @@ public class HighlightTiles : MonoBehaviour
         tilesFilled = new Dictionary<Vector3Int, int>();
         neighbors = new Vector3Int[4] { new Vector3Int(1,0,0), new Vector3Int(-1,0,0), new Vector3Int(0, 1,0), new Vector3Int(0,-1,0) };
         map = GetComponent<MapController>();
+        blockingTags = new List<Card.TargetType>();
     }
 
     //Change a tile to a specific tile type. Can be used to set to none.
@@ -58,10 +60,17 @@ public class HighlightTiles : MonoBehaviour
         return tilesFilled.ContainsKey(location);
     }
     //Flood fill is used to fill in tiles from a certain distance from origin.
-    public void FloodFill(Vector3Int origin, int area, TileType type)
+    public void FloodFill(Vector3Int origin, int area, TileType type, List<Card.TargetType> impassible)
     {
         Clear();
-
+        if (impassible == null)
+        {
+            blockingTags.Clear();
+        }
+        else
+        {
+            blockingTags = impassible;
+        }
         Flood(origin, area);
         foreach(Vector3Int location in tilesFilled.Keys)
         {
@@ -82,7 +91,7 @@ public class HighlightTiles : MonoBehaviour
             Vector3Int newTile = location + n;
             if (!tilesFilled.ContainsKey(newTile))
             {
-                if (map.WithinMapBounds(newTile))
+                if (map.WithinMapBounds(newTile) && (map.GetCharacter(newTile) == null || !blockingTags.Contains(map.GetCharacter(newTile).team)))
                 {
                     Flood(newTile, remaining);
                 }

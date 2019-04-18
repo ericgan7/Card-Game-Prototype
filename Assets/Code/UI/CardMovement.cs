@@ -85,7 +85,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         RaycastHit hit;
         if (Physics.Raycast(mouseClick, out hit))
         {
-            game.map.Target(hit.point, cardData.etype, cardData.effectRange, HighlightTiles.TileType.Target);
+            game.map.Target(hit.point, cardData.etype, cardData.effectRange, HighlightTiles.TileType.Target, null);
         }
     }
     //TODO should detect if card is playable and above a threshold (if card is returned to hand, should not be played)
@@ -94,11 +94,12 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         game.map.ClearHighlight();
         game.map.ClearTarget();
         destination = defaultLocation;
+        game.inputControl.SetInput(InputController.InputMode.None);
     }
     //helper function to highlight potential effects.
     public void HighlightRange()
     {
-        game.HighlightTargets(cardData.targetRange, HighlightTiles.TileType.Attack);
+        game.HighlightTargets(cardData.targetRange, HighlightTiles.TileType.Attack, null);
         if (!cardData.targetsTypes.Contains(Card.TargetType.Self)){
             game.UnHiglightTarget(1);
         }

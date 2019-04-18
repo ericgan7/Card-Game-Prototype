@@ -30,6 +30,6 @@ public class Card : ScriptableObject
 
     public void Play(List<Character> targets)
     {
-
+        
     }
 }

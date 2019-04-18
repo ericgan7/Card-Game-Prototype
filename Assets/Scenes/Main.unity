@@ -237,6 +237,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinations: []
   stats: {fileID: 11400000, guid: 8cd6874929c5c1442b9f9da961f29553, type: 2}
+  team: 2
+  statusEffects: []
   hand: []
   movementSpeed: 1.5
 --- !u!1001 &80671117
@@ -294,7 +296,7 @@ PrefabInstance:
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
@@ -954,7 +956,7 @@ PrefabInstance:
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
@@ -1337,7 +1339,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: -20}
+  m_LocalPosition: {x: 0, y: 4, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 26061867}
@@ -1895,7 +1897,7 @@ PrefabInstance:
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
@@ -1930,7 +1932,7 @@ PrefabInstance:
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 105
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
@@ -2430,10 +2432,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 767970421}
   - {fileID: 1832529337}
   - {fileID: 1645069469}
   - {fileID: 1419406274}
+  - {fileID: 767970421}
   - {fileID: 1895493697}
   m_Father: {fileID: 623508118}
   m_RootOrder: 0
@@ -2635,6 +2637,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinations: []
   stats: {fileID: 11400000, guid: 49e0e04f0d445874f961706f9a9f8575, type: 2}
+  team: 1
+  statusEffects: []
   hand: []
   movementSpeed: 1.5
 --- !u!1 &1160423779
@@ -3161,6 +3165,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinations: []
   stats: {fileID: 11400000, guid: b68f33a931b2eae45842a2dd0b3c7a2a, type: 2}
+  team: 2
+  statusEffects: []
   hand: []
   movementSpeed: 1.5
 --- !u!1001 &1374591406
@@ -6192,7 +6198,7 @@ PrefabInstance:
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}

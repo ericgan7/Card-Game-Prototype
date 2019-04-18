@@ -15,6 +15,7 @@ public class MapController : MonoBehaviour
     public HighlightTiles targets;
 
     Character[,] characterLocations;
+    Dictionary<Character, Vector3Int> previousCharacterLocations;
     public int mapx;
     public int mapy;
 
@@ -27,6 +28,7 @@ public class MapController : MonoBehaviour
         neightbors = new Vector2Int[4] { new Vector2Int(1,0), new Vector2Int(-1, 0), new Vector2Int(0, 1), new Vector2Int(0, -1)};
         frontier = new List<Vector3Int>();
         highlights = GetComponent<HighlightTiles>();
+        previousCharacterLocations = new Dictionary<Character, Vector3Int>();
         InitCharacterMap();
     }
 
@@ -43,10 +45,10 @@ public class MapController : MonoBehaviour
     }
 
     //Highlights the tilemap for movement and card range.
-    public void Highlight(Vector3 pos, int area, HighlightTiles.TileType type)
+    public void Highlight(Vector3 pos, int area, HighlightTiles.TileType type, List<Card.TargetType> blockingTypes)
     {
         Vector3Int location = WorldToCellSpace(pos);
-        highlights.FloodFill(location, area, type);
+        highlights.FloodFill(location, area, type, blockingTypes);
     }
     //unhighlihgts a tile, currently used to make self an invalid target.
     public void UnHighlight(Vector3 pos)
@@ -60,7 +62,7 @@ public class MapController : MonoBehaviour
         highlights.Clear();
     }
     //highlights tiles when moused over a potential target in red.
-    public void Target(Vector3 pos, Card.EffectType cardTag, int area, HighlightTiles.TileType type)
+    public void Target(Vector3 pos, Card.EffectType cardTag, int area, HighlightTiles.TileType type, List<Card.TargetType> blockingTypes)
     {
         Vector3Int origin = WorldToCellSpace(pos);
         if (highlights.Contains(origin)){
@@ -68,7 +70,7 @@ public class MapController : MonoBehaviour
             {
                 case Card.EffectType.Single:
                 case Card.EffectType.Area:
-                    targets.FloodFill(origin, area, type);
+                    targets.FloodFill(origin, area, type, blockingTypes);
                     break;
                 case Card.EffectType.Chain:
                     Chain(origin, type);
@@ -121,12 +123,14 @@ public class MapController : MonoBehaviour
         {
             Vector3Int loc = WorldToCellSpace(e.transform.position);
             characterLocations[loc.x, loc.y] = e;
+            previousCharacterLocations[e] = loc;
         }
 
         foreach(Character a in game.allies)
         {
             Vector3Int loc = WorldToCellSpace(a.transform.position);
             characterLocations[loc.x, loc.y] = a;
+            previousCharacterLocations[a] = loc;
         }
     }
     //Gets the character at a specific location. can be null;
@@ -137,7 +141,7 @@ public class MapController : MonoBehaviour
     //A* pathfinding
     public List<Vector3Int> FindPath(Vector3Int origin, Vector3Int destination)
     {
-        Debug.Log("START");
+        Debug.Log("START" + destination.ToString());
         frontier.Clear();
         Dictionary<Vector3Int, Vector3Int> paths = new Dictionary<Vector3Int, Vector3Int>();
         Dictionary<Vector3Int, int> costs = new Dictionary<Vector3Int, int>();
@@ -157,10 +161,10 @@ public class MapController : MonoBehaviour
                 current.z = 0;
                 int cost = costs[current] + 1;
                 Vector3Int next = new Vector3Int(current.x + n.x, current.y + n.y, 0);
-                if (WithinMapBounds(next) && (!costs.ContainsKey(next) || cost < costs[next]))
+                if (WithinMapBounds(next) && (!costs.ContainsKey(next) || cost < costs[next]) && characterLocations[next.x, next.y] == null)
                 {
                     costs[next] = cost;
-                    InsertFrontier(new Vector3Int(next.x, next.y, cost + (int)Vector3.Distance(next, destination)));
+                    InsertFrontier(new Vector3Int(next.x, next.y, cost + Mathf.Abs(destination.x - next.x) + Mathf.Abs(destination.y - next.y)));
                     paths[next] = current;
                 }
             }
@@ -168,6 +172,7 @@ public class MapController : MonoBehaviour
             if (iteration > 60)
             {
                 Debug.Log("Pathfinding Failed");
+                Debug.Log(paths.Count);
                 break;
             }
         }
@@ -179,9 +184,10 @@ public class MapController : MonoBehaviour
             ++iteration;
             pathFound.Add(location);
             location = paths[location];
-            if (iteration > 30)
+            if (iteration > 60)
             {
                 Debug.Log("Pathbuilding Failed");
+                Debug.Log(pathFound.Count);
             }
         }
         return pathFound;   //path return is in reverse order
@@ -250,7 +256,7 @@ public class MapController : MonoBehaviour
                 Vector3Int t = frontier[left];
                 frontier[left] = frontier[index];
                 frontier[index] = t;
-                index = right;
+                index = left;
                 left = 2 * index + 1;
                 right = 2 * index + 2;
             }
@@ -267,5 +273,12 @@ public class MapController : MonoBehaviour
         return location.x >= 0 && location.x < mapx && location.y >= 0 && location.y < mapy;
     }
     //TO DO: update character location maps during movement.
-    public void UpdateCharacterMap() { }
+    public void UpdateCharacterMap(Character movedCharacter, Vector3Int newLocation)
+    {
+        Vector3Int previous = previousCharacterLocations[movedCharacter];
+        characterLocations[previous.x, previous.y] = null;
+        characterLocations[newLocation.x, newLocation.y] = movedCharacter;
+        previousCharacterLocations[movedCharacter] = newLocation;
+
+    }
 }
