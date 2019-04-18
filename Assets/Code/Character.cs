@@ -24,7 +24,7 @@ public class Character : MonoBehaviour
     float elapsed;
     Vector3 offset;
 
-    int startingHand = 3;
+    int startingHand = 1;
 
     private void Start()
     {
@@ -38,10 +38,7 @@ public class Character : MonoBehaviour
         currentArmor = stats.armor;
         deck = new List<Card>(stats.cards);
         hand = new List<Card>();
-        for (int i = 0; i < startingHand; ++i)
-        {
-            hand.Add(DrawRandom());
-        }
+        RefillHand(new List<int>());
     }
     //draw a random card from deck. untill all cards are drawn. They are then replenished.
     public Card DrawRandom()
@@ -55,6 +52,18 @@ public class Character : MonoBehaviour
         }
         return drawn;
     }
+
+    // Discards all cards except the keeps specified
+    // TODO: Implement the cards to keep
+    public void RefillHand(List<int> keeps)
+    {
+        hand.Clear();
+        for (int i = 0; i < startingHand; ++i)
+        {
+            hand.Add(DrawRandom());
+        }
+    }
+
     //Gettors
     public Vector2Int GetHealth()
     {

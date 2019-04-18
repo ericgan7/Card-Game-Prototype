@@ -16,7 +16,6 @@ public class GameController : MonoBehaviour
 
     Vector3Int selectedMovementLocation;
     public Character currentCharacter;
-
     private void Start()
     {
         StartGame();
@@ -39,12 +38,7 @@ public class GameController : MonoBehaviour
     public void MoveCharacter(Vector3 position)
     {
         currentCharacter.Move(map.FindPath(map.WorldToCellSpace(currentCharacter.transform.position), map.WorldToCellSpace(position)));
-        // Currently a player's turn ends once they move
-        var c = turns.Dequeue();
-        // Add the character back into the queue once they moved
-        turns.Enqueue(c);
-        currentCharacter = turns.Peek();
-        ui.UpdateTurns(turns.ToList());
+        UpdateTurn();
     }
 
     //Used to select a tile from mouse input. Called from InputController.
@@ -76,5 +70,17 @@ public class GameController : MonoBehaviour
     public void Cast(Vector3 position)
     {
 
+    }
+
+    public void UpdateTurn()
+    {
+        // Currently a player's turn ends once they move
+        var c = turns.Dequeue();
+        // Add the character back into the queue once they moved
+        turns.Enqueue(c);
+        // Deal new hand to the player whose turn just ended
+        c.RefillHand(new List<int>());
+        currentCharacter = turns.Peek();
+        ui.UpdateTurns(turns.ToList());
     }
 }
