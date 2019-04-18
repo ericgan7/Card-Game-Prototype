@@ -87,5 +87,6 @@ public class GameController : MonoBehaviour
         c.RefillHand(new List<int>());
         currentCharacter = turns.Peek();
         ui.UpdateTurns(turns.ToList());
+        hand.DrawCurrentCards(currentCharacter);
     }
 }
