@@ -27,7 +27,7 @@ public class Character : MonoBehaviour
     float elapsed;
     Vector3 offset;
 
-    int startingHand = 1;
+    int startingHand = 7;
     GameController game;
 
     private void Start()

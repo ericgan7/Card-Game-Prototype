@@ -18,19 +18,18 @@ public class GameController : MonoBehaviour
     public Character currentCharacter;
     private void Start()
     {
-        StartGame();
         inputControl = GetComponent<InputController>();
         hand = FindObjectOfType<CardController>();
+        turns = new Queue<Character>(allies);
+        StartGame();
     }
 
     // Used to start game. Potentially can run an intro before calling this function
     public void StartGame()
     {
         // Temporary turn setup
-        turns = new Queue<Character>(allies);
+        UpdateTurn();
         ui.UpdateTurns(turns.ToList());
-        currentCharacter = turns.Peek();
-        hand.DrawCurrentCards(currentCharacter);
         ui.SelectCharacter(currentCharacter);
     }
 
@@ -83,9 +82,9 @@ public class GameController : MonoBehaviour
         var c = turns.Dequeue();
         // Add the character back into the queue once they moved
         turns.Enqueue(c);
-        // Deal new hand to the player whose turn just ended
-        c.RefillHand(new List<int>());
         currentCharacter = turns.Peek();
+        // Deal new hand to new player
+        c.RefillHand(new List<int>());
         ui.UpdateTurns(turns.ToList());
         hand.DrawCurrentCards(currentCharacter);
     }

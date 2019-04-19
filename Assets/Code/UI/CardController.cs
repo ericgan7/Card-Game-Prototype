@@ -11,38 +11,43 @@ public class CardController : MonoBehaviour
     public GameController game;
     public List<CardMovement> hand;
     public Transform parent;
-    Vector2 center;
-    Vector2 size;
+    public float maxHandLength;
+    public Vector3 center;
 
-    public float xSeperation;
-    public float ySeperation;
+    float width;
 
     public void Start()
     {
-        center = new Vector2(0f, 65f);
-        size = new Vector2(75f, 105f);
+        center = new Vector3(0f, 65f);
+        maxHandLength = 150f;
+        width = hand[0].GetComponent<RectTransform>().sizeDelta.x;
     }
 
     public void DrawCurrentCards(Character character)
     {
         List<Card> cards = game.currentCharacter.hand;
-        Vector2 start = new Vector2((-cards.Count / 2) * xSeperation, 65f - cards.Count / 2 * ySeperation);
-        for (int i = 0; i < cards.Count / 2; ++i)
-        {
-            hand[i].SetPosition(parent.transform.TransformPoint(new Vector3(start.x + xSeperation * i, start.y + ySeperation * i)));
-        }
+        int half = cards.Count / 2;
+        float xSeperation = Mathf.Min(width, maxHandLength / half);
+        Vector3 leftStart = new Vector3(center.x - xSeperation / 2, center.y - 1);
+        Vector3 rightStart = new Vector3(center.x + xSeperation / 2, center.y - 1);
+        int right = half;
         if (cards.Count % 2 == 1)
         {
-            int index = cards.Count / 2;
-            hand[index].SetPosition(parent.transform.TransformPoint(new Vector3(center.x, center.y)));
+            leftStart.x -= xSeperation / 2;
+            rightStart.x += xSeperation / 2;
+            hand[right].SetPosition(parent.transform.TransformPoint(center));
+            hand[right].UpdateCard(cards[right]);
+            ++right;
         }
-        for (int i = cards.Count / 2 + 1; i < cards.Count; ++i)
+        for (int i = 0; i < half; ++i)
         {
-            hand[i].SetPosition(parent.transform.TransformPoint(new Vector3(start.x + xSeperation * i, start.y + ySeperation * -(i - cards.Count))));
+            hand[i + right].SetPosition(parent.transform.TransformPoint(new Vector3(rightStart.x + xSeperation * i, rightStart.y - i, -i)));
+            hand[i + right].UpdateCard(cards[i]);
         }
-        for (int i = 0; i < cards.Count; ++i)
+        for (int i = 0; i < half; ++i)
         {
-            hand[i].UpdateCard(cards[i]);
+            hand[half - i - 1].SetPosition(parent.transform.TransformPoint(new Vector3(leftStart.x - xSeperation * i, rightStart.y - i, i)));
+            hand[half - i - 1].UpdateCard(cards[i]);
         }
     }
 

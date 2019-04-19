@@ -41,12 +41,10 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         tj.target = newPostion;
         tj.enabled = true;
         destination = newPostion;
-        Debug.Log(newPostion);
-        Debug.Log(transform.position);
     }
     //update card from Scriptable object.
     public void UpdateCard(Card data)
-    {
+    { 
         cardData = data;
         artwork.sprite = data.art;
         cardname.text = data.name;
