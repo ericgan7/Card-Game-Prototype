@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public InputController inputControl;
     public UIController ui;
     public CardController hand;
+
     public Character[] enemies;
     public Character[] allies;
     public Queue<Character> turns;
@@ -42,20 +43,6 @@ public class GameController : MonoBehaviour
             Debug.Log("attempt move");
             currentCharacter.Move(map.FindPath(map.WorldToCellSpace(currentCharacter.transform.position), location));
         }
-        UpdateTurn();
-    }
-
-    //Used to select a tile from mouse input. Called from InputController.
-        //returns true if it is the current character, currently used to deteremine if play selects the current character's turn to enable movement.
-    public bool SelectLocation(Vector3 position)
-    {
-        //check for current character & make tiles brighter?
-        Character target = map.GetCharacter(map.WorldToCellSpace(position));
-        if (target != null)
-        {
-            map.Highlight(target.transform.position, target.GetSpeed(), HighlightTiles.TileType.Move, new List<Card.TargetType> { Card.TargetType.Ally, Card.TargetType.Enemy });
-        }
-        return target == currentCharacter;
     }
 
     //  Highlights the tile map to indicate possible attack targets
@@ -72,7 +59,6 @@ public class GameController : MonoBehaviour
     //Used to cast a card. Targets on Grid are used to determine tiles effected, set during ondrag();
     public bool Cast(Card cardPlayed)
     {
-        Debug.Log("Play Card");
         bool success = false;
         if (cardPlayed.targetsTypes.Contains(Card.TargetType.Ground))
         {
@@ -88,7 +74,6 @@ public class GameController : MonoBehaviour
                 cardPlayed.Play(currentCharacter, targets);
             }
         }
-        Debug.Log(success);
         return success;
     }
 

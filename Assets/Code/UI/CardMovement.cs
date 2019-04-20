@@ -80,8 +80,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void OnDrag(PointerEventData p)
     {
         destination = Input.mousePosition;
-        game.inputControl.SetInput(InputController.InputMode.CardCast);
-
+        game.ui.DeactivateRadialMenu();
         Ray mouseClick = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(mouseClick, out hit))
@@ -102,7 +101,8 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         }
         if (successfulPlay)
         {
-            //discard positioning
+            //discard positioning TO DO:
+            game.hand.DiscardCard();
         }
         else
         {

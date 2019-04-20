@@ -135,12 +135,4 @@ public class Character : MonoBehaviour
         destinations = d;
         elapsed = 0f;
     }
-    //Selects a characters. If it is the character's turn, bring up moveoptions;
-    public void OnMouseDown()
-    {
-        if (game.currentCharacter == this)
-        {
-            //spawn menu;
-        }
-    }
 }
