@@ -102,10 +102,12 @@ public class Character : MonoBehaviour
         {
             //call game for death
         }
+        Debug.Log("New Health " + currentHealth.ToString());
     }
     public void ChangeArmor(int amount)
     {
         currentArmor += amount;
+        Debug.Log("New Armor " + currentArmor.ToString());
     }
 
     //Update function controls movement of character across grid.
@@ -132,5 +134,13 @@ public class Character : MonoBehaviour
     {
         destinations = d;
         elapsed = 0f;
+    }
+    //Selects a characters. If it is the character's turn, bring up moveoptions;
+    public void OnMouseDown()
+    {
+        if (game.currentCharacter == this)
+        {
+            //spawn menu;
+        }
     }
 }

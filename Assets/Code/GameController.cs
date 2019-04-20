@@ -55,7 +55,6 @@ public class GameController : MonoBehaviour
         {
             map.Highlight(target.transform.position, target.GetSpeed(), HighlightTiles.TileType.Move, new List<Card.TargetType> { Card.TargetType.Ally, Card.TargetType.Enemy });
         }
-        Debug.Log(target);
         return target == currentCharacter;
     }
 
@@ -70,10 +69,27 @@ public class GameController : MonoBehaviour
         map.UnHighlight(currentCharacter.transform.position);
     }
     
-    //Used to cast a card. To be implemented.
-    public void Cast(Vector3 position)
+    //Used to cast a card. Targets on Grid are used to determine tiles effected, set during ondrag();
+    public bool Cast(Card cardPlayed)
     {
-
+        Debug.Log("Play Card");
+        bool success = false;
+        if (cardPlayed.targetsTypes.Contains(Card.TargetType.Ground))
+        {
+            // Allows Ground targeting for traps
+        }
+        else
+        {
+            List<Character> targets = map.targets.GetTargets();
+            Debug.Log(targets.Count);
+            if (targets.Count > 0)
+            {
+                success = true;
+                cardPlayed.Play(currentCharacter, targets);
+            }
+        }
+        Debug.Log(success);
+        return success;
     }
 
     public void UpdateTurn()
@@ -84,7 +100,7 @@ public class GameController : MonoBehaviour
         turns.Enqueue(c);
         currentCharacter = turns.Peek();
         // Deal new hand to new player
-        c.RefillHand(new List<int>());
+        currentCharacter.RefillHand(new List<int>());
         ui.UpdateTurns(turns.ToList());
         hand.DrawCurrentCards(currentCharacter);
     }

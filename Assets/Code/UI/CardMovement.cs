@@ -24,6 +24,8 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public TextMeshProUGUI description;
     public TextMeshProUGUI cost;
 
+    public float playableYPosition;
+
     public void Start()
     {
         destination = transform.position;
@@ -32,6 +34,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         rb = GetComponent<Rigidbody2D>();
         game = FindObjectOfType<GameController>();
         tj = GetComponent<TargetJoint2D>();
+        playableYPosition = 155f;
     }
 
     //Set position, used to draw from deck into hand.
@@ -83,21 +86,37 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         RaycastHit hit;
         if (Physics.Raycast(mouseClick, out hit))
         {
-            game.map.Target(hit.point, cardData.etype, cardData.effectRange, HighlightTiles.TileType.Target, null);
+            game.map.Target(hit.point, cardData.etype, cardData.effectRange, HighlightTiles.TileType.Target, new List<Card.TargetType>(cardData.targetsTypes));
         }
     }
     //TODO should detect if card is playable and above a threshold (if card is returned to hand, should not be played)
     public void OnEndDrag(PointerEventData p)
     {
+        bool successfulPlay = false;
+        Ray mouseClick = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(mouseClick, out hit))
+        {
+            successfulPlay = game.Cast(cardData);
+            
+        }
+        if (successfulPlay)
+        {
+            //discard positioning
+        }
+        else
+        {
+            destination = defaultLocation;
+            game.inputControl.SetInput(InputController.InputMode.None);
+        }
         game.map.ClearHighlight();
         game.map.ClearTarget();
-        destination = defaultLocation;
-        game.inputControl.SetInput(InputController.InputMode.None);
+
     }
-    //helper function to highlight potential effects.
+    //helper function to highlight target Tiles;
     public void HighlightRange()
     {
-        game.HighlightTargets(cardData.targetRange, HighlightTiles.TileType.Attack, null);
+        game.HighlightTargets(cardData.targetRange, HighlightTiles.TileType.Attack, new List<Card.TargetType>(cardData.targetsTypes));
         if (!cardData.targetsTypes.Contains(Card.TargetType.Self)){
             game.UnHiglightTarget(1);
         }
