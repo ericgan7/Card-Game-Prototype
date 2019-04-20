@@ -34,17 +34,6 @@ public class GameController : MonoBehaviour
         ui.SelectCharacter(currentCharacter);
     }
 
-    // Used to move character from mouse input. Called from InputController
-    public void MoveCharacter(Vector3 position)
-    {
-        Vector3Int location = map.WorldToCellSpace(position);
-        if (map.highlights.tilesFilled.ContainsKey(location))
-        {
-            Debug.Log("attempt move");
-            currentCharacter.Move(map.FindPath(map.WorldToCellSpace(currentCharacter.transform.position), location));
-        }
-    }
-
     //  Highlights the tile map to indicate possible attack targets
     public void HighlightTargets(int area,  HighlightTiles.TileType t, List<Card.TargetType> validTargets)
     {

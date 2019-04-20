@@ -16,7 +16,7 @@ MonoBehaviour:
   characterName: test
   health: 10
   energy: 5
-  speed: 4
+  speed: 6
   armor: 3
   damage: 0
   cards:
@@ -25,3 +25,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 393288825015eeb45a24a31b08b8d4f2, type: 2}
   - {fileID: 11400000, guid: 393288825015eeb45a24a31b08b8d4f2, type: 2}
   - {fileID: 11400000, guid: 393288825015eeb45a24a31b08b8d4f2, type: 2}
+  moveableTiles: 
