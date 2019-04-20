@@ -19,15 +19,18 @@ public class InputController : MonoBehaviour
 
     public enum InputMode
     {
-        None, Movement, CardCast
+        None, Movement
     }
     InputMode mode;
+
+    public bool disableInput;
 
     private void Start()
     {
         game = FindObjectOfType<GameController>();
         mode = InputMode.None;
         previousTile = new Vector3Int(-1, -1, -1);
+        disableInput = false;
     }
 
     void Update()
@@ -37,7 +40,7 @@ public class InputController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //CameraMovement();
+        CameraMovement();
     }
 
     public void SetInput(InputMode m)
@@ -50,7 +53,11 @@ public class InputController : MonoBehaviour
         //Card dragging is handled under CardMovement
     void PlayerInput()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (disableInput)
+        {
+            return;
+        }
+        if (Input.GetMouseButtonUp(0))
         {
             Ray mouseClick = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -59,38 +66,46 @@ public class InputController : MonoBehaviour
                 if (EventSystem.current.IsPointerOverGameObject())
                 {
                     Debug.Log("ui");
+                    return;
                 }
                 switch (mode)
                 {
                     case InputMode.None:
-                        Debug.Log("click");
-                        if (game.SelectLocation(hit.point))
+                        Character selected = game.map.GetCharacter(game.map.WorldToCellSpace(hit.point));
+                        if (selected == game.currentCharacter)
                         {
-                            mode = InputMode.Movement;
+                            game.map.ClearHighlight();
+                            game.ui.ActivateRadialMenu(Camera.main.WorldToScreenPoint(game.currentCharacter.transform.position));
+                            //update stat card
+                        }
+                        else if (selected)
+                        {
+                            game.map.Highlight(selected.transform.position, selected.GetSpeed(), HighlightTiles.TileType.Move, selected.stats.moveableTiles);
+                            game.ui.DeactivateRadialMenu();
+                        }
+                        else
+                        { 
+                            game.ui.DeactivateRadialMenu();
+                            ResetInputState();
+                            //update stat card
                         }
                         break;
                     case InputMode.Movement:
-                        if (previousTile.x >= 0 && previousTile == game.map.WorldToCellSpace(hit.point))
-                        {
-                            game.MoveCharacter(hit.point);
-                            mode = InputMode.None;
-                            game.map.ClearHighlight();
-                            previousTile = new Vector3Int(-1, -1, -1);
-                        }
-                        else
-                        {
-                            previousTile = game.map.WorldToCellSpace(hit.point);
-                        }
+                        CheckMovement(hit);
                         break;
                     default:
-                        Debug.Log("Error");
+                        Debug.Log("Menu mode");
                         break;
                 }
             }
+            else
+            {
+                ResetInputState();
+            }
         }
-        else if (Input.GetMouseButtonDown(1))
+        else if (Input.GetMouseButtonUp(1))
         {
-            mode = InputMode.None;
+            ResetInputState();
         }
     }
 
@@ -117,6 +132,54 @@ public class InputController : MonoBehaviour
         {
             t.y -= cameraMovespeed;
             Camera.main.transform.position = t;
+        }
+    }
+
+    void ResetInputState()
+    {
+        Debug.Log("reset");
+        game.ui.DeactivateRadialMenu();
+        mode = InputMode.None;
+        game.currentCharacter.ClearPath();
+        game.map.ClearHighlight();
+        game.map.ClearTarget();
+    }
+
+
+    //Handles movement selection for current Character. TODO: Add traveled path to target map and disallow backtracking?
+    void CheckMovement(RaycastHit hit)
+    {
+        Vector3Int location = game.map.WorldToCellSpace(hit.point);
+        //Activate movement after confirmation;
+        if (previousTile.x >= 0 && previousTile == location)
+        {
+            mode = InputMode.None;
+            game.currentCharacter.Move();
+            game.map.ClearHighlight();
+            previousTile = new Vector3Int(-1, -1, -1);
+        }
+        // Invalid MovementInput
+        else if (location.x < 0 || !game.map.highlights.Contains(location))
+        {
+            ResetInputState();
+        }
+        //Record Valid Movement Input
+        else
+        {
+            previousTile = location;
+            if (game.map.highlights.tilesFilled.ContainsKey(location))
+            {
+                if (game.currentCharacter.destinations.Count == 0)
+                {
+                    game.currentCharacter.AddPath(game.map.FindPath(game.map.WorldToCellSpace(game.currentCharacter.transform.position), location));
+                }
+                else
+                {
+                    game.currentCharacter.AddPath(game.map.FindPath(game.currentCharacter.destinations[0], location));
+                }
+            }
+            game.map.ClearHighlight();
+            game.map.Highlight(game.currentCharacter.destinations[0], game.currentCharacter.GetSpeed(), HighlightTiles.TileType.Move, game.currentCharacter.stats.moveableTiles);
         }
     }
 }

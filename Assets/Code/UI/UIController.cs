@@ -22,6 +22,8 @@ public class UIController : MonoBehaviour
 
     public Image[] turnOrder;
 
+    public RadialMenu radialOptions;
+
     //when a new character is selected. Not currently used anywhere yet.
     public void SelectCharacter(Character c)
     {
@@ -47,5 +49,18 @@ public class UIController : MonoBehaviour
         {
             turnOrder[i].sprite = order[(i % order.Count)].stats.portrait;
         }
+    }
+
+    public void ActivateRadialMenu(Vector3 position)
+    {
+        radialOptions.gameObject.SetActive(true);
+        radialOptions.ActivateMenu(null);
+        radialOptions.transform.position = position;
+    }
+
+    public void DeactivateRadialMenu()
+    {
+        radialOptions.DeactiveMenu();
+        radialOptions.gameObject.SetActive(false);
     }
 }
