@@ -13,7 +13,7 @@ public class HighlightTiles : MonoBehaviour
     public Dictionary<Vector3Int, int> tilesFilled;
     Vector3Int[] neighbors;
     MapController map;
-    List<Card.TargetType> blockingTags;
+    List<Card.TargetType> validTags;
 
     public enum TileType
     {
@@ -27,7 +27,7 @@ public class HighlightTiles : MonoBehaviour
         tilesFilled = new Dictionary<Vector3Int, int>();
         neighbors = new Vector3Int[4] { new Vector3Int(1,0,0), new Vector3Int(-1,0,0), new Vector3Int(0, 1,0), new Vector3Int(0,-1,0) };
         map = GetComponent<MapController>();
-        blockingTags = new List<Card.TargetType>();
+        validTags = new List<Card.TargetType>();
     }
 
     //Change a tile to a specific tile type. Can be used to set to none.
@@ -60,17 +60,11 @@ public class HighlightTiles : MonoBehaviour
         return tilesFilled.ContainsKey(location);
     }
     //Flood fill is used to fill in tiles from a certain distance from origin.
-    public void FloodFill(Vector3Int origin, int area, TileType type, List<Card.TargetType> impassible)
+    public void FloodFill(Vector3Int origin, int area, TileType type, List<Card.TargetType> validtargets)
     {
         Clear();
-        if (impassible == null)
-        {
-            blockingTags.Clear();
-        }
-        else
-        {
-            blockingTags = impassible;
-        }
+        validTags.Clear();
+        validTags = validtargets;
         Flood(origin, area);
         foreach(Vector3Int location in tilesFilled.Keys)
         {
@@ -91,7 +85,7 @@ public class HighlightTiles : MonoBehaviour
             Vector3Int newTile = location + n;
             if (!tilesFilled.ContainsKey(newTile))
             {
-                if (map.WithinMapBounds(newTile) && (map.GetCharacter(newTile) == null || !blockingTags.Contains(map.GetCharacter(newTile).team)))
+                if (map.WithinMapBounds(newTile) && (map.GetCharacter(newTile) == null || validTags.Contains(map.GetCharacter(newTile).team)))
                 {
                     Flood(newTile, remaining);
                 }
@@ -103,4 +97,18 @@ public class HighlightTiles : MonoBehaviour
         }
     }
 
+    //Get All Highlighted Targets
+    public List<Character> GetTargets()
+    {
+        List<Character> targets = new List<Character>();
+        foreach (Vector3Int tile in tilesFilled.Keys)
+        {
+            Character c = map.GetCharacter(tile);
+            if (c != null)
+            {
+                targets.Add(c);
+            }
+        }
+        return targets;
+    }
 }

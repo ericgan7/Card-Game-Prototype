@@ -43,7 +43,6 @@ public class UIController : MonoBehaviour
     //updates the turn indicator, which shows which units will act.
     public void UpdateTurns(List<Character> order)
     {
-        Debug.Log("portrait");
         for (int i = 0; i < turnOrder.Length; ++i)
         {
             turnOrder[i].sprite = order[(i % order.Count)].stats.portrait;

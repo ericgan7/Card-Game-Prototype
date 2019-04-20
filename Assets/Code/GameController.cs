@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,24 +12,25 @@ public class GameController : MonoBehaviour
     public CardController hand;
     public Character[] enemies;
     public Character[] allies;
+    public Queue<Character> turns;
 
     Vector3Int selectedMovementLocation;
     public Character currentCharacter;
-
     private void Start()
     {
-        currentCharacter = allies[0];
         inputControl = GetComponent<InputController>();
         hand = FindObjectOfType<CardController>();
+        turns = new Queue<Character>(allies);
         StartGame();
     }
 
     // Used to start game. Potentially can run an intro before calling this function
     public void StartGame()
     {
-        hand.DrawCurrentCards(currentCharacter);
+        // Temporary turn setup
+        UpdateTurn();
+        ui.UpdateTurns(turns.ToList());
         ui.SelectCharacter(currentCharacter);
-        ui.UpdateTurns(new List<Character>(allies));
     }
 
     // Used to move character from mouse input. Called from InputController
@@ -40,6 +42,7 @@ public class GameController : MonoBehaviour
             Debug.Log("attempt move");
             currentCharacter.Move(map.FindPath(map.WorldToCellSpace(currentCharacter.transform.position), location));
         }
+        UpdateTurn();
     }
 
     //Used to select a tile from mouse input. Called from InputController.
@@ -52,7 +55,6 @@ public class GameController : MonoBehaviour
         {
             map.Highlight(target.transform.position, target.GetSpeed(), HighlightTiles.TileType.Move, new List<Card.TargetType> { Card.TargetType.Ally, Card.TargetType.Enemy });
         }
-        Debug.Log(target);
         return target == currentCharacter;
     }
 
@@ -67,9 +69,39 @@ public class GameController : MonoBehaviour
         map.UnHighlight(currentCharacter.transform.position);
     }
     
-    //Used to cast a card. To be implemented.
-    public void Cast(Vector3 position)
+    //Used to cast a card. Targets on Grid are used to determine tiles effected, set during ondrag();
+    public bool Cast(Card cardPlayed)
     {
+        Debug.Log("Play Card");
+        bool success = false;
+        if (cardPlayed.targetsTypes.Contains(Card.TargetType.Ground))
+        {
+            // Allows Ground targeting for traps
+        }
+        else
+        {
+            List<Character> targets = map.targets.GetTargets();
+            Debug.Log(targets.Count);
+            if (targets.Count > 0)
+            {
+                success = true;
+                cardPlayed.Play(currentCharacter, targets);
+            }
+        }
+        Debug.Log(success);
+        return success;
+    }
 
+    public void UpdateTurn()
+    {
+        // Currently a player's turn ends once they move
+        var c = turns.Dequeue();
+        // Add the character back into the queue once they moved
+        turns.Enqueue(c);
+        currentCharacter = turns.Peek();
+        // Deal new hand to new player
+        currentCharacter.RefillHand(new List<int>());
+        ui.UpdateTurns(turns.ToList());
+        hand.DrawCurrentCards(currentCharacter);
     }
 }
