@@ -20,7 +20,7 @@ public class Card : ScriptableObject
     }
     public enum TargetType
     {
-        Self, Ally, Enemy
+        Self, Ally, Enemy, Ground
     }
     public EffectType etype;
     public List<TargetType> targetsTypes;
@@ -28,8 +28,14 @@ public class Card : ScriptableObject
     public int targetRange;
     public int effectRange;
 
-    public void Play(List<Character> targets)
+    public void Play(Character origin, List<Character> targets)
     {
-        
+        foreach(Character c in targets)
+        {
+            foreach( Effect e in effects)
+            {
+                e.Apply(origin, c);
+            }
+        }
     }
 }

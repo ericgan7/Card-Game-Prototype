@@ -18,6 +18,7 @@ public class CharacterStats : ScriptableObject
     public int damage;
 
     public List<Card> cards;
+    public List<Card.TargetType> moveableTiles;
 
     public void AddCard(string cardName) { }
 }

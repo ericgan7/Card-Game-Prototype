@@ -9,6 +9,6 @@ public class AttackEffect : Effect
 
     public override void Apply(Character origin, Character target)
     {
-        target.ChangeHealth(-((int)(origin.GetDamage() * multiplier)-target.GetArmor()));
+        target.ChangeHealth((Mathf.Min(0, -(int)(origin.GetDamage() * multiplier)-target.GetArmor())));
     }
 }

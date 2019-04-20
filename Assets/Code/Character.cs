@@ -29,6 +29,7 @@ public class Character : MonoBehaviour
 
     int startingHand = 7;
     GameController game;
+    bool isMoving;
 
     private void Start()
     {
@@ -45,6 +46,7 @@ public class Character : MonoBehaviour
         deck = new List<Card>(stats.cards);
         hand = new List<Card>();
         RefillHand(new List<int>());
+        isMoving = false;
     }
     //draw a random card from deck. untill all cards are drawn. They are then replenished.
     public Card DrawRandom()
@@ -83,7 +85,7 @@ public class Character : MonoBehaviour
     
     public int GetSpeed()
     {
-        return currentSpeed;
+        return currentSpeed - destinations.Count;
     }
 
     public int GetDamage()
@@ -102,35 +104,55 @@ public class Character : MonoBehaviour
         {
             //call game for death
         }
+        Debug.Log("New Health " + currentHealth.ToString());
     }
     public void ChangeArmor(int amount)
     {
         currentArmor += amount;
+        Debug.Log("New Armor " + currentArmor.ToString());
     }
 
     //Update function controls movement of character across grid.
     public void FixedUpdate()
     {
-        if (destinations.Count > 0)
-        { 
-            if (Vector3.Distance(transform.localPosition, destinations[destinations.Count - 1]) < 0.01f)
+        if (isMoving)
+        {
+            if (destinations.Count > 0)
             {
-                game.map.UpdateCharacterMap(this, destinations[destinations.Count - 1]);
-                destinations.RemoveAt(destinations.Count - 1);
-                startLocation = transform.localPosition;
-                elapsed = 0f;
+                if (Vector3.Distance(transform.localPosition, destinations[destinations.Count - 1]) < 0.01f)
+                {
+                    game.map.UpdateCharacterMap(this, destinations[destinations.Count - 1]);
+                    destinations.RemoveAt(destinations.Count - 1);
+                    startLocation = transform.localPosition;
+                    elapsed = 0f;
+                }
+                else
+                {
+                    elapsed += Time.deltaTime;
+                    transform.localPosition = Vector3.Lerp(startLocation, destinations[destinations.Count - 1], elapsed * movementSpeed);
+                }
             }
             else
             {
-                elapsed += Time.deltaTime;
-                transform.localPosition = Vector3.Lerp(startLocation, destinations[destinations.Count - 1], elapsed * movementSpeed);
+                isMoving = false;
+                game.inputControl.disableInput = false;
             }
         }
     }
     //set movement path, found during pathfinding.
-    public void Move(List<Vector3Int> d)
+    public void AddPath(List<Vector3Int> d)
     {
+        d.AddRange(destinations);
         destinations = d;
         elapsed = 0f;
+    }
+    public void ClearPath()
+    {
+        destinations.Clear();
+    }
+    public void Move()
+    {
+        isMoving = true;
+        game.inputControl.disableInput = true;
     }
 }

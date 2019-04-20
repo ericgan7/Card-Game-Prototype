@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5312342fd2bf68342ac4fad24ebe8c48, type: 3}
   m_Name: BasicAttack
   m_EditorClassIdentifier: 
-  name: Chain Template
+  name: Attack
   description: Deal {0} Damage
   art: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   energyCost: 1
@@ -20,5 +20,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6715551f976a80b44a3650c4830075c9, type: 2}
   etype: 0
   targetsTypes: 02000000
-  targetRange: 3
+  targetRange: 4
   effectRange: 1

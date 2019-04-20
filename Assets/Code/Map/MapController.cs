@@ -45,10 +45,10 @@ public class MapController : MonoBehaviour
     }
 
     //Highlights the tilemap for movement and card range.
-    public void Highlight(Vector3 pos, int area, HighlightTiles.TileType type, List<Card.TargetType> blockingTypes)
+    public void Highlight(Vector3 pos, int area, HighlightTiles.TileType type, List<Card.TargetType> validTypes)
     {
         Vector3Int location = WorldToCellSpace(pos);
-        highlights.FloodFill(location, area, type, blockingTypes);
+        highlights.FloodFill(location, area, type, validTypes);
     }
     //unhighlihgts a tile, currently used to make self an invalid target.
     public void UnHighlight(Vector3 pos)
@@ -62,7 +62,7 @@ public class MapController : MonoBehaviour
         highlights.Clear();
     }
     //highlights tiles when moused over a potential target in red.
-    public void Target(Vector3 pos, Card.EffectType cardTag, int area, HighlightTiles.TileType type, List<Card.TargetType> blockingTypes)
+    public void Target(Vector3 pos, Card.EffectType cardTag, int area, HighlightTiles.TileType type, List<Card.TargetType> validTypes)
     {
         Vector3Int origin = WorldToCellSpace(pos);
         if (highlights.Contains(origin)){
@@ -70,7 +70,7 @@ public class MapController : MonoBehaviour
             {
                 case Card.EffectType.Single:
                 case Card.EffectType.Area:
-                    targets.FloodFill(origin, area, type, blockingTypes);
+                    targets.FloodFill(origin, area, type, validTypes);
                     break;
                 case Card.EffectType.Chain:
                     Chain(origin, type);
