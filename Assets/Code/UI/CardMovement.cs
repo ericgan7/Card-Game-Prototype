@@ -119,6 +119,9 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         game.inputControl.SetInput(InputController.InputMode.None);
         game.map.ClearHighlight();
         game.map.ClearTarget();
+        GetComponent<Animator>().enabled = true;
+        GetComponent<Animator>().Play("CardAnimation");
+        CardEffect.instance.openUp();
 
     }
     //helper function to highlight target Tiles;
