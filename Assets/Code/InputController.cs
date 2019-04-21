@@ -19,9 +19,9 @@ public class InputController : MonoBehaviour
 
     public enum InputMode
     {
-        None, Movement
+        None, Movement, KeepCardSelect
     }
-    InputMode mode;
+    public InputMode mode;
 
     public bool disableInput;
 
@@ -53,6 +53,7 @@ public class InputController : MonoBehaviour
         //Card dragging is handled under CardMovement
     void PlayerInput()
     {
+        Debug.Log(mode);
         if (disableInput)
         {
             return;
@@ -65,7 +66,6 @@ public class InputController : MonoBehaviour
             {
                 if (EventSystem.current.IsPointerOverGameObject())
                 {
-                    Debug.Log("ui");
                     return;
                 }
                 switch (mode)
@@ -93,14 +93,11 @@ public class InputController : MonoBehaviour
                     case InputMode.Movement:
                         CheckMovement(hit);
                         break;
+                    case InputMode.KeepCardSelect:
                     default:
                         Debug.Log("Menu mode");
                         break;
                 }
-            }
-            else
-            {
-                ResetInputState();
             }
         }
         else if (Input.GetMouseButtonUp(1))

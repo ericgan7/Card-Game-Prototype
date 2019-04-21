@@ -21,8 +21,7 @@ public class RadialButton: MonoBehaviour, IPointerClickHandler
                 menu.game.map.Highlight(target.transform.position, target.GetSpeed(), HighlightTiles.TileType.Move, target.stats.moveableTiles);
                 break;
             case "EndTurn":
-                menu.game.inputControl.SetInput(InputController.InputMode.None);
-                menu.game.UpdateTurn();
+                menu.game.EndTurn();
                 break;
             default:
                 Debug.Log("ERROR - unknown radial button selected");

@@ -63,10 +63,18 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     //Mouseover card. Should highlight potential effects. TODO: Zoom in card for better detail.
     public void OnPointerEnter(PointerEventData p)
     {
-        Debug.Log("enter");
-        HighlightRange();
+        if (game.inputControl.mode != InputController.InputMode.KeepCardSelect)
+        {
+            HighlightRange();
+        }
         //zoom in
     }
+
+    public void OnPointerClick(PointerEventData p)
+    {
+        Debug.Log("Card Clicked!");
+    }
+
     //Mouseexit card.  unhighlihgts potential efefcts and should zoom out, if zoomed in.
     public void OnPointerExit(PointerEventData p)
     {

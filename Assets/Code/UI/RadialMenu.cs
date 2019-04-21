@@ -28,7 +28,6 @@ public class RadialMenu : MonoBehaviour
 
     public void ActivateMenu(List<Action> actions)
     {
-        Debug.Log("active");
         if (actions != null)
         {
             options = actions;
@@ -52,7 +51,6 @@ public class RadialMenu : MonoBehaviour
 
     public void DeactiveMenu()
     {
-        Debug.Log("clear");
         foreach (RadialButton b in buttons)
         {
             Destroy(b.gameObject);

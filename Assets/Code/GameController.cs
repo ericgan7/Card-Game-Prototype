@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
     }
 
     //  Highlights the tile map to indicate possible attack targets
-    public void HighlightTargets(int area,  HighlightTiles.TileType t, List<Card.TargetType> validTargets)
+    public void HighlightTargets(int area, HighlightTiles.TileType t, List<Card.TargetType> validTargets)
     {
         map.Highlight(currentCharacter.transform.position, area, t, validTargets);
     }
@@ -44,7 +44,7 @@ public class GameController : MonoBehaviour
     {
         map.UnHighlight(currentCharacter.transform.position);
     }
-    
+
     //Used to cast a card. Targets on Grid are used to determine tiles effected, set during ondrag();
     public bool Cast(Card cardPlayed)
     {
@@ -66,7 +66,7 @@ public class GameController : MonoBehaviour
         return success;
     }
 
-    public void UpdateTurn()
+    public void EndTurn()
     {
         var c = turns.Dequeue();
         // Deal new hand to character if it has moved
@@ -74,9 +74,17 @@ public class GameController : MonoBehaviour
         {
             c.RefillHand();
             c.hasMoved = false;
+            UpdateTurn();
+        } else
+        {
+            inputControl.SetInput(InputController.InputMode.KeepCardSelect);
         }
         // Add the character back into the queue once they moved
         turns.Enqueue(c);
+    }
+
+    public void UpdateTurn()
+    {
         currentCharacter = turns.Peek();
         ui.UpdateTurns(turns.ToList());
         hand.DrawCurrentCards(currentCharacter);
