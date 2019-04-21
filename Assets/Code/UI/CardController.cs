@@ -32,10 +32,6 @@ public class CardController : MonoBehaviour
     public void DrawCurrentCards(Character character)
     {
         List<Card> cards = game.currentCharacter.hand;
-        foreach(Card c in cards)
-        {
-            Debug.Log(c.description);
-        }
         int half = cards.Count / 2;
         float xSeperation = Mathf.Min(width, maxHandLength / half);
         Vector3 leftStart = new Vector3(center.x - xSeperation / 2, center.y - 1);
@@ -47,20 +43,17 @@ public class CardController : MonoBehaviour
             rightStart.x += xSeperation / 2;
             hand[right].SetPosition(center);
             hand[right].UpdateCard(cards[right]);
-            hand[right].isCardDrawn = true;
             ++right;
         }
         for (int i = 0; i < half; ++i)
         {
             hand[i + right].SetPosition(new Vector3(rightStart.x + xSeperation * i, rightStart.y - i, -i));
             hand[i + right].UpdateCard(cards[i+right]);
-            hand[i + right].isCardDrawn = true;
         }
         for (int i = 0; i < half; ++i)
         {
             hand[half - i - 1].SetPosition(new Vector3(leftStart.x - xSeperation * i, rightStart.y - i, i));
             hand[half - i - 1].UpdateCard(cards[half -i - 1]);
-            hand[half - i - 1].isCardDrawn = true;
         }
     }
 
@@ -113,11 +106,11 @@ public class CardController : MonoBehaviour
         {
             kept.Add(c.cardData);
         }
-        game.EndAllyTurn(kept);
         foreach(CardMovement c in hand)
         {
             c.keepingMode = false;
             c.isCardDrawn = false;
         }
+        game.EndAllyTurn(kept);
     }
 }
