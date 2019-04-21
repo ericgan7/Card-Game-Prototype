@@ -50,7 +50,6 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         description.text = data.description;
         cost.text = data.energyCost.ToString();
         isCardDrawn = true;
-        Debug.Log("draw");
     }
     //Movement
     public void FixedUpdate()

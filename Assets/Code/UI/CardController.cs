@@ -44,7 +44,6 @@ public class CardController : MonoBehaviour
             hand[right].SetPosition(center);
             hand[right].UpdateCard(cards[right]);
             ++right;
-            Debug.Log(cards.Count);
         }
         for (int i = 0; i < half; ++i)
         {
@@ -78,7 +77,6 @@ public class CardController : MonoBehaviour
         keep.Clear();
         foreach(CardMovement c in hand)
         {
-            //Debug.Log("selection");
             if (c.isCardDrawn)
             {
                 c.SetPosition(new Vector3(c.transform.localPosition.x, transform.localPosition.y + selectionHeight));
@@ -103,7 +101,6 @@ public class CardController : MonoBehaviour
 
     public void FinishCardToKeepSelection()
     {
-        Debug.Log("endturn");
         List<Card> kept = new List<Card>();
         foreach (CardMovement c in keep)
         {
