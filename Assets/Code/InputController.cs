@@ -71,16 +71,19 @@ public class InputController : MonoBehaviour
                 {
                     case InputMode.None:
                         Character selected = game.map.GetCharacter(game.map.WorldToCellSpace(hit.point));
-                        if (selected == game.currentCharacter)
+                        if(selected)
                         {
-                            game.map.ClearHighlight();
-                            game.ui.ActivateRadialMenu(game.currentCharacter.transform.position);
-                            //update stat card
-                        }
-                        else if (selected)
-                        {
-                            game.map.Highlight(selected.transform.position, selected.GetSpeed(), HighlightTiles.TileType.Move, selected.stats.moveableTiles);
-                            game.ui.DeactivateRadialMenu();
+                            game.ui.SelectCharacter(selected);
+                            if (selected == game.currentCharacter)
+                            {
+                                game.map.ClearHighlight();
+                                game.ui.ActivateRadialMenu(game.currentCharacter.transform.position);
+                                //update stat card
+                            } else
+                            {
+                                game.map.Highlight(selected.transform.position, selected.GetSpeed(), HighlightTiles.TileType.Move, selected.stats.moveableTiles);
+                                game.ui.DeactivateRadialMenu();
+                            }
                         }
                         else
                         {
