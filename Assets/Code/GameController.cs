@@ -13,29 +13,40 @@ public class GameController : MonoBehaviour
 
     public Character[] enemies;
     public Character[] allies;
+    int enemyIndex;
+    int allyIndex;
     public Queue<Character> turns;
 
     Vector3Int selectedMovementLocation;
     public Character currentCharacter;
+
     private void Start()
     {
         inputControl = GetComponent<InputController>();
         hand = FindObjectOfType<CardController>();
-        turns = new Queue<Character>(allies);
+        turns = new Queue<Character>();
+        //9 should be replaced by the number of character turn displays.
+        for (int i = 0; i < 9; ++i)
+        {
+            turns.Enqueue(allies[i % allies.Length]);
+            turns.Enqueue(enemies[i % enemies.Length]);
+            enemyIndex = (i + 1) % enemies.Length;
+            allyIndex = (i + 1) % allies.Length;
+        }
         StartGame();
     }
 
     // Used to start game. Potentially can run an intro before calling this function
     public void StartGame()
     {
-        // Temporary turn setup
-        UpdateTurn();
+        currentCharacter = turns.Peek();
         ui.UpdateTurns(turns.ToList());
         ui.SelectCharacter(currentCharacter);
+        hand.DrawCurrentCards(currentCharacter);
     }
 
     //  Highlights the tile map to indicate possible attack targets
-    public void HighlightTargets(int area,  HighlightTiles.TileType t, List<Card.TargetType> validTargets)
+    public void HighlightTargets(int area, HighlightTiles.TileType t, List<Card.TargetType> validTargets)
     {
         map.Highlight(currentCharacter.transform.position, area, t, validTargets);
     }
@@ -44,7 +55,7 @@ public class GameController : MonoBehaviour
     {
         map.UnHighlight(currentCharacter.transform.position);
     }
-    
+
     //Used to cast a card. Targets on Grid are used to determine tiles effected, set during ondrag();
     public bool Cast(Card cardPlayed)
     {
@@ -66,16 +77,39 @@ public class GameController : MonoBehaviour
         return success;
     }
 
+    public void EndAllyTurn(List<Card> keep)
+    {
+        //Finish Current Character's Turn
+        currentCharacter.RefillHand(keep);
+        currentCharacter.RefillHand(keep);
+        currentCharacter.EndTurn();
+        UpdateTurn();
+        turns.Enqueue(allies[allyIndex]);
+        allyIndex = (allyIndex + 1) % allies.Length;
+        //Enemy Action Turn
+        EnemyTurn();
+    }
+
     public void UpdateTurn()
     {
-        // Currently a player's turn ends once they move
-        var c = turns.Dequeue();
-        // Add the character back into the queue once they moved
-        turns.Enqueue(c);
+        //TODO check if there is only one character left in a team.
+        turns.Dequeue();
         currentCharacter = turns.Peek();
-        // Deal new hand to new player
-        currentCharacter.RefillHand(new List<int>());
         ui.UpdateTurns(turns.ToList());
+    }
+    //TODO AI action
+    public void EnemyTurn()
+    {
+        EndEnemyTurn();
+    }
+
+    public void EndEnemyTurn()
+    {
+        UpdateTurn();
+        turns.Enqueue(enemies[enemyIndex]);
+        enemyIndex = (enemyIndex + 1) % enemies.Length;
+
+        //Begin Next Character's Turn
         hand.DrawCurrentCards(currentCharacter);
     }
 }

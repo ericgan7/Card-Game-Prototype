@@ -56,10 +56,11 @@ MonoBehaviour:
     title: Move
   - color: {r: 0.5849056, g: 0.5812462, b: 0.019312933, a: 1}
     image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    title: Rest
+    title: EndTurn
   prefab: {fileID: 1459342833622791065, guid: 480bea8e74c75c94195a7f4867408a8d, type: 3}
   menuSize: 0
   buttons: []
+  game: {fileID: 0}
 --- !u!222 &334227196923547168
 CanvasRenderer:
   m_ObjectHideFlags: 0

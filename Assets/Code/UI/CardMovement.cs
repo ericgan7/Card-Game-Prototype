@@ -9,15 +9,13 @@ using TMPro;
 /// Class used for card handling. Can be given a Card to set the art and and effect when played.
 /// </summary>
 
-public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IEndDragHandler
+public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
     public GameController game;
     public Card cardData;
     public Vector3 destination;
     Vector3 defaultLocation;
     public float speed;
-    Rigidbody2D rb;
-    TargetJoint2D tj;
 
     public Image artwork;
     public TextMeshProUGUI cardname;
@@ -25,15 +23,15 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public TextMeshProUGUI cost;
 
     public float playableYPosition;
+    public bool keepingMode;
+    public bool isCardDrawn;
 
     public void Start()
     {
-        destination = transform.position;
-        defaultLocation = transform.position;
+        destination = transform.localPosition;
+        defaultLocation = transform.localPosition;
         UpdateCard(cardData);
-        rb = GetComponent<Rigidbody2D>();
         game = FindObjectOfType<GameController>();
-        tj = GetComponent<TargetJoint2D>();
         playableYPosition = 155f;
     }
 
@@ -41,9 +39,8 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void SetPosition(Vector3 newPostion)
     {
         defaultLocation = newPostion;
-        tj.target = newPostion;
-        tj.enabled = true;
         destination = newPostion;
+        Debug.Log(newPostion);
     }
     //update card from Scriptable object.
     public void UpdateCard(Card data)
@@ -57,17 +54,27 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     //Movement
     public void FixedUpdate()
     {
-        //transform.position = Vector3.Lerp(transform.position, destination, Time.deltaTime * speed);
-        rb.velocity = Vector3.Normalize(destination - transform.position) * Vector3.Distance(destination, transform.position) / speed;
+        transform.localPosition = Vector3.Lerp(transform.localPosition, destination, Time.deltaTime * speed);
     }
     //Mouseover card. Should highlight potential effects. TODO: Zoom in card for better detail.
     public void OnPointerEnter(PointerEventData p)
     {
-        Debug.Log("enter");
-        HighlightRange();
+        if (game.inputControl.mode != InputController.InputMode.KeepCardSelect)
+        {
+            HighlightRange();
+        }
         //zoom in
     }
-    //Mouseexit card.  unhighlihgts potential efefcts and should zoom out, if zoomed in.
+
+    public void OnPointerClick(PointerEventData p)
+    {
+        if (keepingMode)
+        {
+            game.hand.SelectCardToKeep(this);
+        }
+    }
+
+    //Mouse exit card.  unhighlihgts potential efefcts and should zoom out, if zoomed in.
     public void OnPointerExit(PointerEventData p)
     {
         if (!p.dragging)
@@ -81,6 +88,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         destination = Input.mousePosition;
         game.ui.DeactivateRadialMenu();
+        game.inputControl.SetInput(InputController.InputMode.Card);
         Ray mouseClick = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(mouseClick, out hit))
@@ -107,8 +115,8 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         else
         {
             destination = defaultLocation;
-            game.inputControl.SetInput(InputController.InputMode.None);
         }
+        game.inputControl.SetInput(InputController.InputMode.None);
         game.map.ClearHighlight();
         game.map.ClearTarget();
 

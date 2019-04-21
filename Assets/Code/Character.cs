@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -27,9 +28,10 @@ public class Character : MonoBehaviour
     float elapsed;
     Vector3 offset;
 
-    int startingHand = 7;
+    int startingHand = 5;
     GameController game;
     bool isMoving;
+    public bool hasMoved;
 
     private void Start()
     {
@@ -45,8 +47,9 @@ public class Character : MonoBehaviour
         statusEffects = new List<Effect>();
         deck = new List<Card>(stats.cards);
         hand = new List<Card>();
-        RefillHand(new List<int>());
+        RefillHand(new List<Card>());
         isMoving = false;
+        hasMoved = false;
     }
     //draw a random card from deck. untill all cards are drawn. They are then replenished.
     public Card DrawRandom()
@@ -57,16 +60,20 @@ public class Character : MonoBehaviour
         if (deck.Count == 0)
         {
             deck.AddRange(stats.cards);
+            foreach (Card c in hand)
+            {
+                deck.Remove(c);
+            }
         }
         return drawn;
     }
 
-    // Discards all cards except the keeps specified
-    // TODO: Implement the cards to keep
-    public void RefillHand(List<int> keeps)
+    // Keeps all specified cards and redraws discarded cards.
+    public void RefillHand(List<Card> keeps)
     {
         hand.Clear();
-        for (int i = 0; i < startingHand; ++i)
+        hand.AddRange(keeps);
+        for (int i = 0; i < startingHand - keeps.Count(); ++i)
         {
             hand.Add(DrawRandom());
         }
@@ -152,7 +159,16 @@ public class Character : MonoBehaviour
     }
     public void Move()
     {
-        isMoving = true;
-        game.inputControl.disableInput = true;
+        if (!hasMoved)
+        {
+            isMoving = true;
+            game.inputControl.disableInput = true;
+            hasMoved = true;
+        }
+    }
+    //Reset Energy, trigger end of turn effects, etc.
+    public void EndTurn()
+    {
+
     }
 }

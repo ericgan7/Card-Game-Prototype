@@ -15,20 +15,17 @@ public class RadialMenu : MonoBehaviour
     public List<Action> options;
     public RadialButton prefab;
     public float menuSize;
-    public List<RadialButton> buttons;
     float offset = Mathf.Deg2Rad * 90f;
 
     public GameController game;
 
     public void Start()
     {
-        buttons = new List<RadialButton>();
         game = FindObjectOfType<GameController>();
     }
 
     public void ActivateMenu(List<Action> actions)
     {
-        Debug.Log("active");
         if (actions != null)
         {
             options = actions;
@@ -36,7 +33,6 @@ public class RadialMenu : MonoBehaviour
         for (int i = 0; i < options.Count; ++i)
         {
             RadialButton button = Instantiate(prefab);
-            buttons.Add(button);
             button.transform.SetParent(transform);
             //can change to variable number of buttons
             float theta = (2 * Mathf.PI / 7) * i;
@@ -46,17 +42,16 @@ public class RadialMenu : MonoBehaviour
             button.icon.sprite = options[i].image;
             button.frame.color = options[i].color;
             button.actionName = options[i].title;
+            button.transform.localRotation = Quaternion.identity;
             button.menu = this;
         }
     }
 
     public void DeactiveMenu()
     {
-        Debug.Log("clear");
-        foreach (RadialButton b in buttons)
+       for (int i = 0; i < transform.childCount; ++i)
         {
-            Destroy(b.gameObject);
+            Destroy(transform.GetChild(i).gameObject);
         }
-        buttons.Clear();
     }
 }

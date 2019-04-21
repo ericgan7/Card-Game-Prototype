@@ -20,9 +20,9 @@ public class RadialButton: MonoBehaviour, IPointerClickHandler
                 Character target = menu.game.currentCharacter;
                 menu.game.map.Highlight(target.transform.position, target.GetSpeed(), HighlightTiles.TileType.Move, target.stats.moveableTiles);
                 break;
-            case "Rest":
-                menu.game.inputControl.SetInput(InputController.InputMode.None);
-                //implementing rest;
+            case "EndTurn":
+                menu.game.hand.StartSelectionToKeep();
+                menu.game.inputControl.SetInput(InputController.InputMode.KeepCardSelect);
                 break;
             default:
                 Debug.Log("ERROR - unknown radial button selected");
