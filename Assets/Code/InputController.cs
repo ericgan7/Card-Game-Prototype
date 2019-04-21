@@ -93,7 +93,6 @@ public class InputController : MonoBehaviour
                         CheckMovement(hit);
                         break;
                     default:
-                        Debug.Log("Menu mode");
                         break;
                 }
             }
@@ -152,7 +151,6 @@ public class InputController : MonoBehaviour
 
     void ResetInputState()
     {
-        Debug.Log("reset");
         game.ui.DeactivateRadialMenu();
         mode = InputMode.None;
         game.currentCharacter.ClearPath();

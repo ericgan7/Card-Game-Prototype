@@ -141,7 +141,6 @@ public class MapController : MonoBehaviour
     //A* pathfinding
     public List<Vector3Int> FindPath(Vector3Int origin, Vector3Int destination)
     {
-        Debug.Log("START" + destination.ToString());
         frontier.Clear();
         Dictionary<Vector3Int, Vector3Int> paths = new Dictionary<Vector3Int, Vector3Int>();
         Dictionary<Vector3Int, int> costs = new Dictionary<Vector3Int, int>();
@@ -171,8 +170,6 @@ public class MapController : MonoBehaviour
             ++iteration;
             if (iteration > 60)
             {
-                Debug.Log("Pathfinding Failed");
-                Debug.Log(paths.Count);
                 break;
             }
         }
@@ -186,8 +183,6 @@ public class MapController : MonoBehaviour
             location = paths[location];
             if (iteration > 60)
             {
-                Debug.Log("Pathbuilding Failed");
-                Debug.Log(pathFound.Count);
             }
         }
         return pathFound;   //path return is in reverse order

@@ -25,7 +25,6 @@ public class RadialButton: MonoBehaviour, IPointerClickHandler
                 menu.game.inputControl.SetInput(InputController.InputMode.KeepCardSelect);
                 break;
             default:
-                Debug.Log("ERROR - unknown radial button selected");
                 break;
         }
         menu.game.ui.DeactivateRadialMenu();

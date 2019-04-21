@@ -67,7 +67,6 @@ public class GameController : MonoBehaviour
         else
         {
             List<Character> targets = map.targets.GetTargets();
-            Debug.Log(targets.Count);
             if (targets.Count > 0)
             {
                 success = true;

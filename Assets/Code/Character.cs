@@ -111,12 +111,10 @@ public class Character : MonoBehaviour
         {
             //call game for death
         }
-        Debug.Log("New Health " + currentHealth.ToString());
     }
     public void ChangeArmor(int amount)
     {
         currentArmor += amount;
-        Debug.Log("New Armor " + currentArmor.ToString());
     }
 
     //Update function controls movement of character across grid.
