@@ -68,13 +68,16 @@ public class GameController : MonoBehaviour
 
     public void UpdateTurn()
     {
-        // Currently a player's turn ends once they move
         var c = turns.Dequeue();
+        // Deal new hand to character if it has moved
+        if (c.hasMoved)
+        {
+            c.RefillHand();
+            c.hasMoved = false;
+        }
         // Add the character back into the queue once they moved
         turns.Enqueue(c);
         currentCharacter = turns.Peek();
-        // Deal new hand to new player
-        currentCharacter.RefillHand(new List<int>());
         ui.UpdateTurns(turns.ToList());
         hand.DrawCurrentCards(currentCharacter);
     }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -30,6 +31,7 @@ public class Character : MonoBehaviour
     int startingHand = 7;
     GameController game;
     bool isMoving;
+    public bool hasMoved;
 
     private void Start()
     {
@@ -47,6 +49,7 @@ public class Character : MonoBehaviour
         hand = new List<Card>();
         RefillHand(new List<int>());
         isMoving = false;
+        hasMoved = false;
     }
     //draw a random card from deck. untill all cards are drawn. They are then replenished.
     public Card DrawRandom()
@@ -62,11 +65,12 @@ public class Character : MonoBehaviour
     }
 
     // Discards all cards except the keeps specified
-    // TODO: Implement the cards to keep
-    public void RefillHand(List<int> keeps)
+    public void RefillHand(List<int> keeps = null)
     {
-        hand.Clear();
-        for (int i = 0; i < startingHand; ++i)
+        keeps = keeps ?? new List<int>();
+        var cardsToKeep = keeps.Select(x => hand[x]);
+        hand.RemoveAll(x => !cardsToKeep.Contains(x));
+        for (int i = 0; i < startingHand - cardsToKeep.Count(); ++i)
         {
             hand.Add(DrawRandom());
         }
@@ -154,5 +158,6 @@ public class Character : MonoBehaviour
     {
         isMoving = true;
         game.inputControl.disableInput = true;
+        hasMoved = true;
     }
 }
