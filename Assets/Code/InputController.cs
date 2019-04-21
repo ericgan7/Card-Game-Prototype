@@ -19,7 +19,7 @@ public class InputController : MonoBehaviour
 
     public enum InputMode
     {
-        None, Movement, KeepCardSelect
+        None, Movement, KeepCardSelect, Card
     }
     public InputMode mode;
 
@@ -40,7 +40,7 @@ public class InputController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        CameraMovement();
+        //CameraMovement();
     }
 
     public void SetInput(InputMode m)
@@ -53,12 +53,11 @@ public class InputController : MonoBehaviour
         //Card dragging is handled under CardMovement
     void PlayerInput()
     {
-        Debug.Log(mode);
         if (disableInput)
         {
             return;
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Ray mouseClick = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -75,7 +74,7 @@ public class InputController : MonoBehaviour
                         if (selected == game.currentCharacter)
                         {
                             game.map.ClearHighlight();
-                            game.ui.ActivateRadialMenu(Camera.main.WorldToScreenPoint(game.currentCharacter.transform.position));
+                            game.ui.ActivateRadialMenu(game.currentCharacter.transform.position);
                             //update stat card
                         }
                         else if (selected)
@@ -84,7 +83,7 @@ public class InputController : MonoBehaviour
                             game.ui.DeactivateRadialMenu();
                         }
                         else
-                        { 
+                        {
                             game.ui.DeactivateRadialMenu();
                             ResetInputState();
                             //update stat card
@@ -93,7 +92,6 @@ public class InputController : MonoBehaviour
                     case InputMode.Movement:
                         CheckMovement(hit);
                         break;
-                    case InputMode.KeepCardSelect:
                     default:
                         Debug.Log("Menu mode");
                         break;
@@ -102,7 +100,27 @@ public class InputController : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(1))
         {
-            ResetInputState();
+            switch (mode)
+            {
+                case InputMode.KeepCardSelect:
+
+                    break;
+                default:
+                    ResetInputState();
+                    break;
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            switch (mode)
+            {
+                case InputMode.KeepCardSelect:
+                    game.hand.FinishCardToKeepSelection();
+                    ResetInputState();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 

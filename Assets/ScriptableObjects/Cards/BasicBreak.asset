@@ -19,6 +19,6 @@ MonoBehaviour:
   effects:
   - {fileID: 11400000, guid: 50ded49d6091b1640a5d13b22b89a4d5, type: 2}
   etype: 0
-  targetsTypes: 
+  targetsTypes: 02000000
   targetRange: 4
   effectRange: 1

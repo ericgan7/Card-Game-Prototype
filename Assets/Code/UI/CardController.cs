@@ -15,17 +15,27 @@ public class CardController : MonoBehaviour
     public Vector3 center;
 
     float width;
+    public float selectionHeight;
+    public List<CardMovement> keep;
+
+    //Temporary 
+    Vector3 discardLocation = new Vector3(-354f, 90f);
 
     public void Start()
     {
         center = new Vector3(0f, 65f);
         maxHandLength = 150f;
         width = hand[0].GetComponent<RectTransform>().sizeDelta.x;
+        keep = new List<CardMovement>();
     }
 
     public void DrawCurrentCards(Character character)
     {
         List<Card> cards = game.currentCharacter.hand;
+        foreach(Card c in cards)
+        {
+            Debug.Log(c.description);
+        }
         int half = cards.Count / 2;
         float xSeperation = Mathf.Min(width, maxHandLength / half);
         Vector3 leftStart = new Vector3(center.x - xSeperation / 2, center.y - 1);
@@ -35,19 +45,22 @@ public class CardController : MonoBehaviour
         {
             leftStart.x -= xSeperation / 2;
             rightStart.x += xSeperation / 2;
-            hand[right].SetPosition(parent.transform.TransformPoint(center));
+            hand[right].SetPosition(center);
             hand[right].UpdateCard(cards[right]);
+            hand[right].isCardDrawn = true;
             ++right;
         }
         for (int i = 0; i < half; ++i)
         {
-            hand[i + right].SetPosition(parent.transform.TransformPoint(new Vector3(rightStart.x + xSeperation * i, rightStart.y - i, -i)));
-            hand[i + right].UpdateCard(cards[i]);
+            hand[i + right].SetPosition(new Vector3(rightStart.x + xSeperation * i, rightStart.y - i, -i));
+            hand[i + right].UpdateCard(cards[i+right]);
+            hand[i + right].isCardDrawn = true;
         }
         for (int i = 0; i < half; ++i)
         {
-            hand[half - i - 1].SetPosition(parent.transform.TransformPoint(new Vector3(leftStart.x - xSeperation * i, rightStart.y - i, i)));
-            hand[half - i - 1].UpdateCard(cards[i]);
+            hand[half - i - 1].SetPosition(new Vector3(leftStart.x - xSeperation * i, rightStart.y - i, i));
+            hand[half - i - 1].UpdateCard(cards[half -i - 1]);
+            hand[half - i - 1].isCardDrawn = true;
         }
     }
 
@@ -60,9 +73,51 @@ public class CardController : MonoBehaviour
     {
 
     }
-
+    //remember to set isCardDrawn to false when discarding cards.
     public void DiscardCard()
     {
 
+    }
+
+    public void StartSelectionToKeep()
+    {
+        keep.Clear();
+        foreach(CardMovement c in hand)
+        {
+            if (c.isCardDrawn)
+            {
+                c.SetPosition(new Vector3(c.transform.localPosition.x, transform.localPosition.y + selectionHeight));
+                c.keepingMode = true;
+            }
+        }
+    }
+
+    public void SelectCardToKeep(CardMovement card)
+    {
+        if (keep.Contains(card))
+        {
+            keep.Remove(card);
+            card.SetPosition(new Vector3(card.transform.localPosition.x, card.transform.localPosition.y + selectionHeight));
+        }
+        else
+        {
+            keep.Add(card);
+            card.SetPosition(new Vector3(card.transform.localPosition.x, card.transform.localPosition.y - selectionHeight));
+        }
+    }
+
+    public void FinishCardToKeepSelection()
+    {
+        List<Card> kept = new List<Card>();
+        foreach (CardMovement c in keep)
+        {
+            kept.Add(c.cardData);
+        }
+        game.EndAllyTurn(kept);
+        foreach(CardMovement c in hand)
+        {
+            c.keepingMode = false;
+            c.isCardDrawn = false;
+        }
     }
 }

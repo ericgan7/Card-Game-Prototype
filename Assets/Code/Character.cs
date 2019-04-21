@@ -28,7 +28,7 @@ public class Character : MonoBehaviour
     float elapsed;
     Vector3 offset;
 
-    int startingHand = 7;
+    int startingHand = 5;
     GameController game;
     bool isMoving;
     public bool hasMoved;
@@ -47,7 +47,7 @@ public class Character : MonoBehaviour
         statusEffects = new List<Effect>();
         deck = new List<Card>(stats.cards);
         hand = new List<Card>();
-        RefillHand(new List<int>());
+        RefillHand(new List<Card>());
         isMoving = false;
         hasMoved = false;
     }
@@ -60,17 +60,20 @@ public class Character : MonoBehaviour
         if (deck.Count == 0)
         {
             deck.AddRange(stats.cards);
+            foreach (Card c in hand)
+            {
+                deck.Remove(c);
+            }
         }
         return drawn;
     }
 
-    // Discards all cards except the keeps specified
-    public void RefillHand(List<int> keeps = null)
+    // Keeps all specified cards and redraws discarded cards.
+    public void RefillHand(List<Card> keeps)
     {
-        keeps = keeps ?? new List<int>();
-        var cardsToKeep = keeps.Select(x => hand[x]);
-        hand.RemoveAll(x => !cardsToKeep.Contains(x));
-        for (int i = 0; i < startingHand - cardsToKeep.Count(); ++i)
+        hand.Clear();
+        hand.AddRange(keeps);
+        for (int i = 0; i < startingHand - keeps.Count(); ++i)
         {
             hand.Add(DrawRandom());
         }
@@ -162,5 +165,10 @@ public class Character : MonoBehaviour
             game.inputControl.disableInput = true;
             hasMoved = true;
         }
+    }
+    //Reset Energy, trigger end of turn effects, etc.
+    public void EndTurn()
+    {
+
     }
 }
