@@ -96,6 +96,7 @@ public class GameController : MonoBehaviour
         turns.Dequeue();
         currentCharacter = turns.Peek();
         ui.UpdateTurns(turns.ToList());
+        ui.SelectCharacter(currentCharacter);
     }
     //TODO AI action
     public void EnemyTurn()
