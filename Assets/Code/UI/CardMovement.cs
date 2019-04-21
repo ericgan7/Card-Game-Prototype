@@ -15,6 +15,8 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public Card cardData;
     public Vector3 destination;
     Vector3 defaultLocation;
+    Vector3 discardLocation;
+    Vector2 cameraSize;
     public float speed;
 
     public Image artwork;
@@ -25,14 +27,18 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public float playableYPosition;
     public bool keepingMode;
     public bool isCardDrawn;
+    
 
     public void Start()
     {
         destination = transform.localPosition;
         defaultLocation = transform.localPosition;
+        discardLocation = transform.localPosition;
         UpdateCard(cardData);
+        isCardDrawn = false;
         game = FindObjectOfType<GameController>();
         playableYPosition = 155f;
+        cameraSize = new Vector2(Camera.main.scaledPixelWidth / 2, 0);
     }
 
     //Set position, used to draw from deck into hand.
@@ -59,7 +65,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     //Mouseover card. Should highlight potential effects. TODO: Zoom in card for better detail.
     public void OnPointerEnter(PointerEventData p)
     {
-        if (game.inputControl.mode != InputController.InputMode.KeepCardSelect)
+        if (game.inputControl.mode != InputController.InputMode.KeepCardSelect && isCardDrawn)
         {
             HighlightRange();
         }
@@ -84,9 +90,11 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         //zoom out
     }
     //Starting to drag Card. Highlihghts targeted square in red for clarity.
+    //TO DO:POLISH CARD DRAGGING
     public void OnDrag(PointerEventData p)
     {
-        destination = Input.mousePosition;
+        destination = transform.parent.InverseTransformPoint(Camera.main.ScreenToViewportPoint(p.position));
+        destination.z = -2f;
         game.ui.DeactivateRadialMenu();
         game.inputControl.SetInput(InputController.InputMode.Card);
         Ray mouseClick = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -111,6 +119,9 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             //discard positioning TO DO:
             game.hand.DiscardCard();
+            GetComponent<Animator>().enabled = true;
+            GetComponent<Animator>().Play("CardAnimation");
+            CardEffect.instance.openUp();
         }
         else
         {
@@ -119,9 +130,6 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         game.inputControl.SetInput(InputController.InputMode.None);
         game.map.ClearHighlight();
         game.map.ClearTarget();
-        GetComponent<Animator>().enabled = true;
-        GetComponent<Animator>().Play("CardAnimation");
-        CardEffect.instance.openUp();
 
     }
     //helper function to highlight target Tiles;
@@ -131,5 +139,12 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         if (!cardData.targetsTypes.Contains(Card.TargetType.Self)){
             game.UnHiglightTarget(1);
         }
+    }
+
+    public void Reset()
+    {
+        GetComponent<Animator>().enabled = false;
+        destination = discardLocation;
+        transform.localPosition = discardLocation;
     }
 }

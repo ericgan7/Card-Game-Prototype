@@ -2,6 +2,3 @@ sceneSetups:
 - path: Assets/Scenes/Test.unity
   isLoaded: 1
   isActive: 1
-- path: Assets/Plugins/_MK/MKGlowFree/Examples/Scenes/SetupSelective.unity
-  isLoaded: 0
-  isActive: 0
