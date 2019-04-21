@@ -40,7 +40,6 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         defaultLocation = newPostion;
         destination = newPostion;
-        Debug.Log(newPostion);
     }
     //update card from Scriptable object.
     public void UpdateCard(Card data)
@@ -50,6 +49,8 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         cardname.text = data.name;
         description.text = data.description;
         cost.text = data.energyCost.ToString();
+        isCardDrawn = true;
+        Debug.Log("draw");
     }
     //Movement
     public void FixedUpdate()
