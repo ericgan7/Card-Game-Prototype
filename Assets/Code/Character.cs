@@ -169,6 +169,6 @@ public class Character : MonoBehaviour
     //Reset Energy, trigger end of turn effects, etc.
     public void EndTurn()
     {
-
+        hasMoved = false;
     }
 }
