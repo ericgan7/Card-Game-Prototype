@@ -156,8 +156,11 @@ public class Character : MonoBehaviour
     }
     public void Move()
     {
-        isMoving = true;
-        game.inputControl.disableInput = true;
-        hasMoved = true;
+        if (!hasMoved)
+        {
+            isMoving = true;
+            game.inputControl.disableInput = true;
+            hasMoved = true;
+        }
     }
 }
