@@ -14,6 +14,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public GameController game;
     public Card cardData;
     public Vector3 destination;
+    Vector3 targetScale;
     Vector3 defaultLocation;
     Vector3 discardLocation;
     Vector2 cameraSize;
@@ -24,7 +25,6 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public TextMeshProUGUI description;
     public TextMeshProUGUI cost;
 
-    public float playableYPosition;
     public bool keepingMode;
     public bool isCardDrawn;
     
@@ -37,7 +37,6 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         UpdateCard(cardData);
         isCardDrawn = false;
         game = FindObjectOfType<GameController>();
-        playableYPosition = 155f;
         cameraSize = new Vector2(Camera.main.scaledPixelWidth / 2, 0);
     }
 
@@ -56,20 +55,30 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         description.text = data.description;
         cost.text = data.energyCost.ToString();
         isCardDrawn = true;
+        targetScale = Vector3.one;
     }
     //Movement
     public void FixedUpdate()
     {
         transform.localPosition = Vector3.Lerp(transform.localPosition, destination, Time.deltaTime * speed);
+        transform.localScale = Vector3.Slerp(transform.localScale, targetScale, Time.deltaTime * speed);
     }
     //Mouseover card. Should highlight potential effects. TODO: Zoom in card for better detail.
     public void OnPointerEnter(PointerEventData p)
     {
-        if (game.inputControl.mode != InputController.InputMode.KeepCardSelect && isCardDrawn)
+        if (!isCardDrawn)
+        {
+            return;
+        }
+        if (game.inputControl.mode != InputController.InputMode.KeepCardSelect)
         {
             HighlightRange();
+            
         }
-        //zoom in
+        targetScale = new Vector3(2.0f, 2.0f, 2.0f);
+        destination.y += 100f;
+        destination.z = -5f;
+
     }
 
     public void OnPointerClick(PointerEventData p)
@@ -87,12 +96,17 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             game.map.ClearHighlight();
         }
-        //zoom out
+        targetScale = new Vector3(1.0f, 1.0f, 1.0f);
+        destination = defaultLocation;
     }
     //Starting to drag Card. Highlihghts targeted square in red for clarity.
     //TO DO:POLISH CARD DRAGGING
     public void OnDrag(PointerEventData p)
     {
+        if (!isCardDrawn)
+        {
+            return;
+        }
         destination = transform.parent.InverseTransformPoint(Camera.main.ScreenToViewportPoint(p.position));
         destination.z = -2f;
         game.ui.DeactivateRadialMenu();
@@ -146,5 +160,6 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         GetComponent<Animator>().enabled = false;
         destination = discardLocation;
         transform.localPosition = discardLocation;
+        isCardDrawn = false;
     }
 }

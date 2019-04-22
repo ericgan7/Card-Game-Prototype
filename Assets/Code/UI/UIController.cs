@@ -63,4 +63,9 @@ public class UIController : MonoBehaviour
         radialOptions.DeactiveMenu();
         radialOptions.gameObject.SetActive(false);
     }
+
+    public void FixedUpdate()
+    {
+        UpdateStats();
+    }
 }
