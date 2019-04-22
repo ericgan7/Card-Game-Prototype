@@ -68,10 +68,16 @@ public class GameController : MonoBehaviour
         {
             List<Character> targets = map.targets.GetTargets();
             Debug.Log(targets.Count);
-            if (targets.Count > 0)
+            if (targets.Count > 0 && currentCharacter.HasEnergy())
             {
                 success = true;
                 cardPlayed.Play(currentCharacter, targets);
+                currentCharacter.ChangeEnergy(-1);
+                if (!currentCharacter.HasEnergy())
+                {
+                    List<Card> kept = new List<Card>();
+                    EndAllyTurn(kept); //keep nothing 
+                }
             }
         }
         return success;
@@ -95,6 +101,7 @@ public class GameController : MonoBehaviour
         //TODO check if there is only one character left in a team.
         turns.Dequeue();
         currentCharacter = turns.Peek();
+        currentCharacter.ChangeEnergy(currentCharacter.stats.energy);
         ui.UpdateTurns(turns.ToList());
     }
     //TODO AI action

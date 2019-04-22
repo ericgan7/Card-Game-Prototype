@@ -118,6 +118,21 @@ public class Character : MonoBehaviour
         currentArmor += amount;
         Debug.Log("New Armor " + currentArmor.ToString());
     }
+    public void ChangeEnergy(int amount)
+    {
+        currentEnergy += amount;
+        if (currentEnergy > 5){
+            currentEnergy = 5;
+        }
+        Debug.Log("New Energy " + currentEnergy.ToString());
+    }
+    public bool HasEnergy()
+    {
+        if (currentEnergy > 0){
+            return true;
+        }
+        return false;
+    }
 
     //Update function controls movement of character across grid.
     public void FixedUpdate()
@@ -164,6 +179,7 @@ public class Character : MonoBehaviour
             isMoving = true;
             game.inputControl.disableInput = true;
             hasMoved = true;
+            ChangeEnergy(-1);
         }
     }
     //Reset Energy, trigger end of turn effects, etc.
