@@ -173,12 +173,6 @@ public class InputController : MonoBehaviour
         {
             mode = InputMode.None;
             game.currentCharacter.Move();
-            //energy reduced by 1 in character script, check if energy is 0 and end turn if true
-            if (!game.currentCharacter.HasEnergy())
-            {
-                List<Card> kept = new List<Card>();
-                game.EndAllyTurn(kept); //keep nothing
-            }
             game.map.ClearHighlight();
             previousTile = new Vector3Int(-1, -1, -1);
         }

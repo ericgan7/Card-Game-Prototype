@@ -73,11 +73,10 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         if (game.inputControl.mode != InputController.InputMode.KeepCardSelect)
         {
             HighlightRange();
-            
+            targetScale = new Vector3(2.0f, 2.0f, 2.0f);
+            destination.y += 100f;
+            destination.z = -5f;
         }
-        targetScale = new Vector3(2.0f, 2.0f, 2.0f);
-        destination.y += 100f;
-        destination.z = -5f;
 
     }
 

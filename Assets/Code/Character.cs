@@ -103,6 +103,11 @@ public class Character : MonoBehaviour
     {
         return currentArmor;
     }
+    public bool HasEnergy()
+    {
+        return currentEnergy > 0;
+    }
+
     //Settors
     public void ChangeHealth(int amount)
     {
@@ -118,20 +123,11 @@ public class Character : MonoBehaviour
         currentArmor += amount;
         Debug.Log("New Armor " + currentArmor.ToString());
     }
+
     public void ChangeEnergy(int amount)
     {
-        currentEnergy += amount;
-        if (currentEnergy > 5){
-            currentEnergy = 5;
-        }
+        currentEnergy = Mathf.Clamp(currentEnergy + amount, 0, stats.energy);
         Debug.Log("New Energy " + currentEnergy.ToString());
-    }
-    public bool HasEnergy()
-    {
-        if (currentEnergy > 0){
-            return true;
-        }
-        return false;
     }
 
     //Update function controls movement of character across grid.
@@ -158,6 +154,10 @@ public class Character : MonoBehaviour
             {
                 isMoving = false;
                 game.inputControl.disableInput = false;
+                if (currentEnergy == 0)
+                {
+                    game.EndAllyTurn(new List<Card>());
+                }
             }
         }
     }
@@ -186,5 +186,6 @@ public class Character : MonoBehaviour
     public void EndTurn()
     {
         hasMoved = false;
+        currentEnergy = stats.energy;
     }
 }
