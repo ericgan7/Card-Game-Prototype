@@ -60,11 +60,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\_MK\MKGlowFree\Editor\EditorHelper.cs" />
-    <Compile Include="Assets\_MK\MKGlowFree\Editor\EditorHelper.EditorUIContent.cs" />
-    <Compile Include="Assets\_MK\MKGlowFree\Editor\MinMaxRangeDrawer.cs" />
-    <Compile Include="Assets\_MK\MKGlowFree\Editor\MKGlowEditor.cs" />
-    <Compile Include="Assets\_MK\MKGlowFree\Editor\SelectiveStandardShaderGUI.cs" />
+    <Compile Include="Assets\VIDE\Data\Editor\VDE.cs" />
+    <Compile Include="Assets\VIDE\Data\Editor\VIDE_AssignC.cs" />
+    <Compile Include="Assets\VIDE\Data\Editor\VIDE_Editor.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Nancy/4553Final/Card-Game-Prototype/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -692,6 +690,10 @@
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{343DA1BA-C27C-5A34-9835-FB1B05F15196}</Project>
       <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj">
+      <Project>{F4426F7A-F864-DAB4-843E-09B47D0593EB}</Project>
+      <Name>Assembly-CSharp-Editor-firstpass</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
