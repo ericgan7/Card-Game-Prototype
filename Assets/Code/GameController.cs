@@ -59,6 +59,7 @@ public class GameController : MonoBehaviour
     //Used to cast a card. Targets on Grid are used to determine tiles effected, set during ondrag();
     public bool Cast(Card cardPlayed)
     {
+        Debug.Log("Cast Card");
         bool success = false;
         if (cardPlayed.targetsTypes.Contains(Card.TargetType.Ground))
         {
