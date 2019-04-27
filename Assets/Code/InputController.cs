@@ -157,6 +157,7 @@ public class InputController : MonoBehaviour
     {
         Debug.Log("reset");
         game.ui.DeactivateRadialMenu();
+        previousTile = new Vector3Int(-1, 0, 0);
         mode = InputMode.None;
         game.currentCharacter.ClearPath();
         game.map.ClearHighlight();

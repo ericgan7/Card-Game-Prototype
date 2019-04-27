@@ -68,6 +68,7 @@
     <Compile Include="Assets\Code\Data\CharacterStats.cs" />
     <Compile Include="Assets\Code\Data\DefendEffect.cs" />
     <Compile Include="Assets\Code\Data\Effect.cs" />
+    <Compile Include="Assets\Code\EnemyAI.cs" />
     <Compile Include="Assets\Code\GameController.cs" />
     <Compile Include="Assets\Code\InputController.cs" />
     <Compile Include="Assets\Code\Map\HighlightTiles.cs" />

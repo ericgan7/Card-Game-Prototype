@@ -73,7 +73,7 @@ public class GameController : MonoBehaviour
             {
                 success = true;
                 cardPlayed.Play(currentCharacter, targets);
-                currentCharacter.ChangeEnergy(-cardPlayed.energyCost);
+                //Energy Cost will be deducted at the end of the card animation.
             }
         }
         return success;
@@ -88,7 +88,7 @@ public class GameController : MonoBehaviour
         turns.Enqueue(allies[allyIndex]);
         allyIndex = (allyIndex + 1) % allies.Length;
         //Enemy Action Turn
-        EnemyTurn();
+        EnemyTurn(); 
     }
 
     public void UpdateTurn()

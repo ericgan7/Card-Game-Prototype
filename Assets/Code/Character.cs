@@ -123,10 +123,14 @@ public class Character : MonoBehaviour
         currentArmor += amount;
         Debug.Log("New Armor " + currentArmor.ToString());
     }
-
+   
     public void ChangeEnergy(int amount)
     {
         currentEnergy = Mathf.Clamp(currentEnergy + amount, 0, stats.energy);
+        if (currentEnergy <= 0)
+        {
+            game.EndAllyTurn(new List<Card>());
+        }
         Debug.Log("New Energy " + currentEnergy.ToString());
     }
 
