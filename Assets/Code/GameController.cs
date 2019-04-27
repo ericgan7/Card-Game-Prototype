@@ -127,6 +127,7 @@ public class GameController : MonoBehaviour
 
     public void KillEnemy(Character character)
     {
+        Debug.Log("An Enemy has been slained");
         enemies.RemoveAll(x => x == character);
         ui.UpdateTurns(turns);
     }
