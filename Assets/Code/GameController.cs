@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -11,8 +12,8 @@ public class GameController : MonoBehaviour
     public UIController ui;
     public CardController hand;
 
-    public Character[] enemies;
-    public Character[] allies;
+    public List<Character> enemies;
+    public List<Character> allies;
     int enemyIndex;
     int allyIndex;
     public Queue<Character> turns;
@@ -25,14 +26,7 @@ public class GameController : MonoBehaviour
         inputControl = GetComponent<InputController>();
         hand = FindObjectOfType<CardController>();
         turns = new Queue<Character>();
-        //9 should be replaced by the number of character turn displays.
-        for (int i = 0; i < 9; ++i)
-        {
-            turns.Enqueue(allies[i % allies.Length]);
-            turns.Enqueue(enemies[i % enemies.Length]);
-            enemyIndex = (i + 1) % enemies.Length;
-            allyIndex = (i + 1) % allies.Length;
-        }
+        PopulateTurns();
         StartGame();
     }
 
@@ -43,6 +37,18 @@ public class GameController : MonoBehaviour
         ui.UpdateTurns(turns.ToList());
         ui.SelectCharacter(currentCharacter);
         hand.DrawCurrentCards(currentCharacter);
+    }
+
+    public void PopulateTurns()
+    {
+        //9 should be replaced by the number of character turn displays.
+        for (int i = 0; i < 9; ++i)
+        {
+            turns.Enqueue(allies[i % allies.Count]);
+            allyIndex = (i + 1) % allies.Count;
+            turns.Enqueue(enemies[i % enemies.Count]);
+            enemyIndex = (i + 1) % enemies.Count;
+        }
     }
 
     //  Highlights the tile map to indicate possible attack targets
@@ -86,7 +92,7 @@ public class GameController : MonoBehaviour
         currentCharacter.EndTurn();
         UpdateTurn();
         turns.Enqueue(allies[allyIndex]);
-        allyIndex = (allyIndex + 1) % allies.Length;
+        allyIndex = (allyIndex + 1) % allies.Count;
         //Enemy Action Turn
         EnemyTurn(); 
     }
@@ -108,9 +114,21 @@ public class GameController : MonoBehaviour
     {
         UpdateTurn();
         turns.Enqueue(enemies[enemyIndex]);
-        enemyIndex = (enemyIndex + 1) % enemies.Length;
+        enemyIndex = (enemyIndex + 1) % enemies.Count;
 
         //Begin Next Character's Turn
         hand.DrawCurrentCards(currentCharacter);
+    }
+
+    public void KillAlly(Character character)
+    {
+        Debug.Log("An Ally has been slained");
+    }
+
+    public void KillEnemy(Character character)
+    {
+        enemies.Remove(character);
+        turns.Clear();
+        PopulateTurns();
     }
 }

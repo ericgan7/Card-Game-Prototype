@@ -114,7 +114,19 @@ public class Character : MonoBehaviour
         currentHealth += amount;
         if (currentHealth <= 0)
         {
-            //call game for death
+            switch(team)
+            {
+                case Card.TargetType.Ally:
+                    game.KillAlly(this);
+                    gameObject.SetActive(false);
+                    break;
+                case Card.TargetType.Enemy:
+                    game.KillEnemy(this);
+                    gameObject.SetActive(false);
+                    break;
+                default:
+                    break;
+            }
         }
         Debug.Log("New Health " + currentHealth.ToString());
     }

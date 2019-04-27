@@ -40,7 +40,7 @@ public class InputController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //CameraMovement();
+        CameraMovement();
     }
 
     public void SetInput(InputMode m)
