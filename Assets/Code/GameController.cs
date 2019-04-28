@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     public List<Character> allies;
     int enemyIndex;
     int allyIndex;
-    public List<Character> turns;
+    public Queue<Character> turns;
 
     Vector3Int selectedMovementLocation;
     public Character currentCharacter;
@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     {
         inputControl = GetComponent<InputController>();
         hand = FindObjectOfType<CardController>();
-        turns = new List<Character>();
+        turns = new Queue<Character>();
         PopulateTurns();
         StartGame();
     }
@@ -34,7 +34,7 @@ public class GameController : MonoBehaviour
     public void StartGame()
     {
         currentCharacter = turns.First();
-        ui.UpdateTurns(turns);
+        ui.UpdateTurns(turns.ToList());
         ui.SelectCharacter(currentCharacter);
         hand.DrawCurrentCards(currentCharacter);
     }
@@ -44,9 +44,9 @@ public class GameController : MonoBehaviour
         //9 should be replaced by the number of character turn displays.
         for (int i = 0; i < 9; ++i)
         {
-            turns.Add(allies[i % allies.Count]);
+            turns.Enqueue(allies[i % allies.Count]);
             allyIndex = (i + 1) % allies.Count;
-            turns.Add(enemies[i % enemies.Count]);
+            turns.Enqueue(enemies[i % enemies.Count]);
             enemyIndex = (i + 1) % enemies.Count;
         }
     }
@@ -91,7 +91,7 @@ public class GameController : MonoBehaviour
         currentCharacter.RefillHand(keep);
         currentCharacter.EndTurn();
         UpdateTurn();
-        turns.Add(allies[allyIndex]);
+        turns.Enqueue(allies[allyIndex]);
         allyIndex = (allyIndex + 1) % allies.Count;
         //Enemy Action Turn
         EnemyTurn(); 
@@ -100,9 +100,9 @@ public class GameController : MonoBehaviour
     public void UpdateTurn()
     {
         //TODO check if there is only one character left in a team.
-        turns.RemoveAt(0);
-        currentCharacter = turns.First();
-        ui.UpdateTurns(turns);
+        turns.Dequeue();
+        currentCharacter = turns.Peek();
+        ui.UpdateTurns(turns.ToList());
     }
     //TODO AI action
     public void EnemyTurn()
@@ -113,7 +113,7 @@ public class GameController : MonoBehaviour
     public void EndEnemyTurn()
     {
         UpdateTurn();
-        turns.Add(enemies[enemyIndex]);
+        turns.Enqueue(enemies[enemyIndex]);
         enemyIndex = (enemyIndex + 1) % enemies.Count;
 
         //Begin Next Character's Turn
@@ -129,7 +129,9 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("An Enemy has been slained");
         enemies.Remove(character);
-        turns.RemoveAll(x => x == character);
-        ui.UpdateTurns(turns);
+        enemyIndex = enemyIndex % enemies.Count;
+        turns.Clear();
+        PopulateTurns();
+        ui.UpdateTurns(turns.ToList());
     }
 }
