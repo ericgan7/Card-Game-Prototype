@@ -45,6 +45,11 @@ public class Character : MonoBehaviour
         currentDamage = stats.damage;
         currentArmor = stats.armor;
         statusEffects = new List<Effect>();
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        sr.sprite = stats.portrait;
+        var bounds = sr.sprite.bounds;
+        float factor = 1.3f / bounds.size.y;
+        transform.localScale = new Vector3(factor, factor, factor);
         deck = new List<Card>(stats.cards);
         hand = new List<Card>();
         RefillHand(new List<Card>());

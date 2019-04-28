@@ -28,14 +28,17 @@ public class Card : ScriptableObject
     public int targetRange;
     public int effectRange;
 
-    public void Play(Character origin, List<Character> targets)
+    public List<Sprite> Play(Character origin, List<Character> targets)
     {
-        foreach(Character c in targets)
+        List<Sprite> anim = new List<Sprite> { origin.stats.Attack };
+        foreach (Character c in targets)
         {
             foreach( Effect e in effects)
             {
                 e.Apply(origin, c);
             }
+            anim.Add(c.stats.Hurt);
         }
+        return anim;
     }
 }

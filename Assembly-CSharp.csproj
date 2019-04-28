@@ -73,6 +73,7 @@
     <Compile Include="Assets\Code\InputController.cs" />
     <Compile Include="Assets\Code\Map\HighlightTiles.cs" />
     <Compile Include="Assets\Code\Map\MapController.cs" />
+    <Compile Include="Assets\Code\UI\ActionPanel.cs" />
     <Compile Include="Assets\Code\UI\CardController.cs" />
     <Compile Include="Assets\Code\UI\CardMovement.cs" />
     <Compile Include="Assets\Code\UI\RadialButton.cs" />

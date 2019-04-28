@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour
     Vector3Int selectedMovementLocation;
     public Character currentCharacter;
 
+    public List<Sprite> anim;
+
     private void Start()
     {
         inputControl = GetComponent<InputController>();
@@ -61,6 +63,7 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("Cast Card");
         bool success = false;
+        anim.Clear();
         if (cardPlayed.targetsTypes.Contains(Card.TargetType.Ground))
         {
             // Allows Ground targeting for traps
@@ -72,7 +75,7 @@ public class GameController : MonoBehaviour
             if (targets.Count > 0 && currentCharacter.HasEnergy())
             {
                 success = true;
-                cardPlayed.Play(currentCharacter, targets);
+                anim = cardPlayed.Play(currentCharacter, targets);
                 //Energy Cost will be deducted at the end of the card animation.
             }
         }
@@ -113,4 +116,10 @@ public class GameController : MonoBehaviour
         //Begin Next Character's Turn
         hand.DrawCurrentCards(currentCharacter);
     }
+
+    public void PlayAction()
+    {
+        ui.PlayAction(anim, currentCharacter.team == Card.TargetType.Ally);
+    }
+
 }
