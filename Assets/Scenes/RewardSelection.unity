@@ -526,7 +526,6 @@ GameObject:
   m_Component:
   - component: {fileID: 75618501}
   - component: {fileID: 75618500}
-  - component: {fileID: 75618502}
   m_Layer: 0
   m_Name: RewardController
   m_TagString: Untagged
@@ -571,19 +570,6 @@ Transform:
   m_Father: {fileID: 781741818}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &75618502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 75618499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fd9bfaedaa95a4ea20683f0ee99c49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rewardsController: {fileID: 75618500}
 --- !u!1 &142739473
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,6 +968,50 @@ MonoBehaviour:
   hand: []
   movementSpeed: 1.5
   hasMoved: 0
+--- !u!1 &701466615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 701466616}
+  - component: {fileID: 701466617}
+  m_Layer: 0
+  m_Name: RewardsInputController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &701466616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701466615}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.5, y: 6.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 781741818}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &701466617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701466615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82fd9bfaedaa95a4ea20683f0ee99c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rewardsController: {fileID: 75618500}
 --- !u!1 &781741817
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,6 +1041,7 @@ Transform:
   m_Children:
   - {fileID: 75618501}
   - {fileID: 1002738889}
+  - {fileID: 701466616}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1487,6 +1518,12 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1632639814436137790, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: 109382402aaac9c4bb5579e31c790629,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fb7aad5bc11361458e19f2cf49eea06, type: 3}
 --- !u!224 &993928742 stripped
@@ -1836,41 +1873,47 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1632639813986401751, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632639813986401751, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632639814809305772, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632639814809305772, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632639814918030107, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632639814918030107, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1632639814436137790, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
       propertyPath: destination.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1632639813986401751, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+    - target: {fileID: 1632639814436137790, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1632639813986401751, guid: 5fb7aad5bc11361458e19f2cf49eea06,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1632639814809305772, guid: 5fb7aad5bc11361458e19f2cf49eea06,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1632639814809305772, guid: 5fb7aad5bc11361458e19f2cf49eea06,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1632639814918030107, guid: 5fb7aad5bc11361458e19f2cf49eea06,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1632639814918030107, guid: 5fb7aad5bc11361458e19f2cf49eea06,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: 152098fe985d6a844a1540ad108cf25d,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fb7aad5bc11361458e19f2cf49eea06, type: 3}
 --- !u!224 &1227292184 stripped
@@ -2158,41 +2201,47 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1632639813986401751, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632639813986401751, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632639814809305772, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632639814809305772, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632639814918030107, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632639814918030107, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1632639814436137790, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
       propertyPath: destination.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1632639813986401751, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+    - target: {fileID: 1632639814436137790, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1632639813986401751, guid: 5fb7aad5bc11361458e19f2cf49eea06,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1632639814809305772, guid: 5fb7aad5bc11361458e19f2cf49eea06,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1632639814809305772, guid: 5fb7aad5bc11361458e19f2cf49eea06,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1632639814918030107, guid: 5fb7aad5bc11361458e19f2cf49eea06,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1632639814918030107, guid: 5fb7aad5bc11361458e19f2cf49eea06,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: b55c2e5000368a8479c437cd19fe178d,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fb7aad5bc11361458e19f2cf49eea06, type: 3}
 --- !u!224 &1320754019 stripped

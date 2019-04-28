@@ -19,12 +19,14 @@ public class RewardsInputController : MonoBehaviour
             rewardsController.allyIndex = rewardsController.allyIndex == 0 ? 
                 rewardsController.allies.Count - 1 : (rewardsController.allyIndex - 1) % rewardsController.allies.Count;
             rewardsController.UIController.SelectCharacter(rewardsController.allies[rewardsController.allyIndex]);
+            rewardsController.DrawCurrentRewards();
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             rewardsController.allyIndex = (rewardsController.allyIndex + 1) % rewardsController.allies.Count;
             rewardsController.UIController.SelectCharacter(rewardsController.allies[rewardsController.allyIndex]);
+            rewardsController.DrawCurrentRewards();
         }
     }
 }

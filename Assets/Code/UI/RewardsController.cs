@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ public class RewardsController : MonoBehaviour
     public Vector3 center;
     
     public List<CardMovement> rewards;
-    public Dictionary<Character, List<Card>> rewardMap;
+    public Dictionary<Character, List<Card>> rewardMap = new Dictionary<Character, List<Card>>();
 
     float width;
 
@@ -19,7 +20,19 @@ public class RewardsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PopulateRewardMap();
         UIController.SelectCharacter(allies[allyIndex]);
+        DrawCurrentRewards();
+    }
+
+    // Generates the rewards for each character
+    public void PopulateRewardMap()
+    {
+        allies.ForEach(x =>
+        {
+            var rand = Random.Range(0, 2);
+            rewardMap.Add(x, Enumerable.Repeat(rewards[rand].cardData, rewardsCount).ToList());
+        });
     }
 
     public void DrawCurrentRewards()
