@@ -132,7 +132,7 @@ public class Character : MonoBehaviour
     }
     public void ChangeArmor(int amount)
     {
-        currentArmor += amount;
+        currentArmor = Mathf.Clamp(currentArmor + amount, 0, 100);
         Debug.Log("New Armor " + currentArmor.ToString());
     }
    

@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
         inputControl = GetComponent<InputController>();
         hand = FindObjectOfType<CardController>();
         turns = new List<Character>();
-        PopulateTurns();
+        PopulateTurns(0,0, true);
         StartGame();
     }
 
@@ -39,16 +39,30 @@ public class GameController : MonoBehaviour
         hand.DrawCurrentCards(currentCharacter);
     }
 
-    public void PopulateTurns()
+    public void PopulateTurns(int ally, int enemy, bool allyIsNext)
     {
-        //9 should be replaced by the number of character turn displays.
-        for (int i = 0; i < 9; ++i)
+        turns.Clear();
+        int a = ally;
+        int e = enemy;
+        bool team = allyIsNext;
+        while (turns.Count < 9)
         {
-            turns.Add(allies[i % allies.Count]);
-            allyIndex = (i + 1) % allies.Count;
-            turns.Add(enemies[i % enemies.Count]);
-            enemyIndex = (i + 1) % enemies.Count;
+            if (team)
+            {
+                Debug.Log(a);
+                turns.Add(allies[a]);
+                a = (a + 1) % allies.Count;
+            }
+            else
+            {
+                Debug.Log(e);
+                turns.Add(enemies[e]);
+                e = (e + 1) % enemies.Count;
+            }
+            team = !team;
         }
+        allyIndex = a;
+        enemyIndex = e;
     }
 
     //  Highlights the tile map to indicate possible attack targets
@@ -94,7 +108,7 @@ public class GameController : MonoBehaviour
         turns.Add(allies[allyIndex]);
         allyIndex = (allyIndex + 1) % allies.Count;
         //Enemy Action Turn
-        EnemyTurn(); 
+        EnemyTurn();
     }
 
     public void UpdateTurn()
