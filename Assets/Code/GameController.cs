@@ -122,12 +122,15 @@ public class GameController : MonoBehaviour
 
     public void KillAlly(Character character)
     {
-        Debug.Log("An Ally has been slained");
+        allies.Remove(character);
+        allyIndex = allyIndex % allies.Count;
+        turns.Clear();
+        PopulateTurns();
+        ui.UpdateTurns(turns.ToList());
     }
 
     public void KillEnemy(Character character)
     {
-        Debug.Log("An Enemy has been slained");
         enemies.Remove(character);
         enemyIndex = enemyIndex % enemies.Count;
         turns.Clear();
