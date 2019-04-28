@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class RewardsController : MonoBehaviour
 {
-    public float rewardsCount;
+    public int rewardsCount;
     public Vector3 center;
-
-    public List<CardMovement> hand;
+    
+    public List<CardMovement> rewards;
+    public Dictionary<Character, List<Card>> rewardMap;
 
     float width;
-    public float selectionHeight;
 
     public List<Character> allies;
     public int allyIndex = 0;
@@ -24,7 +24,7 @@ public class RewardsController : MonoBehaviour
 
     public void DrawCurrentRewards()
     {
-        List<Card> cards = allies[allyIndex].hand;
+        List<Card> cards = rewardMap[allies[allyIndex]];
         int half = cards.Count / 2;
         float xSeperation = Mathf.Min(width, rewardsCount / half);
         Vector3 leftStart = new Vector3(center.x - xSeperation / 2, center.y - 1);
@@ -34,19 +34,19 @@ public class RewardsController : MonoBehaviour
         {
             leftStart.x -= xSeperation / 2;
             rightStart.x += xSeperation / 2;
-            hand[right].SetPosition(center);
-            hand[right].UpdateCard(cards[right]);
+            rewards[right].SetPosition(center);
+            rewards[right].UpdateCard(cards[right]);
             ++right;
         }
         for (int i = 0; i < half; ++i)
         {
-            hand[i + right].SetPosition(new Vector3(rightStart.x + xSeperation * i, rightStart.y - i, -i));
-            hand[i + right].UpdateCard(cards[i + right]);
+            rewards[i + right].SetPosition(new Vector3(rightStart.x + xSeperation * i, rightStart.y - i, -i));
+            rewards[i + right].UpdateCard(cards[i + right]);
         }
         for (int i = 0; i < half; ++i)
         {
-            hand[half - i - 1].SetPosition(new Vector3(leftStart.x - xSeperation * i, rightStart.y - i, i));
-            hand[half - i - 1].UpdateCard(cards[half - i - 1]);
+            rewards[half - i - 1].SetPosition(new Vector3(leftStart.x - xSeperation * i, rightStart.y - i, i));
+            rewards[half - i - 1].UpdateCard(cards[half - i - 1]);
         }
     }
 

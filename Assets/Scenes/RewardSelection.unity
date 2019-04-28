@@ -546,10 +546,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caad7d68fec789a4183b3a58124cbcda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewardsCount: 0
+  rewardsCount: 3
   center: {x: 0, y: 0, z: 0}
-  hand: []
-  selectionHeight: 0
+  rewards:
+  - {fileID: 1141030857}
+  - {fileID: 1977389600}
+  - {fileID: 2041095448}
   allies:
   - {fileID: 1852822412}
   - {fileID: 615368927}
@@ -1705,6 +1707,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043222015}
   m_CullTransparentMesh: 0
+--- !u!114 &1141030857 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1632639814436137790, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+    type: 3}
+  m_PrefabInstance: {fileID: 1227292183}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37bfb282758895a4a9212bb20dc78d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1227292183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1775,7 +1789,7 @@ PrefabInstance:
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
@@ -1821,6 +1835,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632639814436137790, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: destination.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1632639813986401751, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
@@ -2092,7 +2111,7 @@ PrefabInstance:
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1632639814436137787, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
@@ -2138,6 +2157,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632639814436137790, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: destination.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1632639813986401751, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
@@ -2972,6 +2996,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1964295017}
   m_CullTransparentMesh: 0
+--- !u!114 &1977389600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1632639814436137790, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+    type: 3}
+  m_PrefabInstance: {fileID: 993928741}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37bfb282758895a4a9212bb20dc78d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2032882261
 GameObject:
   m_ObjectHideFlags: 0
@@ -3132,3 +3168,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032882261}
   m_CullTransparentMesh: 0
+--- !u!114 &2041095448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1632639814436137790, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+    type: 3}
+  m_PrefabInstance: {fileID: 1320754018}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37bfb282758895a4a9212bb20dc78d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
