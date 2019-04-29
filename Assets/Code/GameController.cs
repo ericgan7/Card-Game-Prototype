@@ -13,9 +13,9 @@ public class GameController : MonoBehaviour
 
     public Character[] enemies;
     public Character[] allies;
-    int enemyIndex;
-    int allyIndex;
-    public Queue<Character> turns;
+    Queue<Character> allyTurn;
+    Queue<Character> enemyTurn;
+    public List<Character> turns;
 
     Vector3Int selectedMovementLocation;
     public Character currentCharacter;
@@ -26,22 +26,40 @@ public class GameController : MonoBehaviour
     {
         inputControl = GetComponent<InputController>();
         hand = FindObjectOfType<CardController>();
-        turns = new Queue<Character>();
-        //9 should be replaced by the number of character turn displays.
-        for (int i = 0; i < 9; ++i)
-        {
-            turns.Enqueue(allies[i % allies.Length]);
-            turns.Enqueue(enemies[i % enemies.Length]);
-            enemyIndex = (i + 1) % enemies.Length;
-            allyIndex = (i + 1) % allies.Length;
-        }
+        turns = new List<Character>();
+        allyTurn = new Queue<Character>(allies);
+        enemyTurn = new Queue<Character>(enemies);
         StartGame();
+    }
+
+    public void PopulateTurns(bool allyFirst)
+    {
+        turns.Clear();
+        bool turn = allyFirst;
+        Character temp;
+        while(turns.Count < 10)
+        {
+            if (turn)
+            {
+                temp = allyTurn.Dequeue();
+                turns.Add(temp);
+                allyTurn.Enqueue(temp);
+            }
+            else
+            {
+                temp = enemyTurn.Dequeue();
+                turns.Add(temp);
+                enemyTurn.Enqueue(temp);
+            }
+            turn = !turn;
+        }
     }
 
     // Used to start game. Potentially can run an intro before calling this function
     public void StartGame()
     {
-        currentCharacter = turns.Peek();
+        PopulateTurns(true);
+        currentCharacter = turns[0];
         ui.UpdateTurns(turns.ToList());
         ui.SelectCharacter(currentCharacter);
         hand.DrawCurrentCards(currentCharacter);
@@ -81,25 +99,39 @@ public class GameController : MonoBehaviour
         }
         return success;
     }
-
+    /* Treat enemis and allies the same for now, until enemy AI is done.
     public void EndAllyTurn(List<Card> keep)
     {
         //Finish Current Character's Turn
         currentCharacter.RefillHand(keep);
         currentCharacter.EndTurn();
-        UpdateTurn();
-        turns.Enqueue(allies[allyIndex]);
-        allyIndex = (allyIndex + 1) % allies.Length;
+        UpdateTurn(true);
         //Enemy Action Turn
         EnemyTurn(); 
     }
-
-    public void UpdateTurn()
+    */
+    public void UpdateTurn(List<Card> keep)
     {
+        //Temp;
+        currentCharacter.RefillHand(keep);
+        currentCharacter.EndTurn();
         //TODO check if there is only one character left in a team.
-        turns.Dequeue();
-        currentCharacter = turns.Peek();
-        ui.UpdateTurns(turns.ToList());
+        if (currentCharacter.team == Card.TargetType.Ally)
+        {
+            Character c = allyTurn.Dequeue();
+            turns.Add(c);
+            allyTurn.Enqueue(c);
+        }
+        else
+        {
+            Character c = enemyTurn.Dequeue();
+            turns.Add(c);
+            enemyTurn.Enqueue(c);
+        }
+        turns.RemoveAt(0);
+        currentCharacter = turns[0];
+        ui.UpdateTurns(turns);
+        hand.DrawCurrentCards(currentCharacter);
     }
     //TODO AI action
     public void EnemyTurn()
@@ -109,9 +141,6 @@ public class GameController : MonoBehaviour
 
     public void EndEnemyTurn()
     {
-        UpdateTurn();
-        turns.Enqueue(enemies[enemyIndex]);
-        enemyIndex = (enemyIndex + 1) % enemies.Length;
 
         //Begin Next Character's Turn
         hand.DrawCurrentCards(currentCharacter);
@@ -120,6 +149,54 @@ public class GameController : MonoBehaviour
     public void PlayAction()
     {
         ui.PlayAction(anim, currentCharacter.team == Card.TargetType.Ally);
+    }
+
+    public void KillCharacter(Character c, bool isAlly)
+    {
+        List<Character> turnq;
+        if (isAlly)
+        {
+            //Roll back queue status one turn so we can rebuild it.
+            //The queue is cyclical, so order is maintained and the last element is the most recent character.
+            turnq = allyTurn.ToList();
+        }
+        else
+        {
+            turnq = enemyTurn.ToList();
+        }
+        turnq.Insert(0, turnq[turnq.Count - 1]);
+        //remove dead from queue
+        turnq.Remove(c);
+        if (isAlly)
+        {
+            allyTurn.Clear();
+            //rebuild queue
+            foreach (Character t in turnq)
+            {
+                allyTurn.Enqueue(t);
+            }
+        }
+        else
+        {
+            enemyTurn.Clear();
+            foreach (Character t in turnq)
+            {
+                enemyTurn.Enqueue(t);
+            }
+        }
+        //rebuild turns by replacement
+        int start = 1;
+        if (currentCharacter.team == c.team)
+        {
+            start = 0;
+        }
+        int j = 0;
+        for (int i = start; i < turns.Count; i += 2)
+        {
+            turns[i] = turnq[j];
+            j = (j + 1) % turnq.Count;
+        }
+        ui.UpdateTurns(turns);
     }
 
 }

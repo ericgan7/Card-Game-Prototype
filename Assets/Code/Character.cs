@@ -119,13 +119,14 @@ public class Character : MonoBehaviour
         currentHealth += amount;
         if (currentHealth <= 0)
         {
-            //call game for death
+            game.KillCharacter(this, team == Card.TargetType.Ally);
+            gameObject.SetActive(false);
         }
         Debug.Log("New Health " + currentHealth.ToString());
     }
     public void ChangeArmor(int amount)
     {
-        currentArmor += amount;
+        currentArmor = Mathf.Clamp(currentArmor + amount, 0, 100);
         Debug.Log("New Armor " + currentArmor.ToString());
     }
    
@@ -134,7 +135,7 @@ public class Character : MonoBehaviour
         currentEnergy = Mathf.Clamp(currentEnergy + amount, 0, stats.energy);
         if (currentEnergy <= 0)
         {
-            game.EndAllyTurn(new List<Card>());
+            game.UpdateTurn(new List<Card>());
         }
         Debug.Log("New Energy " + currentEnergy.ToString());
     }
@@ -165,7 +166,8 @@ public class Character : MonoBehaviour
                 game.inputControl.disableInput = false;
                 if (currentEnergy == 0)
                 {
-                    game.EndAllyTurn(new List<Card>());
+                    //game.endallyturn;
+                    game.UpdateTurn(new List<Card>());
                 }
             }
         }

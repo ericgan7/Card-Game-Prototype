@@ -159,17 +159,12 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         destination = discardLocation;
         transform.localPosition = discardLocation;
         game.currentCharacter.ChangeEnergy(-cardData.energyCost);
+        GetComponent<Animator>().enabled = false;
         isCardDrawn = false;
     }
 
     public void Play()
     {
         game.PlayAction();
-    }
-
-    public void End()
-    {
-        Debug.Log("TRY");
-        GetComponent<Animator>().enabled = false;
     }
 }
