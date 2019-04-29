@@ -14,13 +14,22 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         //VD.LoadDialogues();
-        story = GetComponent<VIDE_Assign>();
+        GM gm = FindObjectOfType<GM>();
+        if (gm != null)
+        {
+            story = gm.GetComponent<VIDE_Assign>();
+        }
+        else {
+            story = GetComponent<VIDE_Assign>();
+        }
+        //VD.LoadDialogues();
         Begin();
+    
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0))
         {
             if (!VD.isActive)
             {

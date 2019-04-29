@@ -273,12 +273,19 @@ public class MapController : MonoBehaviour
         return location.x >= 0 && location.x < mapx && location.y >= 0 && location.y < mapy;
     }
     //TO DO: update character location maps during movement.
-    public void UpdateCharacterMap(Character movedCharacter, Vector3Int newLocation)
+    public void MoveCharacter(Character movedCharacter, Vector3Int newLocation)
     {
         Vector3Int previous = previousCharacterLocations[movedCharacter];
         characterLocations[previous.x, previous.y] = null;
         characterLocations[newLocation.x, newLocation.y] = movedCharacter;
         previousCharacterLocations[movedCharacter] = newLocation;
 
+    }
+
+    public void RemoveCharacter(Character removedCharacter)
+    {
+        Vector3Int location = previousCharacterLocations[removedCharacter];
+        characterLocations[location.x, location.y] = null;
+        previousCharacterLocations.Remove(removedCharacter);
     }
 }
