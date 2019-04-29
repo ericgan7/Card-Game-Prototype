@@ -17,7 +17,7 @@ MonoBehaviour:
   Defend: {fileID: 21300000, guid: 9e7b46d30e5aba1449ccda096c69c82d, type: 3}
   Hurt: {fileID: 21300000, guid: 9e7b46d30e5aba1449ccda096c69c82d, type: 3}
   characterName: Giraffe
-  health: 10
+  health: 2
   energy: 2
   speed: 2
   armor: 5
