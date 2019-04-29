@@ -11,6 +11,7 @@ using TMPro;
 
 public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
+    public RewardsController rewardsController;
     public GameController game;
     public Card cardData;
     public Vector3 destination;
@@ -85,6 +86,11 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         if (keepingMode)
         {
             game.hand.SelectCardToKeep(this);
+        }
+        if (rewardsController)
+        {
+            var currCharacter = rewardsController.allies[rewardsController.allyIndex];
+            rewardsController.AddCardToCharacter(currCharacter, cardData);
         }
     }
 

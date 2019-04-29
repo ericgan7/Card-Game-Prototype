@@ -1524,6 +1524,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 109382402aaac9c4bb5579e31c790629,
         type: 2}
+    - target: {fileID: 1632639814436137790, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: rewardsController
+      value: 
+      objectReference: {fileID: 75618500}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fb7aad5bc11361458e19f2cf49eea06, type: 3}
 --- !u!224 &993928742 stripped
@@ -1914,6 +1919,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 152098fe985d6a844a1540ad108cf25d,
         type: 2}
+    - target: {fileID: 1632639814436137790, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: rewardsController
+      value: 
+      objectReference: {fileID: 75618500}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fb7aad5bc11361458e19f2cf49eea06, type: 3}
 --- !u!224 &1227292184 stripped
@@ -2242,6 +2252,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: b55c2e5000368a8479c437cd19fe178d,
         type: 2}
+    - target: {fileID: 1632639814436137790, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: rewardsController
+      value: 
+      objectReference: {fileID: 75618500}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fb7aad5bc11361458e19f2cf49eea06, type: 3}
 --- !u!224 &1320754019 stripped

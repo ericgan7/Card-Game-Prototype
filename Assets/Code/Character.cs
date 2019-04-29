@@ -204,4 +204,9 @@ public class Character : MonoBehaviour
         hasMoved = false;
         currentEnergy = stats.energy;
     }
+
+    public void AddCardToDeck(Card c)
+    {
+        deck.Add(c);
+    }
 }
