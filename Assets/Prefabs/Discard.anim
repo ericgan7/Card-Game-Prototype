@@ -136,7 +136,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.3333334
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -242,14 +242,6 @@ AnimationClip:
   m_Events:
   - time: 1
     functionName: Reset
-    data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 37bfb282758895a4a9212bb20dc78d3e,
-      type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.3333334
-    functionName: End
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 37bfb282758895a4a9212bb20dc78d3e,
       type: 3}
