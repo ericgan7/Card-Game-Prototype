@@ -153,12 +153,18 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             game.UnHiglightTarget(1);
         }
     }
-
+    //Only call at the end of card playing animation.
     public void Reset()
     {
-        GetComponent<Animator>().enabled = false;
         destination = discardLocation;
         transform.localPosition = discardLocation;
+        game.currentCharacter.ChangeEnergy(-cardData.energyCost);
+        GetComponent<Animator>().enabled = false;
         isCardDrawn = false;
+    }
+
+    public void Play()
+    {
+        game.PlayAction();
     }
 }

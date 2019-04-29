@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47fdee377a0c1114d9aec68bee2aeeba, type: 3}
+  m_Name: GiraffeSnek
+  m_EditorClassIdentifier: 
+  portrait: {fileID: 21300000, guid: 45c382c9ec0ef95448eea0cf0c98fa95, type: 3}
+  Attack: {fileID: 21300000, guid: 35f1e5ed976919f41ba404bb5a8d0d9f, type: 3}
+  Defend: {fileID: 21300000, guid: 9e7b46d30e5aba1449ccda096c69c82d, type: 3}
+  Hurt: {fileID: 21300000, guid: 9e7b46d30e5aba1449ccda096c69c82d, type: 3}
+  characterName: Giraffe
+  health: 2
+  energy: 2
+  speed: 2
+  armor: 5
+  damage: 5
+  cards:
+  - {fileID: 11400000, guid: 393288825015eeb45a24a31b08b8d4f2, type: 2}
+  - {fileID: 11400000, guid: 393288825015eeb45a24a31b08b8d4f2, type: 2}
+  - {fileID: 11400000, guid: 393288825015eeb45a24a31b08b8d4f2, type: 2}
+  - {fileID: 11400000, guid: 393288825015eeb45a24a31b08b8d4f2, type: 2}
+  - {fileID: 11400000, guid: 393288825015eeb45a24a31b08b8d4f2, type: 2}
+  moveableTiles: 

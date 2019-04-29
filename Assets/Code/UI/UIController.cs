@@ -23,6 +23,7 @@ public class UIController : MonoBehaviour
     public Image[] turnOrder;
 
     public RadialMenu radialOptions;
+    public ActionPanel ap;
 
     //when a new character is selected. Not currently used anywhere yet.
     public void SelectCharacter(Character c)
@@ -67,5 +68,10 @@ public class UIController : MonoBehaviour
     public void FixedUpdate()
     {
         UpdateStats();
+    }
+
+    public void PlayAction(List<Sprite> anim, bool allyAttacker)
+    {
+        ap.Set(anim, allyAttacker);
     }
 }

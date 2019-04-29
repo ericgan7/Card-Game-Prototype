@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VIDE_Data;
+using UnityEngine.SceneManagement;
+
 public class GM : MonoBehaviour
 {
 
@@ -29,7 +31,7 @@ public class GM : MonoBehaviour
 
     }
     public void startGame(int lv) {
-        Application.LoadLevel("Main");
+        SceneManager.LoadScene("Main");
     }
     
     public void quit() {

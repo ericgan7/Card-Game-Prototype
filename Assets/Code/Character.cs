@@ -45,6 +45,11 @@ public class Character : MonoBehaviour
         currentDamage = stats.damage;
         currentArmor = stats.armor;
         statusEffects = new List<Effect>();
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        sr.sprite = stats.portrait;
+        var bounds = sr.sprite.bounds;
+        float factor = 1.3f / bounds.size.y;
+        transform.localScale = new Vector3(factor, factor, factor);
         deck = new List<Card>(stats.cards);
         hand = new List<Card>();
         RefillHand(new List<Card>());
@@ -114,19 +119,24 @@ public class Character : MonoBehaviour
         currentHealth += amount;
         if (currentHealth <= 0)
         {
-            //call game for death
+            game.KillCharacter(this, team == Card.TargetType.Ally);
+            gameObject.SetActive(false);
         }
         Debug.Log("New Health " + currentHealth.ToString());
     }
     public void ChangeArmor(int amount)
     {
-        currentArmor += amount;
+        currentArmor = Mathf.Clamp(currentArmor + amount, 0, 100);
         Debug.Log("New Armor " + currentArmor.ToString());
     }
-
+   
     public void ChangeEnergy(int amount)
     {
         currentEnergy = Mathf.Clamp(currentEnergy + amount, 0, stats.energy);
+        if (currentEnergy <= 0)
+        {
+            game.UpdateTurn(new List<Card>());
+        }
         Debug.Log("New Energy " + currentEnergy.ToString());
     }
 
@@ -156,7 +166,8 @@ public class Character : MonoBehaviour
                 game.inputControl.disableInput = false;
                 if (currentEnergy == 0)
                 {
-                    game.EndAllyTurn(new List<Card>());
+                    //game.endallyturn;
+                    game.UpdateTurn(new List<Card>());
                 }
             }
         }

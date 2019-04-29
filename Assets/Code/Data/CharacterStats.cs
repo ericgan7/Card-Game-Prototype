@@ -10,6 +10,9 @@ using UnityEngine;
 public class CharacterStats : ScriptableObject
 {
     public Sprite portrait;
+    public Sprite Attack;
+    public Sprite Defend;
+    public Sprite Hurt;
     public string characterName;
     public int health;
     public int energy;
