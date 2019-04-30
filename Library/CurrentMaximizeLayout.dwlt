@@ -633,7 +633,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Code/Data
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:

@@ -633,7 +633,7 @@ MonoBehaviour:
     ID: 18
     rect:
       serializedVersion: 2
-      x: 6100
+      x: 6110
       y: -90
       width: 349
       height: 194
@@ -1125,8 +1125,8 @@ MonoBehaviour:
     ID: 36
     rect:
       serializedVersion: 2
-      x: 2200
-      y: 160
+      x: 2140
+      y: 150
       width: 349
       height: 155
     pTag: 
@@ -1324,7 +1324,7 @@ MonoBehaviour:
       extraData: ExtraData
       inputSetIndex: 41
       outputNodeIndex: -1
-      outActionIndex: 2
+      outActionIndex: 8
       showmore: 0
       outRect:
         serializedVersion: 2
@@ -1663,7 +1663,7 @@ MonoBehaviour:
       extraData: ExtraData
       inputSetIndex: 52
       outputNodeIndex: -1
-      outActionIndex: 3
+      outActionIndex: 2
       showmore: 0
       outRect:
         serializedVersion: 2
@@ -1874,7 +1874,7 @@ MonoBehaviour:
       extraData: ExtraData
       inputSetIndex: 59
       outputNodeIndex: -1
-      outActionIndex: 4
+      outActionIndex: 3
       showmore: 0
       outRect:
         serializedVersion: 2
@@ -2326,7 +2326,7 @@ MonoBehaviour:
       extraData: ExtraData
       inputSetIndex: 74
       outputNodeIndex: -1
-      outActionIndex: 6
+      outActionIndex: 5
       showmore: 0
       outRect:
         serializedVersion: 2
@@ -2522,7 +2522,7 @@ MonoBehaviour:
       extraData: ExtraData
       inputSetIndex: 80
       outputNodeIndex: -1
-      outActionIndex: 5
+      outActionIndex: 4
       showmore: 0
       outRect:
         serializedVersion: 2
@@ -2738,7 +2738,7 @@ MonoBehaviour:
       extraData: ExtraData
       inputSetIndex: 87
       outputNodeIndex: -1
-      outActionIndex: 7
+      outActionIndex: 6
       showmore: 0
       outRect:
         serializedVersion: 2
@@ -2768,7 +2768,7 @@ MonoBehaviour:
       extraData: ExtraData
       inputSetIndex: 88
       outputNodeIndex: -1
-      outActionIndex: 8
+      outActionIndex: 7
       showmore: 0
       outRect:
         serializedVersion: 2
@@ -2794,15 +2794,21 @@ MonoBehaviour:
     isPlayer: 0
   S_actionNodes:
   - pauseHere: 0
-    gameObjectName: '[No object]'
-    methodName: '[No method]'
-    nameIndex: 0
-    methodIndex: 0
-    paramIndex: -1
+    gameObjectName: GM
+    methodName: startGame
+    nameIndex: 1
+    methodIndex: 3
+    paramIndex: 3
     opts:
     - '[No method]'
+    - startDialogue
+    - setupChar
+    - startGame
+    - quit
     nameOpts:
     - '[No object]'
+    - GM
+    - UIMANAGER
     param_bool: 0
     param_string: 
     param_int: 0
@@ -2812,7 +2818,7 @@ MonoBehaviour:
       x: 10260
       y: -70
       width: 200
-      height: 158
+      height: 176
     ID: 30
     outPlayerIndex: -1
     outActionIndex: -1
@@ -2843,32 +2849,6 @@ MonoBehaviour:
       height: 158
     ID: 35
     outPlayerIndex: 34
-    outActionIndex: -1
-    more: 0
-    ovrStartNode: -1
-    renameDialogue: 
-  - pauseHere: 0
-    gameObjectName: '[No object]'
-    methodName: '[No method]'
-    nameIndex: 0
-    methodIndex: 0
-    paramIndex: -1
-    opts:
-    - '[No method]'
-    nameOpts:
-    - '[No object]'
-    param_bool: 0
-    param_string: 
-    param_int: 0
-    param_float: 0
-    rect:
-      serializedVersion: 2
-      x: 5290
-      y: 160
-      width: 200
-      height: 158
-    ID: 44
-    outPlayerIndex: -1
     outActionIndex: -1
     more: 0
     ovrStartNode: -1
@@ -3024,6 +3004,46 @@ MonoBehaviour:
       width: 200
       height: 158
     ID: 97
+    outPlayerIndex: -1
+    outActionIndex: -1
+    more: 0
+    ovrStartNode: -1
+    renameDialogue: 
+  - pauseHere: 0
+    gameObjectName: GM
+    methodName: startGame
+    nameIndex: 1
+    methodIndex: 4
+    paramIndex: 3
+    opts:
+    - '[No method]'
+    - Next
+    - startDialogue
+    - setupChar
+    - startGame
+    - loadDialogue
+    - quit
+    - GetAssigned
+    - AssignNew
+    - SaveState
+    - LoadState
+    - OnBeforeSerialize
+    - OnAfterDeserialize
+    nameOpts:
+    - '[No object]'
+    - GM
+    - UIMANAGER
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    rect:
+      serializedVersion: 2
+      x: 5260
+      y: 160
+      width: 200
+      height: 176
+    ID: 44
     outPlayerIndex: -1
     outActionIndex: -1
     more: 0

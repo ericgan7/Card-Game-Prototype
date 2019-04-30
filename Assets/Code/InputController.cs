@@ -166,6 +166,7 @@ public class InputController : MonoBehaviour
 
 
     //Handles movement selection for current Character. TODO: Add traveled path to target map and disallow backtracking?
+    //TODO: Known bug with reseting previous location. Unkown how to fix yet.
     void CheckMovement(RaycastHit hit)
     {
         Vector3Int location = game.map.WorldToCellSpace(hit.point);

@@ -149,7 +149,7 @@ public class Character : MonoBehaviour
             {
                 if (Vector3.Distance(transform.localPosition, destinations[destinations.Count - 1]) < 0.01f)
                 {
-                    game.map.UpdateCharacterMap(this, destinations[destinations.Count - 1]);
+                    game.map.MoveCharacter(this, destinations[destinations.Count - 1]);
                     destinations.RemoveAt(destinations.Count - 1);
                     startLocation = transform.localPosition;
                     elapsed = 0f;

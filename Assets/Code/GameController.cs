@@ -156,17 +156,21 @@ public class GameController : MonoBehaviour
         List<Character> turnq;
         if (isAlly)
         {
-            //Roll back queue status one turn so we can rebuild it.
-            //The queue is cyclical, so order is maintained and the last element is the most recent character.
             turnq = allyTurn.ToList();
         }
         else
         {
             turnq = enemyTurn.ToList();
         }
-        turnq.Insert(0, turnq[turnq.Count - 1]);
+        // Roll back queue status one turn so we can rebuild it.
+            //The queue is cyclical, so order is maintained and the last element is the most recent character for turn ordering
+        Character temp = turnq[turnq.Count - 1];
+        turnq.Remove(temp);
+        turnq.Insert(0, temp);
         //remove dead from queue
+        Debug.Log(turnq.Count);
         turnq.Remove(c);
+        Debug.Log(turnq.Count);
         if (isAlly)
         {
             allyTurn.Clear();
@@ -175,7 +179,10 @@ public class GameController : MonoBehaviour
             {
                 allyTurn.Enqueue(t);
             }
+            //restore order - might need to be changed if dead character was first - more testing needed;
+            allyTurn.Enqueue(allyTurn.Dequeue());
         }
+        //mirror for enemy
         else
         {
             enemyTurn.Clear();
@@ -183,6 +190,7 @@ public class GameController : MonoBehaviour
             {
                 enemyTurn.Enqueue(t);
             }
+            enemyTurn.Enqueue(enemyTurn.Dequeue());
         }
         //rebuild turns by replacement
         int start = 1;
@@ -196,7 +204,25 @@ public class GameController : MonoBehaviour
             turns[i] = turnq[j];
             j = (j + 1) % turnq.Count;
         }
+        map.RemoveCharacter(c);
         ui.UpdateTurns(turns);
+    }
+
+    public void GameOver()
+    {
+        GM progress = FindObjectOfType<GM>();
+        progress.Next();
+        progress.loadDialogue();
+        gameover = false;
+
+    }
+    public bool gameover = false;
+    public void Update()
+    {
+        if (gameover)
+        {
+            GameOver();
+        }
     }
 
 }
