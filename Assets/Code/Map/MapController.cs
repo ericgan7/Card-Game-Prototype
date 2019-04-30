@@ -82,6 +82,14 @@ public class MapController : MonoBehaviour
             targets.Clear();
         }
     }
+    //Highlights recorded movement path for character, before confirmation.
+    public void TargetPath(List<Vector3Int> path, HighlightTiles.TileType type)
+    {
+        foreach(Vector3Int l in path)
+        {
+            targets.ChangeTile(l, type);
+        }
+    }
     //clears out target highlights.
     public void ClearTarget()
     {

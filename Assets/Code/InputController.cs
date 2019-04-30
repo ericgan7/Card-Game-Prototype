@@ -176,6 +176,7 @@ public class InputController : MonoBehaviour
             mode = InputMode.None;
             game.currentCharacter.Move();
             game.map.ClearHighlight();
+            game.map.ClearTarget();
             previousTile = new Vector3Int(-1, -1, -1);
         }
         // Invalid MovementInput
@@ -200,6 +201,7 @@ public class InputController : MonoBehaviour
             }
             game.map.ClearHighlight();
             game.map.Highlight(game.currentCharacter.destinations[0], game.currentCharacter.GetSpeed(), HighlightTiles.TileType.Move, game.currentCharacter.stats.moveableTiles);
+            game.map.TargetPath(game.currentCharacter.destinations, HighlightTiles.TileType.Path);
         }
     }
 }
