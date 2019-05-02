@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Effect", menuName = "Effect/LoseEnergy")]
+[CreateAssetMenu(fileName = "New Effect", menuName = "Effect/BoostCurrEnergy")]
 public class BoostCurrEnergyEffect : Effect
 {
     public int amount;

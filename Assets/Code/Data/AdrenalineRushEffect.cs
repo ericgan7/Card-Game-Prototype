@@ -11,7 +11,7 @@ public class AdrenalineRushEffect : AttackEffect
         var dmg = base.Apply(origin, target);
         if(target.GetHealth()[0] == 0)
         {
-            target.ChangeEnergy(target.GetEnergy()[0] + amount);
+            target.ChangeEnergy(amount);
         }
         return dmg;
     }

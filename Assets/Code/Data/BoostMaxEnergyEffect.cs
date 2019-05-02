@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Effect", menuName = "Effect/BoostEnergy")]
+[CreateAssetMenu(fileName = "New Effect", menuName = "Effect/BoostMaxEnergy")]
 public class BoostMaxEnergyEffect : Effect
 {
     public int amount;
