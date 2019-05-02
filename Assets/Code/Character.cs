@@ -28,7 +28,7 @@ public class Character : MonoBehaviour
     float elapsed;
     Vector3 offset;
 
-    int startingHand = 5;
+    public int startingHand = 5;
     GameController game;
     bool isMoving;
     public bool hasMoved;
@@ -143,6 +143,11 @@ public class Character : MonoBehaviour
         }
         Debug.Log("New Energy " + currentEnergy.ToString());
         return amount;
+    }
+
+    public void ChangeDamage(int amount)
+    {
+        currentDamage = amount;
     }
 
     //Update function controls movement of character across grid.
