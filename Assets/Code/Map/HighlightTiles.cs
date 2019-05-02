@@ -17,7 +17,7 @@ public class HighlightTiles : MonoBehaviour
 
     public enum TileType
     {
-        None, Move, Attack, Target, Buff
+        None, Move, Attack, Target, Buff, Path
     }
 
     public Tile[] tiles;
