@@ -14,8 +14,14 @@ public class InputController : MonoBehaviour
     public int xCameraMovementBuffer;
     public int yCameraMovementBuffer;
     public float cameraMovespeed;
+    public float centerTime;
+    public Vector3 offset;
 
     Vector3Int previousTile;
+    float elapsed;
+    bool cameraControls;
+    Vector3 destination;
+    Vector3 origin;
 
     public enum InputMode
     {
@@ -31,6 +37,8 @@ public class InputController : MonoBehaviour
         mode = InputMode.None;
         previousTile = new Vector3Int(-1, -1, -1);
         disableInput = false;
+        elapsed = 0f;
+        cameraControls = true;
     }
 
     void Update()
@@ -40,7 +48,22 @@ public class InputController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //CameraMovement();
+        if (cameraControls)
+        {
+            CameraMovement();
+        }
+        else
+        {
+            if (elapsed < centerTime)
+            {
+                elapsed += Time.deltaTime;
+                Camera.main.transform.localPosition = Vector3.Lerp(origin, destination, elapsed / centerTime);
+            }
+            else
+            {
+                cameraControls = true;
+            }
+        }
     }
 
     public void SetInput(InputMode m)
@@ -151,6 +174,15 @@ public class InputController : MonoBehaviour
             t.y -= cameraMovespeed;
             Camera.main.transform.position = t;
         }
+    }
+
+    public void CenterCamera(Vector3 position)
+    {
+        elapsed = 0f;
+        cameraControls = false;
+        position += offset;
+        destination = position;
+        origin = Camera.main.transform.localPosition;
     }
 
     void ResetInputState()

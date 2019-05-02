@@ -19,7 +19,6 @@ public class GameController : MonoBehaviour
 
     Vector3Int selectedMovementLocation;
     public Character currentCharacter;
-
     public List<Sprite> anim;
 
     private void Start()
@@ -132,6 +131,9 @@ public class GameController : MonoBehaviour
         currentCharacter = turns[0];
         ui.UpdateTurns(turns);
         hand.DrawCurrentCards(currentCharacter);
+        Vector3 p = map.WorldToCellSpace(currentCharacter.transform.position);
+        p.z = Camera.main.transform.localPosition.z;
+        inputControl.CenterCamera(p);
     }
     //TODO AI action
     public void EnemyTurn()
