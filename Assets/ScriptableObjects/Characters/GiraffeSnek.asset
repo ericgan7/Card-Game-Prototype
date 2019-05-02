@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: GiraffeSnek
   m_EditorClassIdentifier: 
   portrait: {fileID: 21300000, guid: 45c382c9ec0ef95448eea0cf0c98fa95, type: 3}
-  Attack: {fileID: 21300000, guid: 35f1e5ed976919f41ba404bb5a8d0d9f, type: 3}
-  Defend: {fileID: 21300000, guid: 9e7b46d30e5aba1449ccda096c69c82d, type: 3}
-  Hurt: {fileID: 21300000, guid: 9e7b46d30e5aba1449ccda096c69c82d, type: 3}
+  spriteNames:
+  - attack
+  - defend
+  - hurt
+  sprites:
+  - {fileID: 21300000, guid: 35f1e5ed976919f41ba404bb5a8d0d9f, type: 3}
+  - {fileID: 21300000, guid: 9e7b46d30e5aba1449ccda096c69c82d, type: 3}
+  - {fileID: 21300000, guid: 9e7b46d30e5aba1449ccda096c69c82d, type: 3}
   characterName: Giraffe
   health: 2
   energy: 2

@@ -13,10 +13,12 @@ public class Card : ScriptableObject
     public string description;
     public Sprite art;
     public int energyCost;
+
     public Effect[] effects;
+    public string spriteName;
     public enum EffectType
     {
-        Single, Area, Chain
+        Targetable, Nontargetable
     }
     public enum TargetType
     {
@@ -28,17 +30,23 @@ public class Card : ScriptableObject
     public int targetRange;
     public int effectRange;
 
-    public List<Sprite> Play(Character origin, List<Character> targets)
+    virtual public List<Effect.EffectResult> Play(Character origin, List<Character> targets)
     {
-        List<Sprite> anim = new List<Sprite> { origin.stats.Attack };
+        List<Effect.EffectResult> results = new List<Effect.EffectResult>();
+        Effect.EffectResult r = new Effect.EffectResult();
+        r.sprite = origin.stats.GetSprite(spriteName);
+        results.Add(r);
         foreach (Character c in targets)
         {
             foreach( Effect e in effects)
             {
-                e.Apply(origin, c);
+                Effect.EffectResult result = e.Apply(origin, c);
+                if (result.effect != null)
+                {
+                    results.Add(result);
+                }
             }
-            anim.Add(c.stats.Hurt);
         }
-        return anim;
+        return results;
     }
 }

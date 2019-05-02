@@ -18,6 +18,7 @@ MonoBehaviour:
   energyCost: 1
   effects:
   - {fileID: 11400000, guid: 6715551f976a80b44a3650c4830075c9, type: 2}
+  spriteName: attack
   etype: 0
   targetsTypes: 02000000
   targetRange: 4

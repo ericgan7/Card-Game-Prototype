@@ -57,9 +57,6 @@ public class DialoguePanel : MonoBehaviour
             dm.Choose(choiceIndex);
         });
         RectTransform rt = choice.GetComponent<RectTransform>();
-        Debug.Log(rt);
-        Debug.Log(dialoguePos);
-        Debug.Log(buttonPos);
         rt.anchoredPosition = new Vector2(25f, dialoguePos.anchoredPosition.y - dialoguePos.sizeDelta.y / 2 - 5f - buttons.Count * buttonPos.sizeDelta.y);
         buttons.Add(choice);
         return choice;

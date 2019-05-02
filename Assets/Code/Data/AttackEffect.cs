@@ -7,8 +7,14 @@ public class AttackEffect : Effect
 {
     public float multiplier;
 
-    public override void Apply(Character origin, Character target)
+    public override EffectResult Apply(Character origin, Character target)
     {
-        target.ChangeHealth((Mathf.Min(0, -(int)(origin.GetDamage() * multiplier)+target.GetArmor())));
+        EffectResult result = new EffectResult();
+        result.color = color;
+        int damage = (Mathf.Min(0, -(int)(origin.GetDamage() * multiplier) + target.GetArmor()));
+        result.effect = damage.ToString();
+        result.sprite = target.stats.GetSprite("hurt");
+        target.ChangeHealth(damage);
+        return result;
     }
 }

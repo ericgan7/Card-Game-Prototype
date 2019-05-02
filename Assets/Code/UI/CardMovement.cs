@@ -27,7 +27,8 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public bool keepingMode;
     public bool isCardDrawn;
-    
+
+    RectTransform hand;
 
     public void Start()
     {
@@ -38,6 +39,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         isCardDrawn = false;
         game = FindObjectOfType<GameController>();
         cameraSize = new Vector2(Camera.main.scaledPixelWidth / 2, 0);
+        hand = transform.parent.gameObject.GetComponent<RectTransform>();
     }
 
     //Set position, used to draw from deck into hand.
@@ -61,7 +63,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void FixedUpdate()
     {
         transform.localPosition = Vector3.Lerp(transform.localPosition, destination, Time.deltaTime * speed);
-        transform.localScale = Vector3.Slerp(transform.localScale, targetScale, Time.deltaTime * speed);
+        //transform.localScale = Vector3.Slerp(transform.localScale, targetScale, Time.deltaTime * speed);
     }
     //Mouseover card. Should highlight potential effects. TODO: Zoom in card for better detail.
     public void OnPointerEnter(PointerEventData p)
@@ -106,15 +108,25 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             return;
         }
-        destination = transform.parent.InverseTransformPoint(Camera.main.ScreenToViewportPoint(p.position));
-        destination.z = -2f;
+        //if untargetable, will always follow the mouse, since it does not need to be targeted on a specific target.
+        Vector3 mousepos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Vector3.Distance(Camera.main.transform.position, transform.position)));
+        destination = transform.parent.InverseTransformPoint(mousepos);
         game.ui.DeactivateRadialMenu();
         game.inputControl.SetInput(InputController.InputMode.Card);
-        Ray mouseClick = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(mouseClick, out hit))
+        //if targetables
+        if (cardData.etype == Card.EffectType.Targetable)
         {
-            game.map.Target(hit.point, cardData.etype, cardData.effectRange, HighlightTiles.TileType.Target, new List<Card.TargetType>(cardData.targetsTypes));
+            if (destination.y > hand.sizeDelta.y)
+            {
+                Debug.Log("PLAYABLE");
+            }
+         
+            Ray mouseClick = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(mouseClick, out hit))
+            {
+                game.map.Target(hit.point, cardData.etype, cardData.effectRange, HighlightTiles.TileType.Target, new List<Card.TargetType>(cardData.targetsTypes));
+            }
         }
     }
     //TODO should detect if card is playable and above a threshold (if card is returned to hand, should not be played)

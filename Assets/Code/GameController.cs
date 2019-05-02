@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
     Vector3Int selectedMovementLocation;
     public Character currentCharacter;
 
-    public List<Sprite> anim;
+    public List<Effect.EffectResult> results;
 
     private void Start()
     {
@@ -30,6 +30,7 @@ public class GameController : MonoBehaviour
         allyTurn = new Queue<Character>(allies);
         enemyTurn = new Queue<Character>(enemies);
         StartGame();
+        results = new List<Effect.EffectResult>();
     }
 
     public void PopulateTurns(bool allyFirst)
@@ -81,7 +82,7 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("Cast Card");
         bool success = false;
-        anim.Clear();
+        results.Clear();
         if (cardPlayed.targetsTypes.Contains(Card.TargetType.Ground))
         {
             // Allows Ground targeting for traps
@@ -89,11 +90,10 @@ public class GameController : MonoBehaviour
         else
         {
             List<Character> targets = map.targets.GetTargets();
-            Debug.Log(targets.Count);
             if (targets.Count > 0 && currentCharacter.HasEnergy())
             {
                 success = true;
-                anim = cardPlayed.Play(currentCharacter, targets);
+                results = cardPlayed.Play(currentCharacter, targets);
                 //Energy Cost will be deducted at the end of the card animation.
             }
         }
@@ -148,7 +148,7 @@ public class GameController : MonoBehaviour
 
     public void PlayAction()
     {
-        ui.PlayAction(anim, currentCharacter.team == Card.TargetType.Ally);
+        ui.PlayAction(results, currentCharacter.team == Card.TargetType.Ally);
     }
 
     public void KillCharacter(Character c, bool isAlly)
@@ -168,9 +168,7 @@ public class GameController : MonoBehaviour
         turnq.Remove(temp);
         turnq.Insert(0, temp);
         //remove dead from queue
-        Debug.Log(turnq.Count);
         turnq.Remove(c);
-        Debug.Log(turnq.Count);
         if (isAlly)
         {
             allyTurn.Clear();

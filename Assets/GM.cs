@@ -32,21 +32,29 @@ public class GM : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;
-        DontDestroyOnLoad(this.gameObject);
-        nodes = new List<int> { 0, 1, 2, 3, 65 };
-        menu = true;
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+            nodes = new List<int> { 20, 1, 36, 2, 3, 65 };
+            menu = true;
+        }
     }
     public void setupChar(int chara) {
 
     }
-    public void startGame(int lv) {
+    public void startGame() {
         SceneManager.LoadScene("Main");
         menu = false;
     }
     public void loadDialogue()
     {
         SceneManager.LoadScene("Dialogue");
+        Debug.Log(index);
         VA.overrideStartNode = nodes[index];
     }
     
@@ -54,6 +62,7 @@ public class GM : MonoBehaviour
         Application.Quit();
     }
     // Update is called once per frame
+    /*
     void Update()
     {
         if (VD.isActive && Input.GetKeyUp(KeyCode.Space) && menu){
@@ -62,4 +71,5 @@ public class GM : MonoBehaviour
         }
 
     }
+    */
 }

@@ -70,8 +70,8 @@ public class UIController : MonoBehaviour
         UpdateStats();
     }
 
-    public void PlayAction(List<Sprite> anim, bool allyAttacker)
+    public void PlayAction(List<Effect.EffectResult> results, bool allyAttacker)
     {
-        ap.Set(anim, allyAttacker);
+        ap.Set(results, allyAttacker);
     }
 }
