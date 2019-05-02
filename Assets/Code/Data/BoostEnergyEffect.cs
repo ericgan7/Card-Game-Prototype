@@ -6,8 +6,9 @@ using UnityEngine;
 public class BoostEnergyEffect : Effect
 {
     public int amount;
-    public override void Apply(Character origin, Character target)
+    public override int Apply(Character origin, Character target)
     {
         target.ChangeEnergy(target.GetEnergy()[1] + 1);
+        return 0;
     }
 }

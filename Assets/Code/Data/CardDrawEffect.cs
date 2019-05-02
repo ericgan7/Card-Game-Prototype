@@ -8,11 +8,12 @@ public class CardDrawEffect : Effect
     public int cardDraw;
 
     // Any effect that results in card draws
-    public override void Apply(Character origin, Character target)
+    public override int Apply(Character origin, Character target)
     {
         for(var i = 0; i < cardDraw; ++i)
         {
             target.DrawRandom();
         }
+        return cardDraw;
     }
 }

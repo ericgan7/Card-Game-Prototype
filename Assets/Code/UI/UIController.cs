@@ -24,6 +24,12 @@ public class UIController : MonoBehaviour
 
     public RadialMenu radialOptions;
     public ActionPanel ap;
+    public BezierCurve curve;
+
+    private void Start()
+    {
+        curve = GetComponent<BezierCurve>();
+    }
 
     //when a new character is selected. Not currently used anywhere yet.
     public void SelectCharacter(Character c)
@@ -74,4 +80,5 @@ public class UIController : MonoBehaviour
     {
         ap.Set(results, allyAttacker);
     }
+
 }

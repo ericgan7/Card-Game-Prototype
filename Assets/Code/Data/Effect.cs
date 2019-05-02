@@ -18,7 +18,7 @@ public class Effect : ScriptableObject
     }
     public Color color;
     //initial application of effect
-    public virtual EffectResult Apply(Character origin, Character target) { return new EffectResult { effect = null }; }
+    public virtual int Apply(Character origin, Character target) { return 0; }
 
     //triggers for effects that apply over multiple turns
     public virtual void OnTurnStart(Character target) { }

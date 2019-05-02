@@ -6,8 +6,9 @@ public class BoostAttackEffect : Effect
 {
     public int increase;
 
-    public override void Apply(Character origin, Character target)
+    public override int Apply(Character origin, Character target)
     {
         target.ChangeDamage(target.GetDamage() + increase);
+        return increase;
     }
 }

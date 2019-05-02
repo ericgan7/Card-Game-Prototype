@@ -40,11 +40,7 @@ public class Card : ScriptableObject
         {
             foreach( Effect e in effects)
             {
-                Effect.EffectResult result = e.Apply(origin, c);
-                if (result.effect != null)
-                {
-                    results.Add(result);
-                }
+                e.Apply(origin, c);
             }
         }
         return results;

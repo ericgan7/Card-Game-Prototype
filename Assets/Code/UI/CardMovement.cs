@@ -29,6 +29,12 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public bool isCardDrawn;
 
     RectTransform hand;
+    public GameObject play;
+    Vector3 playPos;
+
+    public int lineSmoothness;
+    public float lineCurve;
+    LineRenderer line;
 
     public void Start()
     {
@@ -40,6 +46,8 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         game = FindObjectOfType<GameController>();
         cameraSize = new Vector2(Camera.main.scaledPixelWidth / 2, 0);
         hand = transform.parent.gameObject.GetComponent<RectTransform>();
+        playPos = play.transform.localPosition;
+        line = GetComponent<LineRenderer>();
     }
 
     //Set position, used to draw from deck into hand.
@@ -63,7 +71,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void FixedUpdate()
     {
         transform.localPosition = Vector3.Lerp(transform.localPosition, destination, Time.deltaTime * speed);
-        //transform.localScale = Vector3.Slerp(transform.localScale, targetScale, Time.deltaTime * speed);
+        transform.localScale = Vector3.Slerp(transform.localScale, targetScale, Time.deltaTime * speed);
     }
     //Mouseover card. Should highlight potential effects. TODO: Zoom in card for better detail.
     public void OnPointerEnter(PointerEventData p)
@@ -118,7 +126,16 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             if (destination.y > hand.sizeDelta.y)
             {
-                Debug.Log("PLAYABLE");
+                destination = playPos;
+                Vector3 middle = transform.position;
+                middle.y += lineCurve;
+                line.positionCount = lineSmoothness;
+                Vector3[] positions = game.ui.curve.QuadraticCurve(transform.position, middle, mousepos, lineSmoothness);
+                line.SetPositions(positions);
+            }
+            else
+            {
+                line.positionCount = 0;
             }
          
             Ray mouseClick = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -155,7 +172,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         game.inputControl.SetInput(InputController.InputMode.None);
         game.map.ClearHighlight();
         game.map.ClearTarget();
-
+        line.positionCount = 0;
     }
     //helper function to highlight target Tiles;
     public void HighlightRange()

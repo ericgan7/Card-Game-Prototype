@@ -23,6 +23,7 @@ public class ActionPanel : MonoBehaviour
 
     public void Set(List<Effect.EffectResult> r, bool allyAttacker)
     {
+        /*
         gameObject.SetActive(true);
         attacker = allyAttacker;
         results = r;
@@ -38,9 +39,11 @@ public class ActionPanel : MonoBehaviour
             enemy.sprite = r[0].sprite;
             animator.Play("EnemyAttack");
         }
+        */
     }
     public void DisplayText()
     {
+        /*
         RectTransform prt;
         if (attacker)
         {
@@ -59,6 +62,7 @@ public class ActionPanel : MonoBehaviour
             rt.anchoredPosition = new Vector2(prt.anchoredPosition.x, prt.anchoredPosition.y + prt.sizeDelta.y / 3);
             StartCoroutine(MoveText(rt));
         }
+        */
     }
 
     IEnumerator MoveText(RectTransform t)
