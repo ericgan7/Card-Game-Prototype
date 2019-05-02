@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: Cactus
   m_EditorClassIdentifier: 
   portrait: {fileID: 21300000, guid: c438947a01291e34db8ab2df540dc13a, type: 3}
-  Attack: {fileID: 21300000, guid: 9e5eefef3b3fdff40a66f9c9db42ac9e, type: 3}
-  Defend: {fileID: 21300000, guid: 8b547fe9d26af744cb624a90abcbc953, type: 3}
-  Hurt: {fileID: 21300000, guid: 93b2f40e970e7eb4cbee6cd846766f5f, type: 3}
+  spriteNames:
+  - attack
+  - defend
+  - hurt
+  sprites:
+  - {fileID: 21300000, guid: 9e5eefef3b3fdff40a66f9c9db42ac9e, type: 3}
+  - {fileID: 21300000, guid: b125c913cebe86249bbefc6732d811db, type: 3}
+  - {fileID: 21300000, guid: 93b2f40e970e7eb4cbee6cd846766f5f, type: 3}
   characterName: Cactus
   health: 10
   energy: 2

@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df08ded7506b7c04ca8e23454601d109, type: 3}
   m_Name: Defend
   m_EditorClassIdentifier: 
+  color: {r: 0.2932309, g: 0.27033645, b: 0.7075472, a: 1}
   amount: 2

@@ -6,8 +6,13 @@ using UnityEngine;
 public class DefendEffect : Effect
 {
     public int amount;
-    public override void Apply(Character origin, Character target)
+    public override EffectResult Apply(Character origin, Character target)
     {
+        EffectResult result = new EffectResult();
+        result.color = color;
+        result.effect = amount.ToString();
+        result.sprite = origin.stats.GetSprite("defend");
         target.ChangeArmor(amount);
+        return result;
     }
 }

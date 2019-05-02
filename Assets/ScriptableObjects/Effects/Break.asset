@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a25c96397b1882345b9b70e1d0f7ca3d, type: 3}
   m_Name: Break
   m_EditorClassIdentifier: 
+  color: {r: 0.2932309, g: 0.27033645, b: 0.7075472, a: 1}
   amount: 3

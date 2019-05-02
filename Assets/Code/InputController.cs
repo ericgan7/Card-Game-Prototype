@@ -14,6 +14,7 @@ public class InputController : MonoBehaviour
     public int xCameraMovementBuffer;
     public int yCameraMovementBuffer;
     public float cameraMovespeed;
+    public float cameraScrollspeed;
 
     Vector3Int previousTile;
 
@@ -40,7 +41,7 @@ public class InputController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //CameraMovement();
+        CameraMovement();
     }
 
     public void SetInput(InputMode m)
@@ -130,27 +131,25 @@ public class InputController : MonoBehaviour
     //Cmaera controllers. WASD to be addded for keyboard camera control.
     void CameraMovement()
     {
-        Vector3 t = Camera.main.transform.position;
-        if (Input.mousePosition.x > Screen.width - xCameraMovementBuffer)
+        Vector3 t = Camera.main.transform.localPosition;
+        t.z = Mathf.Clamp(t.z + Input.mouseScrollDelta.y * cameraScrollspeed, -40f, -5f);
+        if (Input.mousePosition.x > Screen.width - xCameraMovementBuffer || Input.GetKey(KeyCode.D))
         {
             t.x += cameraMovespeed;
-            Camera.main.transform.position = t;
         }
-        else if (Input.mousePosition.x < xCameraMovementBuffer)
+        else if (Input.mousePosition.x < xCameraMovementBuffer || Input.GetKey(KeyCode.A))
         {
             t.x -= cameraMovespeed;
-            Camera.main.transform.position = t;
         }
-        if (Input.mousePosition.y > Screen.height - yCameraMovementBuffer)
+        if (Input.mousePosition.y > Screen.height - yCameraMovementBuffer || Input.GetKey(KeyCode.W))
         {
             t.y += cameraMovespeed;
-            Camera.main.transform.position = t;
         }
-        else if (Input.mousePosition.y < yCameraMovementBuffer)
+        else if (Input.mousePosition.y < yCameraMovementBuffer || Input.GetKey(KeyCode.S))
         {
             t.y -= cameraMovespeed;
-            Camera.main.transform.position = t;
         }
+        Camera.main.transform.localPosition = t;
     }
 
     void ResetInputState()

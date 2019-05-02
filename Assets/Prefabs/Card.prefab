@@ -336,6 +336,7 @@ MonoBehaviour:
   cost: {fileID: 1632639814918030107}
   keepingMode: 0
   isCardDrawn: 0
+  rb: {fileID: 0}
 --- !u!95 &349228916200333469
 Animator:
   serializedVersion: 3

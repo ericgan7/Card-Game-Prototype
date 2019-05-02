@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+using System;
 
 /// <summary>
 /// Used to hold information about a character, including current deck and starting stats.
@@ -10,9 +12,8 @@ using UnityEngine;
 public class CharacterStats : ScriptableObject
 {
     public Sprite portrait;
-    public Sprite Attack;
-    public Sprite Defend;
-    public Sprite Hurt;
+    public List<string> spriteNames;
+    public Sprite[] sprites;
     public string characterName;
     public int health;
     public int energy;
@@ -24,4 +25,12 @@ public class CharacterStats : ScriptableObject
     public List<Card.TargetType> moveableTiles;
 
     public void AddCard(string cardName) { }
+
+    public Sprite GetSprite(string name)
+    {
+        return sprites[spriteNames.FindIndex(x => x == name)];
+    }
 }
+
+
+

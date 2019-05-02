@@ -65,17 +65,10 @@ public class MapController : MonoBehaviour
     public void Target(Vector3 pos, Card.EffectType cardTag, int area, HighlightTiles.TileType type, List<Card.TargetType> validTypes)
     {
         Vector3Int origin = WorldToCellSpace(pos);
-        if (highlights.Contains(origin)){
-            switch (cardTag)
-            {
-                case Card.EffectType.Single:
-                case Card.EffectType.Area:
-                    targets.FloodFill(origin, area, type, validTypes);
-                    break;
-                case Card.EffectType.Chain:
-                    Chain(origin, type);
-                    break;
-            }
+        if (highlights.Contains(origin))
+        {
+            targets.FloodFill(origin, area, type, validTypes);
+
         }
         else
         {

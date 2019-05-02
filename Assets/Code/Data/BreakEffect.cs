@@ -6,8 +6,14 @@ using UnityEngine;
 public class BreakEffect : Effect
 {
     public int amount;
-    public override void Apply(Character origin, Character target)
+    public override EffectResult Apply(Character origin, Character target)
     {
+        EffectResult result = new EffectResult();
+        result.color = color;
+        result.effect= amount.ToString();
+        result.sprite = target.stats.GetSprite("hurt");
         target.ChangeArmor(-amount);
+        return result;
+
     }
 }

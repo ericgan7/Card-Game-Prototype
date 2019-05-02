@@ -32,7 +32,6 @@ public class CardController : MonoBehaviour
     public void DrawCurrentCards(Character character)
     {
         List<Card> cards = game.currentCharacter.hand;
-        Debug.Log(cards.Count);
         int half = cards.Count / 2;
         float xSeperation = Mathf.Min(width, maxHandLength / half);
         Vector3 leftStart = new Vector3(center.x - xSeperation / 2, center.y - 1);

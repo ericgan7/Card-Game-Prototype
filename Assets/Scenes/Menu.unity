@@ -425,7 +425,7 @@ MonoBehaviour:
   defaultPlayerSprite: {fileID: 0}
   targetManager: {fileID: 0}
   preload: 1
-  notuptodate: 0
+  notuptodate: 1
   startp: 0
   loadtag: 
   langs: []
@@ -1124,7 +1124,7 @@ MonoBehaviour:
       extraData: ExtraData
       inputSetIndex: 41
       outputNodeIndex: -1
-      outActionIndex: 2
+      outActionIndex: 8
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
@@ -1309,7 +1309,7 @@ MonoBehaviour:
       extraData: ExtraData
       inputSetIndex: 52
       outputNodeIndex: -1
-      outActionIndex: 3
+      outActionIndex: 2
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
@@ -1422,7 +1422,7 @@ MonoBehaviour:
       extraData: ExtraData
       inputSetIndex: 59
       outputNodeIndex: -1
-      outActionIndex: 4
+      outActionIndex: 3
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
@@ -1664,7 +1664,7 @@ MonoBehaviour:
       extraData: ExtraData
       inputSetIndex: 74
       outputNodeIndex: -1
-      outActionIndex: 6
+      outActionIndex: 5
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
@@ -1769,7 +1769,7 @@ MonoBehaviour:
       extraData: ExtraData
       inputSetIndex: 80
       outputNodeIndex: -1
-      outActionIndex: 5
+      outActionIndex: 4
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
@@ -1887,7 +1887,7 @@ MonoBehaviour:
       extraData: ExtraData
       inputSetIndex: 87
       outputNodeIndex: -1
-      outActionIndex: 7
+      outActionIndex: 6
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
@@ -1903,7 +1903,7 @@ MonoBehaviour:
       extraData: ExtraData
       inputSetIndex: 88
       outputNodeIndex: -1
-      outActionIndex: 8
+      outActionIndex: 7
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
@@ -1929,29 +1929,15 @@ MonoBehaviour:
     ovrStartNode: -1
     renameDialogue: 
   - pauseHere: 0
-    gameObjectName: '[No object]'
-    methodName: '[No method]'
-    paramType: -1
+    gameObjectName: GM
+    methodName: startGame
+    paramType: 3
     gotoNode: -1
     param_bool: 0
     param_string: 
     param_int: 0
     param_float: 0
     ID: 35
-    outPlayerIndex: 34
-    outActionIndex: -1
-    ovrStartNode: -1
-    renameDialogue: 
-  - pauseHere: 0
-    gameObjectName: '[No object]'
-    methodName: '[No method]'
-    paramType: -1
-    gotoNode: -1
-    param_bool: 0
-    param_string: 
-    param_int: 0
-    param_float: 0
-    ID: 44
     outPlayerIndex: -1
     outActionIndex: -1
     ovrStartNode: -1
@@ -1971,9 +1957,9 @@ MonoBehaviour:
     ovrStartNode: -1
     renameDialogue: 
   - pauseHere: 0
-    gameObjectName: '[No object]'
-    methodName: '[No method]'
-    paramType: -1
+    gameObjectName: GM
+    methodName: startGame
+    paramType: 3
     gotoNode: -1
     param_bool: 0
     param_string: 
@@ -1985,9 +1971,9 @@ MonoBehaviour:
     ovrStartNode: -1
     renameDialogue: 
   - pauseHere: 0
-    gameObjectName: '[No object]'
-    methodName: '[No method]'
-    paramType: -1
+    gameObjectName: GM
+    methodName: startGame
+    paramType: 3
     gotoNode: -1
     param_bool: 0
     param_string: 
@@ -1999,9 +1985,9 @@ MonoBehaviour:
     ovrStartNode: -1
     renameDialogue: 
   - pauseHere: 0
-    gameObjectName: '[No object]'
-    methodName: '[No method]'
-    paramType: -1
+    gameObjectName: GM
+    methodName: startGame
+    paramType: 3
     gotoNode: -1
     param_bool: 0
     param_string: 
@@ -2013,9 +1999,9 @@ MonoBehaviour:
     ovrStartNode: -1
     renameDialogue: 
   - pauseHere: 0
-    gameObjectName: '[No object]'
-    methodName: '[No method]'
-    paramType: -1
+    gameObjectName: GM
+    methodName: startGame
+    paramType: 3
     gotoNode: -1
     param_bool: 0
     param_string: 
@@ -2027,15 +2013,29 @@ MonoBehaviour:
     ovrStartNode: -1
     renameDialogue: 
   - pauseHere: 0
-    gameObjectName: '[No object]'
-    methodName: '[No method]'
-    paramType: -1
+    gameObjectName: GM
+    methodName: startGame
+    paramType: 3
     gotoNode: -1
     param_bool: 0
     param_string: 
     param_int: 0
     param_float: 0
     ID: 97
+    outPlayerIndex: -1
+    outActionIndex: -1
+    ovrStartNode: -1
+    renameDialogue: 
+  - pauseHere: 0
+    gameObjectName: GM
+    methodName: startGame
+    paramType: 3
+    gotoNode: -1
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    ID: 44
     outPlayerIndex: -1
     outActionIndex: -1
     ovrStartNode: -1
@@ -2778,8 +2778,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 138544819}
-        m_MethodName: startDialogue
-        m_Mode: 3
+        m_MethodName: loadDialogue
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

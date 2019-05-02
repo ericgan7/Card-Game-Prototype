@@ -29,7 +29,7 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             if (!VD.isActive)
             {
@@ -58,8 +58,7 @@ public class DialogueManager : MonoBehaviour
             left.gameObject.SetActive(true);
             left.SetText(data.comments[0]);
             for (int i = 1; i < data.comments.Length; ++i)
-            {
-                Debug.Log(data.comments[i]);
+            { 
                 left.CreateChoice(data.comments[i], i);
             }
         }

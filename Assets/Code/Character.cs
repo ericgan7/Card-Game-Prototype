@@ -28,7 +28,7 @@ public class Character : MonoBehaviour
     float elapsed;
     Vector3 offset;
 
-    int startingHand = 5;
+    public int startingHand = 5;
     GameController game;
     bool isMoving;
     public bool hasMoved;
@@ -114,23 +114,27 @@ public class Character : MonoBehaviour
     }
 
     //Settors
-    public void ChangeHealth(int amount)
+    public int ChangeHealth(int amount)
     {
-        currentHealth += amount;
+        int temp = currentHealth;
+        currentHealth = Mathf.Clamp(amount + currentHealth, 0, stats.health);
         if (currentHealth <= 0)
         {
             game.KillCharacter(this, team == Card.TargetType.Ally);
             gameObject.SetActive(false);
         }
         Debug.Log("New Health " + currentHealth.ToString());
+        return Mathf.Abs(currentHealth - temp);
     }
-    public void ChangeArmor(int amount)
+    public int ChangeArmor(int amount)
     {
+        int temp = currentArmor;
         currentArmor = Mathf.Clamp(currentArmor + amount, 0, 100);
         Debug.Log("New Armor " + currentArmor.ToString());
+        return Mathf.Abs(amount - temp);
     }
    
-    public void ChangeEnergy(int amount)
+    public int ChangeEnergy(int amount)
     {
         currentEnergy = Mathf.Clamp(currentEnergy + amount, 0, stats.energy);
         if (currentEnergy <= 0)
@@ -138,6 +142,12 @@ public class Character : MonoBehaviour
             game.UpdateTurn(new List<Card>());
         }
         Debug.Log("New Energy " + currentEnergy.ToString());
+        return amount;
+    }
+
+    public void ChangeDamage(int amount)
+    {
+        currentDamage = amount;
     }
 
     //Update function controls movement of character across grid.
