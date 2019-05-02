@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Effect", menuName = "Effect/ShieldBash")]
-public class ShieldBasheffect : Effect
+public class ShieldBashEffect : Effect
 {
     public float multiplier;
        
