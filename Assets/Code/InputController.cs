@@ -16,6 +16,8 @@ public class InputController : MonoBehaviour
     public float cameraMovespeed;
     public float cameraScrollspeed;
     public float centerTime;
+    public Vector2 xCameraPos;
+    public Vector2 yCameraPos;
     public Vector3 offset;
 
     Vector3Int previousTile;
@@ -105,7 +107,7 @@ public class InputController : MonoBehaviour
                                 //update stat card
                             } else
                             {
-                                game.map.Highlight(selected.transform.position, selected.GetSpeed(), HighlightTiles.TileType.Move, selected.stats.moveableTiles);
+                                game.map.Highlight(selected.transform.position, Card.RangeType.Area, selected.GetSpeed(), HighlightTiles.TileType.Move, selected.stats.moveableTiles);
                                 game.ui.DeactivateRadialMenu();
                             }
                         }
@@ -158,19 +160,19 @@ public class InputController : MonoBehaviour
         t.z = Mathf.Clamp(t.z + Input.mouseScrollDelta.y * cameraScrollspeed, -40f, -5f);
         if (Input.mousePosition.x > Screen.width - xCameraMovementBuffer || Input.GetKey(KeyCode.D))
         {
-            t.x += cameraMovespeed;
+            t.x = Mathf.Clamp(t.x + cameraMovespeed, xCameraPos.x, xCameraPos.y);
         }
         else if (Input.mousePosition.x < xCameraMovementBuffer || Input.GetKey(KeyCode.A))
         {
-            t.x -= cameraMovespeed;
+            t.x = Mathf.Clamp(t.x - cameraMovespeed, xCameraPos.x, xCameraPos.y);
         }
         if (Input.mousePosition.y > Screen.height - yCameraMovementBuffer || Input.GetKey(KeyCode.W))
         {
-            t.y += cameraMovespeed;
+            t.y = Mathf.Clamp(t.y + cameraMovespeed, yCameraPos.x, yCameraPos.y);
         }
         else if (Input.mousePosition.y < yCameraMovementBuffer || Input.GetKey(KeyCode.S))
         {
-            t.y -= cameraMovespeed;
+            t.y = Mathf.Clamp(t.y - cameraMovespeed, yCameraPos.x, yCameraPos.y);
         }
         Camera.main.transform.localPosition = t;
     }
@@ -231,7 +233,7 @@ public class InputController : MonoBehaviour
                 }
             }
             game.map.ClearHighlight();
-            game.map.Highlight(game.currentCharacter.destinations[0], game.currentCharacter.GetSpeed(), HighlightTiles.TileType.Move, game.currentCharacter.stats.moveableTiles);
+            game.map.Highlight(game.currentCharacter.destinations[0], Card.RangeType.Area, game.currentCharacter.GetSpeed(), HighlightTiles.TileType.Move, game.currentCharacter.stats.moveableTiles);
             game.map.TargetPath(game.currentCharacter.destinations, HighlightTiles.TileType.Path);
         }
     }

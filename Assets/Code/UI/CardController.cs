@@ -18,12 +18,9 @@ public class CardController : MonoBehaviour
     public float selectionHeight;
     public List<CardMovement> keep;
 
-    //Temporary 
-    Vector3 discardLocation = new Vector3(-354f, 90f);
 
     public void Start()
     {
-        center = new Vector3(0f, 65f);
         maxHandLength = 150f;
         width = hand[0].GetComponent<RectTransform>().sizeDelta.x;
         keep = new List<CardMovement>();

@@ -25,10 +25,12 @@ public class UIController : MonoBehaviour
     public RadialMenu radialOptions;
     public ActionPanel ap;
     public BezierCurve curve;
+    public DisplayText displayText;
 
     private void Start()
     {
         curve = GetComponent<BezierCurve>();
+        displayText = GetComponent<DisplayText>();
     }
 
     //when a new character is selected. Not currently used anywhere yet.
@@ -76,7 +78,7 @@ public class UIController : MonoBehaviour
         UpdateStats();
     }
 
-    public void PlayAction(List<Effect.EffectResult> results, bool allyAttacker)
+    public void PlayAction(List<Card.EffectResult> results, bool allyAttacker)
     {
         ap.Set(results, allyAttacker);
     }
