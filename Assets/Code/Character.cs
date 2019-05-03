@@ -160,6 +160,12 @@ public class Character : MonoBehaviour
         currentDamage = amount;
     }
 
+    public int ChangeSpeed(int amount)
+    {
+        currentSpeed = currentSpeed + amount;
+        return amount;
+    }
+
     //Update function controls movement of character across grid.
     public void FixedUpdate()
     {

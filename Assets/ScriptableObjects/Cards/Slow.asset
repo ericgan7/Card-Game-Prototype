@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Slow
   m_EditorClassIdentifier: 
   name: Slow
-  description: Target enemy loses 1 energy for their next turn
+  description: Target enemy loses 2 speed for their next turn
   art: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   energyCost: 1
   effects:
   - {fileID: 11400000, guid: 3dd10d66cd641c549b46b87ea7d11a2a, type: 2}
   spriteName: slow
   etype: 0
+  rtype: 0
   targetsTypes: 02000000
   targetRange: 4
   effectRange: 1
