@@ -18,7 +18,7 @@ public class RadialButton: MonoBehaviour, IPointerClickHandler
             case "Move":
                 menu.game.inputControl.SetInput(InputController.InputMode.Movement);
                 Character target = menu.game.currentCharacter;
-                menu.game.map.Highlight(target.transform.position, target.GetSpeed(), HighlightTiles.TileType.Move, target.stats.moveableTiles);
+                menu.game.map.Highlight(target.transform.position, Card.RangeType.Area, target.GetSpeed(), HighlightTiles.TileType.Move, target.stats.moveableTiles);
                 break;
             case "EndTurn":
                 menu.game.hand.StartSelectionToKeep();

@@ -10,7 +10,7 @@ public class ActionPanel : MonoBehaviour
     public float distance;
     public Image ally;
     public Image enemy;
-    public List<Effect.EffectResult> results;
+    public List<Card.EffectResult> results;
     public bool attacker;
     public Text damageText;
     public float speed;
@@ -21,7 +21,7 @@ public class ActionPanel : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void Set(List<Effect.EffectResult> r, bool allyAttacker)
+    public void Set(List<Card.EffectResult> r, bool allyAttacker)
     {
         /*
         gameObject.SetActive(true);

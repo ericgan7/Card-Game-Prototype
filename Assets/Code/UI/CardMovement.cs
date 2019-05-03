@@ -35,6 +35,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public int lineSmoothness;
     public float lineCurve;
     LineRenderer line;
+    public float arrowsHeadSize;
 
     public void Start()
     {
@@ -48,6 +49,8 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         hand = transform.parent.gameObject.GetComponent<RectTransform>();
         playPos = play.transform.localPosition;
         line = GetComponent<LineRenderer>();
+        line.sortingLayerName = "Foreground";
+        line.sortingOrder = 5;
     }
 
     //Set position, used to draw from deck into hand.
@@ -132,6 +135,12 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
                 line.positionCount = lineSmoothness;
                 Vector3[] positions = game.ui.curve.QuadraticCurve(transform.position, middle, mousepos, lineSmoothness);
                 line.SetPositions(positions);
+                line.widthCurve = new AnimationCurve(
+                    new Keyframe(0, 0.5f),
+                    new Keyframe(0.99f - arrowsHeadSize, 0.5f),
+                    new Keyframe(1f - arrowsHeadSize, 1f),
+                    new Keyframe(1, 0f)
+                );
             }
             else
             {
@@ -142,7 +151,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             RaycastHit hit;
             if (Physics.Raycast(mouseClick, out hit))
             {
-                game.map.Target(hit.point, cardData.etype, cardData.effectRange, HighlightTiles.TileType.Target, new List<Card.TargetType>(cardData.targetsTypes));
+                game.map.Target(hit.point, cardData.rtype, cardData.effectRange, HighlightTiles.TileType.Target, new List<Card.TargetType>(cardData.targetsTypes));
             }
         }
     }
@@ -177,7 +186,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     //helper function to highlight target Tiles;
     public void HighlightRange()
     {
-        game.HighlightTargets(cardData.targetRange, HighlightTiles.TileType.Attack, new List<Card.TargetType>(cardData.targetsTypes));
+        game.HighlightTargets(cardData.rtype, cardData.targetRange, HighlightTiles.TileType.Attack, new List<Card.TargetType>(cardData.targetsTypes));
         if (!cardData.targetsTypes.Contains(Card.TargetType.Self)){
             game.UnHiglightTarget(1);
         }

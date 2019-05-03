@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
     Vector3Int selectedMovementLocation;
     public Character currentCharacter;
 
-    public List<Effect.EffectResult> results;
+    public List<Card.EffectResult> results;
 
     private void Start()
     {
@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
         allyTurn = new Queue<Character>(allies);
         enemyTurn = new Queue<Character>(enemies);
         StartGame();
-        results = new List<Effect.EffectResult>();
+        results = new List<Card.EffectResult>();
     }
 
     public void PopulateTurns(bool allyFirst)
@@ -67,9 +67,9 @@ public class GameController : MonoBehaviour
     }
 
     //  Highlights the tile map to indicate possible attack targets
-    public void HighlightTargets(int area, HighlightTiles.TileType t, List<Card.TargetType> validTargets)
+    public void HighlightTargets(Card.RangeType rt, int area, HighlightTiles.TileType t, List<Card.TargetType> validTargets)
     {
-        map.Highlight(currentCharacter.transform.position, area, t, validTargets);
+        map.Highlight(currentCharacter.transform.position, rt, area, t, validTargets);
     }
     //  clears out tilemap for targeting.
     public void UnHiglightTarget(int area)
@@ -94,6 +94,10 @@ public class GameController : MonoBehaviour
             {
                 success = true;
                 results = cardPlayed.Play(currentCharacter, targets);
+                foreach(Card.EffectResult result in results)
+                {
+                    ui.displayText.CreateWorldText(result.position, result.position + new Vector3(0f, 1f, 0f), result.effect, result.color);
+                }
                 //Energy Cost will be deducted at the end of the card animation.
             }
         }

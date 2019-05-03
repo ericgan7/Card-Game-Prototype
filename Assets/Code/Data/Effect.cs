@@ -9,13 +9,6 @@ using UnityEngine;
 
 public class Effect : ScriptableObject
 {
-    //TO DO : Change apply to return an result, which will give the sprite to render and text to display;
-    public struct EffectResult
-    {
-        public Sprite sprite;
-        public string effect;
-        public Color color;
-    }
     public Color color;
     //initial application of effect
     public virtual int Apply(Character origin, Character target) { return 0; }

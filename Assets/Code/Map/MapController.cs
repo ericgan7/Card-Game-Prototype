@@ -45,10 +45,19 @@ public class MapController : MonoBehaviour
     }
 
     //Highlights the tilemap for movement and card range.
-    public void Highlight(Vector3 pos, int area, HighlightTiles.TileType type, List<Card.TargetType> validTypes)
+    public void Highlight(Vector3 pos, Card.RangeType rt, int area, HighlightTiles.TileType type, List<Card.TargetType> validTypes)
     {
         Vector3Int location = WorldToCellSpace(pos);
-        highlights.FloodFill(location, area, type, validTypes);
+        switch (rt)
+        {
+            case Card.RangeType.Area:
+                highlights.FloodFill(location, area, type, validTypes);
+                break;
+            case Card.RangeType.Row:
+                highlights.FillRow(location, area, type, validTypes);
+                break;
+        }
+        
     }
     //unhighlihgts a tile, currently used to make self an invalid target.
     public void UnHighlight(Vector3 pos)
@@ -62,17 +71,21 @@ public class MapController : MonoBehaviour
         highlights.Clear();
     }
     //highlights tiles when moused over a potential target in red.
-    public void Target(Vector3 pos, Card.EffectType cardTag, int area, HighlightTiles.TileType type, List<Card.TargetType> validTypes)
+    public void Target(Vector3 pos, Card.RangeType rt, int area, HighlightTiles.TileType type, List<Card.TargetType> validTypes)
     {
         Vector3Int origin = WorldToCellSpace(pos);
+        targets.Clear();
         if (highlights.Contains(origin))
         {
-            targets.FloodFill(origin, area, type, validTypes);
-
-        }
-        else
-        {
-            targets.Clear();
+            switch (rt)
+            {
+                case Card.RangeType.Area:
+                    targets.FloodFill(origin, area, type, validTypes);
+                    break;
+                case Card.RangeType.Row:
+                    targets.FillRow(origin, area, type, validTypes);
+                    break;
+            }
         }
     }
     //Highlights recorded movement path for character, before confirmation.
@@ -138,6 +151,11 @@ public class MapController : MonoBehaviour
     public Character GetCharacter(Vector3Int location)
     {
         return characterLocations[location.x, location.y];
+    }
+    //Gets all characters in range()
+    public List<Character> GetCharactersInRange(Vector3Int Location, int area)
+    {
+        return null;
     }
     //A* pathfinding
     public List<Vector3Int> FindPath(Vector3Int origin, Vector3Int destination)

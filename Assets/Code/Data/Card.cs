@@ -20,27 +20,42 @@ public class Card : ScriptableObject
     {
         Targetable, Nontargetable
     }
+    public enum RangeType
+    {
+        Area, Row
+    }
     public enum TargetType
     {
         Self, Ally, Enemy, Ground
     }
     public EffectType etype;
+    public RangeType rtype;
     public List<TargetType> targetsTypes;
 
     public int targetRange;
     public int effectRange;
 
-    virtual public List<Effect.EffectResult> Play(Character origin, List<Character> targets)
+    public struct EffectResult
     {
-        List<Effect.EffectResult> results = new List<Effect.EffectResult>();
-        Effect.EffectResult r = new Effect.EffectResult();
-        r.sprite = origin.stats.GetSprite(spriteName);
-        results.Add(r);
+        public Sprite sprite;
+        public string effect;
+        public Color color;
+        public Vector3 position;
+    }
+
+    virtual public List<EffectResult> Play(Character origin, List<Character> targets)
+    {
+        List<EffectResult> results = new List<EffectResult>();
         foreach (Character c in targets)
         {
             foreach( Effect e in effects)
             {
-                e.Apply(origin, c);
+                int i = e.Apply(origin, c);
+                EffectResult r = new EffectResult();
+                r.effect = i.ToString();
+                r.position = c.transform.position;
+                r.color = e.color;
+                results.Add(r);
             }
         }
         return results;
