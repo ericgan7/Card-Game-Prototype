@@ -11,7 +11,7 @@ public class BerserkEffect : Effect
         if(target.startingHand > 1)
         {
             target.startingHand -= 1;
-            target.ChangeDamage(amount);
+            target.ChangeDamage(target.GetDamage() + amount);
         }
         return 0;
     }

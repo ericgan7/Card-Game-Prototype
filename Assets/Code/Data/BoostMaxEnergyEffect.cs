@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Effect", menuName = "Effect/BoostEnergy")]
-public class BoostEnergyEffect : Effect
+[CreateAssetMenu(fileName = "New Effect", menuName = "Effect/BoostMaxEnergy")]
+public class BoostMaxEnergyEffect : Effect
 {
     public int amount;
     public override int Apply(Character origin, Character target)
     {
-        target.ChangeEnergy(target.GetEnergy()[1] + 1);
+        target.ChangeEnergy(target.GetEnergy()[1] + amount);
         return 0;
     }
 }

@@ -73,6 +73,16 @@ public class Character : MonoBehaviour
         return drawn;
     }
 
+    // Draws cards from the deck from card effect
+    public void DrawCards(int cardDraw)
+    {
+        for (var i = 0; i < cardDraw; ++i)
+        {
+            DrawRandom();
+        }
+        game.hand.DrawCurrentCards(this);
+    }
+
     // Keeps all specified cards and redraws discarded cards.
     public void RefillHand(List<Card> keeps)
     {
@@ -136,7 +146,7 @@ public class Character : MonoBehaviour
    
     public int ChangeEnergy(int amount)
     {
-        currentEnergy = Mathf.Clamp(currentEnergy + amount, 0, stats.energy);
+        currentEnergy = currentEnergy + amount;
         if (currentEnergy <= 0)
         {
             game.UpdateTurn(new List<Card>());

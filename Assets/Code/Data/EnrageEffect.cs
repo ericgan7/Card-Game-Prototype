@@ -9,7 +9,8 @@ public class EnrageEffect : BoostAttackEffect
     {
         int armor = target.GetArmor();
         target.ChangeArmor(-armor);
-        target.ChangeDamage(armor);
+        increase = armor;
+        base.Apply(origin, target);
         return armor;
     }
 }

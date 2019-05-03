@@ -10,10 +10,7 @@ public class CardDrawEffect : Effect
     // Any effect that results in card draws
     public override int Apply(Character origin, Character target)
     {
-        for(var i = 0; i < cardDraw; ++i)
-        {
-            target.DrawRandom();
-        }
+        target.DrawCards(cardDraw);
         return cardDraw;
     }
 }
