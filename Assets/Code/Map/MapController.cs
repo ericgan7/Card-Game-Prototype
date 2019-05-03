@@ -13,6 +13,7 @@ public class MapController : MonoBehaviour
     public Tilemap map;
     public HighlightTiles highlights;
     public HighlightTiles targets;
+    public MovementMap move;
 
     Character[,] characterLocations;
     Dictionary<Character, Vector3Int> previousCharacterLocations;
@@ -25,6 +26,7 @@ public class MapController : MonoBehaviour
     private void Start()
     {
         characterLocations = new Character[mapx, mapy];
+        move = GetComponent<MovementMap>();
         neightbors = new Vector2Int[4] { new Vector2Int(1,0), new Vector2Int(-1, 0), new Vector2Int(0, 1), new Vector2Int(0, -1)};
         frontier = new List<Vector3Int>();
         highlights = GetComponent<HighlightTiles>();
@@ -306,5 +308,24 @@ public class MapController : MonoBehaviour
         Vector3Int location = previousCharacterLocations[removedCharacter];
         characterLocations[location.x, location.y] = null;
         previousCharacterLocations.Remove(removedCharacter);
+    }
+
+    public List<Vector3Int> GetCharacterLocations()
+    {
+        List<Vector3Int> goals = new List<Vector3Int>();
+        foreach (Character c in previousCharacterLocations.Keys)
+        {
+            Vector3Int goal = previousCharacterLocations[c];
+            if (c.team == Card.TargetType.Ally)
+            {
+                goal.z = 0;
+            }
+            else
+            {
+                goal.z = 1;
+            }
+            goals.Add(goal);
+        }
+        return goals;
     }
 }

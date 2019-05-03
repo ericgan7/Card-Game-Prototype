@@ -22,6 +22,8 @@ public class GameController : MonoBehaviour
 
     public List<Card.EffectResult> results;
 
+    EnemyAI ai;
+
     private void Start()
     {
         inputControl = GetComponent<InputController>();
@@ -31,6 +33,8 @@ public class GameController : MonoBehaviour
         enemyTurn = new Queue<Character>(enemies);
         StartGame();
         results = new List<Card.EffectResult>();
+        ai = GetComponent<EnemyAI>();
+        ai.game = this;
     }
 
     public void PopulateTurns(bool allyFirst)
@@ -139,6 +143,11 @@ public class GameController : MonoBehaviour
         Vector3 p = map.WorldToCellSpace(currentCharacter.transform.position);
         p.z = Camera.main.transform.localPosition.z;
         inputControl.CenterCamera(p);
+        if (currentCharacter.team == Card.TargetType.Enemy)
+        {
+            ai.self = currentCharacter;
+            ai.Action();
+        }
     }
     //TODO AI action
     public void EnemyTurn()

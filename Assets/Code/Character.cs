@@ -157,6 +157,7 @@ public class Character : MonoBehaviour
         {
             if (destinations.Count > 0)
             {
+               
                 if (Vector3.Distance(transform.localPosition, destinations[destinations.Count - 1]) < 0.01f)
                 {
                     game.map.MoveCharacter(this, destinations[destinations.Count - 1]);
@@ -187,8 +188,13 @@ public class Character : MonoBehaviour
     {
         d.AddRange(destinations);
         destinations = d;
+        foreach(var v in destinations)
+        {
+            Debug.Log(v);
+        }
         elapsed = 0f;
     }
+
     public void ClearPath()
     {
         destinations.Clear();
@@ -197,6 +203,7 @@ public class Character : MonoBehaviour
     {
         if (!hasMoved)
         {
+            Debug.Log("MOVE");
             isMoving = true;
             game.inputControl.disableInput = true;
             hasMoved = true;

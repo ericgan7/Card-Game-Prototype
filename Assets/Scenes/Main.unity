@@ -2061,6 +2061,7 @@ GameObject:
   - component: {fileID: 729873559}
   - component: {fileID: 729873560}
   - component: {fileID: 729873561}
+  - component: {fileID: 729873562}
   m_Layer: 0
   m_Name: MapController
   m_TagString: Untagged
@@ -2098,6 +2099,7 @@ MonoBehaviour:
   map: {fileID: 1570405223}
   highlights: {fileID: 729873560}
   targets: {fileID: 729873561}
+  move: {fileID: 0}
   mapx: 8
   mapy: 8
 --- !u!114 &729873560
@@ -2138,6 +2140,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 581e161b61527d148a6dd0bd887fa783, type: 2}
   - {fileID: 11400000, guid: 08d84f0f6736db544b78b7c1bbec14bd, type: 2}
   - {fileID: 11400000, guid: 9d9cb44751942124ca170c90bfba12ba, type: 2}
+--- !u!114 &729873562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729873557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f56c57a0ea61e214a8adb717a2926e5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &744383721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7185,6 +7199,7 @@ GameObject:
   - component: {fileID: 2050344049}
   - component: {fileID: 2050344050}
   - component: {fileID: 2050344051}
+  - component: {fileID: 2050344052}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -7255,6 +7270,20 @@ MonoBehaviour:
   offset: {x: -4, y: -1, z: 0}
   mode: 0
   disableInput: 0
+--- !u!114 &2050344052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050344048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e560da309f82940bcd49e9d5a96fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  self: {fileID: 0}
+  game: {fileID: 0}
 --- !u!1 &2060030255
 GameObject:
   m_ObjectHideFlags: 0
