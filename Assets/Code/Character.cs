@@ -73,6 +73,16 @@ public class Character : MonoBehaviour
         return drawn;
     }
 
+    // Draws cards from the deck from card effect
+    public void DrawCards(int cardDraw)
+    {
+        for (var i = 0; i < cardDraw; ++i)
+        {
+            DrawRandom();
+        }
+        game.hand.DrawCurrentCards(this);
+    }
+
     // Keeps all specified cards and redraws discarded cards.
     public void RefillHand(List<Card> keeps)
     {
