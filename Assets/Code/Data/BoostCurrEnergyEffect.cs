@@ -8,7 +8,7 @@ public class BoostCurrEnergyEffect : Effect
     public int amount;
     public override int Apply(Character origin, Character target)
     {
-        var changeAmount = target.ChangeEnergy(target.GetEnergy()[0] + amount);
+        var changeAmount = target.ChangeEnergy(amount);
         return changeAmount;
     }
 }

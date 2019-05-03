@@ -20,6 +20,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ed666b71af6771b4c8d1964359ba7ff2, type: 2}
   spriteName: haste
   etype: 0
+  rtype: 0
   targetsTypes: 01000000
   targetRange: 4
   effectRange: 1

@@ -136,7 +136,7 @@ public class Character : MonoBehaviour
    
     public int ChangeEnergy(int amount)
     {
-        currentEnergy = Mathf.Clamp(currentEnergy + amount, 0, stats.energy);
+        currentEnergy = currentEnergy + amount;
         if (currentEnergy <= 0)
         {
             game.UpdateTurn(new List<Card>());
