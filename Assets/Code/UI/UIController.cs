@@ -12,6 +12,8 @@ public class UIController : MonoBehaviour
 {
     Character selectedCharacter;
 
+    public GameController game;
+
     public Image portrait;
     public TextMeshProUGUI charactername;
     public TextMeshProUGUI hp;
@@ -19,6 +21,7 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI spd;
     public TextMeshProUGUI eva;
     public TextMeshProUGUI arm;
+    public TextMeshProUGUI energy;
 
     public Image[] turnOrder;
 
@@ -31,6 +34,7 @@ public class UIController : MonoBehaviour
     {
         curve = GetComponent<BezierCurve>();
         displayText = GetComponent<DisplayText>();
+        game = FindObjectOfType<GameController>();
     }
 
     //when a new character is selected. Not currently used anywhere yet.
@@ -50,6 +54,8 @@ public class UIController : MonoBehaviour
         end.text = h.x.ToString() + " / " + h.y.ToString();
         spd.text = selectedCharacter.GetSpeed().ToString();
         arm.text = selectedCharacter.GetArmor().ToString();
+        Vector2Int currentEnergy = game.currentCharacter.GetEnergy();
+        energy.text = currentEnergy.x.ToString() + " / " + currentEnergy.y.ToString();
     }
     //updates the turn indicator, which shows which units will act.
     public void UpdateTurns(List<Character> order)
