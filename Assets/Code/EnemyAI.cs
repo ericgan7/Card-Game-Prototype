@@ -9,7 +9,7 @@ public class EnemyAI : MonoBehaviour
 
     public void Action()
     {
-        StartCoroutine("MakeMove");
+        //StartCoroutine("MakeMove");
     }
     
     IEnumerator MakeMove()
