@@ -80,6 +80,7 @@
     <Compile Include="Assets\Code\Data\HealEffect.cs" />
     <Compile Include="Assets\Code\Data\LethalHitEffect.cs" />
     <Compile Include="Assets\Code\Data\MovementEffects.cs" />
+    <Compile Include="Assets\Code\Data\MultiAttackEffect.cs" />
     <Compile Include="Assets\Code\Data\PierceEffect.cs" />
     <Compile Include="Assets\Code\Data\ReduceAttackEffect.cs" />
     <Compile Include="Assets\Code\Data\ReflectEffect.cs" />
