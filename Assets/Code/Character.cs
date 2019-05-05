@@ -33,6 +33,10 @@ public class Character : MonoBehaviour
     bool isMoving;
     public bool hasMoved;
 
+    public HealthBarController hbc;
+    public HealthBar healthBarPrefab;
+    public HealthBar healthBar;
+
     private void Start()
     {
         game = FindObjectOfType<GameController>();
@@ -55,6 +59,8 @@ public class Character : MonoBehaviour
         RefillHand(new List<Card>());
         isMoving = false;
         hasMoved = false;
+        
+        hbc.createHealthBar(this);
     }
     //draw a random card from deck. untill all cards are drawn. They are then replenished.
     public Card DrawRandom()

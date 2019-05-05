@@ -77,6 +77,8 @@
      <Compile Include="Assets\Code\DialoguePanel.cs" />
      <Compile Include="Assets\Code\EnemyAI.cs" />
      <Compile Include="Assets\Code\GameController.cs" />
+     <Compile Include="Assets\Code\HealthBar.cs" />
+     <Compile Include="Assets\Code\HealthBarController.cs" />
      <Compile Include="Assets\Code\InputController.cs" />
      <Compile Include="Assets\Code\Map\HighlightTiles.cs" />
      <Compile Include="Assets\Code\Map\MapController.cs" />
@@ -91,7 +93,6 @@
      <Compile Include="Assets\Code\UI\RadialMenu.cs" />
      <Compile Include="Assets\Code\UI\UIController.cs" />
      <Compile Include="Assets\GM.cs" />
-     <Compile Include="Assets\HealthBarScript.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
