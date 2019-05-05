@@ -56,7 +56,8 @@ public class MapController : MonoBehaviour
                 highlights.FloodFill(location, area, type, validTypes);
                 break;
             case Card.RangeType.Row:
-                highlights.FillRow(location, area, type, validTypes);
+            case Card.RangeType.Cross:
+                highlights.FillCross(location, area, type, validTypes);
                 break;
         }
         
@@ -86,6 +87,9 @@ public class MapController : MonoBehaviour
                     break;
                 case Card.RangeType.Row:
                     targets.FillRow(origin, area, type, validTypes);
+                    break;
+                case Card.RangeType.Cross:
+                    targets.FillCross(origin, area, type, validTypes);
                     break;
             }
         }

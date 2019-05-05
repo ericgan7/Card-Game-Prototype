@@ -29,15 +29,8 @@ MonoBehaviour:
   damage: 7
   cards:
   - {fileID: 11400000, guid: dca7aa619a0331a448216c24fbc521f8, type: 2}
-  - {fileID: 11400000, guid: dca7aa619a0331a448216c24fbc521f8, type: 2}
-  - {fileID: 11400000, guid: cba4a2983be787145967c0c9bfbf7fc5, type: 2}
   - {fileID: 11400000, guid: 3d64c6157a7a2154bb4886105eb850e8, type: 2}
-  - {fileID: 11400000, guid: 3d64c6157a7a2154bb4886105eb850e8, type: 2}
-  - {fileID: 11400000, guid: 3e62a2d25e03d1c4b8042a16146ecd0c, type: 2}
   - {fileID: 11400000, guid: ec0677e4421e7e341bbcbb7f16282592, type: 2}
-  - {fileID: 11400000, guid: ec0677e4421e7e341bbcbb7f16282592, type: 2}
-  - {fileID: 11400000, guid: 3e62a2d25e03d1c4b8042a16146ecd0c, type: 2}
-  - {fileID: 11400000, guid: 5423f1ffa5f590141941a1a022a53302, type: 2}
-  - {fileID: 11400000, guid: 4897157bfa1e1a94195ce302c1ca15a1, type: 2}
+  - {fileID: 11400000, guid: 8c344ed4b5113ac438201609c386a779, type: 2}
   - {fileID: 11400000, guid: bcb16c1eb78d10c4488d3c1d380683f7, type: 2}
   moveableTiles: 

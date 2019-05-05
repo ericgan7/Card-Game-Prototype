@@ -34,6 +34,10 @@ public class Character : MonoBehaviour
     bool isMoving;
     public bool hasMoved;
 
+    public HealthBarController hbc;
+    public HealthBar healthBarPrefab;
+    public HealthBar healthBar;
+
     private void Start()
     {
         game = FindObjectOfType<GameController>();
@@ -57,6 +61,8 @@ public class Character : MonoBehaviour
         RefillHand(new List<Card>());
         isMoving = false;
         hasMoved = false;
+        
+        hbc.createHealthBar(this);
     }
     //draw a random card from deck. untill all cards are drawn. They are then replenished.
     public Card DrawRandom()
@@ -195,6 +201,10 @@ public class Character : MonoBehaviour
                     game.map.MoveCharacter(this, destinations[destinations.Count - 1]);
                     destinations.RemoveAt(destinations.Count - 1);
                     startLocation = transform.localPosition;
+                    foreach(Effect e in statusEffects)
+                    {
+                        e.OnMove(this);
+                    }
                     currentSpeed -= 1;
                     elapsed = 0f;
                 }

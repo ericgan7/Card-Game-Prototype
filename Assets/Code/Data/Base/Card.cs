@@ -22,7 +22,7 @@ public class Card : ScriptableObject
     }
     public enum RangeType
     {
-        Area, Row
+        Area, Row, Cross
     }
     public enum TargetType
     {
