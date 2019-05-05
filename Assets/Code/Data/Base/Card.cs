@@ -60,4 +60,15 @@ public class Card : ScriptableObject
         }
         return results;
     }
+
+    public List<EffectResult> Play(Character origin, List<Vector3Int> targets)
+    {
+        List<EffectResult> results = new List<EffectResult>();
+        foreach (Effect e in effects)
+        {
+            int i = e.Apply(origin, targets);
+        }
+
+        return results;
+    }
 }

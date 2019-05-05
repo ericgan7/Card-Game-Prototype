@@ -17,6 +17,7 @@ public class Character : MonoBehaviour
     int currentEnergy;
     int currentSpeed;
     int currentArmor;
+    int naturalArmor;
     int currentDamage;
     public List<Effect> statusEffects;
 
@@ -48,6 +49,7 @@ public class Character : MonoBehaviour
         currentSpeed = stats.speed;
         currentDamage = stats.damage;
         currentArmor = stats.armor;
+        naturalArmor = currentArmor;
         statusEffects = new List<Effect>();
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         sr.sprite = stats.portrait;
@@ -113,12 +115,22 @@ public class Character : MonoBehaviour
     
     public int GetSpeed()
     {
-        return currentSpeed - destinations.Count;
+        int mod = 0;
+        foreach (Effect e in statusEffects)
+        {
+            mod += e.ModifySpeed();
+        }
+        return currentSpeed - destinations.Count + mod;
     }
 
     public int GetDamage()
     {
-        return currentDamage;
+        int mod = 0;
+        foreach(Effect e in statusEffects)
+        {
+            mod += e.ModifyAttack();
+        }
+        return currentDamage + mod;
     }
     public int GetArmor()
     {
@@ -142,9 +154,13 @@ public class Character : MonoBehaviour
         Debug.Log("New Health " + currentHealth.ToString());
         return Mathf.Abs(currentHealth - temp);
     }
-    public int ChangeArmor(int amount)
+    public int ChangeArmor(int amount, bool healArmor = false)
     {
         int temp = currentArmor;
+        if (healArmor)
+        {
+            naturalArmor += amount;
+        }
         currentArmor = Mathf.Clamp(currentArmor + amount, 0, 100);
         Debug.Log("New Armor " + currentArmor.ToString());
         return Mathf.Abs(amount - temp);
@@ -166,6 +182,12 @@ public class Character : MonoBehaviour
         currentDamage = amount;
     }
 
+    public int ChangeSpeed(int amount)
+    {
+        currentSpeed = currentSpeed + amount;
+        return amount;
+    }
+
     //Update function controls movement of character across grid.
     public void FixedUpdate()
     {
@@ -179,6 +201,7 @@ public class Character : MonoBehaviour
                     game.map.MoveCharacter(this, destinations[destinations.Count - 1]);
                     destinations.RemoveAt(destinations.Count - 1);
                     startLocation = transform.localPosition;
+                    currentSpeed -= 1;
                     elapsed = 0f;
                 }
                 else
@@ -231,5 +254,18 @@ public class Character : MonoBehaviour
     {
         hasMoved = false;
         currentEnergy = stats.energy;
+        currentSpeed = stats.speed;
+    }
+
+    public void OnTurnStart()
+    {
+        for (int i = 0; i < statusEffects.Count; ++i)
+        {
+            statusEffects[i].OnTurnStart(this);
+        }
+        //Lowers current armor if block is in effect
+        currentArmor = Mathf.Min(naturalArmor, currentArmor); 
+        //Lowers natural armor if has been damaged
+        naturalArmor = Mathf.Min(naturalArmor, currentArmor);
     }
 }

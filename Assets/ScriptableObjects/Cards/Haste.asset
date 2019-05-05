@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Haste
   m_EditorClassIdentifier: 
   name: Haste
-  description: Target Ally gains 1 energy for their next turn
+  description: Target Ally gains 2 speed for their next turn
   art: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   energyCost: 1
   effects:

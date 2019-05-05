@@ -10,16 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5312342fd2bf68342ac4fad24ebe8c48, type: 3}
-  m_Name: PiercingShot
+  m_Name: Bleed
   m_EditorClassIdentifier: 
-  name: Piercing Shot
-  description: Deal {0} (ignoring armor)
-  art: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  energyCost: 2
+  name: Bleed
+  description: Add 2 Bleed
+  art: {fileID: 0}
+  energyCost: 0
   effects:
-  - {fileID: 11400000, guid: dc9b42e1f4f34074da4baa61663a3e34, type: 2}
-  spriteName: piercingShot
+  - {fileID: 11400000, guid: 1629e304ca7574248b120f61ecdccdcf, type: 2}
+  - {fileID: 11400000, guid: 6715551f976a80b44a3650c4830075c9, type: 2}
+  spriteName: attack
   etype: 0
+  rtype: 0
   targetsTypes: 02000000
-  targetRange: 4
+  targetRange: 2
   effectRange: 1

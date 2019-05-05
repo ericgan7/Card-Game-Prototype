@@ -89,7 +89,12 @@ public class GameController : MonoBehaviour
         results.Clear();
         if (cardPlayed.targetsTypes.Contains(Card.TargetType.Ground))
         {
-            // Allows Ground targeting for traps
+            List<Vector3Int> tiles = map.targets.GetTiles();
+            if (tiles.Count > 0)
+            {
+                success = true;
+                results = cardPlayed.Play(currentCharacter, tiles);
+            }
         }
         else
         {
@@ -140,6 +145,8 @@ public class GameController : MonoBehaviour
         currentCharacter = turns[0];
         ui.UpdateTurns(turns);
         hand.DrawCurrentCards(currentCharacter);
+        currentCharacter.OnTurnStart();
+
         Vector3 p = map.WorldToCellSpace(currentCharacter.transform.position);
         p.z = Camera.main.transform.localPosition.z;
         inputControl.CenterCamera(p);

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5312342fd2bf68342ac4fad24ebe8c48, type: 3}
+  m_Name: MultiShot
+  m_EditorClassIdentifier: 
+  name: MultiShot
+  description: Attacks 3 times, deal {0} damage
+  art: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  energyCost: 2
+  effects:
+  - {fileID: 11400000, guid: 972bcedf0dd527b449541b3a1f5def5c, type: 2}
+  spriteName: multiShot
+  etype: 0
+  rtype: 0
+  targetsTypes: 02000000
+  targetRange: 4
+  effectRange: 1
