@@ -201,6 +201,10 @@ public class Character : MonoBehaviour
                     game.map.MoveCharacter(this, destinations[destinations.Count - 1]);
                     destinations.RemoveAt(destinations.Count - 1);
                     startLocation = transform.localPosition;
+                    foreach(Effect e in statusEffects)
+                    {
+                        e.OnMove(this);
+                    }
                     currentSpeed -= 1;
                     elapsed = 0f;
                 }

@@ -59,7 +59,8 @@ public class HighlightTiles : MonoBehaviour
     {
         return tilesFilled.ContainsKey(location);
     }
-    public void FillRow(Vector3Int location, int range, TileType type, List<Card.TargetType> validTargets)
+    //fills the straightline verticaly and horizontally
+    public void FillCross(Vector3Int location, int range, TileType type, List<Card.TargetType> validTargets)
     {
         Vector4 valid = Vector4.one;
         for (int i = 0; i < range; ++i)
@@ -75,6 +76,29 @@ public class HighlightTiles : MonoBehaviour
             }
         }
     }
+    //fills in tiles in a line
+    public void FillRow(Vector3Int location, int range, TileType type, List<Card.TargetType> validTargets)
+    {
+        Vector4 valid = Vector4.one;
+        List<Vector3Int> highlighted = map.highlights.GetTiles();
+        for (int i = 0; i < range; ++i)
+        {
+            for (int j = 0; j < 4; ++j)
+            {
+                Vector3Int t = location + neighbors[j] * i;
+                if (highlighted.Contains(t) && valid[j] > 0)
+                {
+                    tilesFilled[t] = i;
+                    highlights.SetTile(t, tiles[(int)type - 1]);
+                }
+                else
+                {
+                    valid[j] = 0;
+                }
+            }
+        }
+    }
+
     //Flood fill is used to fill in tiles from a certain distance from origin.
     public void FloodFill(Vector3Int origin, int area, TileType type, List<Card.TargetType> validtargets)
     {
