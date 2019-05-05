@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47fdee377a0c1114d9aec68bee2aeeba, type: 3}
   m_Name: Cactus
   m_EditorClassIdentifier: 
-  portrait: {fileID: 21300000, guid: c438947a01291e34db8ab2df540dc13a, type: 3}
+  portrait: {fileID: 21300000, guid: e15633652a7fa704f96cc1a6c239f327, type: 3}
   spriteNames:
   - attack
   - defend
@@ -33,4 +33,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2bbdc749b81050e44a57eb965d557093, type: 2}
   - {fileID: 11400000, guid: 1e4587d7058fc5a4e9fa330a1286b0ce, type: 2}
   - {fileID: 11400000, guid: 578471aca4a9e5c4c96eece14af5029c, type: 2}
+  - {fileID: 11400000, guid: 89c3deb6d64d7ff49974878a3ee7837a, type: 2}
   moveableTiles: 
