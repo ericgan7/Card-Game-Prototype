@@ -3,31 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class HealthBar : MonoBehaviour
 {
 	public Character character;
 	public float health, currentHealth;
-    public Transform mask;
-    public Transform image;
+    public Image healthbar;
+    public Image armorbar;
+    public TextMeshProUGUI armortext;
+    public TextMeshProUGUI healthtext;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    	mask = transform.GetChild(0);
-        image = mask.GetChild(0);
-    }
 
     // Update is called once per frame
     void Update()
     {
     	if (character){
 	    	Vector2Int h = character.GetHealth();
-	    	health = h.y;
-	    	currentHealth = h.x;
-            transform.position = character.transform.position + new Vector3(-1.6f, 0.7f, 0);
-	    	image.transform.localScale = new Vector3(currentHealth/health, image.transform.localScale.y, image.transform.localScale.z);
-	        Debug.Log(h.x);
+            health = h.y;
+            currentHealth = h.x;
+            float a = character.GetArmor();
+            transform.position = character.transform.position;
+            healthtext.text = h.x.ToString();
+            armortext.text = a.ToString();
+            healthbar.transform.localScale = new Vector3(currentHealth/health, healthbar.transform.localScale.y, healthbar.transform.localScale.z);
+            armorbar.transform.localScale = new Vector3(a / health, armorbar.transform.localScale.y, armorbar.transform.localScale.z);
             if (h.x < 1){
                 Destroy(gameObject);
             }
