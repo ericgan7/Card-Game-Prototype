@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5312342fd2bf68342ac4fad24ebe8c48, type: 3}
-  m_Name: Heal
+  m_Name: HeadShot
   m_EditorClassIdentifier: 
-  name: Heal
-  description: Heals target ally for {0} health
+  name: Head Shot
+  description: Deal {0} (ignoring armor)
   art: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  energyCost: 1
+  energyCost: 2
   effects:
-  - {fileID: 11400000, guid: 2f463f97f31ceba4ea76a6dc27c0db4f, type: 2}
-  spriteName: heal
+  - {fileID: 11400000, guid: dc9b42e1f4f34074da4baa61663a3e34, type: 2}
+  spriteName: headShot
   etype: 0
-  targetsTypes: 01000000
+  rtype: 0
+  targetsTypes: 02000000
   targetRange: 4
   effectRange: 1
