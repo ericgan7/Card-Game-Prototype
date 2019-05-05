@@ -127,4 +127,15 @@ public class HighlightTiles : MonoBehaviour
         }
         return targets;
     }
+
+    //Get All Highlighted Tiles
+    public List<Vector3Int> GetTiles()
+    {
+        List<Vector3Int> tiles = new List<Vector3Int>();
+        foreach (Vector3Int t in tilesFilled.Keys)
+        {
+            tiles.Add(t);
+        }
+        return tiles;
+    }
 }

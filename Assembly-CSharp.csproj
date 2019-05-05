@@ -79,6 +79,7 @@
     <Compile Include="Assets\Code\Data\EnrageEffect.cs" />
     <Compile Include="Assets\Code\Data\HealEffect.cs" />
     <Compile Include="Assets\Code\Data\LethalHitEffect.cs" />
+    <Compile Include="Assets\Code\Data\MovementEffects.cs" />
     <Compile Include="Assets\Code\Data\PierceEffect.cs" />
     <Compile Include="Assets\Code\Data\ReduceAttackEffect.cs" />
     <Compile Include="Assets\Code\Data\ReflectEffect.cs" />
@@ -101,6 +102,9 @@
     <Compile Include="Assets\Code\UI\RadialMenu.cs" />
     <Compile Include="Assets\Code\UI\UIController.cs" />
     <Compile Include="Assets\GM.cs" />
+    <Compile Include="Assets\ScriptableObjects\Effects\Mage\DamageOnMoveEffect.cs" />
+    <Compile Include="Assets\ScriptableObjects\Effects\Mage\DelayedGroundEffect.cs" />
+    <Compile Include="Assets\ScriptableObjects\Effects\Mage\Fear.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

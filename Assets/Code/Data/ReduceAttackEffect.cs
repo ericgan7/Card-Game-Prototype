@@ -36,4 +36,9 @@ public class ReduceAttackEffect : Effect
             origin.statusEffects.Remove(origin.statusEffects.Find(x => x.GetType() == typeof(ReduceAttackEffect)));
         }
     }
+
+    public override int ModifyAttack()
+    {
+        return -amount;
+    }
 }

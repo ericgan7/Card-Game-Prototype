@@ -109,12 +109,22 @@ public class Character : MonoBehaviour
     
     public int GetSpeed()
     {
-        return currentSpeed - destinations.Count;
+        int mod = 0;
+        foreach (Effect e in statusEffects)
+        {
+            mod += e.ModifySpeed();
+        }
+        return currentSpeed - destinations.Count + mod;
     }
 
     public int GetDamage()
     {
-        return currentDamage;
+        int mod = 0;
+        foreach(Effect e in statusEffects)
+        {
+            mod += e.ModifyAttack();
+        }
+        return currentDamage + mod;
     }
     public int GetArmor()
     {
@@ -185,6 +195,7 @@ public class Character : MonoBehaviour
                     game.map.MoveCharacter(this, destinations[destinations.Count - 1]);
                     destinations.RemoveAt(destinations.Count - 1);
                     startLocation = transform.localPosition;
+                    currentSpeed -= 1;
                     elapsed = 0f;
                 }
                 else
@@ -237,6 +248,7 @@ public class Character : MonoBehaviour
     {
         hasMoved = false;
         currentEnergy = stats.energy;
+        currentSpeed = stats.speed;
     }
 
     public void OnTurnStart()

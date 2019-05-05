@@ -89,7 +89,12 @@ public class GameController : MonoBehaviour
         results.Clear();
         if (cardPlayed.targetsTypes.Contains(Card.TargetType.Ground))
         {
-            // Allows Ground targeting for traps
+            List<Vector3Int> tiles = map.targets.GetTiles();
+            if (tiles.Count > 0)
+            {
+                success = true;
+                results = cardPlayed.Play(currentCharacter, tiles);
+            }
         }
         else
         {
