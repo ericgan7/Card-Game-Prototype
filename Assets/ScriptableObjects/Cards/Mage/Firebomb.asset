@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Firebomb
   m_EditorClassIdentifier: 
   name: Firebomb
-  description: On the start of next turn, deal {0} damage to all units in the area
+  description: On the start of next turn, deal 3 damage to all units in the area
   art: {fileID: 0}
   energyCost: 1
   effects:

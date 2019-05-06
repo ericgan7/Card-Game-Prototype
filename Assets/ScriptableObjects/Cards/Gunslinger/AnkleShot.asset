@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AnkleShot
   m_EditorClassIdentifier: 
   name: AnkleShot
-  description: Deal {0} damage, Slow Movement
+  description: Deal 6 damage, Slow Movement
   art: {fileID: 0}
   energyCost: 0
   effects:

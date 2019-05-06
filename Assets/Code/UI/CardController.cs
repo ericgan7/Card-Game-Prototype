@@ -103,12 +103,14 @@ public class CardController : MonoBehaviour
         {
             kept.Add(c.cardData);
         }
-        foreach(CardMovement c in hand)
         {
-            c.keepingMode = false;
-            c.isCardDrawn = false;
+            foreach (CardMovement c in hand)
+            {
+                c.keepingMode = false;
+                c.isCardDrawn = false;
+                c.Discard();
+            }
         }
-        //game.EndAllyTurn(kept);
         game.UpdateTurn(kept);
     }
 }

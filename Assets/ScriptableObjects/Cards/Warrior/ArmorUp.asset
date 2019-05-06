@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ArmorUp
   m_EditorClassIdentifier: 
   name: Armor up!
-  description: +{0} Armor, Add Reflect
+  description: +2 Armor, Add Reflect
   art: {fileID: 0}
   energyCost: 1
   effects:

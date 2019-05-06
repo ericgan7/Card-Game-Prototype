@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: QuickStrike
   m_EditorClassIdentifier: 
   name: Quick Strike
-  description: Deals {0} damage
+  description: Deals 6 damage
   art: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   energyCost: 0
   effects:

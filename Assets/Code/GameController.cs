@@ -21,8 +21,8 @@ public class GameController : MonoBehaviour
     public Character currentCharacter;
 
     public List<Card.EffectResult> results;
-
     EnemyAI ai;
+    bool switchingTurn;
 
     private void Start()
     {
@@ -35,6 +35,7 @@ public class GameController : MonoBehaviour
         results = new List<Card.EffectResult>();
         ai = GetComponent<EnemyAI>();
         ai.game = this;
+        switchingTurn = false;
     }
 
     public void PopulateTurns(bool allyFirst)
@@ -142,19 +143,27 @@ public class GameController : MonoBehaviour
             enemyTurn.Enqueue(c);
         }
         turns.RemoveAt(0);
+        StartCoroutine("StartNextTurn");
+    }
+
+    public IEnumerator StartNextTurn()
+    {
+        Vector3 p = map.WorldToCellSpace(currentCharacter.transform.position);
+        p.z = Camera.main.transform.localPosition.z;
+        inputControl.CenterCamera(p);
+
+        yield return new WaitForEndOfFrame();
         currentCharacter = turns[0];
         ui.UpdateTurns(turns);
         hand.DrawCurrentCards(currentCharacter);
         currentCharacter.OnTurnStart();
 
-        Vector3 p = map.WorldToCellSpace(currentCharacter.transform.position);
-        p.z = Camera.main.transform.localPosition.z;
-        inputControl.CenterCamera(p);
         if (currentCharacter.team == Card.TargetType.Enemy)
         {
             ai.self = currentCharacter;
             ai.Action();
         }
+        switchingTurn = false;
     }
     //TODO AI action
     public void EnemyTurn()
@@ -237,7 +246,9 @@ public class GameController : MonoBehaviour
         gameover = false;
 
     }
+    
     public bool gameover = false;
+
     public void Update()
     {
         if (gameover)

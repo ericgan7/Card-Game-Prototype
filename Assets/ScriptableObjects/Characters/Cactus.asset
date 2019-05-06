@@ -30,8 +30,12 @@ MonoBehaviour:
   cards:
   - {fileID: 11400000, guid: dca7aa619a0331a448216c24fbc521f8, type: 2}
   - {fileID: 11400000, guid: 2bbdc749b81050e44a57eb965d557093, type: 2}
-  - {fileID: 11400000, guid: 2bbdc749b81050e44a57eb965d557093, type: 2}
+  - {fileID: 11400000, guid: 578471aca4a9e5c4c96eece14af5029c, type: 2}
   - {fileID: 11400000, guid: 1e4587d7058fc5a4e9fa330a1286b0ce, type: 2}
   - {fileID: 11400000, guid: 578471aca4a9e5c4c96eece14af5029c, type: 2}
+  - {fileID: 11400000, guid: 2892e4ba76d18da459494fa4fae1a23d, type: 2}
+  - {fileID: 11400000, guid: 3d64c6157a7a2154bb4886105eb850e8, type: 2}
+  - {fileID: 11400000, guid: ec0677e4421e7e341bbcbb7f16282592, type: 2}
+  - {fileID: 11400000, guid: e6747a8d2575fcd4697867c1392e876c, type: 2}
   - {fileID: 11400000, guid: 89c3deb6d64d7ff49974878a3ee7837a, type: 2}
   moveableTiles: 

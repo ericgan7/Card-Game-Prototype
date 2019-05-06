@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MakeItRain
   m_EditorClassIdentifier: 
   name: Hail of Bullets
-  description: Deal {0} damage in a small area
+  description: Deal 6 damage in a small area
   art: {fileID: 0}
   energyCost: 1
   effects:

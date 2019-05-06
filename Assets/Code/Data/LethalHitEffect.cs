@@ -10,7 +10,7 @@ public class LethalHitEffect : Effect
 
     public override int Apply(Character origin, Character target)
     {
-        int damage = Mathf.Min(0, -(int)(origin.GetDamage() * multiplier) + target.GetArmor() * armorPotency);
+        int damage = Mathf.Min(0, -(int) + target.GetArmor() * armorPotency);
         target.ChangeHealth(damage);
         return damage;
     }

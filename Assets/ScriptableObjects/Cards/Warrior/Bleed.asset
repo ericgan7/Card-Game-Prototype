@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bleed
   m_EditorClassIdentifier: 
   name: Bleed
-  description: Add 2 Bleed
+  description: Add 2 Bleed for 2 turns
   art: {fileID: 0}
   energyCost: 0
   effects:

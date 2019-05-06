@@ -19,7 +19,7 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI hp;
     public TextMeshProUGUI end;
     public TextMeshProUGUI spd;
-    public TextMeshProUGUI eva;
+    public TextMeshProUGUI dmg;
     public TextMeshProUGUI arm;
     public TextMeshProUGUI energy;
 
@@ -56,6 +56,7 @@ public class UIController : MonoBehaviour
         arm.text = selectedCharacter.GetArmor().ToString();
         Vector2Int currentEnergy = game.currentCharacter.GetEnergy();
         energy.text = currentEnergy.x.ToString() + " / " + currentEnergy.y.ToString();
+        dmg.text = selectedCharacter.GetDamage().ToString();
     }
     //updates the turn indicator, which shows which units will act.
     public void UpdateTurns(List<Character> order)

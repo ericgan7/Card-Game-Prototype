@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Piercing Shot
   m_EditorClassIdentifier: 
   name: Piercing Shot
-  description: Deal {0} damage to all units in a line
+  description: Deal 6 damage to all units in a line
   art: {fileID: 0}
   energyCost: 1
   effects:

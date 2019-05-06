@@ -258,6 +258,7 @@ public class Character : MonoBehaviour
     {
         hasMoved = false;
         currentEnergy = stats.energy;
+        destinations.Clear();
         currentSpeed = stats.speed;
     }
 

@@ -205,4 +205,10 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         game.PlayAction();
     }
+
+    public void Discard()
+    {
+        GetComponent<Animator>().enabled = true;
+        GetComponent<Animator>().Play("Discard");
+    }
 }

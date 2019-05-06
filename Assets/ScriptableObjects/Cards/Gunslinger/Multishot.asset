@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Multishot
   m_EditorClassIdentifier: 
   name: Multishot
-  description: Deal{0} damage 3 times
+  description: Deal 6 damage 3 times
   art: {fileID: 0}
   energyCost: 1
   effects:

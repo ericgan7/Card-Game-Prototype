@@ -32,5 +32,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3d64c6157a7a2154bb4886105eb850e8, type: 2}
   - {fileID: 11400000, guid: ec0677e4421e7e341bbcbb7f16282592, type: 2}
   - {fileID: 11400000, guid: 8c344ed4b5113ac438201609c386a779, type: 2}
+  - {fileID: 11400000, guid: b0a34ccf71bbdf44fb0aea1e151faf13, type: 2}
   - {fileID: 11400000, guid: bcb16c1eb78d10c4488d3c1d380683f7, type: 2}
+  - {fileID: 11400000, guid: 025ca9f2fec86914bb64096111a70ad8, type: 2}
+  - {fileID: 11400000, guid: 81084ef07fdf1f34186e30b1c8daeb0d, type: 2}
+  - {fileID: 11400000, guid: b750d522fd7fba541883a005be71d701, type: 2}
+  - {fileID: 11400000, guid: 3e62a2d25e03d1c4b8042a16146ecd0c, type: 2}
   moveableTiles: 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NeedleBarage
   m_EditorClassIdentifier: 
   name: Needle Barrage
-  description: Deal {0} damage
+  description: Deal 6 damage
   art: {fileID: 0}
   energyCost: 0
   effects:
