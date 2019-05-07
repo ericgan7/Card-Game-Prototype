@@ -13,6 +13,7 @@ public class MapController : MonoBehaviour
     public Tilemap map;
     public HighlightTiles highlights;
     public HighlightTiles targets;
+    public HighlightTiles characters;
     public MovementMap move;
 
     Character[,] characterLocations;
@@ -144,6 +145,7 @@ public class MapController : MonoBehaviour
             Vector3Int loc = WorldToCellSpace(e.transform.position);
             characterLocations[loc.x, loc.y] = e;
             previousCharacterLocations[e] = loc;
+            characters.ChangeTile(loc, HighlightTiles.TileType.Enemy);
         }
 
         foreach(Character a in game.allies)
@@ -151,6 +153,7 @@ public class MapController : MonoBehaviour
             Vector3Int loc = WorldToCellSpace(a.transform.position);
             characterLocations[loc.x, loc.y] = a;
             previousCharacterLocations[a] = loc;
+            characters.ChangeTile(loc, HighlightTiles.TileType.Ally);
         }
     }
     //Gets the character at a specific location. can be null;
@@ -304,7 +307,15 @@ public class MapController : MonoBehaviour
         characterLocations[previous.x, previous.y] = null;
         characterLocations[newLocation.x, newLocation.y] = movedCharacter;
         previousCharacterLocations[movedCharacter] = newLocation;
-
+        characters.ChangeTile(previous, HighlightTiles.TileType.None);
+        if (movedCharacter.team == Card.TargetType.Ally)
+        {
+            characters.ChangeTile(newLocation, HighlightTiles.TileType.Ally);
+        }
+        else
+        {
+            characters.ChangeTile(newLocation, HighlightTiles.TileType.Enemy);
+        }
     }
 
     public void RemoveCharacter(Character removedCharacter)
@@ -312,6 +323,7 @@ public class MapController : MonoBehaviour
         Vector3Int location = previousCharacterLocations[removedCharacter];
         characterLocations[location.x, location.y] = null;
         previousCharacterLocations.Remove(removedCharacter);
+        characters.ChangeTile(location, HighlightTiles.TileType.None);
     }
 
     public List<Vector3Int> GetCharacterLocations()

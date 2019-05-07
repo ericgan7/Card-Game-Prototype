@@ -8,7 +8,7 @@ public class BoostCurrSpeedEffect : Effect
     public int amount;
     public override int Apply(Character origin, Character target)
     {
-        target.ChangeEnergy(amount);
+        target.ChangeSpeed(amount);
         return amount;
     }
 }

@@ -99,16 +99,28 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            List<Character> targets = map.targets.GetTargets();
-            if (targets.Count > 0 && currentCharacter.HasEnergy())
+            if (cardPlayed.etype == Card.EffectType.Targetable)
             {
-                success = true;
-                results = cardPlayed.Play(currentCharacter, targets);
-                foreach(Card.EffectResult result in results)
+                List<Character> targets = map.targets.GetTargets();
+                if (targets.Count > 0 && currentCharacter.HasEnergy())
                 {
-                    ui.displayText.CreateWorldText(result.position, result.position + new Vector3(0f, 1f, 0f), result.effect, result.color);
+                    success = true;
+                    results = cardPlayed.Play(currentCharacter, targets);
+                    foreach (Card.EffectResult result in results)
+                    {
+                        //ui.displayText.CreateWorldText(result.position, result.position + new Vector3(0f, 1f, 0f), result.effect, result.color);
+                    }
+                    //Energy Cost will be deducted at the end of the card animation.
                 }
-                //Energy Cost will be deducted at the end of the card animation.
+            }
+            else
+            {
+                List<Character> targets = map.highlights.GetTargets();
+                if (targets.Count > 0 && currentCharacter.HasEnergy())
+                {
+                    success = true;
+                    results = cardPlayed.Play(currentCharacter, targets);
+                }
             }
         }
         return success;
@@ -148,12 +160,12 @@ public class GameController : MonoBehaviour
 
     public IEnumerator StartNextTurn()
     {
+        currentCharacter = turns[0];
         Vector3 p = map.WorldToCellSpace(currentCharacter.transform.position);
         p.z = Camera.main.transform.localPosition.z;
         inputControl.CenterCamera(p);
 
         yield return new WaitForEndOfFrame();
-        currentCharacter = turns[0];
         ui.UpdateTurns(turns);
         hand.DrawCurrentCards(currentCharacter);
         currentCharacter.OnTurnStart();
@@ -163,7 +175,8 @@ public class GameController : MonoBehaviour
             ai.self = currentCharacter;
             ai.Action();
         }
-        switchingTurn = false;
+
+        ui.SelectCharacter(currentCharacter);
     }
     //TODO AI action
     public void EnemyTurn()

@@ -203,8 +203,13 @@ public class InputController : MonoBehaviour
     void CheckMovement(RaycastHit hit)
     {
         Vector3Int location = game.map.WorldToCellSpace(hit.point);
+        //current character location is not a valid movement tile
+        if (location == game.map.WorldToCellSpace(game.currentCharacter.transform.position))
+        {
+            return;
+        }
         //Activate movement after confirmation;
-        if (previousTile.x >= 0 && previousTile == location)
+        else if (previousTile.x >= 0 && previousTile == location)
         {
             mode = InputMode.None;
             game.currentCharacter.Move();
@@ -221,7 +226,7 @@ public class InputController : MonoBehaviour
         else
         {
             previousTile = location;
-            if (game.map.highlights.tilesFilled.ContainsKey(location))
+            if (game.map.highlights.tilesFilled.ContainsKey(location)) 
             {
                 if (game.currentCharacter.destinations.Count == 0)
                 {

@@ -152,7 +152,17 @@ public class Character : MonoBehaviour
             gameObject.SetActive(false);
         }
         Debug.Log("New Health " + currentHealth.ToString());
-        return Mathf.Abs(currentHealth - temp);
+        int change = currentHealth - temp;
+        Vector3 p = transform.position;
+        p.y += 1;
+        p.x += Random.Range(-0.5f, 0.5f);
+        Color c = Color.red;
+        if (change > 0)
+        {
+            c = Color.green;
+        }
+        game.ui.displayText.CreateWorldText(transform.position, p, change.ToString(), c);
+        return Mathf.Abs(change);
     }
     public int ChangeArmor(int amount, bool healArmor = false)
     {
@@ -163,16 +173,22 @@ public class Character : MonoBehaviour
         }
         currentArmor = Mathf.Clamp(currentArmor + amount, 0, 100);
         Debug.Log("New Armor " + currentArmor.ToString());
-        return Mathf.Abs(amount - temp);
+        int change = currentArmor - temp;
+        Vector3 p = transform.position;
+        p.y += 1;
+        p.x += Random.Range(-0.5f, 0.5f);
+        Color c = Color.blue;
+        if (change > 0)
+        {
+            c = Color.cyan;
+        }
+        game.ui.displayText.CreateWorldText(transform.position, p, change.ToString(), c);
+        return Mathf.Abs(change);
     }
    
     public int ChangeEnergy(int amount)
     {
         currentEnergy = currentEnergy + amount;
-        if (currentEnergy <= 0)
-        {
-            game.UpdateTurn(new List<Card>());
-        }
         Debug.Log("New Energy " + currentEnergy.ToString());
         return amount;
     }
@@ -244,21 +260,16 @@ public class Character : MonoBehaviour
     }
     public void Move()
     {
-        if (!hasMoved)
-        {
-            Debug.Log("MOVE");
-            isMoving = true;
-            game.inputControl.disableInput = true;
-            hasMoved = true;
-            ChangeEnergy(-1);
-        }
+        Debug.Log("MOVE");
+        isMoving = true;
+        game.inputControl.disableInput = true;
+        hasMoved = true;
+        ChangeEnergy(-1);
     }
     //Reset Energy, trigger end of turn effects, etc.
     public void EndTurn()
     {
-        hasMoved = false;
         currentEnergy = stats.energy;
-        destinations.Clear();
         currentSpeed = stats.speed;
     }
 

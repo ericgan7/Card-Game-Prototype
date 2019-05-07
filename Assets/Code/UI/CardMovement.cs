@@ -110,6 +110,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         }
         targetScale = new Vector3(1.0f, 1.0f, 1.0f);
         destination = defaultLocation;
+        game.inputControl.SetInput(InputController.InputMode.None);
     }
     //Starting to drag Card. Highlihghts targeted square in red for clarity.
     //TO DO:POLISH CARD DRAGGING
@@ -159,12 +160,18 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void OnEndDrag(PointerEventData p)
     {
         bool successfulPlay = false;
-        Ray mouseClick = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(mouseClick, out hit))
+        if (cardData.etype == Card.EffectType.Nontargetable)
         {
             successfulPlay = game.Cast(cardData);
-            
+        }
+        else
+        {
+            Ray mouseClick = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(mouseClick, out hit))
+            {
+                successfulPlay = game.Cast(cardData);
+            }
         }
         if (successfulPlay)
         {

@@ -19,7 +19,7 @@ MonoBehaviour:
   effects:
   - {fileID: 11400000, guid: 2c31515585dba974f8f939ddfec3f431, type: 2}
   spriteName: defend
-  etype: 0
+  etype: 1
   rtype: 0
   targetsTypes: 00000000
   targetRange: 1

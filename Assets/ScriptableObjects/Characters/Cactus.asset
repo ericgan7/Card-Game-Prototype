@@ -23,9 +23,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e044bf0c034cb484bba4d86985341f37, type: 3}
   characterName: Cactus
   health: 10
-  energy: 2
+  energy: 3
   speed: 5
-  armor: 4
+  armor: 5
   damage: 6
   cards:
   - {fileID: 11400000, guid: dca7aa619a0331a448216c24fbc521f8, type: 2}

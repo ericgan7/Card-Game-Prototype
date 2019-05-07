@@ -17,7 +17,7 @@ public class HighlightTiles : MonoBehaviour
 
     public enum TileType
     {
-        None, Move, Attack, Target, Buff, Path
+        None, Move, Attack, Target, Path, Ally, Enemy
     }
 
     public Tile[] tiles;
@@ -116,7 +116,7 @@ public class HighlightTiles : MonoBehaviour
     {
         tilesFilled[location] = remaining;
         --remaining;
-        if (remaining == 0)
+        if (remaining <= 0)
         {
             return;
         }
