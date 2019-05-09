@@ -71,4 +71,28 @@ public class Card : ScriptableObject
 
         return results;
     }
+
+    public EnemyAI.CardScore GetScore(Character origin, List<Character> targets)
+    {
+        EnemyAI.CardScore best = new EnemyAI.CardScore
+        {
+            score = 0
+        };
+        foreach (Character t in targets)
+        {
+            int total = 0;
+            if (targetsTypes.Contains(t.team)) {
+                foreach (Effect e in effects)
+                {
+                    total += e.GetScore(origin, t);
+                }
+            }
+            if (total > best.score)
+            {
+                best.score = total;
+                best.target = t;
+            }
+        }
+        return best;
+    }
 }

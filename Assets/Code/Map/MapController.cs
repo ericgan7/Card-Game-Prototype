@@ -161,11 +161,7 @@ public class MapController : MonoBehaviour
     {
         return characterLocations[location.x, location.y];
     }
-    //Gets all characters in range()
-    public List<Character> GetCharactersInRange(Vector3Int Location, int area)
-    {
-        return null;
-    }
+
     //A* pathfinding
     public List<Vector3Int> FindPath(Vector3Int origin, Vector3Int destination)
     {
@@ -331,17 +327,41 @@ public class MapController : MonoBehaviour
         List<Vector3Int> goals = new List<Vector3Int>();
         foreach (Character c in previousCharacterLocations.Keys)
         {
+            if (c == game.currentCharacter)
+            {
+                continue;
+            }
             Vector3Int goal = previousCharacterLocations[c];
             if (c.team == Card.TargetType.Ally)
             {
-                goal.z = 0;
+                goal.z = c.GetArmor();
             }
             else
             {
-                goal.z = 1;
+                goal.z = -1;
             }
             goals.Add(goal);
         }
         return goals;
+    }
+
+    public List<Character> GetCharacterInRange(Vector3Int location, int area)
+    {
+        List<Character> characters = new List<Character>();
+        for (int x = -area + 1; x < area; ++x)
+        {
+            for (int y = -area + 1; y < area; ++y)
+            {
+                if (x + y < area && (x != 0 || y != 0))
+                {
+                    Vector3Int loc = new Vector3Int(location.x + x, location.y + y, 0);
+                    if (WithinMapBounds(loc) && characterLocations[loc.x, loc.y] != null)
+                    {
+                        characters.Add(characterLocations[loc.x, loc.y]);
+                    }
+                }
+            }
+        }
+        return characters;
     }
 }

@@ -13,4 +13,9 @@ public class AttackEffect : Effect
         target.ChangeHealth(damage);
         return damage;
     }
+
+    public override int GetScore(Character origin, Character target)
+    {
+        return (int)(origin.GetDamage() * multiplier) - target.GetArmor();
+    }
 }

@@ -175,7 +175,6 @@ public class GameController : MonoBehaviour
             ai.self = currentCharacter;
             ai.Action();
         }
-
         ui.SelectCharacter(currentCharacter);
     }
     //TODO AI action

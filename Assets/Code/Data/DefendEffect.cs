@@ -11,4 +11,9 @@ public class DefendEffect : Effect
         target.ChangeArmor(amount);
         return amount;
     }
+
+    public override int GetScore(Character origin, Character target)
+    {
+        return Mathf.Max(6 - origin.GetArmor(), 1);
+    }
 }

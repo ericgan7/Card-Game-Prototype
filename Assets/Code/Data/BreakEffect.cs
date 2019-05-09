@@ -12,4 +12,9 @@ public class BreakEffect : Effect
         return amount;
 
     }
+
+    public override int GetScore(Character origin, Character target)
+    {
+        return target.GetArmor();
+    }
 }

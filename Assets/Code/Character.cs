@@ -103,6 +103,18 @@ public class Character : MonoBehaviour
     }
 
     //Gettors
+    public Vector3Int GetPosition()
+    {
+        if (destinations.Count > 0)
+        {
+            return destinations[0];
+        }
+        else
+        {
+            return game.map.WorldToCellSpace(transform.position);
+        }
+    }
+
     public Vector2Int GetHealth()
     {
         return new Vector2Int(currentHealth, stats.health);
@@ -234,6 +246,7 @@ public class Character : MonoBehaviour
             {
                 isMoving = false;
                 game.inputControl.disableInput = false;
+                ChangeEnergy(-1);
                 if (currentEnergy == 0)
                 {
                     //game.endallyturn;
@@ -247,10 +260,6 @@ public class Character : MonoBehaviour
     {
         d.AddRange(destinations);
         destinations = d;
-        foreach(var v in destinations)
-        {
-            Debug.Log(v);
-        }
         elapsed = 0f;
     }
 
@@ -260,11 +269,9 @@ public class Character : MonoBehaviour
     }
     public void Move()
     {
-        Debug.Log("MOVE");
         isMoving = true;
         game.inputControl.disableInput = true;
         hasMoved = true;
-        ChangeEnergy(-1);
     }
     //Reset Energy, trigger end of turn effects, etc.
     public void EndTurn()
