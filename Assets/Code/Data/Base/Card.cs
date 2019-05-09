@@ -26,7 +26,7 @@ public class Card : ScriptableObject
     }
     public enum TargetType
     {
-        Self, Ally, Enemy, Ground
+        Self, Ally, Enemy, Ground, Obstacle
     }
     public EffectType etype;
     public RangeType rtype;
