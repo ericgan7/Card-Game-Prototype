@@ -155,6 +155,14 @@ public class MapController : MonoBehaviour
             previousCharacterLocations[a] = loc;
             characters.ChangeTile(loc, HighlightTiles.TileType.Ally);
         }
+
+        foreach (Character o in game.obstacles)
+        {
+            Vector3Int loc = WorldToCellSpace(o.transform.position);
+            characterLocations[loc.x, loc.y] = o;
+            previousCharacterLocations[o] = loc;
+            characters.ChangeTile(loc, HighlightTiles.TileType.None);
+        }
     }
     //Gets the character at a specific location. can be null;
     public Character GetCharacter(Vector3Int location)
