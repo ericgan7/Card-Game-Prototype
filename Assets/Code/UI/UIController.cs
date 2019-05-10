@@ -24,6 +24,7 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI energy;
 
     public Image[] turnOrder;
+    public Image[] turnOrderBorderColor;
 
     public RadialMenu radialOptions;
     public ActionPanel ap;
@@ -64,6 +65,12 @@ public class UIController : MonoBehaviour
         for (int i = 0; i < turnOrder.Length; ++i)
         {
             turnOrder[i].sprite = order[(i % order.Count)].stats.portrait;
+            if (order[(i % order.Count)].team == Card.TargetType.Ally){
+                turnOrderBorderColor[i].color = new Color(0, 1, 1, 1); //cyan
+            }
+            else if (order[(i % order.Count)].team == Card.TargetType.Enemy){
+                turnOrderBorderColor[i].color = new Color(1, 0, 1, 1); //magenta
+            }
         }
     }
 
