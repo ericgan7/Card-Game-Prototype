@@ -61,8 +61,11 @@ public class Character : MonoBehaviour
         RefillHand(new List<Card>());
         isMoving = false;
         hasMoved = false;
-        
-        hbc.createHealthBar(this);
+
+        if (!(team == Card.TargetType.Obstacle))
+        {
+            hbc.createHealthBar(this);
+        }
     }
     //draw a random card from deck. untill all cards are drawn. They are then replenished.
     public Card DrawRandom()

@@ -10,6 +10,7 @@ public class CardController : MonoBehaviour
 {
     public GameController game;
     public List<CardMovement> hand;
+    public CardMovement prefab;
     public Transform parent;
     public float maxHandLength;
     public Vector3 center;
@@ -54,17 +55,15 @@ public class CardController : MonoBehaviour
         }
     }
 
-    public void DiscardDeck()
+    public void DiscardHand()
     {
-
+        foreach(CardMovement c in hand)
+        {
+            c.Reset();
+        }
     }
 
     public void DrawNewCard(Character deck)
-    {
-
-    }
-    //remember to set isCardDrawn to false when discarding cards.
-    public void DiscardCard()
     {
 
     }
@@ -103,14 +102,20 @@ public class CardController : MonoBehaviour
         {
             kept.Add(c.cardData);
         }
+
+        foreach (CardMovement c in hand)
         {
-            foreach (CardMovement c in hand)
-            {
-                c.keepingMode = false;
-                c.isCardDrawn = false;
-                c.Discard();
-            }
+            c.Reset();
         }
+        
         game.UpdateTurn(kept);
+    }
+
+    public void PlayCard(Card played)
+    {
+        hand[0].UpdateCard(played);
+        hand[0].GetComponent<Animator>().enabled = true;
+        hand[0].GetComponent<Animator>().Play("CardAnimation");
+        CardEffect.instance.openUp();
     }
 }

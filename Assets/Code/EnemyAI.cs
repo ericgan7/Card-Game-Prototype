@@ -41,6 +41,7 @@ public class EnemyAI : MonoBehaviour
                 }
             }
         }
+        yield return new WaitForSeconds(1.0f);
         game.UpdateTurn(new List<Card>());
     }
     
@@ -93,7 +94,8 @@ public class EnemyAI : MonoBehaviour
         if (max > 0)
         {
             self.hand[index].Play(self, new List<Character> { scores[index].target });
-            self.ChangeEnergy(-self.hand[index].energyCost);
+            game.hand.PlayCard(self.hand[index]);
+            
             Debug.Log(self.hand[index].name);
             return true;
         }

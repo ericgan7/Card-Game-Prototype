@@ -4296,7 +4296,8 @@ PrefabInstance:
         type: 3}
       propertyPath: stats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 04cc5ab35992593469970afe571aa045,
+        type: 2}
     - target: {fileID: 8871397987856883322, guid: 38f5bb7bc8ba57d41b4a0c420163676a,
         type: 3}
       propertyPath: healthBarPrefab
@@ -5156,6 +5157,7 @@ MonoBehaviour:
   - {fileID: 367646460}
   - {fileID: 776667811}
   - {fileID: 2107955338}
+  prefab: {fileID: 0}
   parent: {fileID: 993346310}
   maxHandLength: 0
   center: {x: 0, y: 50, z: 0}
@@ -6524,7 +6526,8 @@ PrefabInstance:
         type: 3}
       propertyPath: stats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 04cc5ab35992593469970afe571aa045,
+        type: 2}
     - target: {fileID: 8871397987856883322, guid: 38f5bb7bc8ba57d41b4a0c420163676a,
         type: 3}
       propertyPath: healthBarPrefab
@@ -7649,7 +7652,8 @@ PrefabInstance:
         type: 3}
       propertyPath: stats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 04cc5ab35992593469970afe571aa045,
+        type: 2}
     - target: {fileID: 8871397987856883322, guid: 38f5bb7bc8ba57d41b4a0c420163676a,
         type: 3}
       propertyPath: healthBarPrefab
@@ -8565,7 +8569,12 @@ PrefabInstance:
     - target: {fileID: 1632639813986401751, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632639813986401751, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 1275068416
       objectReference: {fileID: 0}
     - target: {fileID: 1632639814809305772, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
@@ -8575,7 +8584,12 @@ PrefabInstance:
     - target: {fileID: 1632639814809305772, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632639814809305772, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 1275068416
       objectReference: {fileID: 0}
     - target: {fileID: 1632639814918030107, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
@@ -8585,7 +8599,12 @@ PrefabInstance:
     - target: {fileID: 1632639814918030107, guid: 5fb7aad5bc11361458e19f2cf49eea06,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632639814918030107, guid: 5fb7aad5bc11361458e19f2cf49eea06,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 1275068416
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fb7aad5bc11361458e19f2cf49eea06, type: 3}

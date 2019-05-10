@@ -168,13 +168,16 @@ public class GameController : MonoBehaviour
 
         yield return new WaitForEndOfFrame();
         ui.UpdateTurns(turns);
-        hand.DrawCurrentCards(currentCharacter);
         currentCharacter.OnTurnStart();
 
         if (currentCharacter.team == Card.TargetType.Enemy)
         {
             ai.self = currentCharacter;
             ai.Action();
+        }
+        else
+        {
+            hand.DrawCurrentCards(currentCharacter);
         }
         ui.SelectCharacter(currentCharacter);
     }

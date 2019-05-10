@@ -176,7 +176,6 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         if (successfulPlay)
         {
             //discard positioning TO DO:
-            game.hand.DiscardCard();
             GetComponent<Animator>().enabled = true;
             GetComponent<Animator>().Play("CardAnimation");
             CardEffect.instance.openUp();
@@ -199,23 +198,20 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         }
     }
     //Only call at the end of card playing animation.
-    public void Reset()
+    public void Reset(int i = 0)
     {
         destination = discardLocation;
-        transform.localPosition = discardLocation;
-        game.currentCharacter.ChangeEnergy(-cardData.energyCost);
+        if (i > 0)
+        {
+            game.currentCharacter.ChangeEnergy(-cardData.energyCost);
+        }
         GetComponent<Animator>().enabled = false;
         isCardDrawn = false;
+        keepingMode = false;
     }
 
     public void Play()
     {
         game.PlayAction();
-    }
-
-    public void Discard()
-    {
-        GetComponent<Animator>().enabled = true;
-        GetComponent<Animator>().Play("Discard");
     }
 }

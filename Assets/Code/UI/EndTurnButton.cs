@@ -11,7 +11,6 @@ public class EndTurnButton : MonoBehaviour
 	}
 
     public void endTurn(){
-        game.UpdateTurn(new List<Card>());
-
+        game.inputControl.EndTurn();
     }
  }

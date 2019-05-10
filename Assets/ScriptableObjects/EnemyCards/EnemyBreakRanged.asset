@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5312342fd2bf68342ac4fad24ebe8c48, type: 3}
-  m_Name: EnemyBreak
+  m_Name: EnemyBreakRanged
   m_EditorClassIdentifier: 
   name: break
   description: 3 break

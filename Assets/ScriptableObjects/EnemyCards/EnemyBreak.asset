@@ -22,5 +22,5 @@ MonoBehaviour:
   etype: 0
   rtype: 0
   targetsTypes: 01000000
-  targetRange: 3
+  targetRange: 2
   effectRange: 1
