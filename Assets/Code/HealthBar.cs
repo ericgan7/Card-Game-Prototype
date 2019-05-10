@@ -11,6 +11,8 @@ public class HealthBar : MonoBehaviour
 	public float health, currentHealth;
     public Image healthbar;
     public Image armorbar;
+    public Image healthIcon;
+    public Image armorIcon;
     public TextMeshProUGUI armortext;
     public TextMeshProUGUI healthtext;
 
