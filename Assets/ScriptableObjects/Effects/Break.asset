@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Break
   m_EditorClassIdentifier: 
   color: {r: 0.2932309, g: 0.27033645, b: 0.7075472, a: 1}
+  description: Break {0} defense.
   amount: 3

@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Attack
   m_EditorClassIdentifier: 
   color: {r: 0.754717, g: 0.01768322, b: 0.010679938, a: 1}
+  description: Deal {0} Damage to target.
   multiplier: 1
