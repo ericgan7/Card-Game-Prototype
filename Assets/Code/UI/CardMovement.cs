@@ -42,7 +42,6 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         destination = transform.localPosition;
         defaultLocation = transform.localPosition;
         discardLocation = transform.localPosition;
-        UpdateCard(cardData);
         isCardDrawn = false;
         game = FindObjectOfType<GameController>();
         cameraSize = new Vector2(Camera.main.scaledPixelWidth / 2, 0);
@@ -60,12 +59,12 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         destination = newPostion;
     }
     //update card from Scriptable object.
-    public void UpdateCard(Card data)
+    public void UpdateCard(Card data, Character origin)
     { 
         cardData = data;
         artwork.sprite = data.art;
         cardname.text = data.name;
-        description.text = data.description;
+        description.text = data.GetDescription(origin);
         cost.text = data.energyCost.ToString();
         isCardDrawn = true;
         targetScale = Vector3.one;

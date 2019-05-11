@@ -34,4 +34,9 @@ public class DelayedDamageEffect : Effect
             origin.statusEffects.Remove(this);
         }
     }
+
+    public override string ToString(Character origin)
+    {
+        return string.Format(description, amount, duration);
+    }
 }

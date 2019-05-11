@@ -10,6 +10,7 @@ using UnityEngine;
 public class Effect : ScriptableObject
 {
     public Color color;
+    public string description;
     //initial application of effect
     public virtual int Apply(Character origin, Character target) { return 0; }
     public virtual int Apply(Character origin, List<Vector3Int> ground) { return 0; }
@@ -27,5 +28,10 @@ public class Effect : ScriptableObject
     public virtual int GetScore(Character origin, Character target)
     {
         return 0;
+    }
+
+    public virtual string ToString(Character origin)
+    {
+        return null;
     }
 }

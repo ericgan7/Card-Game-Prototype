@@ -94,7 +94,7 @@ public class EnemyAI : MonoBehaviour
         if (max > 0)
         {
             self.hand[index].Play(self, new List<Character> { scores[index].target });
-            game.hand.PlayCard(self.hand[index]);
+            game.hand.PlayCard(self.hand[index], self);
             
             Debug.Log(self.hand[index].name);
             return true;

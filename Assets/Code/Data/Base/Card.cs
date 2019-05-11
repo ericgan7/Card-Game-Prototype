@@ -10,7 +10,6 @@ using UnityEngine;
 public class Card : ScriptableObject
 {
     public new string name;
-    public string description;
     public Sprite art;
     public int energyCost;
 
@@ -94,5 +93,15 @@ public class Card : ScriptableObject
             }
         }
         return best;
+    }
+
+    public string GetDescription(Character origin)
+    {
+        string description = "";
+        foreach (Effect e in effects)
+        {
+            description += e.ToString(origin);
+        }
+        return description;
     }
 }

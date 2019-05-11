@@ -16,4 +16,9 @@ public class DefendEffect : Effect
     {
         return Mathf.Max(6 - origin.GetArmor(), 1);
     }
+
+    public override string ToString(Character origin)
+    {
+        return string.Format(description, amount);
+    }
 }
