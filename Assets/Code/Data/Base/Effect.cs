@@ -25,6 +25,11 @@ public class Effect : ScriptableObject
     public virtual int ModifyAttack() { return 0; }
     public virtual int ModifySpeed() { return 0; }
 
+    public virtual string GetAmount(Character origin, Character target)
+    {
+        return null;
+    }
+
     public virtual int GetScore(Character origin, Character target)
     {
         return 0;

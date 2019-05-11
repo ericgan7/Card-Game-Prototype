@@ -21,4 +21,9 @@ public class DefendEffect : Effect
     {
         return string.Format(description, amount);
     }
+
+    public override string GetAmount(Character origin, Character target)
+    {
+        return amount.ToString();
+    }
 }

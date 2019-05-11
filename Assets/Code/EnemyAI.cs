@@ -22,9 +22,9 @@ public class EnemyAI : MonoBehaviour
 
     IEnumerator TakeActions()
     {
-        yield return new WaitForSeconds(1.0f);
         for (int i = 0; i < self.GetEnergy().x; ++i)
         {
+            yield return new WaitForSeconds(1.0f);
             if  (self.GetEnergy().x <= 0)
             {
                 break;
@@ -35,7 +35,11 @@ public class EnemyAI : MonoBehaviour
                 {
                     yield return new WaitForSeconds(0.5f);
                 }
-                if (!PlayBestCard())
+                if (PlayBestCard())
+                {
+                    yield return new WaitForSeconds(2.0f);
+                }
+                else
                 {
                     MakeMove();
                 }
@@ -95,7 +99,7 @@ public class EnemyAI : MonoBehaviour
         {
             self.hand[index].Play(self, new List<Character> { scores[index].target });
             game.hand.PlayCard(self.hand[index], self);
-            
+            self.ChangeEnergy(-self.hand[index].energyCost);
             Debug.Log(self.hand[index].name);
             return true;
         }

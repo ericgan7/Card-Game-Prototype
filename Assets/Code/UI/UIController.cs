@@ -85,9 +85,4 @@ public class UIController : MonoBehaviour
         UpdateStats();
     }
 
-    public void PlayAction(List<Card.EffectResult> results, bool allyAttacker)
-    {
-        ap.Set(results, allyAttacker);
-    }
-
 }

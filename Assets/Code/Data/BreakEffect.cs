@@ -22,4 +22,9 @@ public class BreakEffect : Effect
     {
         return string.Format(description, amount);
     }
+
+    public override string GetAmount(Character origin, Character target)
+    {
+        return amount.ToString();
+    }
 }

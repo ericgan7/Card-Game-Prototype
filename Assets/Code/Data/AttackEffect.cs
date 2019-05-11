@@ -23,4 +23,9 @@ public class AttackEffect : Effect
     {
         return string.Format(description, (origin.GetDamage() * multiplier)).ToString();
     }
+
+    public override string GetAmount(Character origin, Character target)
+    {
+        return ((int)(origin.GetDamage() * multiplier) - target.GetArmor()).ToString();
+    }
 }

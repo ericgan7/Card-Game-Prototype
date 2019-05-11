@@ -39,4 +39,9 @@ public class DelayedDamageEffect : Effect
     {
         return string.Format(description, amount, duration);
     }
+
+    public override string GetAmount(Character origin, Character target)
+    {
+        return (amount).ToString();
+    }
 }
