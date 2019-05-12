@@ -26,4 +26,9 @@ public class DamageOnMoveEffect : Effect
     {
         target.ChangeHealth(-amount);
     }
+
+    public override string ToString(Character origin)
+    {
+        return string.Format(description, amount, duration);
+    }
 }

@@ -6,34 +6,36 @@ using TMPro;
 
 public class DisplayText : MonoBehaviour
 {
+    GameController game;
     public Text viewTextPrefab;
     public TextMeshProUGUI worldTextPrefab;
     public float duration;
 
-    public bool test;
     public Canvas world;
     public Canvas view;
+    public List<TextMeshProUGUI> worldTexts;
 
-    private void Update()
+    public void Start()
     {
-        if (test)
-        {
-            test = false;
-            GameController g = FindObjectOfType<GameController>();
-            Vector3 d = g.currentCharacter.transform.position;
-            d.y += 1;
-            CreateWorldText(g.currentCharacter.transform.position, d, "10", Color.black);
-        }
+        game = FindObjectOfType<GameController>();
     }
 
-    public void CreateWorldText(Vector3 position, Vector3 direction, string text, Color color)
+    public void CreateWorldText(Vector3 position, Vector3 direction, string text, Color color, bool move = true)
     {
         var t = Instantiate(worldTextPrefab);
-        t.transform.SetParent(view.transform);
+        t.transform.SetParent(world.transform);
+        t.transform.position = position;
         t.text = text;
         t.color = color;
-        IEnumerator corountine = MoveText(t, position, direction);
-        StartCoroutine(corountine);
+        if (move)
+        {
+            IEnumerator corountine = MoveText(t, position, direction);
+            StartCoroutine(corountine);
+        }
+        else
+        {
+            worldTexts.Add(t);
+        }
     }
 
     IEnumerator MoveText(TextMeshProUGUI t, Vector3 position, Vector3 direction)
@@ -48,4 +50,24 @@ public class DisplayText : MonoBehaviour
         Destroy(t.gameObject);
     }
     
+    public void DisplayTargets(Card toPlay, Character origin)
+    {
+        foreach(var t in worldTexts)
+        {
+            Destroy(t.gameObject);
+        }
+        worldTexts.Clear();
+        List<Character> targets = game.map.targets.GetTargets();
+        
+        foreach (Character c in targets)
+        {
+            List<Card.EffectResult> results = toPlay.EffectAmount(origin, c);
+            foreach(Card.EffectResult r in results)
+            {
+                CreateWorldText(r.position, r.position, r.effect, r.color, false);
+            }
+           
+        }
+    }
+
 }

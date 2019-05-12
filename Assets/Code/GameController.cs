@@ -21,7 +21,6 @@ public class GameController : MonoBehaviour
     Vector3Int selectedMovementLocation;
     public Character currentCharacter;
 
-    public List<Card.EffectResult> results;
     EnemyAI ai;
     bool switchingTurn;
 
@@ -33,7 +32,6 @@ public class GameController : MonoBehaviour
         allyTurn = new Queue<Character>(allies);
         enemyTurn = new Queue<Character>(enemies);
         StartGame();
-        results = new List<Card.EffectResult>();
         ai = GetComponent<EnemyAI>();
         ai.game = this;
         switchingTurn = false;
@@ -88,14 +86,13 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("Cast Card");
         bool success = false;
-        results.Clear();
         if (cardPlayed.targetsTypes.Contains(Card.TargetType.Ground))
         {
             List<Vector3Int> tiles = map.targets.GetTiles();
             if (tiles.Count > 0)
             {
                 success = true;
-                results = cardPlayed.Play(currentCharacter, tiles);
+                cardPlayed.Play(currentCharacter, tiles);
             }
         }
         else
@@ -106,11 +103,7 @@ public class GameController : MonoBehaviour
                 if (targets.Count > 0 && currentCharacter.HasEnergy())
                 {
                     success = true;
-                    results = cardPlayed.Play(currentCharacter, targets);
-                    foreach (Card.EffectResult result in results)
-                    {
-                        //ui.displayText.CreateWorldText(result.position, result.position + new Vector3(0f, 1f, 0f), result.effect, result.color);
-                    }
+                    cardPlayed.Play(currentCharacter, targets);
                     //Energy Cost will be deducted at the end of the card animation.
                 }
             }
@@ -120,9 +113,13 @@ public class GameController : MonoBehaviour
                 if (targets.Count > 0 && currentCharacter.HasEnergy())
                 {
                     success = true;
-                    results = cardPlayed.Play(currentCharacter, targets);
+                    cardPlayed.Play(currentCharacter, targets);
                 }
             }
+        }
+        if (success)
+        {
+            currentCharacter.ChangeEnergy(-cardPlayed.energyCost);
         }
         return success;
     }
@@ -196,7 +193,7 @@ public class GameController : MonoBehaviour
 
     public void PlayAction()
     {
-        ui.PlayAction(results, currentCharacter.team == Card.TargetType.Ally);
+        //ui.PlayAction(results, currentCharacter.team == Card.TargetType.Ally);
     }
 
     public void KillCharacter(Character c, bool isAlly)

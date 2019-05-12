@@ -42,7 +42,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         destination = transform.localPosition;
         defaultLocation = transform.localPosition;
         discardLocation = transform.localPosition;
-        UpdateCard(cardData);
+        targetScale = Vector3.one;
         isCardDrawn = false;
         game = FindObjectOfType<GameController>();
         cameraSize = new Vector2(Camera.main.scaledPixelWidth / 2, 0);
@@ -60,12 +60,12 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         destination = newPostion;
     }
     //update card from Scriptable object.
-    public void UpdateCard(Card data)
+    public void UpdateCard(Card data, Character origin)
     { 
         cardData = data;
         artwork.sprite = data.art;
         cardname.text = data.name;
-        description.text = data.description;
+        description.text = data.GetDescription(origin);
         cost.text = data.energyCost.ToString();
         isCardDrawn = true;
         targetScale = Vector3.one;
@@ -153,14 +153,20 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             if (Physics.Raycast(mouseClick, out hit))
             {
                 game.map.Target(hit.point, cardData.rtype, cardData.effectRange, HighlightTiles.TileType.Target, new List<Card.TargetType>(cardData.targetsTypes));
+                game.ui.displayText.DisplayTargets(cardData, game.currentCharacter);
             }
+        }
+        else
+        {
+            game.map.Target(game.currentCharacter.GetPosition(), cardData.rtype, cardData.effectRange, HighlightTiles.TileType.Target, new List<Card.TargetType>(cardData.targetsTypes));
+            game.ui.displayText.DisplayTargets(cardData, game.currentCharacter);
         }
     }
     //TODO should detect if card is playable and above a threshold (if card is returned to hand, should not be played)
     public void OnEndDrag(PointerEventData p)
     {
         bool successfulPlay = false;
-        if (cardData.etype == Card.EffectType.Nontargetable)
+        if (cardData.etype == Card.EffectType.Nontargetable && destination.y > 200)
         {
             successfulPlay = game.Cast(cardData);
         }
@@ -201,10 +207,6 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void Reset(int i = 0)
     {
         destination = discardLocation;
-        if (i > 0)
-        {
-            game.currentCharacter.ChangeEnergy(-cardData.energyCost);
-        }
         GetComponent<Animator>().enabled = false;
         isCardDrawn = false;
         keepingMode = false;
