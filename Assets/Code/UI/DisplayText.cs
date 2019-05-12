@@ -70,4 +70,13 @@ public class DisplayText : MonoBehaviour
         }
     }
 
+    public void ResetTargets()
+    {
+        foreach (var t in worldTexts)
+        {
+            Destroy(t.gameObject);
+        }
+        worldTexts.Clear();
+    }
+
 }

@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: AnkleShot
   m_EditorClassIdentifier: 
   name: AnkleShot
-  description: Deal 6 damage, Slow Movement
   art: {fileID: 0}
   energyCost: 0
   effects:
   - {fileID: 11400000, guid: 3dd10d66cd641c549b46b87ea7d11a2a, type: 2}
-  - {fileID: 11400000, guid: 6715551f976a80b44a3650c4830075c9, type: 2}
+  - {fileID: 11400000, guid: f17172f17048f5b4997c19a4af612213, type: 2}
   spriteName: 
   etype: 0
   rtype: 0

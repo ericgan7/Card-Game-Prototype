@@ -11,4 +11,9 @@ public class BoostCurrSpeedEffect : Effect
         target.ChangeSpeed(amount);
         return amount;
     }
+
+    public override string ToString(Character origin)
+    {
+        return string.Format(description, amount);
+    }
 }

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe515063a617fc4c824040f461e8a9b, type: 3}
   m_Name: HeadShot
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0.7264151, g: 0, b: 0, a: 1}
+  description: Deal {0} damage, ignoring armor.
   multiplier: 1

@@ -26,6 +26,6 @@ public class AttackEffect : Effect
 
     public override string GetAmount(Character origin, Character target)
     {
-        return ((int)(origin.GetDamage() * multiplier) - target.GetArmor()).ToString();
+        return Mathf.Max(0, (int)(origin.GetDamage() * multiplier) - target.GetArmor()).ToString();
     }
 }

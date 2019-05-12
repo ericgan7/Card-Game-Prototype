@@ -37,6 +37,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     LineRenderer line;
     public float arrowsHeadSize;
 
+    int siblingIndex;
     public void Start()
     {
         destination = transform.localPosition;
@@ -60,7 +61,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         destination = newPostion;
     }
     //update card from Scriptable object.
-    public void UpdateCard(Card data, Character origin)
+    public void UpdateCard(Card data, Character origin, int index)
     { 
         cardData = data;
         artwork.sprite = data.art;
@@ -69,6 +70,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         cost.text = data.energyCost.ToString();
         isCardDrawn = true;
         targetScale = Vector3.one;
+        siblingIndex = index;
     }
     //Movement
     public void FixedUpdate()
@@ -88,7 +90,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             HighlightRange();
             targetScale = new Vector3(2.0f, 2.0f, 2.0f);
             destination.y += 100f;
-            destination.z = -5f;
+            transform.SetAsLastSibling();
         }
 
     }
@@ -111,6 +113,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         targetScale = new Vector3(1.0f, 1.0f, 1.0f);
         destination = defaultLocation;
         game.inputControl.SetInput(InputController.InputMode.None);
+        transform.SetSiblingIndex(siblingIndex);
     }
     //Starting to drag Card. Highlihghts targeted square in red for clarity.
     //TO DO:POLISH CARD DRAGGING
@@ -193,6 +196,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         game.inputControl.SetInput(InputController.InputMode.None);
         game.map.ClearHighlight();
         game.map.ClearTarget();
+        game.ui.displayText.ResetTargets();
         line.positionCount = 0;
     }
     //helper function to highlight target Tiles;

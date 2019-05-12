@@ -40,18 +40,18 @@ public class CardController : MonoBehaviour
             leftStart.x -= xSeperation / 2;
             rightStart.x += xSeperation / 2;
             hand[right].SetPosition(center);
-            hand[right].UpdateCard(cards[right], character);
+            hand[right].UpdateCard(cards[right], character, right);
             ++right;
         }
         for (int i = 0; i < half; ++i)
         {
             hand[i + right].SetPosition(new Vector3(rightStart.x + xSeperation * i, rightStart.y - i, -i));
-            hand[i + right].UpdateCard(cards[i+right], character);
+            hand[i + right].UpdateCard(cards[i+right], character, right + i);
         }
         for (int i = 0; i < half; ++i)
         {
             hand[half - i - 1].SetPosition(new Vector3(leftStart.x - xSeperation * i, rightStart.y - i, i));
-            hand[half - i - 1].UpdateCard(cards[half -i - 1], character);
+            hand[half - i - 1].UpdateCard(cards[half -i - 1], character, half - i -1);
         }
     }
 
@@ -113,7 +113,7 @@ public class CardController : MonoBehaviour
 
     public void PlayCard(Card played, Character origin)
     {
-        hand[0].UpdateCard(played, origin);
+        hand[0].UpdateCard(played, origin, 0);
         hand[0].GetComponent<Animator>().enabled = true;
         hand[0].GetComponent<Animator>().Play("CardAnimation");
         CardEffect.instance.openUp();

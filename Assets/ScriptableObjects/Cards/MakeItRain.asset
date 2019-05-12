@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: MakeItRain
   m_EditorClassIdentifier: 
   name: Make It Rain
-  description: Deal 6 damage in a 3x3 cross area
   art: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   energyCost: 2
   effects:
-  - {fileID: 11400000, guid: 6715551f976a80b44a3650c4830075c9, type: 2}
+  - {fileID: 11400000, guid: f0e4bbbf3d4923244870bc091e3a11cb, type: 2}
   spriteName: makeItRain
   etype: 0
   rtype: 0

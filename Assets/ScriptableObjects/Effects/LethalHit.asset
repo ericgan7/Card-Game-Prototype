@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: LethalHit
   m_EditorClassIdentifier: 
   color: {r: 0, g: 0, b: 0, a: 0}
+  description: Deal {0} damage, but armor is {1}x as effective.
   multiplier: 2
-  armorPotency: 3
+  armorPotency: 2

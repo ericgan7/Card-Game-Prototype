@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b52c2a363dfbe42a300c2af624c33b, type: 3}
   m_Name: ReflectEffect
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0.061409745, g: 0.41949847, b: 0.8679245, a: 1}
+  description: Deal {0} damage when attacked.
   duration: 2
   amount: 2
   multiplier: 0.5

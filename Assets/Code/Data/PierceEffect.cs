@@ -14,4 +14,14 @@ public class PierceEffect : Effect
         target.ChangeHealth(damage);
         return damage;
     }
+
+    public override string ToString(Character origin)
+    {
+        return string.Format(description, (int)(origin.GetDamage() * multiplier));
+    }
+
+    public override string GetAmount(Character origin, Character target)
+    {
+        return Mathf.Max(0, (int)(origin.GetDamage() * multiplier)).ToString();
+    }
 }
