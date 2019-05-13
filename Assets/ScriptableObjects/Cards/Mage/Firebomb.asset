@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: Firebomb
   m_EditorClassIdentifier: 
   name: Firebomb
-  description: On the start of next turn, deal 3 damage to all units in the area
   art: {fileID: 0}
   energyCost: 1
+  stat: 0
   effects:
   - {fileID: 11400000, guid: 5222664cb4e257f40a328c06efe18ee6, type: 2}
   spriteName: 
   etype: 0
   rtype: 0
+  highlightTypes: 0200000001000000
   targetsTypes: 030000000100000002000000
   targetRange: 4
   effectRange: 2

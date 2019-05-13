@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b074087d70e2e63449d7bdcec9d6ba25, type: 3}
   m_Name: Heal
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0.08880003, g: 0.6132076, b: 0, a: 1}
+  description: Heal {0} health.
   amount: 2

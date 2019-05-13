@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: Disarm
   m_EditorClassIdentifier: 
   name: 'Disarm '
-  description: Reduce Target's Attack
   art: {fileID: 0}
   energyCost: 0
-  effects: []
+  stat: 0
+  effects:
+  - {fileID: 11400000, guid: b55b07d0ae6d56e46be04c6bf96f05c5, type: 2}
   spriteName: 
   etype: 0
   rtype: 0
+  highlightTypes: 02000000
   targetsTypes: 02000000
   targetRange: 2
   effectRange: 1

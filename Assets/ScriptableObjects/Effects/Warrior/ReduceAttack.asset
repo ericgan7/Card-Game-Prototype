@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f985515a7d4047c449f2ace2e9581f57, type: 3}
   m_Name: ReduceAttack
   m_EditorClassIdentifier: 
+  name: 
   color: {r: 0.6132076, g: 0.2053667, b: 0.5789911, a: 1}
+  description: Reduce target's attack by {0} for {1} tuirns.
   amount: 2
   duration: 2

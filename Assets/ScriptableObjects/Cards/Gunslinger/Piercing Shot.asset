@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: Piercing Shot
   m_EditorClassIdentifier: 
   name: Piercing Shot
-  description: Deal 6 damage to all units in a line
   art: {fileID: 0}
   energyCost: 1
+  stat: 0
   effects:
-  - {fileID: 11400000, guid: 6715551f976a80b44a3650c4830075c9, type: 2}
+  - {fileID: 11400000, guid: 2f59b70687c787b45b72d0046cfd2afe, type: 2}
   spriteName: 
   etype: 0
   rtype: 1
+  highlightTypes: 0200000001000000
   targetsTypes: 0100000002000000
   targetRange: 5
   effectRange: 5

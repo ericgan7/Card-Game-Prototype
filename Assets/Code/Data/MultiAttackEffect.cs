@@ -17,4 +17,15 @@ public class MultiAttackEffect : Effect
         target.ChangeHealth(damage);
         return damage;
     }
+
+    public override string ToString(Character origin)
+    {
+        return string.Format(description, origin.GetDamage(), attackCount);
+    }
+
+    public override string GetAmount(Character origin, Character target)
+    {
+        int damage = Mathf.Max(0, (int)(origin.GetDamage() * multiplier) - target.GetArmor());
+        return (damage * attackCount).ToString();
+    }
 }

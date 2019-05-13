@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d033a0b63d98afd43ba90da1365f859b, type: 3}
+  m_Name: GunslingerPool
+  m_EditorClassIdentifier: 
+  pool:
+  - {fileID: 11400000, guid: 83f6f198ce423a34fb34dfa825586d17, type: 2}
+  - {fileID: 11400000, guid: 8c344ed4b5113ac438201609c386a779, type: 2}
+  - {fileID: 11400000, guid: b750d522fd7fba541883a005be71d701, type: 2}
+  - {fileID: 11400000, guid: 29d3252aafb9b78439459a6b9d540d31, type: 2}
+  - {fileID: 11400000, guid: 81084ef07fdf1f34186e30b1c8daeb0d, type: 2}

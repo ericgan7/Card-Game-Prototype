@@ -24,23 +24,43 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI energy;
 
     public Image[] turnOrder;
+    public Image[] turnOrderBorderColor;
 
     public RadialMenu radialOptions;
     public ActionPanel ap;
     public BezierCurve curve;
     public DisplayText displayText;
 
+    public List<Icons> icons;
+    public Icons iconPrefab;
+    public GameObject statusEffects;
+
     private void Start()
     {
         curve = GetComponent<BezierCurve>();
         displayText = GetComponent<DisplayText>();
         game = FindObjectOfType<GameController>();
+        icons = new List<Icons>();
     }
 
     //when a new character is selected. Not currently used anywhere yet.
     public void SelectCharacter(Character c)
     {
         selectedCharacter = c;
+        foreach (Icons i in icons)
+        {
+            Destroy(i.gameObject);
+        }
+        icons.Clear();
+        for (int i = 0; i < selectedCharacter.statusEffects.Count; ++i)
+        {
+            Icons icon = Instantiate(iconPrefab);
+            icon.SetEffect(selectedCharacter.statusEffects[i], selectedCharacter);
+            icon.transform.SetParent(statusEffects.transform);
+            icon.transform.localPosition = new Vector3(0f, i * 50f);
+            icon.transform.localScale = Vector3.one;
+            icons.Add(icon);
+        }
         UpdateStats();
     }
     //Character stats panel;
@@ -58,12 +78,19 @@ public class UIController : MonoBehaviour
         energy.text = currentEnergy.x.ToString() + " / " + currentEnergy.y.ToString();
         dmg.text = selectedCharacter.GetDamage().ToString();
     }
+
     //updates the turn indicator, which shows which units will act.
     public void UpdateTurns(List<Character> order)
     {
         for (int i = 0; i < turnOrder.Length; ++i)
         {
             turnOrder[i].sprite = order[(i % order.Count)].stats.portrait;
+            if (order[(i % order.Count)].team == Card.TargetType.Ally){
+                turnOrderBorderColor[i].color = new Color(0, 1, 1, 1); //cyan
+            }
+            else if (order[(i % order.Count)].team == Card.TargetType.Enemy){
+                turnOrderBorderColor[i].color = new Color(1, 0, 1, 1); //magenta
+            }
         }
     }
 
@@ -83,11 +110,6 @@ public class UIController : MonoBehaviour
     public void FixedUpdate()
     {
         UpdateStats();
-    }
-
-    public void PlayAction(List<Card.EffectResult> results, bool allyAttacker)
-    {
-        ap.Set(results, allyAttacker);
     }
 
 }

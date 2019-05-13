@@ -40,4 +40,10 @@ public class MovementEffects : Effect
     {
         return -amount;
     }
+
+    public override string ToString(Character origin)
+    {
+        return string.Format(description, amount, duration);
+    }
+
 }

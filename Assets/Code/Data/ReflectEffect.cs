@@ -6,13 +6,12 @@ using UnityEngine;
 public class ReflectEffect : Effect
 {
     public int duration;
-    public int amount;
     public float multiplier;
     //potentially remove the armor buff and move it to its own effect
     public override int Apply(Character origin, Character target)
     {
         origin.statusEffects.Add(Instantiate(this));
-        return origin.ChangeArmor(amount, true);
+        return 0;
     }
 
     //removes effect when expires
@@ -27,7 +26,12 @@ public class ReflectEffect : Effect
 
     public override void OnDefend(Character origin, Character target)
     {
-        int damage = Mathf.Min(0, -(int)(origin.GetDamage() * multiplier) + target.GetArmor());
+        int damage = Mathf.Max(0, (int)(origin.GetDamage() * multiplier) - target.GetArmor());
         target.ChangeHealth(damage);
+    }
+
+    public override string ToString(Character origin)
+    {
+        return string.Format(description, multiplier);
     }
 }

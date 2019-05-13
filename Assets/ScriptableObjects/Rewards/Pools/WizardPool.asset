@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d033a0b63d98afd43ba90da1365f859b, type: 3}
+  m_Name: WizardPool
+  m_EditorClassIdentifier: 
+  pool:
+  - {fileID: 11400000, guid: 051b648893d8cb54a86cbb4133a072c8, type: 2}
+  - {fileID: 11400000, guid: 29d3252aafb9b78439459a6b9d540d31, type: 2}
+  - {fileID: 11400000, guid: 9b796895550c55f4c89d94524804c7ba, type: 2}
+  - {fileID: 11400000, guid: f2878a8254986d648b70e26aa377edcd, type: 2}
+  - {fileID: 11400000, guid: b400d484285139940aae8da6d39980bc, type: 2}

@@ -37,12 +37,13 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     LineRenderer line;
     public float arrowsHeadSize;
 
+    int siblingIndex;
     public void Start()
     {
         destination = transform.localPosition;
         defaultLocation = transform.localPosition;
         discardLocation = transform.localPosition;
-        UpdateCard(cardData);
+        targetScale = Vector3.one;
         isCardDrawn = false;
         game = FindObjectOfType<GameController>();
         cameraSize = new Vector2(Camera.main.scaledPixelWidth / 2, 0);
@@ -60,15 +61,16 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         destination = newPostion;
     }
     //update card from Scriptable object.
-    public void UpdateCard(Card data)
+    public void UpdateCard(Card data, Character origin, int index)
     { 
         cardData = data;
         artwork.sprite = data.art;
         cardname.text = data.name;
-        description.text = data.description;
+        description.text = data.GetDescription(origin);
         cost.text = data.energyCost.ToString();
         isCardDrawn = true;
         targetScale = Vector3.one;
+        siblingIndex = index;
     }
     //Movement
     public void FixedUpdate()
@@ -88,7 +90,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             HighlightRange();
             targetScale = new Vector3(2.0f, 2.0f, 2.0f);
             destination.y += 100f;
-            destination.z = -5f;
+            transform.SetAsLastSibling();
         }
 
     }
@@ -111,6 +113,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         targetScale = new Vector3(1.0f, 1.0f, 1.0f);
         destination = defaultLocation;
         game.inputControl.SetInput(InputController.InputMode.None);
+        transform.SetSiblingIndex(siblingIndex);
     }
     //Starting to drag Card. Highlihghts targeted square in red for clarity.
     //TO DO:POLISH CARD DRAGGING
@@ -153,14 +156,20 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             if (Physics.Raycast(mouseClick, out hit))
             {
                 game.map.Target(hit.point, cardData.rtype, cardData.effectRange, HighlightTiles.TileType.Target, new List<Card.TargetType>(cardData.targetsTypes));
+                game.ui.displayText.DisplayTargets(cardData, game.currentCharacter);
             }
+        }
+        else
+        {
+            game.map.Target(game.currentCharacter.GetPosition(), cardData.rtype, cardData.effectRange, HighlightTiles.TileType.Target, new List<Card.TargetType>(cardData.targetsTypes));
+            game.ui.displayText.DisplayTargets(cardData, game.currentCharacter);
         }
     }
     //TODO should detect if card is playable and above a threshold (if card is returned to hand, should not be played)
     public void OnEndDrag(PointerEventData p)
     {
         bool successfulPlay = false;
-        if (cardData.etype == Card.EffectType.Nontargetable)
+        if (cardData.etype == Card.EffectType.Nontargetable && destination.y > 200)
         {
             successfulPlay = game.Cast(cardData);
         }
@@ -187,13 +196,14 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         game.inputControl.SetInput(InputController.InputMode.None);
         game.map.ClearHighlight();
         game.map.ClearTarget();
+        game.ui.displayText.ResetTargets();
         line.positionCount = 0;
     }
     //helper function to highlight target Tiles;
     public void HighlightRange()
     {
-        game.HighlightTargets(cardData.rtype, cardData.targetRange, HighlightTiles.TileType.Attack, new List<Card.TargetType>(cardData.targetsTypes));
-        if (!cardData.targetsTypes.Contains(Card.TargetType.Self)){
+        game.HighlightTargets(cardData.rtype, cardData.targetRange, HighlightTiles.TileType.Attack, new List<Card.TargetType>(cardData.highlightTypes));
+        if (!cardData.highlightTypes.Contains(Card.TargetType.Self)){
             game.UnHiglightTarget(1);
         }
     }
@@ -201,10 +211,6 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void Reset(int i = 0)
     {
         destination = discardLocation;
-        if (i > 0)
-        {
-            game.currentCharacter.ChangeEnergy(-cardData.energyCost);
-        }
         GetComponent<Animator>().enabled = false;
         isCardDrawn = false;
         keepingMode = false;

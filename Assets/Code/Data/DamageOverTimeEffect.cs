@@ -35,4 +35,9 @@ public class DamageOverTimeEffect : Effect
             origin.statusEffects.Remove(this);
         }
     }
+
+    public override string ToString(Character origin)
+    {
+        return string.Format(description, duration);
+    }
 }

@@ -17,4 +17,14 @@ public class BreakEffect : Effect
     {
         return target.GetArmor();
     }
+
+    public override string ToString(Character origin)
+    {
+        return string.Format(description, amount);
+    }
+
+    public override string GetAmount(Character origin, Character target)
+    {
+        return amount.ToString();
+    }
 }
