@@ -29,7 +29,7 @@ MonoBehaviour:
   damage: 7
   cards:
   - {fileID: 11400000, guid: dca7aa619a0331a448216c24fbc521f8, type: 2}
-  - {fileID: 11400000, guid: 3d64c6157a7a2154bb4886105eb850e8, type: 2}
+  - {fileID: 11400000, guid: 0ab73425d1d2c8042a8df8f2a34fd55c, type: 2}
   - {fileID: 11400000, guid: ec0677e4421e7e341bbcbb7f16282592, type: 2}
   - {fileID: 11400000, guid: 8c344ed4b5113ac438201609c386a779, type: 2}
   - {fileID: 11400000, guid: b0a34ccf71bbdf44fb0aea1e151faf13, type: 2}

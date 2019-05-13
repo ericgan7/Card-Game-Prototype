@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: Transmute
   m_EditorClassIdentifier: 
   name: Transmute Shoes
-  description: Deals 1 damage per tile moved
   art: {fileID: 0}
   energyCost: 1
+  stat: 0
   effects:
   - {fileID: 11400000, guid: c5305f9ba0b6f6e4d8cf2292232a4347, type: 2}
   spriteName: 
   etype: 0
   rtype: 0
+  highlightTypes: 0200000001000000
   targetsTypes: 02000000
   targetRange: 4
   effectRange: 1

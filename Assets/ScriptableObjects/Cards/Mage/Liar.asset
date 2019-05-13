@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: Liar
   m_EditorClassIdentifier: 
   name: Liar,Liar
-  description: Burn the target for 2 damage for 2 turns
   art: {fileID: 0}
   energyCost: 0
+  stat: 0
   effects:
   - {fileID: 11400000, guid: 1629e304ca7574248b120f61ecdccdcf, type: 2}
   spriteName: 
   etype: 0
   rtype: 0
+  highlightTypes: 0200000001000000
   targetsTypes: 02000000
   targetRange: 5
   effectRange: 1

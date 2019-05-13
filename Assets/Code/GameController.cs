@@ -86,6 +86,10 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("Cast Card");
         bool success = false;
+        if (currentCharacter.GetEnergy().x < cardPlayed.energyCost)
+        {
+            return false;
+        }
         if (cardPlayed.targetsTypes.Contains(Card.TargetType.Ground))
         {
             List<Vector3Int> tiles = map.targets.GetTiles();
@@ -100,7 +104,7 @@ public class GameController : MonoBehaviour
             if (cardPlayed.etype == Card.EffectType.Targetable)
             {
                 List<Character> targets = map.targets.GetTargets();
-                if (targets.Count > 0 && currentCharacter.HasEnergy())
+                if (targets.Count > 0)
                 {
                     success = true;
                     cardPlayed.Play(currentCharacter, targets);

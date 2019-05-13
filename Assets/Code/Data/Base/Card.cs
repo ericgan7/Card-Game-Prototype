@@ -7,12 +7,8 @@ using UnityEngine;
 /// </summary>
 
 [CreateAssetMenu(fileName = "New Card", menuName = "Cards")]
-public class Card : ScriptableObject
+public class Card : Reward
 {
-    public new string name;
-    public Sprite art;
-    public int energyCost;
-
     public Effect[] effects;
     public string spriteName;
     public enum EffectType
@@ -29,6 +25,7 @@ public class Card : ScriptableObject
     }
     public EffectType etype;
     public RangeType rtype;
+    public List<TargetType> highlightTypes;
     public List<TargetType> targetsTypes;
 
     public int targetRange;
@@ -88,12 +85,12 @@ public class Card : ScriptableObject
         return best;
     }
 
-    public string GetDescription(Character origin)
+    public override string GetDescription(Character origin)
     {
         string description = "";
         foreach (Effect e in effects)
         {
-            description += e.ToString(origin);
+            description += e.ToString(origin) + "\n";
         }
         return description;
     }

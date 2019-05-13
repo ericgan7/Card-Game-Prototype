@@ -202,8 +202,8 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     //helper function to highlight target Tiles;
     public void HighlightRange()
     {
-        game.HighlightTargets(cardData.rtype, cardData.targetRange, HighlightTiles.TileType.Attack, new List<Card.TargetType>(cardData.targetsTypes));
-        if (!cardData.targetsTypes.Contains(Card.TargetType.Self)){
+        game.HighlightTargets(cardData.rtype, cardData.targetRange, HighlightTiles.TileType.Attack, new List<Card.TargetType>(cardData.highlightTypes));
+        if (!cardData.highlightTypes.Contains(Card.TargetType.Self)){
             game.UnHiglightTarget(1);
         }
     }

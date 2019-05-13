@@ -42,6 +42,7 @@ public class Character : MonoBehaviour
     {
         game = FindObjectOfType<GameController>();
         destinations = new List<Vector3Int>();
+        transform.position = game.map.WorldToCellSpace(transform.position) + new Vector3(0.5f, 0.5f, 0f);
         startLocation = transform.localPosition;
         offset = new Vector3(0.5f, 0.5f, 0f);
         currentHealth = stats.health;

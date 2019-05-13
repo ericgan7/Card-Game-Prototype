@@ -15,12 +15,14 @@ MonoBehaviour:
   name: Armor up!
   art: {fileID: 0}
   energyCost: 1
+  stat: 0
   effects:
   - {fileID: 11400000, guid: e8e287394eefd6f458e3808504f52bc2, type: 2}
   - {fileID: 11400000, guid: 2c31515585dba974f8f939ddfec3f431, type: 2}
   spriteName: attack
   etype: 1
   rtype: 0
+  highlightTypes: 00000000
   targetsTypes: 00000000
   targetRange: 1
   effectRange: 1

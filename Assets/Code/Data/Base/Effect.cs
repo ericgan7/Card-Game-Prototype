@@ -9,6 +9,7 @@ using UnityEngine;
 
 public class Effect : ScriptableObject
 {
+    public new string name;
     public Color color;
     public string description;
     //initial application of effect

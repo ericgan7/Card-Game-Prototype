@@ -15,12 +15,14 @@ MonoBehaviour:
   name: Bleed
   art: {fileID: 0}
   energyCost: 0
+  stat: 0
   effects:
   - {fileID: 11400000, guid: 1629e304ca7574248b120f61ecdccdcf, type: 2}
   - {fileID: 11400000, guid: f17172f17048f5b4997c19a4af612213, type: 2}
   spriteName: attack
   etype: 0
   rtype: 0
+  highlightTypes: 0200000001000000
   targetsTypes: 02000000
   targetRange: 2
   effectRange: 1

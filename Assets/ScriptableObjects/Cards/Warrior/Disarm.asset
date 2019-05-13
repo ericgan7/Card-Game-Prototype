@@ -15,11 +15,13 @@ MonoBehaviour:
   name: 'Disarm '
   art: {fileID: 0}
   energyCost: 0
+  stat: 0
   effects:
   - {fileID: 11400000, guid: b55b07d0ae6d56e46be04c6bf96f05c5, type: 2}
   spriteName: 
   etype: 0
   rtype: 0
+  highlightTypes: 02000000
   targetsTypes: 02000000
   targetRange: 2
   effectRange: 1

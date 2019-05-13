@@ -15,11 +15,13 @@ MonoBehaviour:
   name: Multishot
   art: {fileID: 0}
   energyCost: 1
+  stat: 0
   effects:
   - {fileID: 11400000, guid: 972bcedf0dd527b449541b3a1f5def5c, type: 2}
   spriteName: 
   etype: 0
   rtype: 0
+  highlightTypes: 0200000001000000
   targetsTypes: 02000000
   targetRange: 3
   effectRange: 1

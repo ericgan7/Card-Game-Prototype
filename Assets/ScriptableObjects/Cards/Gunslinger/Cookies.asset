@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: Cookies
   m_EditorClassIdentifier: 
   name: Grandma Norra's Cookies
-  description: Heals target ally for 2 health
   art: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   energyCost: 1
+  stat: 0
   effects:
   - {fileID: 11400000, guid: 2f463f97f31ceba4ea76a6dc27c0db4f, type: 2}
   spriteName: heal
   etype: 0
   rtype: 0
+  highlightTypes: 0100000000000000
   targetsTypes: 0100000000000000
   targetRange: 4
   effectRange: 1
