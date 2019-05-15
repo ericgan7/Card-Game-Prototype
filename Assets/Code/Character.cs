@@ -146,7 +146,7 @@ public class Character : MonoBehaviour
         {
             mod += e.ModifyAttack();
         }
-        return currentDamage + mod;
+        return currentHealth + mod;
     }
     public int GetArmor()
     {
@@ -251,11 +251,6 @@ public class Character : MonoBehaviour
                 isMoving = false;
                 game.inputControl.disableInput = false;
                 ChangeEnergy(-1);
-                if (currentEnergy == 0)
-                {
-                    //game.endallyturn;
-                    game.UpdateTurn(new List<Card>());
-                }
             }
         }
     }
@@ -290,9 +285,12 @@ public class Character : MonoBehaviour
         {
             statusEffects[i].OnTurnStart(this);
         }
+        /*
         //Lowers current armor if block is in effect
         currentArmor = Mathf.Min(naturalArmor, currentArmor); 
         //Lowers natural armor if has been damaged
         naturalArmor = Mathf.Min(naturalArmor, currentArmor);
+        */
+        isMoving = false;
     }
 }

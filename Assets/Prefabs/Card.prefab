@@ -330,7 +330,7 @@ MonoBehaviour:
   game: {fileID: 0}
   cardData: {fileID: 11400000, guid: dca7aa619a0331a448216c24fbc521f8, type: 2}
   destination: {x: 0, y: 0, z: 0}
-  speed: 4
+  speed: 7
   artwork: {fileID: 1632639814520106731}
   cardname: {fileID: 1632639813986401751}
   description: {fileID: 1632639814809305772}

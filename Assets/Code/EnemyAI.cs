@@ -15,6 +15,11 @@ public class EnemyAI : MonoBehaviour
 
     public void Action()
     {
+        if(self.team == Card.TargetType.Ally)
+        {
+            Debug.Log("ENEMY AI has ally character");
+            return;
+        }
         maxrange = GetRange();
         IEnumerator coroutine = TakeActions();
         StartCoroutine(coroutine);
@@ -22,7 +27,7 @@ public class EnemyAI : MonoBehaviour
 
     IEnumerator TakeActions()
     {
-        for (int i = 0; i < self.GetEnergy().x; ++i)
+        for (int i = 0; i <= self.GetEnergy().x; ++i)
         {
             yield return new WaitForSeconds(1.0f);
             if  (self.GetEnergy().x <= 0)
@@ -35,26 +40,34 @@ public class EnemyAI : MonoBehaviour
                 {
                     yield return new WaitForSeconds(0.5f);
                 }
-                if (PlayBestCard())
+                if (PlayBestCard(2))
                 {
                     yield return new WaitForSeconds(2.0f);
                 }
+                else if (MakeMove()) { }
                 else
                 {
-                    MakeMove();
+                    PlayBestCard(0);
+                    yield return new WaitForSeconds(0.5f);
                 }
             }
         }
+        Debug.Log("Remaining energy:" + self.GetEnergy().x);
         yield return new WaitForSeconds(1.0f);
         game.UpdateTurn(new List<Card>());
     }
     
-    public void MakeMove()
+    public bool MakeMove()
     {
+        if (self.GetSpeed() <= 0)
+        {
+            return false;
+        }
+        Debug.Log("Movement " + self.GetSpeed().ToString());
         game.map.move.UpdateMovementMap(self, maxrange - 1);
         Vector3Int current = game.map.WorldToCellSpace(self.transform.position);
         List<Vector3Int> path = new List<Vector3Int>();
-        for (int i =0; i < 3; ++i)
+        for (int i =0; i < self.GetSpeed(); ++i)
         {
             Vector2Int next = game.map.move.NextMove(current);
             if (next.x >= 0)
@@ -68,18 +81,17 @@ public class EnemyAI : MonoBehaviour
                 break;
             }
         }
-        Debug.Log("Movement");
         path.Reverse();
         self.AddPath(path);
         self.Move();
+        return true;
     }
 
-    public bool PlayBestCard()
+    public bool PlayBestCard(int threshold)
     {
         List<CardScore> scores = new List<CardScore>();
         List<Character> allTargets = new List<Character>();
         allTargets = game.map.GetCharacterInRange(self.GetPosition(), maxrange);
-        Debug.Log(allTargets.Count);
         foreach(Card c in self.hand)
         {
             scores.Add(c.GetScore(self, allTargets));
@@ -95,12 +107,13 @@ public class EnemyAI : MonoBehaviour
             }
         }
         //card playing threshhold
-        if (max > 0)
+        Debug.Log(max);
+        if (max > threshold)
         {
             self.hand[index].Play(self, new List<Character> { scores[index].target });
             game.hand.PlayCard(self.hand[index], self);
             self.ChangeEnergy(-self.hand[index].energyCost);
-            Debug.Log(self.hand[index].name);
+            self.hand.RemoveAt(index);
             return true;
         }
         else

@@ -89,7 +89,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             HighlightRange();
             targetScale = new Vector3(2.0f, 2.0f, 2.0f);
-            destination.y += 100f;
+            destination.y +=60f;
             transform.SetAsLastSibling();
         }
 
@@ -161,7 +161,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         }
         else
         {
-            game.map.Target(game.currentCharacter.GetPosition(), cardData.rtype, cardData.effectRange, HighlightTiles.TileType.Target, new List<Card.TargetType>(cardData.targetsTypes));
+            game.map.Target(game.currentCharacter.GetPosition(), cardData.rtype, cardData.effectRange, HighlightTiles.TileType.Target, new List<Card.TargetType>(cardData.highlightTypes));
             game.ui.displayText.DisplayTargets(cardData, game.currentCharacter);
         }
     }

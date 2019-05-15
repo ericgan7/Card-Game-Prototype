@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: EnemyBreakRanged
   m_EditorClassIdentifier: 
   name: break
-  description: 3 break
   art: {fileID: 0}
   energyCost: 1
+  stat: 0
   effects:
   - {fileID: 11400000, guid: 50ded49d6091b1640a5d13b22b89a4d5, type: 2}
   spriteName: 
   etype: 0
   rtype: 0
+  highlightTypes: 0100000002000000
   targetsTypes: 01000000
   targetRange: 3
   effectRange: 1

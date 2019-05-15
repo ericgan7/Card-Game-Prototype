@@ -50,9 +50,12 @@ MonoBehaviour:
   team: 1
   statusEffects: []
   hand: []
-  movementSpeed: 1.5
+  movementSpeed: 2.5
   startingHand: 5
   hasMoved: 0
+  hbc: {fileID: 0}
+  healthBarPrefab: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!212 &8871397987856883323
 SpriteRenderer:
   m_ObjectHideFlags: 0

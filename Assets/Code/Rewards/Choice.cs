@@ -17,11 +17,14 @@ public class Choice : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     public TextMeshProUGUI description;
     public TextMeshProUGUI cost;
 
+    public bool activeChoice;
+
     public void Start()
     {
         rw = FindObjectOfType<RewardManager>();
         isChoice = false;
         scale = new Vector3(1.5f, 1.5f, 1.5f);
+        activeChoice = true;
     }
 
     public void UpdateStat(Reward r, Character c)
@@ -49,16 +52,25 @@ public class Choice : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
 
     public void OnPointerEnter(PointerEventData p)
     {
-        scale = new Vector3(3.0f, 3.0f, 3.0f);
+        if (activeChoice)
+        {
+            scale = new Vector3(3.0f, 3.0f, 3.0f);
+        }
     }
 
     public void OnPointerExit(PointerEventData p)
     {
-        scale = new Vector3(1.5f, 1.5f, 1.5f);
+        if (activeChoice)
+        {
+            scale = new Vector3(1.5f, 1.5f, 1.5f);
+        }
     }
 
     public void OnPointerClick(PointerEventData p)
     {
-        rw.MakeChoice(this);
+        if (activeChoice)
+        {
+            rw.MakeChoice(this);
+        }
     }
 }

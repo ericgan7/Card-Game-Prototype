@@ -141,6 +141,7 @@ public class GameController : MonoBehaviour
     public void UpdateTurn(List<Card> keep)
     {
         //Temp;
+        Debug.Log("NEW TURN");
         currentCharacter.RefillHand(keep);
         currentCharacter.EndTurn();
         //TODO check if there is only one character left in a team.
@@ -157,17 +158,16 @@ public class GameController : MonoBehaviour
             enemyTurn.Enqueue(c);
         }
         turns.RemoveAt(0);
-        StartCoroutine("StartNextTurn");
+        StartNextTurn();
     }
 
-    public IEnumerator StartNextTurn()
+    public void StartNextTurn()
     {
         currentCharacter = turns[0];
         Vector3 p = map.WorldToCellSpace(currentCharacter.transform.position);
         p.z = Camera.main.transform.localPosition.z;
         inputControl.CenterCamera(p);
 
-        yield return new WaitForEndOfFrame();
         ui.UpdateTurns(turns);
         currentCharacter.OnTurnStart();
 

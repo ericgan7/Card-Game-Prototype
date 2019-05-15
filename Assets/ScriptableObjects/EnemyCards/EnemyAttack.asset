@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: EnemyAttack
   m_EditorClassIdentifier: 
   name: Strike
-  description: smorc
   art: {fileID: 0}
   energyCost: 1
+  stat: 0
   effects:
   - {fileID: 11400000, guid: 6715551f976a80b44a3650c4830075c9, type: 2}
   spriteName: 
   etype: 0
   rtype: 0
+  highlightTypes: 0200000001000000
   targetsTypes: 01000000
   targetRange: 2
   effectRange: 1

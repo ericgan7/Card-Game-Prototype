@@ -70,7 +70,8 @@ public class Card : Reward
         foreach (Character t in targets)
         {
             int total = 0;
-            if (targetsTypes.Contains(t.team)) {
+            if (targetsTypes.Contains(t.team))
+            {
                 foreach (Effect e in effects)
                 {
                     total += e.GetScore(origin, t);
@@ -82,6 +83,7 @@ public class Card : Reward
                 best.target = t;
             }
         }
+        
         return best;
     }
 
