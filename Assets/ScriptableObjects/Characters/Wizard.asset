@@ -22,20 +22,21 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b704b3f1563fcae48bed198f5162c059, type: 3}
   - {fileID: 21300000, guid: b704b3f1563fcae48bed198f5162c059, type: 3}
   characterName: Cire
-  health: 7
+  health: 5
   energy: 3
   speed: 4
-  armor: 3
-  damage: 6
+  armor: 4
+  damage: 5
   cards:
+  - {fileID: 11400000, guid: fc9f9a942a1cb0c43936e0ff69a1f41e, type: 2}
+  - {fileID: 11400000, guid: fc9f9a942a1cb0c43936e0ff69a1f41e, type: 2}
   - {fileID: 11400000, guid: dca7aa619a0331a448216c24fbc521f8, type: 2}
-  - {fileID: 11400000, guid: 051b648893d8cb54a86cbb4133a072c8, type: 2}
-  - {fileID: 11400000, guid: 0077ae8298660354ca0c90c51f4922c3, type: 2}
-  - {fileID: 11400000, guid: 9b796895550c55f4c89d94524804c7ba, type: 2}
-  - {fileID: 11400000, guid: efdcf96febd022b44b203f82ec91716f, type: 2}
-  - {fileID: 11400000, guid: ec0677e4421e7e341bbcbb7f16282592, type: 2}
+  - {fileID: 11400000, guid: 3d64c6157a7a2154bb4886105eb850e8, type: 2}
+  - {fileID: 11400000, guid: 3d64c6157a7a2154bb4886105eb850e8, type: 2}
   - {fileID: 11400000, guid: 0ab73425d1d2c8042a8df8f2a34fd55c, type: 2}
-  - {fileID: 11400000, guid: 9b796895550c55f4c89d94524804c7ba, type: 2}
-  - {fileID: 11400000, guid: efdcf96febd022b44b203f82ec91716f, type: 2}
-  - {fileID: 11400000, guid: 0077ae8298660354ca0c90c51f4922c3, type: 2}
+  - {fileID: 11400000, guid: ec0677e4421e7e341bbcbb7f16282592, type: 2}
+  - {fileID: 11400000, guid: ec0677e4421e7e341bbcbb7f16282592, type: 2}
+  - {fileID: 11400000, guid: ec0677e4421e7e341bbcbb7f16282592, type: 2}
+  - {fileID: 11400000, guid: ec0677e4421e7e341bbcbb7f16282592, type: 2}
+  - {fileID: 11400000, guid: ec0677e4421e7e341bbcbb7f16282592, type: 2}
   moveableTiles: 
