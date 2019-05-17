@@ -24,5 +24,5 @@ MonoBehaviour:
   rtype: 0
   highlightTypes: 0200000001000000
   targetsTypes: 02000000
-  targetRange: 2
+  targetRange: 5
   effectRange: 1

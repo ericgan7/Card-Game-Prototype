@@ -220,6 +220,29 @@ public class Character : MonoBehaviour
         return amount;
     }
 
+    public void AddStatusEffect(Effect newEffect, bool stack)
+    {
+        bool exists = false;
+        if (stack)
+        {
+            foreach (Effect e in statusEffects)
+            {
+                if (e.GetType() == newEffect.GetType())
+                {
+                    exists = true;
+                    e.StackEffect(newEffect);
+                }
+            }
+        }
+        else if (!exists)
+        {
+            statusEffects.Add(newEffect);
+        }
+        string t = newEffect.GetAmount(this, this);
+        Vector3 up = gameObject.transform.position + new Vector3(0f, 1f);
+        game.ui.displayText.CreateWorldText(gameObject.transform.position, up, t, newEffect.color);
+    }
+
     //Update function controls movement of character across grid.
     public void FixedUpdate()
     {

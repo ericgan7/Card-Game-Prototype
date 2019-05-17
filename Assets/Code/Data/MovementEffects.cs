@@ -8,23 +8,15 @@ public class MovementEffects : Effect
     public int duration;
     public override int Apply(Character origin, Character target)
     {
-        bool isApplied = false;
-        foreach (Effect e in target.statusEffects)
-        {
-            if (e.GetType() == typeof(MovementEffects))
-            {
-                MovementEffects ra = (MovementEffects)e;
-                ra.duration += duration;
-                ra.amount = Mathf.Max(ra.amount, amount);
-                isApplied = true;
-                break;
-            }
-        }
-        if (!isApplied)
-        {
-            target.statusEffects.Add(Instantiate(this));
-        }
+        target.AddStatusEffect(Instantiate(this), true);
         return amount;
+    }
+
+    public override void StackEffect(Effect e)
+    {
+        MovementEffects t = (MovementEffects)e;
+        amount += amount;
+        duration += duration;
     }
 
     public override void OnTurnStart(Character origin)

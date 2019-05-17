@@ -22,13 +22,14 @@ public class Effect : ScriptableObject
     public virtual void OnMove(Character target) { }
     public virtual void OnAttack(Character origin, Character target) { }
     public virtual void OnDefend(Character origin, Character target) { }
+    public virtual void StackEffect(Effect e) { }
 
     public virtual int ModifyAttack() { return 0; }
     public virtual int ModifySpeed() { return 0; }
 
     public virtual string GetAmount(Character origin, Character target)
     {
-        return null;
+        return name;
     }
 
     public virtual int GetScore(Character origin, Character target)
@@ -38,6 +39,6 @@ public class Effect : ScriptableObject
 
     public virtual string ToString(Character origin)
     {
-        return null;
+        return description;
     }
 }

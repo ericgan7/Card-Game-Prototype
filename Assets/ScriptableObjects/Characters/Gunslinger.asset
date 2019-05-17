@@ -37,6 +37,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ec0677e4421e7e341bbcbb7f16282592, type: 2}
   - {fileID: 11400000, guid: ec0677e4421e7e341bbcbb7f16282592, type: 2}
   - {fileID: 11400000, guid: ec0677e4421e7e341bbcbb7f16282592, type: 2}
-  - {fileID: 11400000, guid: 025ca9f2fec86914bb64096111a70ad8, type: 2}
+  - {fileID: 11400000, guid: bcb16c1eb78d10c4488d3c1d380683f7, type: 2}
   - {fileID: 11400000, guid: 81084ef07fdf1f34186e30b1c8daeb0d, type: 2}
   moveableTiles: 

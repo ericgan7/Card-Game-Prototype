@@ -9,8 +9,15 @@ public class DamageOnMoveEffect : Effect
     public int duration;
     public override int Apply(Character origin, Character target)
     {
-        target.statusEffects.Add(Instantiate(this));
+        target.AddStatusEffect(Instantiate(this), true);
         return 0;
+    }
+
+    //Currently does not stack damage, only refreshes
+    public override void StackEffect(Effect e)
+    {
+        DamageOnMoveEffect t = (DamageOnMoveEffect)e;
+        duration += t.duration;
     }
 
     public override void OnTurnStart(Character origin)

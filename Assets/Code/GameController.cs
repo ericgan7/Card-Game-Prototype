@@ -158,10 +158,11 @@ public class GameController : MonoBehaviour
             enemyTurn.Enqueue(c);
         }
         turns.RemoveAt(0);
-        StartNextTurn();
+        IEnumerator coroutine = StartNextTurn();
+        StartCoroutine(coroutine);
     }
 
-    public void StartNextTurn()
+    public IEnumerator StartNextTurn()
     {
         currentCharacter = turns[0];
         Vector3 p = map.WorldToCellSpace(currentCharacter.transform.position);
@@ -170,17 +171,24 @@ public class GameController : MonoBehaviour
 
         ui.UpdateTurns(turns);
         currentCharacter.OnTurnStart();
-
-        if (currentCharacter.team == Card.TargetType.Enemy)
+        if (currentCharacter.GetHealth().x > 0)
         {
-            ai.self = currentCharacter;
-            ai.Action();
+            if (currentCharacter.team == Card.TargetType.Enemy)
+            {
+                ai.self = currentCharacter;
+                ai.Action();
+            }
+            else
+            {
+                hand.DrawCurrentCards(currentCharacter);
+            }
+            ui.SelectCharacter(currentCharacter);
         }
         else
         {
-            hand.DrawCurrentCards(currentCharacter);
+            yield return new WaitForSeconds(1.5f);
+            UpdateTurn(new List<Card>());
         }
-        ui.SelectCharacter(currentCharacter);
     }
     //TODO AI action
     public void EnemyTurn()
