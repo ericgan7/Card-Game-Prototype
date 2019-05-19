@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9f3abdf3d1fa64c9936fd2add5660d, type: 3}
   m_Name: ShieldBash
   m_EditorClassIdentifier: 
-  color: {r: 0.21510662, g: 0.1445799, b: 0.5377358, a: 1}
+  name: 
+  color: {r: 0.9056604, g: 0, b: 0, a: 1}
   description: Deal damage equal to {0}x your armor.
   multiplier: 2

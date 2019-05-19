@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: armorsteal
   m_EditorClassIdentifier: 
   name: 
-  color: {r: 0.14631557, g: 0, b: 1, a: 1}
+  color: {r: 0.012548926, g: 0.4450238, b: 0.8867924, a: 1}
   description: Steal {0} armor.
   steal: 1

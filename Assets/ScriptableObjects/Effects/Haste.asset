@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Haste
   m_EditorClassIdentifier: 
   name: Haste
-  color: {r: 0.8679245, g: 0.581786, b: 0, a: 1}
+  color: {r: 0.8396226, g: 0.8041476, b: 0, a: 1}
   description: Gain {0} speed.
   amount: 4

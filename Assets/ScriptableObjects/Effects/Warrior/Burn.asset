@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Burn
   m_EditorClassIdentifier: 
   name: Burn
-  color: {r: 1, g: 0.59912676, b: 0, a: 1}
+  color: {r: 0.9339623, g: 0.40288574, b: 0, a: 1}
   description: Add {0} burn, dealing damage equal to duration.
   duration: 2

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DestroyArmor
   m_EditorClassIdentifier: 
   name: Break
-  color: {r: 0, g: 0.28991652, b: 1, a: 1}
+  color: {r: 0.012548926, g: 0.4450238, b: 0.8867924, a: 1}
   description: Break all armor.

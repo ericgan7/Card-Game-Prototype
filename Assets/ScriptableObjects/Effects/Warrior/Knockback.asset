@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Knockback
   m_EditorClassIdentifier: 
   name: Knockback
-  color: {r: 0, g: 0.63884044, b: 0.6886792, a: 1}
+  color: {r: 0, g: 0.6132076, b: 0.3067073, a: 1}
   description: Knock back {0} tiles.
   push: 2

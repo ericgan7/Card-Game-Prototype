@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Charge
   m_EditorClassIdentifier: 
   name: Charge
-  color: {r: 0.8113208, g: 0, b: 0, a: 1}
+  color: {r: 0.9056604, g: 0, b: 0, a: 1}
   description: Move to forward, dealing {0} damage + 1 per tile moved.

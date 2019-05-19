@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DoubleBurn
   m_EditorClassIdentifier: 
   name: Burn
-  color: {r: 1, g: 0.43214107, b: 0, a: 1}
+  color: {r: 0.9339623, g: 0.40288574, b: 0, a: 1}
   description: Doubled burn stacks.
   doubled: {fileID: 11400000, guid: 1629e304ca7574248b120f61ecdccdcf, type: 2}

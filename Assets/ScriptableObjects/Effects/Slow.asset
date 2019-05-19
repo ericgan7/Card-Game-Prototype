@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d947ed3e14a8170459d68af04cb60fed, type: 3}
   m_Name: Slow
   m_EditorClassIdentifier: 
-  color: {r: 0.49337164, g: 0.33842117, b: 0.6132076, a: 1}
+  name: 
+  color: {r: 0.8396226, g: 0.011881431, b: 0.81764114, a: 1}
   description: Target has {0} speed next turn
   amount: -2

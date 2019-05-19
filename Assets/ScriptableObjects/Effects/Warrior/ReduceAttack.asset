@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ReduceAttack
   m_EditorClassIdentifier: 
   name: 
-  color: {r: 0.6132076, g: 0.2053667, b: 0.5789911, a: 1}
+  color: {r: 0.8396226, g: 0.011881431, b: 0.81764114, a: 1}
   description: Reduce target's attack by {0} for {1} tuirns.
   amount: 5
   duration: 2

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DelayedDamage
   m_EditorClassIdentifier: 
   name: 
-  color: {r: 0.5943396, g: 0, b: 0, a: 1}
+  color: {r: 0.6566386, g: 0.2171591, b: 0.754717, a: 1}
   description: Deal {0} damage, ignoring armor, after {1} turns.
   duration: 1
   amount: 3
