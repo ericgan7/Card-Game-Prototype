@@ -15,7 +15,7 @@ public class KnockBack : Effect
         Vector3Int destination = t + tile * push;
         for (int i = 0; i < push; ++i)
         {
-            if (origin.game.map.GetCharacter(destination - tile* i)== null)
+            if (origin.game.map.WithinMapBounds(destination) && origin.game.map.GetCharacter(destination - tile* i) == null)
             {
                 target.destinations.Add(destination - tile * i);
                 target.Move(0);
