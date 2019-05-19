@@ -16,6 +16,8 @@ public class HealthBar : MonoBehaviour
     public TextMeshProUGUI armortext;
     public TextMeshProUGUI healthtext;
 
+    public GameObject frame;
+
 
     // Update is called once per frame
     void Update()
@@ -38,5 +40,10 @@ public class HealthBar : MonoBehaviour
 
     public void setCharacter(Character c){
     	character = c;
+    }
+
+    public void SetFrame(bool active)
+    {
+        frame.SetActive(active);
     }
 }

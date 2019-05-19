@@ -14,7 +14,7 @@ public class DefendEffect : Effect
 
     public override int GetScore(Character origin, Character target)
     {
-        return Mathf.Max(6 - origin.GetArmor(), 1);
+        return Mathf.Max(5 - origin.GetArmor(), 1);
     }
 
     public override string ToString(Character origin)

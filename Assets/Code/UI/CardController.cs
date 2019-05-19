@@ -9,6 +9,7 @@ using UnityEngine;
 public class CardController : MonoBehaviour
 {
     public GameController game;
+    public CardMovement[] cardObj;
     public List<CardMovement> hand;
     public CardMovement prefab;
     public Transform parent;
@@ -23,13 +24,23 @@ public class CardController : MonoBehaviour
     public void Start()
     {
         maxHandLength = 150f;
-        width = hand[0].GetComponent<RectTransform>().sizeDelta.x;
+        width = prefab.GetComponent<RectTransform>().sizeDelta.x;
         keep = new List<CardMovement>();
+        hand = new List<CardMovement>();
     }
 
-    public void DrawCurrentCards(Character character)
+    public void DrawCurrentCards(Character character, bool clear = true)
     {
         List<Card> cards = game.currentCharacter.hand;
+        int draw = cardObj.Length - hand.Count;
+        if (clear)
+        {
+            hand.Clear();
+        }
+        for (int i = 0; i < draw; ++i)
+        {
+            hand.Add(cardObj[i]);
+        }
         int half = cards.Count / 2;
         float xSeperation = Mathf.Min(width, maxHandLength / half);
         Vector3 leftStart = new Vector3(center.x - xSeperation / 2, center.y - 1);
@@ -61,11 +72,15 @@ public class CardController : MonoBehaviour
         {
             c.Reset();
         }
+        hand.Clear();
     }
 
-    public void DrawNewCard(Character deck)
+    public void RemoveCard(int index)
     {
-
+        if (hand.Count > 0)
+        {
+            hand.RemoveAt(index);
+        }
     }
 
     public void StartSelectionToKeep()
@@ -113,9 +128,9 @@ public class CardController : MonoBehaviour
 
     public void PlayCard(Card played, Character origin)
     {
-        hand[0].UpdateCard(played, origin, 0);
-        hand[0].GetComponent<Animator>().enabled = true;
-        hand[0].GetComponent<Animator>().Play("CardAnimation");
+        cardObj[0].UpdateCard(played, origin, 0);
+        cardObj[0].GetComponent<Animator>().enabled = true;
+        cardObj[0].GetComponent<Animator>().Play("CardAnimation");
         CardEffect.instance.openUp();
     }
 }

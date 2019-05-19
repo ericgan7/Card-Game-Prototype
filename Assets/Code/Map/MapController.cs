@@ -368,7 +368,7 @@ public class MapController : MonoBehaviour
         {
             for (int y = -area + 1; y < area; ++y)
             {
-                if (x + y < area && (x != 0 || y != 0))
+                if (x + y < area)
                 {
                     Vector3Int loc = new Vector3Int(location.x + x, location.y + y, 0);
                     if (WithinMapBounds(loc) && characterLocations[loc.x, loc.y] != null)
@@ -379,5 +379,11 @@ public class MapController : MonoBehaviour
             }
         }
         return characters;
+    }
+
+    public void AddCharacter(Character c, Vector3Int location)
+    {
+        characterLocations[location.x, location.y] = c;
+        previousCharacterLocations[c] = location;
     }
 }

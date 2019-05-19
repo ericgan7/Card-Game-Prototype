@@ -30,7 +30,7 @@ public class Character : MonoBehaviour
     Vector3 offset;
 
     public int startingHand = 5;
-    GameController game;
+    public GameController game;
     bool isMoving;
     public bool hasMoved;
 
@@ -38,13 +38,32 @@ public class Character : MonoBehaviour
     public HealthBar healthBarPrefab;
     public HealthBar healthBar;
 
-    private void Start()
+    public void Start()
     {
         game = FindObjectOfType<GameController>();
         destinations = new List<Vector3Int>();
-        transform.position = game.map.WorldToCellSpace(transform.position) + new Vector3(0.5f, 0.5f, 0f);
         startLocation = transform.localPosition;
         offset = new Vector3(0.5f, 0.5f, 0f);
+        transform.position = game.map.WorldToCellSpace(transform.position) + new Vector3(0.5f, 0.5f, 0f);
+        SetStats();
+        if (!(team == Card.TargetType.Obstacle))
+        {
+            SpriteRenderer sr = GetComponent<SpriteRenderer>();
+            sr.sprite = stats.idle;
+            var bounds = sr.sprite.bounds;
+            float factor = 1.3f / bounds.size.y;
+            transform.localScale = new Vector3(factor, factor, factor);
+            deck = new List<Card>(stats.cards);
+            hand = new List<Card>();
+            RefillHand(new List<Card>());
+            isMoving = false;
+            hasMoved = false;
+            healthBar = hbc.createHealthBar(this);
+        }
+    }
+
+    public void SetStats()
+    {
         currentHealth = stats.health;
         currentEnergy = stats.energy;
         currentSpeed = stats.speed;
@@ -52,21 +71,6 @@ public class Character : MonoBehaviour
         currentArmor = stats.armor;
         naturalArmor = currentArmor;
         statusEffects = new List<Effect>();
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        sr.sprite = stats.portrait;
-        var bounds = sr.sprite.bounds;
-        float factor = 1.3f / bounds.size.y;
-        transform.localScale = new Vector3(factor, factor, factor);
-        deck = new List<Card>(stats.cards);
-        hand = new List<Card>();
-        RefillHand(new List<Card>());
-        isMoving = false;
-        hasMoved = false;
-
-        if (!(team == Card.TargetType.Obstacle))
-        {
-            hbc.createHealthBar(this);
-        }
     }
     //draw a random card from deck. untill all cards are drawn. They are then replenished.
     public Card DrawRandom()
@@ -90,9 +94,8 @@ public class Character : MonoBehaviour
     {
         for (var i = 0; i < cardDraw; ++i)
         {
-            DrawRandom();
+            hand.Add(DrawRandom());
         }
-        game.hand.DrawCurrentCards(this);
     }
 
     // Keeps all specified cards and redraws discarded cards.
@@ -146,7 +149,7 @@ public class Character : MonoBehaviour
         {
             mod += e.ModifyAttack();
         }
-        return currentDamage + mod;
+        return currentHealth + mod;
     }
     public int GetArmor()
     {
@@ -220,6 +223,29 @@ public class Character : MonoBehaviour
         return amount;
     }
 
+    public void AddStatusEffect(Effect newEffect, bool stack)
+    {
+        bool exists = false;
+        if (stack)
+        {
+            foreach (Effect e in statusEffects)
+            {
+                if (e.GetType() == newEffect.GetType())
+                {
+                    exists = true;
+                    e.StackEffect(newEffect);
+                }
+            }
+        }
+        if (!exists)
+        {
+            statusEffects.Add(newEffect);
+        }
+        string t = newEffect.GetAmount(this, this);
+        Vector3 up = gameObject.transform.position + new Vector3(0f, 1f);
+        game.ui.displayText.CreateWorldText(gameObject.transform.position, up, t, newEffect.color);
+    }
+
     //Update function controls movement of character across grid.
     public void FixedUpdate()
     {
@@ -250,12 +276,6 @@ public class Character : MonoBehaviour
             {
                 isMoving = false;
                 game.inputControl.disableInput = false;
-                ChangeEnergy(-1);
-                if (currentEnergy == 0)
-                {
-                    //game.endallyturn;
-                    game.UpdateTurn(new List<Card>());
-                }
             }
         }
     }
@@ -271,17 +291,19 @@ public class Character : MonoBehaviour
     {
         destinations.Clear();
     }
-    public void Move()
+    public void Move(int cost = 1)
     {
         isMoving = true;
         game.inputControl.disableInput = true;
         hasMoved = true;
+        ChangeEnergy(-cost);
     }
     //Reset Energy, trigger end of turn effects, etc.
     public void EndTurn()
     {
         currentEnergy = stats.energy;
         currentSpeed = stats.speed;
+        healthBar.SetFrame(false);
     }
 
     public void OnTurnStart()
@@ -290,9 +312,13 @@ public class Character : MonoBehaviour
         {
             statusEffects[i].OnTurnStart(this);
         }
+        /*
         //Lowers current armor if block is in effect
         currentArmor = Mathf.Min(naturalArmor, currentArmor); 
         //Lowers natural armor if has been damaged
         naturalArmor = Mathf.Min(naturalArmor, currentArmor);
+        */
+        isMoving = false;
+        healthBar.SetFrame(true);
     }
 }

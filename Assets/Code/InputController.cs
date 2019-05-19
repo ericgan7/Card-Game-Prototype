@@ -247,8 +247,8 @@ public class InputController : MonoBehaviour
     {
         if (game.currentCharacter.team == Card.TargetType.Ally)
         {
-            game.UpdateTurn(new List<Card>());
             game.hand.DiscardHand();
+            game.UpdateTurn(new List<Card>());
         }
     }
 }

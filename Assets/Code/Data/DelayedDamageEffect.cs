@@ -12,8 +12,7 @@ public class DelayedDamageEffect : Effect
     {
         DelayedDamageEffect copy = Instantiate(this);
         copy.targets = ground;
-        origin.statusEffects.Add(copy);
-        Debug.Log(origin.statusEffects.Count);
+        origin.AddStatusEffect(copy, false);
         return 0;
     }
 

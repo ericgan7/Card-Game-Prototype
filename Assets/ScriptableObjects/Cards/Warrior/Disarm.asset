@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5312342fd2bf68342ac4fad24ebe8c48, type: 3}
   m_Name: Disarm
   m_EditorClassIdentifier: 
-  name: 'Disarm '
+  name: Battle Roar
   art: {fileID: 0}
   energyCost: 0
   stat: 0
   effects:
   - {fileID: 11400000, guid: b55b07d0ae6d56e46be04c6bf96f05c5, type: 2}
   spriteName: 
-  etype: 0
+  etype: 1
   rtype: 0
-  highlightTypes: 02000000
+  highlightTypes: 0200000001000000
   targetsTypes: 02000000
-  targetRange: 2
+  targetRange: 3
   effectRange: 1

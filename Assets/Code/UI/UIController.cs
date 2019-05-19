@@ -60,6 +60,7 @@ public class UIController : MonoBehaviour
             icon.transform.localPosition = new Vector3(0f, i * 50f);
             icon.transform.localScale = Vector3.one;
             icons.Add(icon);
+            Debug.Log("icon");
         }
         UpdateStats();
     }

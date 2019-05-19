@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8045fe7a8921be4e8d9eedbd326807a, type: 3}
   m_Name: DelayedDamage
   m_EditorClassIdentifier: 
+  name: 
   color: {r: 0.5943396, g: 0, b: 0, a: 1}
-  description: Deal {0} damage after {1} turns.
+  description: Deal {0} damage, ignoring armor, after {1} turns.
   duration: 1
   amount: 3

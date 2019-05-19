@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47fdee377a0c1114d9aec68bee2aeeba, type: 3}
   m_Name: Cactus
   m_EditorClassIdentifier: 
-  portrait: {fileID: 21300000, guid: e044bf0c034cb484bba4d86985341f37, type: 3}
+  portrait: {fileID: 21300000, guid: 4b5525750a96601458ef74125b56dc53, type: 3}
+  idle: {fileID: 21300000, guid: e044bf0c034cb484bba4d86985341f37, type: 3}
   spriteNames:
   - attack
   - defend
@@ -22,20 +23,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e044bf0c034cb484bba4d86985341f37, type: 3}
   - {fileID: 21300000, guid: e044bf0c034cb484bba4d86985341f37, type: 3}
   characterName: Cactus
-  health: 10
+  health: 5
   energy: 3
-  speed: 5
+  speed: 4
   armor: 5
-  damage: 6
+  damage: 5
   cards:
   - {fileID: 11400000, guid: fc9f9a942a1cb0c43936e0ff69a1f41e, type: 2}
-  - {fileID: 11400000, guid: 2bbdc749b81050e44a57eb965d557093, type: 2}
-  - {fileID: 11400000, guid: 578471aca4a9e5c4c96eece14af5029c, type: 2}
-  - {fileID: 11400000, guid: 1e4587d7058fc5a4e9fa330a1286b0ce, type: 2}
-  - {fileID: 11400000, guid: 578471aca4a9e5c4c96eece14af5029c, type: 2}
-  - {fileID: 11400000, guid: 2892e4ba76d18da459494fa4fae1a23d, type: 2}
+  - {fileID: 11400000, guid: fc9f9a942a1cb0c43936e0ff69a1f41e, type: 2}
+  - {fileID: 11400000, guid: 3d64c6157a7a2154bb4886105eb850e8, type: 2}
   - {fileID: 11400000, guid: 3d64c6157a7a2154bb4886105eb850e8, type: 2}
   - {fileID: 11400000, guid: ec0677e4421e7e341bbcbb7f16282592, type: 2}
-  - {fileID: 11400000, guid: e6747a8d2575fcd4697867c1392e876c, type: 2}
-  - {fileID: 11400000, guid: bdf7c0c5c1597b64ca9d66fdf965ab6d, type: 2}
+  - {fileID: 11400000, guid: ec0677e4421e7e341bbcbb7f16282592, type: 2}
+  - {fileID: 11400000, guid: f50c57a491cacda4d9a0655761b48f3f, type: 2}
+  - {fileID: 11400000, guid: c1e4fbdfc37bf7841ab984da2ec65d30, type: 2}
   moveableTiles: 

@@ -2825,7 +2825,7 @@ MonoBehaviour:
     more: 0
     ovrStartNode: -1
     renameDialogue: 
-  - pauseHere: 1
+  - pauseHere: 0
     gameObjectName: GM
     methodName: startGame
     nameIndex: 1

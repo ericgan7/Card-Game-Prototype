@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c466e42b164de4ead369d5577c48da, type: 3}
   m_Name: LethalHit
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
-  description: Deal {0} damage, but armor is {1}x as effective.
-  multiplier: 2
-  armorPotency: 2
+  name: 
+  color: {r: 0.9056604, g: 0, b: 0, a: 1}
+  description: Deal {0} damage, gaining {1} if it kills the target.
+  multiplier: 1
+  energy: 1

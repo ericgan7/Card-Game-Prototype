@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad1263fcbe09b794eb590d3d88ec27c9, type: 3}
+  m_Name: DoubleBurn
+  m_EditorClassIdentifier: 
+  name: Burn
+  color: {r: 1, g: 0.43214107, b: 0, a: 1}
+  description: Doubled burn stacks.
+  doubled: {fileID: 11400000, guid: 1629e304ca7574248b120f61ecdccdcf, type: 2}

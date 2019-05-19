@@ -12,10 +12,11 @@ public class HealthBarController : MonoBehaviour
         
     }
 
-    public void createHealthBar(Character c)
+    public HealthBar createHealthBar(Character c)
     {
     	HealthBar healthBar = Instantiate(healthBarPrefab);
         healthBar.transform.SetParent(transform.parent);
         healthBar.character = c;
+        return healthBar;
     }
 }

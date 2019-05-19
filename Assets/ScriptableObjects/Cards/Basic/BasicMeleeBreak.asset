@@ -21,7 +21,7 @@ MonoBehaviour:
   spriteName: attack
   etype: 0
   rtype: 0
-  highlightTypes: 
+  highlightTypes: 02000000
   targetsTypes: 02000000
   targetRange: 2
   effectRange: 1

@@ -13,8 +13,10 @@ public class GameController : MonoBehaviour
 
     public Character[] enemies;
     public Character[] allies;
-    public Character[] obstacles;
+
+    public List<Character> obstacles;
     public Character[] passableObstacles;
+
     Queue<Character> allyTurn;
     Queue<Character> enemyTurn;
     public List<Character> turns;
@@ -66,9 +68,12 @@ public class GameController : MonoBehaviour
     {
         PopulateTurns(true);
         currentCharacter = turns[0];
+        currentCharacter.OnTurnStart();
         ui.UpdateTurns(turns.ToList());
         ui.SelectCharacter(currentCharacter);
         hand.DrawCurrentCards(currentCharacter);
+        inputControl.SetInput(InputController.InputMode.Movement);
+        map.Highlight(currentCharacter.transform.position, Card.RangeType.Area, currentCharacter.GetSpeed(), HighlightTiles.TileType.Move, currentCharacter.stats.moveableTiles);
     }
 
     //  Highlights the tile map to indicate possible attack targets
@@ -142,6 +147,7 @@ public class GameController : MonoBehaviour
     public void UpdateTurn(List<Card> keep)
     {
         //Temp;
+        Debug.Log("NEW TURN");
         currentCharacter.RefillHand(keep);
         currentCharacter.EndTurn();
         //TODO check if there is only one character left in a team.
@@ -158,7 +164,8 @@ public class GameController : MonoBehaviour
             enemyTurn.Enqueue(c);
         }
         turns.RemoveAt(0);
-        StartCoroutine("StartNextTurn");
+        IEnumerator coroutine = StartNextTurn();
+        StartCoroutine(coroutine);
     }
 
     public IEnumerator StartNextTurn()
@@ -168,20 +175,29 @@ public class GameController : MonoBehaviour
         p.z = Camera.main.transform.localPosition.z;
         inputControl.CenterCamera(p);
 
-        yield return new WaitForEndOfFrame();
         ui.UpdateTurns(turns);
         currentCharacter.OnTurnStart();
-
-        if (currentCharacter.team == Card.TargetType.Enemy)
+        if (currentCharacter.GetHealth().x > 0)
         {
-            ai.self = currentCharacter;
-            ai.Action();
+            if (currentCharacter.team == Card.TargetType.Enemy)
+            {
+                ai.self = currentCharacter;
+                ai.Action();
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.5f);
+                hand.DrawCurrentCards(currentCharacter);
+                inputControl.SetInput(InputController.InputMode.Movement);
+                map.Highlight(currentCharacter.transform.position, Card.RangeType.Area, currentCharacter.GetSpeed(), HighlightTiles.TileType.Move, currentCharacter.stats.moveableTiles);
+            }
+            ui.SelectCharacter(currentCharacter);
         }
         else
         {
-            hand.DrawCurrentCards(currentCharacter);
+            yield return new WaitForSeconds(1.5f);
+            UpdateTurn(new List<Card>());
         }
-        ui.SelectCharacter(currentCharacter);
     }
     //TODO AI action
     public void EnemyTurn()
@@ -195,7 +211,7 @@ public class GameController : MonoBehaviour
         //Begin Next Character's Turn
         hand.DrawCurrentCards(currentCharacter);
     }
-
+    //action animation
     public void PlayAction()
     {
         //ui.PlayAction(results, currentCharacter.team == Card.TargetType.Ally);
@@ -275,4 +291,9 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void AddObstacle(Character c, Vector3Int loc)
+    {
+        obstacles.Add(c);
+        map.AddCharacter(c, loc);
+    }
 }
