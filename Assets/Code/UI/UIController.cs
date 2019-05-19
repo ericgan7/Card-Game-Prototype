@@ -35,6 +35,9 @@ public class UIController : MonoBehaviour
     public Icons iconPrefab;
     public GameObject statusEffects;
 
+    public GameObject gameover;
+    public GameObject pauseScreen;
+
     private void Start()
     {
         curve = GetComponent<BezierCurve>();
@@ -111,6 +114,16 @@ public class UIController : MonoBehaviour
     public void FixedUpdate()
     {
         UpdateStats();
+    }
+
+    public void Gameover(bool over)
+    {
+        gameover.SetActive(over);
+    }
+
+    public void PauseGame(bool pause)
+    {
+        pauseScreen.SetActive(pause);
     }
 
 }

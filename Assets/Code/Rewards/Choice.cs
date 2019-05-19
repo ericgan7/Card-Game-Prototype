@@ -73,6 +73,7 @@ public class Choice : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
         if (activeChoice)
         {
             rw.MakeChoice(this);
+            transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         }
     }
 }

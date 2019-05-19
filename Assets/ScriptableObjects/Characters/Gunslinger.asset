@@ -38,3 +38,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 81084ef07fdf1f34186e30b1c8daeb0d, type: 2}
   - {fileID: 11400000, guid: bcb16c1eb78d10c4488d3c1d380683f7, type: 2}
   moveableTiles: 
+  reward: {fileID: 11400000, guid: 609d0113eb1fa854bb5102a33a931b53, type: 2}

@@ -15,7 +15,6 @@ public class RewardManager : MonoBehaviour
     Vector3 frameDestination;
     public float speed;
     public CharacterStats[] characters;
-    public RewardPool[] rewardPools;
 
     public Character[] chars;
     List<List<Reward>> rewards;
@@ -34,11 +33,12 @@ public class RewardManager : MonoBehaviour
     public TextMeshProUGUI arm;
 
     public GameObject finished;
+    public static GM instance;
 
     public void Start()
     {
         gm = FindObjectOfType<GM>();
-        characters = gm.characters;
+        characters = gm.characters.ToArray();
         for (int i = 0; i < characters.Length; ++i)
         {
             chars[i].stats = characters[i];
@@ -69,6 +69,7 @@ public class RewardManager : MonoBehaviour
         {
             List<Reward> rw = new List<Reward>();
             int iteration = 0;
+            int start = gm.GetIndex();
             while (rw.Count < 3)
             {
                 ++iteration;
@@ -77,7 +78,7 @@ public class RewardManager : MonoBehaviour
                     Debug.Log("generation error");
                     break;
                 }
-                Reward r = rewardPools[i].GenerateReward(0, 3);
+                Reward r = characters[i].reward.GenerateReward(start, Mathf.Min(12, start + 5));
                 if (!rw.Contains(r))
                 {
                     rw.Add(r);
@@ -118,6 +119,7 @@ public class RewardManager : MonoBehaviour
 
     public void EndReward()
     {
+        gm.Next();
         gm.loadDialogue();
     }
 
@@ -140,7 +142,6 @@ public class RewardManager : MonoBehaviour
     public void MakeChoice(Choice c)
     {
         canChoose[index] = false;
-        c.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         characters[index].AddCard(c.reward);
         IEnumerator coroutine = AddCard(c);
         StartCoroutine(coroutine);

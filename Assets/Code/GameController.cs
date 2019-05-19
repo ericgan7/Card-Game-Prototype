@@ -235,6 +235,10 @@ public class GameController : MonoBehaviour
         turnq.Insert(0, temp);
         //remove dead from queue
         turnq.Remove(c);
+
+        //check for game over
+        CheckGameOver(turnq, isAlly);
+
         if (isAlly)
         {
             allyTurn.Clear();
@@ -272,25 +276,23 @@ public class GameController : MonoBehaviour
         ui.UpdateTurns(turns);
     }
 
-    public void GameOver()
+    public void CheckGameOver(List<Character> turns, bool isAlly)
     {
-        GM progress = FindObjectOfType<GM>();
-        progress.Next();
-        progress.loadDialogue();
-        gameover = false;
-
-    }
-    
-    public bool gameover = false;
-
-    public void Update()
-    {
-        if (gameover)
+        if (turns.Count == 0)
         {
-            GameOver();
+            if (isAlly)
+            {
+                ui.Gameover(true);
+                inputControl.SetInput(InputController.InputMode.Gameover);
+            }
+            else
+            {
+                GM progress = FindObjectOfType<GM>();
+                progress.loadRewards();
+            }
         }
-    }
 
+    }
     public void AddObstacle(Character c, Vector3Int loc)
     {
         obstacles.Add(c);

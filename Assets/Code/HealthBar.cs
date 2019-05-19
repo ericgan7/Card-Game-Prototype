@@ -18,6 +18,8 @@ public class HealthBar : MonoBehaviour
 
     public GameObject frame;
 
+    public Color ally;
+    public Color enemy;
 
     // Update is called once per frame
     void Update()
@@ -40,6 +42,14 @@ public class HealthBar : MonoBehaviour
 
     public void setCharacter(Character c){
     	character = c;
+        if (c.team == Card.TargetType.Ally)
+        {
+            healthbar.color = ally;
+        }
+        else
+        {
+            healthbar.color = enemy;
+        }
     }
 
     public void SetFrame(bool active)

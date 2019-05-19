@@ -794,6 +794,8 @@ MonoBehaviour:
   armortext: {fileID: 579913365}
   healthtext: {fileID: 84846305}
   frame: {fileID: 6248625491588003287}
+  ally: {r: 0.03938234, g: 0.5566038, b: 0.03938234, a: 1}
+  enemy: {r: 0.6132076, g: 0.020247431, b: 0.020247431, a: 1}
 --- !u!1 &5586561343288154727
 GameObject:
   m_ObjectHideFlags: 0

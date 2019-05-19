@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// InputController is used to detect player input and pass it onto the game controller.
@@ -28,7 +29,7 @@ public class InputController : MonoBehaviour
 
     public enum InputMode
     {
-        None, Movement, KeepCardSelect, Card
+        None, Movement, KeepCardSelect, Card, Gameover
     }
     public InputMode mode;
 
@@ -81,7 +82,21 @@ public class InputController : MonoBehaviour
     {
         if (disableInput)
         {
+            if (game.ui.pauseScreen.activeSelf && Input.GetKeyDown(KeyCode.Insert))
+            {
+                GM progress = FindObjectOfType<GM>();
+                progress.loadRewards();
+            }
             return;
+        }
+        if (mode == InputMode.Gameover && Input.anyKey)
+        {
+            Scene s = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(s.name);
+        }
+        else if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            PauseGame(true);
         }
         if (Input.GetMouseButtonDown(0))
         {
@@ -250,5 +265,16 @@ public class InputController : MonoBehaviour
             game.hand.DiscardHand();
             game.UpdateTurn(new List<Card>());
         }
+    }
+
+    public void PauseGame(bool pause)
+    {
+        game.ui.PauseGame(pause);
+        disableInput = pause;
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }

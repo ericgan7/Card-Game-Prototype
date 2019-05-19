@@ -6,15 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GM : MonoBehaviour
 {
-    public CharacterStats[] characters;
-    public CharacterStats[] preSets;
+    public List<CharacterStats> characters;
     //some public 
     public VIDE_Assign VA;
     public VIDEUIManager1 diag;
     //temp test
-    List<int> nodes;
+    public List<int> nodes;
     int index = 0;
-    bool menu = true;
 
     public void Next()
     {
@@ -29,7 +27,7 @@ public class GM : MonoBehaviour
     }
     public static GM instance;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (instance != null && instance != this)
         {
@@ -39,13 +37,6 @@ public class GM : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(this.gameObject);
-            nodes = new List<int> { 20, 1, 36, 2, 3, 65 };
-            menu = true;
-            characters = new CharacterStats[preSets.Length];
-            for (int i = 0; i < preSets.Length; ++i)
-            {
-                characters[i] = Instantiate(preSets[i]);
-            }
         }
     }
     public void setupChar(int chara) {
@@ -53,15 +44,28 @@ public class GM : MonoBehaviour
     }
     public void startGame() {
         SceneManager.LoadScene("Main");
-        menu = false;
     }
     public void loadDialogue()
     {
-        SceneManager.LoadScene("Dialogue");
         Debug.Log(index);
         VA.overrideStartNode = nodes[index];
+        SceneManager.LoadScene("Dialogue");
     }
-    
+    public void loadRewards()
+    {
+        SceneManager.LoadScene("Reward");
+    }
+    public void loadMenu()
+    {
+        SceneManager.LoadScene("Menu");
+        index = 0;
+        
+    }
+    public int GetIndex()
+    {
+        return index;
+    }
+
     public void quit() {
         Application.Quit();
     }

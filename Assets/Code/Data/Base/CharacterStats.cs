@@ -25,6 +25,8 @@ public class CharacterStats : ScriptableObject
     public List<Card> cards;
     public List<Card.TargetType> moveableTiles;
 
+    public RewardPool reward;
+
     public void AddCard(Reward r)
     {
         if (r.GetType() == typeof(StatReward))

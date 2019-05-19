@@ -80,9 +80,9 @@ MonoBehaviour:
       x: 30
       y: -60
       width: 349
-      height: 155
+      height: 249
     pTag: 
-    expand: 0
+    expand: 1
     sprite: {fileID: 0}
     vars: []
     varKeys: []

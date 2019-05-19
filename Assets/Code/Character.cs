@@ -46,7 +46,7 @@ public class Character : MonoBehaviour
         offset = new Vector3(0.5f, 0.5f, 0f);
         transform.position = game.map.WorldToCellSpace(transform.position) + new Vector3(0.5f, 0.5f, 0f);
         SetStats();
-        if (!(team == Card.TargetType.Obstacle))
+        if (!(team == Card.TargetType.Obstacle || team == Card.TargetType.PassableObstacle))
         {
             SpriteRenderer sr = GetComponent<SpriteRenderer>();
             sr.sprite = stats.idle;
