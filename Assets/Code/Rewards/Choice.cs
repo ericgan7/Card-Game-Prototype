@@ -8,6 +8,7 @@ using TMPro;
 public class Choice : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public RewardManager rw;
+    public Reward reward;
     public Vector3 scale;
     public float speed;
     public bool isChoice;
@@ -29,6 +30,7 @@ public class Choice : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
 
     public void UpdateStat(Reward r, Character c)
     {
+        reward = r;
         if (!r.stat)
         {
             artwork.sprite = r.art;

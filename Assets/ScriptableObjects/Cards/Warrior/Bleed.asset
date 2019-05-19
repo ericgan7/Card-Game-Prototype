@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5312342fd2bf68342ac4fad24ebe8c48, type: 3}
   m_Name: Bleed
   m_EditorClassIdentifier: 
-  name: Bleed
+  name: Wicked Strike
   art: {fileID: 0}
   energyCost: 0
   stat: 0
   effects:
-  - {fileID: 11400000, guid: 1629e304ca7574248b120f61ecdccdcf, type: 2}
-  - {fileID: 11400000, guid: f17172f17048f5b4997c19a4af612213, type: 2}
+  - {fileID: 11400000, guid: c5305f9ba0b6f6e4d8cf2292232a4347, type: 2}
+  - {fileID: 11400000, guid: 6715551f976a80b44a3650c4830075c9, type: 2}
   spriteName: attack
   etype: 0
   rtype: 0
   highlightTypes: 0200000001000000
   targetsTypes: 02000000
-  targetRange: 5
+  targetRange: 2
   effectRange: 1

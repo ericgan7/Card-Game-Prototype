@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47fdee377a0c1114d9aec68bee2aeeba, type: 3}
+  m_Name: Shydra
+  m_EditorClassIdentifier: 
+  portrait: {fileID: 21300000, guid: bfcb63ead5adc3d439e35dc4472bac44, type: 3}
+  idle: {fileID: 21300000, guid: bfcb63ead5adc3d439e35dc4472bac44, type: 3}
+  spriteNames: []
+  sprites: []
+  characterName: Shydra
+  health: 20
+  energy: 5
+  speed: 2
+  armor: 5
+  damage: 5
+  cards:
+  - {fileID: 11400000, guid: f28b2e3bb3a24604a94f91ce332abdbb, type: 2}
+  - {fileID: 11400000, guid: f28b2e3bb3a24604a94f91ce332abdbb, type: 2}
+  - {fileID: 11400000, guid: f28b2e3bb3a24604a94f91ce332abdbb, type: 2}
+  - {fileID: 11400000, guid: f28b2e3bb3a24604a94f91ce332abdbb, type: 2}
+  - {fileID: 11400000, guid: 1edbda42ae8823e40b0647e8055b2fc7, type: 2}
+  - {fileID: 11400000, guid: 1edbda42ae8823e40b0647e8055b2fc7, type: 2}
+  - {fileID: 11400000, guid: 1edbda42ae8823e40b0647e8055b2fc7, type: 2}
+  - {fileID: 11400000, guid: 2d85a03080a3ef042b1320bb19ce2daa, type: 2}
+  - {fileID: 11400000, guid: 2d85a03080a3ef042b1320bb19ce2daa, type: 2}
+  moveableTiles: 

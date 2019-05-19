@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Burn
   m_EditorClassIdentifier: 
   name: Burn
-  color: {r: 0.6603774, g: 0, b: 0, a: 1}
+  color: {r: 1, g: 0.59912676, b: 0, a: 1}
   description: Deal {0} damage per turn, ignores amor.
   duration: 2

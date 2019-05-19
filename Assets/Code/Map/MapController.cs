@@ -372,4 +372,10 @@ public class MapController : MonoBehaviour
         }
         return characters;
     }
+
+    public void AddCharacter(Character c, Vector3Int location)
+    {
+        characterLocations[location.x, location.y] = c;
+        previousCharacterLocations[c] = location;
+    }
 }

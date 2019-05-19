@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Effect", menuName = "Effect/Armorsteal")]
 public class StealArmor : Effect
 {
     public int steal;
@@ -18,6 +19,6 @@ public class StealArmor : Effect
 
     public override string ToString(Character origin)
     {
-        return string.Format(description, Mathf.Max(0, origin.GetHealth().x));
+        return string.Format(description, steal);
     }
 }

@@ -13,8 +13,15 @@ MonoBehaviour:
   m_Name: WizardPool
   m_EditorClassIdentifier: 
   pool:
-  - {fileID: 11400000, guid: 051b648893d8cb54a86cbb4133a072c8, type: 2}
-  - {fileID: 11400000, guid: 29d3252aafb9b78439459a6b9d540d31, type: 2}
-  - {fileID: 11400000, guid: 9b796895550c55f4c89d94524804c7ba, type: 2}
   - {fileID: 11400000, guid: f2878a8254986d648b70e26aa377edcd, type: 2}
+  - {fileID: 11400000, guid: 0077ae8298660354ca0c90c51f4922c3, type: 2}
+  - {fileID: 11400000, guid: 8d9ca608baa8fc24d95033dbbe8b6b86, type: 2}
   - {fileID: 11400000, guid: b400d484285139940aae8da6d39980bc, type: 2}
+  - {fileID: 11400000, guid: 051b648893d8cb54a86cbb4133a072c8, type: 2}
+  - {fileID: 11400000, guid: 4db295d70d33c9047b4ec0e72e13150f, type: 2}
+  - {fileID: 11400000, guid: 29d3252aafb9b78439459a6b9d540d31, type: 2}
+  - {fileID: 11400000, guid: 6601641bdf6023b4e9e5667245a7f805, type: 2}
+  - {fileID: 11400000, guid: 82433fe14e44dbd4ebad8a5d94d8d025, type: 2}
+  - {fileID: 11400000, guid: 9ebaec20501386545ab03865033f49ee, type: 2}
+  - {fileID: 11400000, guid: 92e34652d55d65444bc5954c730e0438, type: 2}
+  - {fileID: 11400000, guid: d7b2e6b50e219cf4e810b3421a2c6645, type: 2}

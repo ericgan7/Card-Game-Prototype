@@ -52,6 +52,7 @@ MonoBehaviour:
   hand: []
   movementSpeed: 2.5
   startingHand: 5
+  game: {fileID: 0}
   hasMoved: 0
   hbc: {fileID: 0}
   healthBarPrefab: {fileID: 0}
@@ -92,7 +93,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 6bf93d84693e0cf4993fe11cafa82011, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

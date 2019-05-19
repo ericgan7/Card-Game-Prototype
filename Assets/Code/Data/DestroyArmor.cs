@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Effect", menuName = "Effect/DestroyArmor")]
 public class DestroyArmor : Effect
 {
     public override int Apply(Character origin, Character target)

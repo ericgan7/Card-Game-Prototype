@@ -12,6 +12,7 @@ using System;
 public class CharacterStats : ScriptableObject
 {
     public Sprite portrait;
+    public Sprite idle;
     public List<string> spriteNames;
     public Sprite[] sprites;
     public string characterName;
@@ -24,7 +25,23 @@ public class CharacterStats : ScriptableObject
     public List<Card> cards;
     public List<Card.TargetType> moveableTiles;
 
-    public void AddCard(string cardName) { }
+    public void AddCard(Reward r)
+    {
+        if (r.GetType() == typeof(StatReward))
+        {
+            StatReward c = (StatReward)r;
+            health += c.healthBonus;
+            energy += c.energyBonus;
+            speed += c.speedBonus;
+            armor += c.armorBonus;
+            damage += c.damageBonus;
+        }
+        else
+        {
+            Card c = (Card)r;
+            cards.Add(c);
+        }
+    }
 
     public Sprite GetSprite(string name)
     {

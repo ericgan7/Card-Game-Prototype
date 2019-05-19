@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
 
     public Character[] enemies;
     public Character[] allies;
-    public Character[] obstacles;
+    public List<Character> obstacles;
     Queue<Character> allyTurn;
     Queue<Character> enemyTurn;
     public List<Character> turns;
@@ -65,9 +65,12 @@ public class GameController : MonoBehaviour
     {
         PopulateTurns(true);
         currentCharacter = turns[0];
+        currentCharacter.OnTurnStart();
         ui.UpdateTurns(turns.ToList());
         ui.SelectCharacter(currentCharacter);
         hand.DrawCurrentCards(currentCharacter);
+        inputControl.SetInput(InputController.InputMode.Movement);
+        map.Highlight(currentCharacter.transform.position, Card.RangeType.Area, currentCharacter.GetSpeed(), HighlightTiles.TileType.Move, currentCharacter.stats.moveableTiles);
     }
 
     //  Highlights the tile map to indicate possible attack targets
@@ -180,7 +183,10 @@ public class GameController : MonoBehaviour
             }
             else
             {
+                yield return new WaitForSeconds(0.5f);
                 hand.DrawCurrentCards(currentCharacter);
+                inputControl.SetInput(InputController.InputMode.Movement);
+                map.Highlight(currentCharacter.transform.position, Card.RangeType.Area, currentCharacter.GetSpeed(), HighlightTiles.TileType.Move, currentCharacter.stats.moveableTiles);
             }
             ui.SelectCharacter(currentCharacter);
         }
@@ -202,7 +208,7 @@ public class GameController : MonoBehaviour
         //Begin Next Character's Turn
         hand.DrawCurrentCards(currentCharacter);
     }
-
+    //action animation
     public void PlayAction()
     {
         //ui.PlayAction(results, currentCharacter.team == Card.TargetType.Ally);
@@ -282,4 +288,9 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void AddObstacle(Character c, Vector3Int loc)
+    {
+        obstacles.Add(c);
+        map.AddCharacter(c, loc);
+    }
 }

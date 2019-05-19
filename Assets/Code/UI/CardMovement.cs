@@ -214,6 +214,13 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         GetComponent<Animator>().enabled = false;
         isCardDrawn = false;
         keepingMode = false;
+        game.currentCharacter.hand.Remove(this.cardData);
+        if (game.currentCharacter.team == Card.TargetType.Ally && i == 1)
+        {
+            game.hand.RemoveCard(siblingIndex);
+            game.hand.DrawCurrentCards(game.currentCharacter, false);
+
+        }
     }
 
     public void Play()

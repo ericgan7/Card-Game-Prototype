@@ -33,8 +33,18 @@ public class RewardManager : MonoBehaviour
     public TextMeshProUGUI dmg;
     public TextMeshProUGUI arm;
 
+    public GameObject finished;
+
     public void Start()
     {
+        gm = FindObjectOfType<GM>();
+        characters = gm.characters;
+        for (int i = 0; i < characters.Length; ++i)
+        {
+            chars[i].stats = characters[i];
+            chars[i].SetStats();
+            icons[i].sprite = characters[i].portrait;
+        }
         UpdateStats();
         rewards = new List<List<Reward>>();
         deck.SetCharacter(chars[index]);
@@ -94,6 +104,16 @@ public class RewardManager : MonoBehaviour
                 choices[i].gameObject.SetActive(false);
             }
         }
+        bool done = true;
+        foreach(bool c in canChoose)
+        {
+            if (c)
+            {
+                done = false;
+                break;
+            }
+        }
+        finished.SetActive(done);
     }
 
     public void EndReward()
@@ -121,6 +141,7 @@ public class RewardManager : MonoBehaviour
     {
         canChoose[index] = false;
         c.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+        characters[index].AddCard(c.reward);
         IEnumerator coroutine = AddCard(c);
         StartCoroutine(coroutine);
         SetChoices();

@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GM : MonoBehaviour
 {
-
+    public CharacterStats[] characters;
+    public CharacterStats[] preSets;
     //some public 
     public VIDE_Assign VA;
     public VIDEUIManager1 diag;
@@ -25,8 +26,6 @@ public class GM : MonoBehaviour
         //
         VA.overrideStartNode = nodeID;
         diag.Interact(VA);
-
-
     }
     public static GM instance;
     // Start is called before the first frame update
@@ -42,6 +41,11 @@ public class GM : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
             nodes = new List<int> { 20, 1, 36, 2, 3, 65 };
             menu = true;
+            characters = new CharacterStats[preSets.Length];
+            for (int i = 0; i < preSets.Length; ++i)
+            {
+                characters[i] = Instantiate(preSets[i]);
+            }
         }
     }
     public void setupChar(int chara) {

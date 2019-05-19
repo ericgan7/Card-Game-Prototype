@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47fdee377a0c1114d9aec68bee2aeeba, type: 3}
   m_Name: GiraffeSnek
   m_EditorClassIdentifier: 
-  portrait: {fileID: 21300000, guid: 45c382c9ec0ef95448eea0cf0c98fa95, type: 3}
+  portrait: {fileID: 21300000, guid: 9e7b46d30e5aba1449ccda096c69c82d, type: 3}
+  idle: {fileID: 21300000, guid: 45c382c9ec0ef95448eea0cf0c98fa95, type: 3}
   spriteNames:
   - attack
   - defend

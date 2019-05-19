@@ -14,14 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Needle Barrage
   art: {fileID: 0}
-  energyCost: 0
+  energyCost: 1
   stat: 0
   effects:
-  - {fileID: 11400000, guid: 6715551f976a80b44a3650c4830075c9, type: 2}
+  - {fileID: 11400000, guid: 50ded49d6091b1640a5d13b22b89a4d5, type: 2}
+  - {fileID: 11400000, guid: f0e4bbbf3d4923244870bc091e3a11cb, type: 2}
   spriteName: 
-  etype: 0
+  etype: 1
   rtype: 0
-  highlightTypes: 02000000
-  targetsTypes: 02000000
+  highlightTypes: 0200000001000000
+  targetsTypes: 0200000001000000
   targetRange: 3
-  effectRange: 1
+  effectRange: 3

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Effect", menuName = "Effect/FlatDot")]
 public class DotFlat : Effect
 {
     public int duration;

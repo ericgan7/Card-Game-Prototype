@@ -18,7 +18,7 @@ MonoBehaviour:
   stat: 0
   effects:
   - {fileID: 11400000, guid: 3dd10d66cd641c549b46b87ea7d11a2a, type: 2}
-  - {fileID: 11400000, guid: f17172f17048f5b4997c19a4af612213, type: 2}
+  - {fileID: 11400000, guid: 50ded49d6091b1640a5d13b22b89a4d5, type: 2}
   spriteName: 
   etype: 0
   rtype: 0
