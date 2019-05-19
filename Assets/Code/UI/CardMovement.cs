@@ -202,7 +202,10 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     //helper function to highlight target Tiles;
     public void HighlightRange()
     {
-        game.HighlightTargets(cardData.rtype, cardData.targetRange, HighlightTiles.TileType.Attack, new List<Card.TargetType>(cardData.highlightTypes));
+        var validTargets = new List<Card.TargetType>(cardData.highlightTypes);
+        // Passable target technically isn't a valid target, but it's added to propagate the highlighting
+        validTargets.Add(Card.TargetType.PassableObstacle);
+        game.HighlightTargets(cardData.rtype, cardData.targetRange, HighlightTiles.TileType.Attack, validTargets);
         if (!cardData.highlightTypes.Contains(Card.TargetType.Self)){
             game.UnHiglightTarget(1);
         }
