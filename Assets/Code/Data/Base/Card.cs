@@ -21,7 +21,7 @@ public class Card : Reward
     }
     public enum TargetType
     {
-        Self, Ally, Enemy, Ground, Obstacle
+        Self, Ally, Enemy, Ground, Obstacle, PassableObstacle
     }
     public EffectType etype;
     public RangeType rtype;

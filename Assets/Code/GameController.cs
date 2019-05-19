@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public Character[] enemies;
     public Character[] allies;
     public Character[] obstacles;
+    public Character[] passableObstacles;
     Queue<Character> allyTurn;
     Queue<Character> enemyTurn;
     public List<Character> turns;
