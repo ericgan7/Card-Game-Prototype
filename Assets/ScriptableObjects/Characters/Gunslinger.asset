@@ -22,10 +22,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c41241b5bdab7614aadde5eae5f5fe8f, type: 3}
   - {fileID: 21300000, guid: c41241b5bdab7614aadde5eae5f5fe8f, type: 3}
   - {fileID: 21300000, guid: c41241b5bdab7614aadde5eae5f5fe8f, type: 3}
-  characterName: Norra
+  characterName: Nora
   health: 5
   energy: 3
-  speed: 3
+  speed: 5
   armor: 4
   damage: 5
   cards:
