@@ -25,7 +25,7 @@ public class CharacterSelectManager : MonoBehaviour
         //check swap left
         if (index - 1 >= 0)
         {
-            if (characters[index].transform.position.x < characters[index - 1].transform.position.x)
+            if (characters[index].transform.position.x < characters[index - 1].transform.position.x + 25f)
             {
                 CharacterSelect cs = characters[index];
                 characters[index] = characters[index - 1];
@@ -38,7 +38,7 @@ public class CharacterSelectManager : MonoBehaviour
         //check swap right
         if (index + 1 < characters.Count)
         {
-            if (characters[index].transform.position.x > characters[index + 1].transform.position.x)
+            if (characters[index].transform.position.x > characters[index + 1].transform.position.x -25f)
             {
                 CharacterSelect cs = characters[index];
                 characters[index] = characters[index + 1];
