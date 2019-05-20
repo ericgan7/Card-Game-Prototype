@@ -38,6 +38,8 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public float arrowsHeadSize;
 
     int siblingIndex;
+
+    
     public void Start()
     {
         destination = transform.localPosition;
@@ -91,6 +93,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             targetScale = new Vector3(2.0f, 2.0f, 2.0f);
             destination.y +=60f;
             transform.SetAsLastSibling();
+            AudioManager.instance.passCard();
         }
 
     }
@@ -187,6 +190,7 @@ public class CardMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             //discard positioning TO DO:
             GetComponent<Animator>().enabled = true;
             GetComponent<Animator>().Play("CardAnimation");
+            AudioManager.instance.usecard();
             CardEffect.instance.openUp();
         }
         else

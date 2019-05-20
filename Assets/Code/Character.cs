@@ -276,6 +276,7 @@ public class Character : MonoBehaviour
             {
                 isMoving = false;
                 game.inputControl.disableInput = false;
+                AudioManager.instance.stopPlaying();
             }
         }
     }
@@ -297,6 +298,7 @@ public class Character : MonoBehaviour
         game.inputControl.disableInput = true;
         hasMoved = true;
         ChangeEnergy(-cost);
+        AudioManager.instance.playWalk();
     }
     //Reset Energy, trigger end of turn effects, etc.
     public void EndTurn()
