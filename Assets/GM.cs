@@ -40,7 +40,7 @@ public class GM : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(this.gameObject);
-            nodes = new List<int> { 20, 1, 36, 2, 3, 65 };
+            nodes = new List<int> { 0, 1, 36, 2, 3, 65 };
             menu = true;
         }
     }

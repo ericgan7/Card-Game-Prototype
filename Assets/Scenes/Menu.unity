@@ -422,10 +422,11 @@ MonoBehaviour:
   alias: 
   overrideStartNode: -1
   defaultNPCSprite: {fileID: 0}
-  defaultPlayerSprite: {fileID: 0}
+  defaultPlayerSprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce,
+    type: 3}
   targetManager: {fileID: 0}
   preload: 1
-  notuptodate: 1
+  notuptodate: 0
   startp: 0
   loadtag: 
   langs: []
@@ -449,12 +450,11 @@ MonoBehaviour:
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: "July 19, 2030 \nMuch of the Tsewdim remains a barren desert, but many
-        people, left destitute by the aftermath of the explosion, established small
-        settlements.  "
+    - text: "July 19, 2030 \nAfter defeating the S\u2019Necks, the party comes across
+        the first checkpoint, in Awoi."
       extraData: ExtraData
       inputSetIndex: 1
-      outputNodeIndex: 30
+      outputNodeIndex: 29
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -470,7 +470,7 @@ MonoBehaviour:
     - text: "August 1, 2030\r\nNotsouh, Saxet\r"
       extraData: ExtraData
       inputSetIndex: 2
-      outputNodeIndex: 42
+      outputNodeIndex: 41
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -486,7 +486,7 @@ MonoBehaviour:
     - text: "August 17, 2030\r\nSage V\u2019Sal, Adaven\r"
       extraData: ExtraData
       inputSetIndex: 3
-      outputNodeIndex: 61
+      outputNodeIndex: 58
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -594,7 +594,7 @@ MonoBehaviour:
       visible: 1
     ID: 9
     pTag: Cire
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -610,7 +610,7 @@ MonoBehaviour:
       visible: 1
     ID: 10
     pTag: Cire
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -626,7 +626,7 @@ MonoBehaviour:
       visible: 1
     ID: 11
     pTag: Cire
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -650,7 +650,7 @@ MonoBehaviour:
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: " I can\u2019t pay this in two months! But I have to go to school! Why
+    - text: "I can\u2019t pay this in two months! But I have to go to school! Why
         is WYU the only college in this country? "
       extraData: ExtraData
       inputSetIndex: 13
@@ -661,7 +661,7 @@ MonoBehaviour:
       visible: 1
     ID: 13
     pTag: Cire
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -695,7 +695,7 @@ MonoBehaviour:
       visible: 1
     ID: 15
     pTag: TV
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 4aee42e65e3b5194ea0efbecfab5292a, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -713,7 +713,7 @@ MonoBehaviour:
       visible: 1
     ID: 16
     pTag: TV
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 4aee42e65e3b5194ea0efbecfab5292a, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -729,7 +729,7 @@ MonoBehaviour:
       visible: 1
     ID: 17
     pTag: Cire
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -779,10 +779,10 @@ MonoBehaviour:
       visible: 1
     ID: 20
     pTag: Host
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 99df19d3d38d8a7409759363a2acd53a, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: "The teams form so quickly it\u2019s almost comical. Cire\u2019s left
@@ -813,10 +813,10 @@ MonoBehaviour:
       visible: 1
     ID: 22
     pTag: Nora
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: '...'
@@ -829,10 +829,10 @@ MonoBehaviour:
       visible: 1
     ID: 23
     pTag: Cactus Kid
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 1df958f239a7c9c40afa0d70e5bc3c6e, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: Well, @#&!
@@ -845,7 +845,7 @@ MonoBehaviour:
       visible: 1
     ID: 24
     pTag: Cire
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -862,10 +862,10 @@ MonoBehaviour:
       visible: 1
     ID: 25
     pTag: Host
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 99df19d3d38d8a7409759363a2acd53a, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: "The race begins, and after travelling for a few days the party is ambushed
@@ -897,10 +897,10 @@ MonoBehaviour:
       visible: 1
     ID: 27
     pTag: S'Necks
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 5ddeea7928db8744d9d5eeaab7c05a1c, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: "The party realizes that they\u2019ll have to defeat them if they want
@@ -908,7 +908,7 @@ MonoBehaviour:
         are, robbing Cire and his goons."
       extraData: ExtraData
       inputSetIndex: 28
-      outputNodeIndex: 29
+      outputNodeIndex: 86
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -921,28 +921,11 @@ MonoBehaviour:
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: "After defeating the S\u2019Necks, the party comes across the first checkpoint,
-        in Awoi."
-      extraData: ExtraData
-      inputSetIndex: 29
-      outputNodeIndex: -1
-      outActionIndex: 0
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 29
-    pTag: 
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 1
-    s_comment:
     - text: "Cire\u2019s team finally find S\u2019Neck Alley, buried deep in the depths
         of the largest city in Awoi, Turlingbon."
       extraData: ExtraData
-      inputSetIndex: 30
-      outputNodeIndex: 31
+      inputSetIndex: 29
+      outputNodeIndex: 30
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -957,40 +940,40 @@ MonoBehaviour:
     s_comment:
     - text: "I remember S\u2019Neck Alley. I fought many gangs here back in my day."
       extraData: ExtraData
-      inputSetIndex: 31
-      outputNodeIndex: 32
+      inputSetIndex: 30
+      outputNodeIndex: 31
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 32
     pTag: Nora
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: '...'
       extraData: ExtraData
-      inputSetIndex: 32
-      outputNodeIndex: 33
+      inputSetIndex: 31
+      outputNodeIndex: 32
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 33
     pTag: Cactus Kid
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 1df958f239a7c9c40afa0d70e5bc3c6e, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: "Hisssssssssssssssssssss! (There\u2019s another reason why it\u2019s called
         s\u2019neck alley, idiots!)"
       extraData: ExtraData
-      inputSetIndex: 33
+      inputSetIndex: 32
       outputNodeIndex: -1
       outActionIndex: 1
       sprites: {fileID: 0}
@@ -998,17 +981,17 @@ MonoBehaviour:
       visible: 1
     ID: 34
     pTag: "S\u2019Necks"
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 5ddeea7928db8744d9d5eeaab7c05a1c, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: "Cire\u2019s team discover a suspicious looking dumpster within the Alley.
         It is completely obvious that the next hint is in there."
       extraData: ExtraData
-      inputSetIndex: 34
-      outputNodeIndex: 35
+      inputSetIndex: 33
+      outputNodeIndex: 34
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -1024,8 +1007,8 @@ MonoBehaviour:
     - text: "At the speed of light, Nora\u2019s pointer finger flies to her nose.
         Cactus Kid\u2019s costumed arm does the same."
       extraData: ExtraData
-      inputSetIndex: 35
-      outputNodeIndex: 36
+      inputSetIndex: 34
+      outputNodeIndex: 35
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -1040,21 +1023,37 @@ MonoBehaviour:
     s_comment:
     - text: Not it.
       extraData: ExtraData
-      inputSetIndex: 36
-      outputNodeIndex: 37
+      inputSetIndex: 35
+      outputNodeIndex: 36
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 38
     pTag: Nora
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: '...'
+      extraData: ExtraData
+      inputSetIndex: 36
+      outputNodeIndex: 37
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 39
+    pTag: Cactus Kid
+    sprite: {fileID: 21300000, guid: 1df958f239a7c9c40afa0d70e5bc3c6e, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: :|
       extraData: ExtraData
       inputSetIndex: 37
       outputNodeIndex: 38
@@ -1062,25 +1061,9 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    ID: 39
-    pTag: Cactus Kid
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 1
-  - commentCount: 1
-    s_comment:
-    - text: :|
-      extraData: ExtraData
-      inputSetIndex: 38
-      outputNodeIndex: 39
-      outActionIndex: -1
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
     ID: 40
     pTag: Cire
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -1089,8 +1072,8 @@ MonoBehaviour:
     - text: Cire dives into the dumpster, searching for a good 10 minutes before he
         finds the slip of paper at the bottom.
       extraData: ExtraData
-      inputSetIndex: 39
-      outputNodeIndex: 40
+      inputSetIndex: 38
+      outputNodeIndex: 39
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -1106,15 +1089,15 @@ MonoBehaviour:
     - text: Haha, you thought the hint was in the dumpster? Try looking at the wall
         to the RIGHT of the dumpster.
       extraData: ExtraData
-      inputSetIndex: 40
-      outputNodeIndex: 41
+      inputSetIndex: 39
+      outputNodeIndex: 40
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 42
     pTag: Hint
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 68ef6d98bec7781459dbd5e2430afd40, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -1122,7 +1105,7 @@ MonoBehaviour:
     s_comment:
     - text: Go to the land of the loneliest star. Seek the man named Masno H Tsou.
       extraData: ExtraData
-      inputSetIndex: 41
+      inputSetIndex: 40
       outputNodeIndex: -1
       outActionIndex: 8
       sprites: {fileID: 0}
@@ -1130,7 +1113,7 @@ MonoBehaviour:
       visible: 1
     ID: 43
     pTag: Real Hint
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 0e9805808cfd442498bc01feaf1a0148, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -1139,15 +1122,15 @@ MonoBehaviour:
     - text: I only have a month left before tuition is due. Better hurry up and find
         the next clue.
       extraData: ExtraData
-      inputSetIndex: 42
-      outputNodeIndex: 43
+      inputSetIndex: 41
+      outputNodeIndex: 42
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 45
     pTag: Cire
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -1155,8 +1138,8 @@ MonoBehaviour:
     s_comment:
     - text: 'The team finds a quiet watering hole to get a drink and some information. '
       extraData: ExtraData
-      inputSetIndex: 43
-      outputNodeIndex: 44
+      inputSetIndex: 42
+      outputNodeIndex: 43
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -1171,15 +1154,15 @@ MonoBehaviour:
     s_comment:
     - text: 'Bartender, would you possibly know who Masno H Tsou is? '
       extraData: ExtraData
-      inputSetIndex: 44
-      outputNodeIndex: 45
+      inputSetIndex: 43
+      outputNodeIndex: 44
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 47
     pTag: Cire
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -1190,18 +1173,18 @@ MonoBehaviour:
         Now get outta here, I don\u2019t need you scarin\u2019 the rest of my customers
         off. "
       extraData: ExtraData
-      inputSetIndex: 45
-      outputNodeIndex: 46
+      inputSetIndex: 44
+      outputNodeIndex: 45
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 48
     pTag: Bartender
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: acb6ffe725fbd414e8aff98f9f84f156, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: "Kicked out of the saloon, they set up camp for the night a few hundred
@@ -1209,8 +1192,8 @@ MonoBehaviour:
         Kid\u2019s standing next to a cactus. They seem to be having a deep conversation
         without words. "
       extraData: ExtraData
-      inputSetIndex: 46
-      outputNodeIndex: 47
+      inputSetIndex: 45
+      outputNodeIndex: 46
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -1226,15 +1209,15 @@ MonoBehaviour:
     - text: "Cheer up children, the S\u2019Neck stew\u2019s almost done! Come get
         your bowls!"
       extraData: ExtraData
-      inputSetIndex: 47
-      outputNodeIndex: 48
+      inputSetIndex: 46
+      outputNodeIndex: 47
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 50
     pTag: Nora
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -1242,8 +1225,8 @@ MonoBehaviour:
     s_comment:
     - text: 'Nora begins ladeling the savory stew into a bowl when she hears a noise. '
       extraData: ExtraData
-      inputSetIndex: 48
-      outputNodeIndex: 49
+      inputSetIndex: 47
+      outputNodeIndex: 48
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -1258,8 +1241,8 @@ MonoBehaviour:
     s_comment:
     - text: Click.
       extraData: ExtraData
-      inputSetIndex: 49
-      outputNodeIndex: 50
+      inputSetIndex: 48
+      outputNodeIndex: 49
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -1269,13 +1252,13 @@ MonoBehaviour:
     sprite: {fileID: 0}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: BANG!
       extraData: ExtraData
-      inputSetIndex: 50
-      outputNodeIndex: 51
+      inputSetIndex: 49
+      outputNodeIndex: 50
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -1285,14 +1268,14 @@ MonoBehaviour:
     sprite: {fileID: 0}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: "A bullet flies, just barely grazing Cire\u2019s cheek. Cire lets out
         a squeak and falls backwards. "
       extraData: ExtraData
-      inputSetIndex: 51
-      outputNodeIndex: 52
+      inputSetIndex: 50
+      outputNodeIndex: 51
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -1307,7 +1290,7 @@ MonoBehaviour:
     s_comment:
     - text: "Heard you been lookin\u2019 for me."
       extraData: ExtraData
-      inputSetIndex: 52
+      inputSetIndex: 51
       outputNodeIndex: -1
       outActionIndex: 2
       sprites: {fileID: 0}
@@ -1315,17 +1298,17 @@ MonoBehaviour:
       visible: 1
     ID: 55
     pTag: Masno
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: b882caeb24172de4688d8b7e0ba2d5a6, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: "Within the cowboy hat of the S\u2019Neck leader Masno, Cactus Kid finds
         a slip of paper. "
       extraData: ExtraData
-      inputSetIndex: 53
-      outputNodeIndex: 54
+      inputSetIndex: 52
+      outputNodeIndex: 53
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -1340,21 +1323,37 @@ MonoBehaviour:
     s_comment:
     - text: '...'
       extraData: ExtraData
-      inputSetIndex: 54
-      outputNodeIndex: 55
+      inputSetIndex: 53
+      outputNodeIndex: 54
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 58
     pTag: Cactus Kid
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 1df958f239a7c9c40afa0d70e5bc3c6e, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: "What\u2019s that, Kid? You found something? Give it here."
+      extraData: ExtraData
+      inputSetIndex: 54
+      outputNodeIndex: 55
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 59
+    pTag: Nora
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: The next clue lies where the scholar becomes the hedonist.
       extraData: ExtraData
       inputSetIndex: 55
       outputNodeIndex: 56
@@ -1362,73 +1361,25 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    ID: 59
-    pTag: Nora
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 1
-  - commentCount: 1
-    s_comment:
-    - text: The next clue lies where the scholar becomes the hedonist.
-      extraData: ExtraData
-      inputSetIndex: 56
-      outputNodeIndex: 57
-      outActionIndex: -1
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
     ID: 60
     pTag: Hint
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 68ef6d98bec7781459dbd5e2430afd40, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: This sounds a lot like...
       extraData: ExtraData
-      inputSetIndex: 57
-      outputNodeIndex: 58
-      outActionIndex: -1
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 61
-    pTag: Nora
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 1
-  - commentCount: 1
-    s_comment:
-    - text: '...'
-      extraData: ExtraData
-      inputSetIndex: 58
-      outputNodeIndex: 59
-      outActionIndex: -1
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 62
-    pTag: Cactus Kid
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 1
-  - commentCount: 1
-    s_comment:
-    - text: "Aren\u2019t you too young to know about that? "
-      extraData: ExtraData
-      inputSetIndex: 59
+      inputSetIndex: 56
       outputNodeIndex: -1
       outActionIndex: 3
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    ID: 63
+    ID: 61
     pTag: Nora
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -1436,8 +1387,8 @@ MonoBehaviour:
     s_comment:
     - text: August 29, 2030
       extraData: ExtraData
-      inputSetIndex: 60
-      outputNodeIndex: 62
+      inputSetIndex: 57
+      outputNodeIndex: 59
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -1452,32 +1403,32 @@ MonoBehaviour:
     s_comment:
     - text: Oooh, Adaven! Let me try my hand at the slot machines!
       extraData: ExtraData
-      inputSetIndex: 61
-      outputNodeIndex: 67
+      inputSetIndex: 58
+      outputNodeIndex: 64
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 66
     pTag: Nora
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: "I can see the Wolly Hood sign! We\u2019re so close! I CAN AFFORD TO GO
         TO COLLEGE!"
       extraData: ExtraData
-      inputSetIndex: 62
-      outputNodeIndex: 63
+      inputSetIndex: 59
+      outputNodeIndex: 60
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 67
     pTag: Cire
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -1485,56 +1436,56 @@ MonoBehaviour:
     s_comment:
     - text: :)
       extraData: ExtraData
-      inputSetIndex: 63
-      outputNodeIndex: 64
+      inputSetIndex: 60
+      outputNodeIndex: 61
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 68
     pTag: Cactus Kid
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 1df958f239a7c9c40afa0d70e5bc3c6e, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: "It\u2019s not over yet kid, I can feel something coming."
       extraData: ExtraData
-      inputSetIndex: 64
-      outputNodeIndex: 65
+      inputSetIndex: 61
+      outputNodeIndex: 62
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 69
     pTag: Nora
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: :(
       extraData: ExtraData
-      inputSetIndex: 65
-      outputNodeIndex: 66
+      inputSetIndex: 62
+      outputNodeIndex: 63
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 70
     pTag: Cactus Kid
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 1df958f239a7c9c40afa0d70e5bc3c6e, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: 'From the bushes appears a King Shydra. He blushes a little. '
       extraData: ExtraData
-      inputSetIndex: 66
-      outputNodeIndex: 79
+      inputSetIndex: 63
+      outputNodeIndex: 76
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -1549,15 +1500,15 @@ MonoBehaviour:
     s_comment:
     - text: "Maybe I could just get my tuition money here\u2026"
       extraData: ExtraData
-      inputSetIndex: 67
-      outputNodeIndex: 68
+      inputSetIndex: 64
+      outputNodeIndex: 65
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 73
     pTag: Cire
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -1565,8 +1516,8 @@ MonoBehaviour:
     s_comment:
     - text: After a few hours of gambling, Nora has not won anything.
       extraData: ExtraData
-      inputSetIndex: 68
-      outputNodeIndex: 69
+      inputSetIndex: 65
+      outputNodeIndex: 66
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -1582,24 +1533,24 @@ MonoBehaviour:
     - text: "Is this machine rigged?! I\u2019ve been at it for hours and haven\u2019t
         won a dime! Who runs this place anyway?"
       extraData: ExtraData
-      inputSetIndex: 69
-      outputNodeIndex: 70
+      inputSetIndex: 66
+      outputNodeIndex: 67
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 75
     pTag: Nora
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: "Well-dressed S\u2019Necks slither from the shadows."
       extraData: ExtraData
-      inputSetIndex: 70
-      outputNodeIndex: 71
+      inputSetIndex: 67
+      outputNodeIndex: 68
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -1614,31 +1565,31 @@ MonoBehaviour:
     s_comment:
     - text: Hiss Hiss? (Does there seem to be a problem, miss?)
       extraData: ExtraData
-      inputSetIndex: 71
-      outputNodeIndex: 72
+      inputSetIndex: 68
+      outputNodeIndex: 69
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 77
     pTag: Casino Owner S'Necks
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: e0c757f9089bc7c4bb179806845d1544, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: "This Casino is run by S\u2019Necks?"
       extraData: ExtraData
-      inputSetIndex: 72
-      outputNodeIndex: 73
+      inputSetIndex: 69
+      outputNodeIndex: 70
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 78
     pTag: Cire
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -1646,23 +1597,23 @@ MonoBehaviour:
     s_comment:
     - text: "I bet they rigged these machines! Let\u2019s pummel them!"
       extraData: ExtraData
-      inputSetIndex: 73
-      outputNodeIndex: 74
+      inputSetIndex: 70
+      outputNodeIndex: 71
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 79
     pTag: Nora
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: Hiss? (????)
       extraData: ExtraData
-      inputSetIndex: 74
+      inputSetIndex: 71
       outputNodeIndex: -1
       outActionIndex: 5
       sprites: {fileID: 0}
@@ -1670,24 +1621,24 @@ MonoBehaviour:
       visible: 1
     ID: 80
     pTag: Casino Owner S'Necks
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: e0c757f9089bc7c4bb179806845d1544, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 2
     s_comment:
     - text: After the fight, Cactus Kid decides to play the slots before they leave
         the casino.
       extraData: ExtraData
-      inputSetIndex: 75
-      outputNodeIndex: 76
+      inputSetIndex: 72
+      outputNodeIndex: 73
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     - text: '*Celebratory Music*'
       extraData: ExtraData
-      inputSetIndex: 75
+      inputSetIndex: 72
       outputNodeIndex: -1
       outActionIndex: -1
       sprites: {fileID: 0}
@@ -1703,31 +1654,31 @@ MonoBehaviour:
     s_comment:
     - text: YOU WON?!
       extraData: ExtraData
-      inputSetIndex: 76
-      outputNodeIndex: 77
+      inputSetIndex: 73
+      outputNodeIndex: 74
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 83
     pTag: Nora
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: How much did you win?!
       extraData: ExtraData
-      inputSetIndex: 77
-      outputNodeIndex: 78
+      inputSetIndex: 74
+      outputNodeIndex: 75
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 84
     pTag: Cire
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -1735,8 +1686,8 @@ MonoBehaviour:
     s_comment:
     - text: A slip of a paper is deposited from the machine, which is the next hint.
       extraData: ExtraData
-      inputSetIndex: 78
-      outputNodeIndex: 87
+      inputSetIndex: 75
+      outputNodeIndex: 84
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -1751,23 +1702,23 @@ MonoBehaviour:
     s_comment:
     - text: "H-hisss. (You guys are so weak I\u2019m getting secondhand embarrassment.)"
       extraData: ExtraData
-      inputSetIndex: 79
-      outputNodeIndex: 80
+      inputSetIndex: 76
+      outputNodeIndex: 77
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 86
     pTag: King Shydra
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 0943c65ba1c3a7549831d01269829486, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: "I @#&!ing hate S\u2019Necks."
       extraData: ExtraData
-      inputSetIndex: 80
+      inputSetIndex: 77
       outputNodeIndex: -1
       outActionIndex: 4
       sprites: {fileID: 0}
@@ -1775,24 +1726,24 @@ MonoBehaviour:
       visible: 1
     ID: 87
     pTag: Nora
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: "Let\u2019s grab the crown and book it to the Prince. I need to pay tuition
         soon."
       extraData: ExtraData
-      inputSetIndex: 81
-      outputNodeIndex: 82
+      inputSetIndex: 78
+      outputNodeIndex: 79
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 88
     pTag: Cire
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -1800,25 +1751,25 @@ MonoBehaviour:
     s_comment:
     - text: 'Oh. You actually made it. Well, congrats. Give me my hats. '
       extraData: ExtraData
-      inputSetIndex: 82
-      outputNodeIndex: 83
+      inputSetIndex: 79
+      outputNodeIndex: 80
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 89
     pTag: Prince of Ainor Filac
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: d47a40d2e57141f46ac48d6830aa18c7, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: "Cire hands over a smelly beanie, Masno\u2019s cowboy hat, the casino
         owner S\u2019Necks\u2019 fedora, and the King Shydra\u2019s crown. "
       extraData: ExtraData
-      inputSetIndex: 83
-      outputNodeIndex: 84
+      inputSetIndex: 80
+      outputNodeIndex: 81
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -1834,49 +1785,49 @@ MonoBehaviour:
     - text: "Splendid. Here are your checks. Oh, and Cire, is it? I heard that you\u2019re
         actually an upcoming student at my university? "
       extraData: ExtraData
-      inputSetIndex: 84
-      outputNodeIndex: 86
+      inputSetIndex: 81
+      outputNodeIndex: 83
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 91
     pTag: Prince of Ainor Filac
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: d47a40d2e57141f46ac48d6830aa18c7, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: "Wonderful, fantastic! Well, seeing as you\u2019ll probably need more
         money to pay for tuition next year, I expect you\u2019ll be collecting more
         items for me next year. I do need some new shoes."
       extraData: ExtraData
-      inputSetIndex: 85
-      outputNodeIndex: 88
+      inputSetIndex: 82
+      outputNodeIndex: 85
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 92
     pTag: Prince of Ainor Filac
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: d47a40d2e57141f46ac48d6830aa18c7, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: Oh, yeah actually-
       extraData: ExtraData
-      inputSetIndex: 86
-      outputNodeIndex: 85
+      inputSetIndex: 83
+      outputNodeIndex: 82
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 93
     pTag: Cire
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -1885,7 +1836,7 @@ MonoBehaviour:
     - text: "You\u2019ve collected the last hint! Finish your travels to Ainor Filac
         to receive the grand prize! "
       extraData: ExtraData
-      inputSetIndex: 87
+      inputSetIndex: 84
       outputNodeIndex: -1
       outActionIndex: 6
       sprites: {fileID: 0}
@@ -1893,15 +1844,15 @@ MonoBehaviour:
       visible: 1
     ID: 94
     pTag: Hint
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 68ef6d98bec7781459dbd5e2430afd40, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
+    isPlayer: 0
   - commentCount: 1
     s_comment:
     - text: What
       extraData: ExtraData
-      inputSetIndex: 88
+      inputSetIndex: 85
       outputNodeIndex: -1
       outActionIndex: 7
       sprites: {fileID: 0}
@@ -1909,6 +1860,79 @@ MonoBehaviour:
       visible: 1
     ID: 96
     pTag: Cire
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: 'Hey there, you, the player. Before you spacebar/mouse-click into battle,
+        you''ll need to know a little about the game. '
+      extraData: ExtraData
+      inputSetIndex: 86
+      outputNodeIndex: 87
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 29
+    pTag: Armor Tutorial
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: In this game, damage is indicated by color. When dragging a card over
+        an enemy, a number will appear displaying how much damage it will do. The
+        color of that number will indicate a few things.
+      extraData: ExtraData
+      inputSetIndex: 87
+      outputNodeIndex: 88
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 62
+    pTag: Armor Tutorial
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: 'BLUE means that the card will deal damage to their ARMOR.
+
+        RED means that the card will deal damage to their HEALTH, which is reduced
+        by ARMOR.
+
+        PURPLE means that the card will deal damage to their HEALTH, not reduced by
+        ARMOR. '
+      extraData: ExtraData
+      inputSetIndex: 88
+      outputNodeIndex: 89
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 63
+    pTag: Armor Tutorial
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: You're ready now. Beat those s'necks up.
+      extraData: ExtraData
+      inputSetIndex: 89
+      outputNodeIndex: -1
+      outActionIndex: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 98
+    pTag: Armor Tutorial
     sprite: {fileID: 0}
     vars: []
     varKeys: []
@@ -1952,7 +1976,7 @@ MonoBehaviour:
     param_int: 0
     param_float: 0
     ID: 56
-    outPlayerIndex: 53
+    outPlayerIndex: 52
     outActionIndex: -1
     ovrStartNode: -1
     renameDialogue: 
@@ -1980,7 +2004,7 @@ MonoBehaviour:
     param_int: 0
     param_float: 0
     ID: 72
-    outPlayerIndex: 81
+    outPlayerIndex: 78
     outActionIndex: -1
     ovrStartNode: -1
     renameDialogue: 
@@ -1994,7 +2018,7 @@ MonoBehaviour:
     param_int: 0
     param_float: 0
     ID: 81
-    outPlayerIndex: 75
+    outPlayerIndex: 72
     outActionIndex: -1
     ovrStartNode: -1
     renameDialogue: 
@@ -4258,7 +4282,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 5.93, y: -0.97}
   m_SizeDelta: {x: 1600, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1420315883

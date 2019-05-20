@@ -595,7 +595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1153178365
 RectTransform:
   m_ObjectHideFlags: 0
@@ -612,8 +612,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -0.000015259, y: -0.0012207}
+  m_SizeDelta: {x: 800, y: 500.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1153178366
 MonoBehaviour:
@@ -785,6 +785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   left: {fileID: 2020090888}
   right: {fileID: 1005823869}
+  bg: {fileID: 1153178364}
 --- !u!4 &1451116188
 Transform:
   m_ObjectHideFlags: 0
@@ -836,13 +837,1629 @@ MonoBehaviour:
   defaultNPCSprite: {fileID: 0}
   defaultPlayerSprite: {fileID: 0}
   targetManager: {fileID: 0}
-  preload: 0
-  notuptodate: 0
+  preload: 1
+  notuptodate: 1
   startp: 0
   loadtag: 
   langs: []
-  S_playerDiags: []
-  S_actionNodes: []
+  S_playerDiags:
+  - commentCount: 1
+    s_comment:
+    - text: 'In the wake of the Tsewdim Nuclear Explosion of 2025, the kingdom of
+        Acirema was finally beginning to flourish once again. '
+      extraData: ExtraData
+      inputSetIndex: 0
+      outputNodeIndex: 4
+      outActionIndex: -1
+      sprites: {fileID: 21300000, guid: 44a16f4770255d747bc99a0f0e62c99d, type: 3}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 0
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "July 19, 2030 \nAfter defeating the S\u2019Necks, the party comes across
+        the first checkpoint, in Awoi."
+      extraData: ExtraData
+      inputSetIndex: 1
+      outputNodeIndex: 29
+      outActionIndex: -1
+      sprites: {fileID: 21300000, guid: f8fddf6c69310fa4eba6665e825492f6, type: 3}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 1
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "August 1, 2030\r\nNotsouh, Saxet\r"
+      extraData: ExtraData
+      inputSetIndex: 2
+      outputNodeIndex: 41
+      outActionIndex: -1
+      sprites: {fileID: 21300000, guid: 2375406c976a6db4fa8696cae4dbe323, type: 3}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 2
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "August 17, 2030\r\nSage V\u2019Sal, Adaven\r"
+      extraData: ExtraData
+      inputSetIndex: 3
+      outputNodeIndex: 57
+      outActionIndex: -1
+      sprites: {fileID: 21300000, guid: 8f458434a2cc303418320cc46689f9ea, type: 3}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 3
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Millions died in the explosion and more followed suit due to the residual
+        radiation that seemed to permeate all of the Tsewdim.
+      extraData: ExtraData
+      inputSetIndex: 4
+      outputNodeIndex: 5
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 4
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: 'However, our story begins with Cire of Wenkory, a miserable soon-to-be
+        freshman at Wenkory University. '
+      extraData: ExtraData
+      inputSetIndex: 5
+      outputNodeIndex: 6
+      outActionIndex: -1
+      sprites: {fileID: 21300000, guid: c187af599e3b2cb4eade8b419ad1df1d, type: 3}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 5
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "July 4th, 2030\nAcceptance Letter: Wenkory University (WYU)\r\nCongratulations!
+        On behalf of Wenkory University, I am pleased to announce your admission for
+        Fall 2030!\r\n"
+      extraData: ExtraData
+      inputSetIndex: 6
+      outputNodeIndex: 7
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 6
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Cire, we\u2019re excited to have you join our Class of 2036! \r\nWelcome
+        to Wenkory University! \r\nTuition: $592,000.19\r\nDue September 1st, 2030\r"
+      extraData: ExtraData
+      inputSetIndex: 7
+      outputNodeIndex: 8
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 7
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Sincerely,\r\nIvan Safrin\r\nDirector of Admissions\r"
+      extraData: ExtraData
+      inputSetIndex: 8
+      outputNodeIndex: 9
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 8
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: I got in?! I GOT IN!
+      extraData: ExtraData
+      inputSetIndex: 9
+      outputNodeIndex: 10
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 9
+    pTag: Cire
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: '...'
+      extraData: ExtraData
+      inputSetIndex: 10
+      outputNodeIndex: 11
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 10
+    pTag: Cire
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Wait a second.
+      extraData: ExtraData
+      inputSetIndex: 11
+      outputNodeIndex: 12
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 11
+    pTag: Cire
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Cire checks his bank account. It shows a remaining balance of $24.51.
+        All the previous purchases show that he spent all his money on anime figurines.
+        What a disgusting weeaboo.
+      extraData: ExtraData
+      inputSetIndex: 12
+      outputNodeIndex: 13
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 12
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "I can\u2019t pay this in two months! But I have to go to school! Why
+        is WYU the only college in this country? "
+      extraData: ExtraData
+      inputSetIndex: 13
+      outputNodeIndex: 14
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 13
+    pTag: Cire
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: 'There are 38 colleges in Acirema (63 before the Explosion). All of them
+        belong to Wenkory University. '
+      extraData: ExtraData
+      inputSetIndex: 14
+      outputNodeIndex: 15
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 14
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Want to make $592,000.20 fast? Try your hand at the Great Acireman Race
+        hosted by the Prince of Ainor Filac today!
+      extraData: ExtraData
+      inputSetIndex: 15
+      outputNodeIndex: 16
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 15
+    pTag: TV
+    sprite: {fileID: 21300000, guid: 4aee42e65e3b5194ea0efbecfab5292a, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: 'Team up with 2 others to find the clues along the way to Ainor Filac!
+        The first team with every clue wins. Each member will receive $592,000.20!
+        Meet us at the Lemmik Building for more information in two hours! '
+      extraData: ExtraData
+      inputSetIndex: 16
+      outputNodeIndex: 17
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 16
+    pTag: TV
+    sprite: {fileID: 21300000, guid: 4aee42e65e3b5194ea0efbecfab5292a, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "I guess that\u2019s my only hope."
+      extraData: ExtraData
+      inputSetIndex: 17
+      outputNodeIndex: 19
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 17
+    pTag: Cire
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "There\u2019s hundreds of people in the room, listening to the presentation.
+        Cire scopes out who appears to be the best competitors. If he wants a shot
+        at winning, he's going to have to find the best of the best."
+      extraData: ExtraData
+      inputSetIndex: 18
+      outputNodeIndex: 20
+      outActionIndex: -1
+      sprites: {fileID: 21300000, guid: 96d8752e4e3b5ab44916ad736b38d1a8, type: 3}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 18
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Two hours later.
+      extraData: ExtraData
+      inputSetIndex: 19
+      outputNodeIndex: 18
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 19
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: 'Okay, everyone! Find your teammates and form your teams! '
+      extraData: ExtraData
+      inputSetIndex: 20
+      outputNodeIndex: 21
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 20
+    pTag: Host
+    sprite: {fileID: 21300000, guid: 99df19d3d38d8a7409759363a2acd53a, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "The teams form so quickly it\u2019s almost comical. Cire\u2019s left
+        teamless in the middle with an old woman and some weird person in a cactus
+        suit. Cire can feel a pang of pain in both his wallet "
+      extraData: ExtraData
+      inputSetIndex: 21
+      outputNodeIndex: 22
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 21
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Hey kid. Looks like you\u2019re stuck with us. "
+      extraData: ExtraData
+      inputSetIndex: 22
+      outputNodeIndex: 23
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 22
+    pTag: Nora
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: '...'
+      extraData: ExtraData
+      inputSetIndex: 23
+      outputNodeIndex: 24
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 23
+    pTag: Cactus Kid
+    sprite: {fileID: 21300000, guid: 1df958f239a7c9c40afa0d70e5bc3c6e, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Well, @#&!
+      extraData: ExtraData
+      inputSetIndex: 24
+      outputNodeIndex: 25
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 24
+    pTag: Cire
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Your first hint lies in the domain with the street of many crooks! Good
+        luck to you all!
+      extraData: ExtraData
+      inputSetIndex: 25
+      outputNodeIndex: 26
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 25
+    pTag: Host
+    sprite: {fileID: 21300000, guid: 99df19d3d38d8a7409759363a2acd53a, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "The race begins, and after travelling for a few days the party is ambushed
+        by a group of S\u2019Necks."
+      extraData: ExtraData
+      inputSetIndex: 26
+      outputNodeIndex: 27
+      outActionIndex: -1
+      sprites: {fileID: 21300000, guid: bb6524818b5d8c842b491019c29fec24, type: 3}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 26
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Hiss Hiss Hiss! (We heard a whole lotta people are trying to cross our
+        lands for some cash! Sorry, but we\u2019ll be ones the getting rich when we
+        loot your bodies!)"
+      extraData: ExtraData
+      inputSetIndex: 27
+      outputNodeIndex: 28
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 27
+    pTag: S'Necks
+    sprite: {fileID: 21300000, guid: 5ddeea7928db8744d9d5eeaab7c05a1c, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "The party realizes that they\u2019ll have to defeat them if they want
+        to proceed. Who knows why S\u2019Necks would even want money, but here they
+        are, robbing Cire and his goons."
+      extraData: ExtraData
+      inputSetIndex: 28
+      outputNodeIndex: 85
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 28
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Cire\u2019s team finally find S\u2019Neck Alley, buried deep in the depths
+        of the largest city in Awoi, Turlingbon."
+      extraData: ExtraData
+      inputSetIndex: 29
+      outputNodeIndex: 30
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 31
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "I remember S\u2019Neck Alley. I fought many gangs here back in my day."
+      extraData: ExtraData
+      inputSetIndex: 30
+      outputNodeIndex: 31
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 32
+    pTag: Nora
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: '...'
+      extraData: ExtraData
+      inputSetIndex: 31
+      outputNodeIndex: 32
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 33
+    pTag: Cactus Kid
+    sprite: {fileID: 21300000, guid: 1df958f239a7c9c40afa0d70e5bc3c6e, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Hisssssssssssssssssssss! (There\u2019s another reason why it\u2019s called
+        s\u2019neck alley, idiots!)"
+      extraData: ExtraData
+      inputSetIndex: 32
+      outputNodeIndex: -1
+      outActionIndex: 1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 34
+    pTag: "S\u2019Necks"
+    sprite: {fileID: 21300000, guid: 5ddeea7928db8744d9d5eeaab7c05a1c, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Cire\u2019s team discover a suspicious looking dumpster within the Alley.
+        It is completely obvious that the next hint is in there."
+      extraData: ExtraData
+      inputSetIndex: 33
+      outputNodeIndex: 34
+      outActionIndex: -1
+      sprites: {fileID: 21300000, guid: f8fddf6c69310fa4eba6665e825492f6, type: 3}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 36
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "At the speed of light, Nora\u2019s pointer finger flies to her nose.
+        Cactus Kid\u2019s costumed arm does the same."
+      extraData: ExtraData
+      inputSetIndex: 34
+      outputNodeIndex: 35
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 37
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Not it.
+      extraData: ExtraData
+      inputSetIndex: 35
+      outputNodeIndex: 36
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 38
+    pTag: Nora
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: '...'
+      extraData: ExtraData
+      inputSetIndex: 36
+      outputNodeIndex: 37
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 39
+    pTag: Cactus Kid
+    sprite: {fileID: 21300000, guid: 1df958f239a7c9c40afa0d70e5bc3c6e, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: :|
+      extraData: ExtraData
+      inputSetIndex: 37
+      outputNodeIndex: 38
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 40
+    pTag: Cire
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Cire dives into the dumpster, searching for a good 10 minutes before he
+        finds the slip of paper at the bottom.
+      extraData: ExtraData
+      inputSetIndex: 38
+      outputNodeIndex: 39
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 41
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Haha, you thought the hint was in the dumpster? Try looking at the wall
+        to the RIGHT of the dumpster.
+      extraData: ExtraData
+      inputSetIndex: 39
+      outputNodeIndex: 40
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 42
+    pTag: Hint
+    sprite: {fileID: 21300000, guid: 68ef6d98bec7781459dbd5e2430afd40, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Go to the land of the loneliest star. Seek the man named Masno H Tsou.
+      extraData: ExtraData
+      inputSetIndex: 40
+      outputNodeIndex: -1
+      outActionIndex: 8
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 43
+    pTag: Real Hint
+    sprite: {fileID: 21300000, guid: 0e9805808cfd442498bc01feaf1a0148, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: 'The team finds a quiet watering hole to get a drink and some information. '
+      extraData: ExtraData
+      inputSetIndex: 41
+      outputNodeIndex: 42
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 45
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: I only have a month left before tuition is due. Better hurry up and find
+        the next clue.
+      extraData: ExtraData
+      inputSetIndex: 42
+      outputNodeIndex: 43
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 46
+    pTag: Cire
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: 'Bartender, would you possibly know who Masno H Tsou is? '
+      extraData: ExtraData
+      inputSetIndex: 43
+      outputNodeIndex: 44
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 47
+    pTag: Cire
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "SHHH, keep your voice down, boy! Say that name around here again and
+        you won\u2019t see the sun tomorrow. He\u2019s a dangerous man, that Tsou.
+        Now get outta here, I don\u2019t need you scarin\u2019 the rest of my customers
+        off. "
+      extraData: ExtraData
+      inputSetIndex: 44
+      outputNodeIndex: 45
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 48
+    pTag: Bartender
+    sprite: {fileID: 21300000, guid: acb6ffe725fbd414e8aff98f9f84f156, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Kicked out of the saloon, they set up camp for the night a few hundred
+        meters away. Cire\u2019s sitting on a stump reading from his book while Cactus
+        Kid\u2019s standing next to a cactus. They seem to be having a deep conversation
+        without words. "
+      extraData: ExtraData
+      inputSetIndex: 45
+      outputNodeIndex: 46
+      outActionIndex: -1
+      sprites: {fileID: 21300000, guid: 7f24ca6b88ccd7142ae0840e2ca019cf, type: 3}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 49
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Cheer up children, the S\u2019Neck stew\u2019s almost done! Come get
+        your bowls!"
+      extraData: ExtraData
+      inputSetIndex: 46
+      outputNodeIndex: 47
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 50
+    pTag: Nora
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: 'Nora begins ladeling the savory stew into a bowl when she hears a noise. '
+      extraData: ExtraData
+      inputSetIndex: 47
+      outputNodeIndex: 48
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 51
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Click.
+      extraData: ExtraData
+      inputSetIndex: 48
+      outputNodeIndex: 49
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 52
+    pTag: Unknown
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: BANG!
+      extraData: ExtraData
+      inputSetIndex: 49
+      outputNodeIndex: 50
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 53
+    pTag: Unknown
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "A bullet flies, just barely grazing Cire\u2019s cheek. Cire lets out
+        a squeak and falls backwards. "
+      extraData: ExtraData
+      inputSetIndex: 50
+      outputNodeIndex: 51
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 54
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Heard you been lookin\u2019 for me."
+      extraData: ExtraData
+      inputSetIndex: 51
+      outputNodeIndex: -1
+      outActionIndex: 2
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 55
+    pTag: Masno
+    sprite: {fileID: 21300000, guid: b882caeb24172de4688d8b7e0ba2d5a6, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Within the cowboy hat of the S\u2019Neck leader Masno, Cactus Kid finds
+        a slip of paper. "
+      extraData: ExtraData
+      inputSetIndex: 52
+      outputNodeIndex: 53
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 57
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: '...'
+      extraData: ExtraData
+      inputSetIndex: 53
+      outputNodeIndex: 54
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 58
+    pTag: Cactus Kid
+    sprite: {fileID: 21300000, guid: 1df958f239a7c9c40afa0d70e5bc3c6e, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "What\u2019s that, Kid? You found something? Give it here."
+      extraData: ExtraData
+      inputSetIndex: 54
+      outputNodeIndex: 55
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 59
+    pTag: Nora
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: This sounds a lot like... My old stomping ground.
+      extraData: ExtraData
+      inputSetIndex: 55
+      outputNodeIndex: -1
+      outActionIndex: 3
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 61
+    pTag: Nora
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: August 29, 2030
+      extraData: ExtraData
+      inputSetIndex: 56
+      outputNodeIndex: 58
+      outActionIndex: -1
+      sprites: {fileID: 21300000, guid: 5d91ce37f8348444bab1e2b9201bba5b, type: 3}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 65
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Oooh, Adaven! Let me try my hand at the slot machines!
+      extraData: ExtraData
+      inputSetIndex: 57
+      outputNodeIndex: 63
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 66
+    pTag: Nora
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "I can see the Wolly Hood sign! We\u2019re so close! I CAN AFFORD TO GO
+        TO COLLEGE!"
+      extraData: ExtraData
+      inputSetIndex: 58
+      outputNodeIndex: 59
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 67
+    pTag: Cire
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: :)
+      extraData: ExtraData
+      inputSetIndex: 59
+      outputNodeIndex: 60
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 68
+    pTag: Cactus Kid
+    sprite: {fileID: 21300000, guid: 1df958f239a7c9c40afa0d70e5bc3c6e, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "It\u2019s not over yet kid, I can feel something coming."
+      extraData: ExtraData
+      inputSetIndex: 60
+      outputNodeIndex: 61
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 69
+    pTag: Nora
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: :(
+      extraData: ExtraData
+      inputSetIndex: 61
+      outputNodeIndex: 62
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 70
+    pTag: Cactus Kid
+    sprite: {fileID: 21300000, guid: 1df958f239a7c9c40afa0d70e5bc3c6e, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: 'From the bushes appears a King Shydra. He blushes a little. '
+      extraData: ExtraData
+      inputSetIndex: 62
+      outputNodeIndex: 75
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 71
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Maybe I could just get my tuition money here\u2026"
+      extraData: ExtraData
+      inputSetIndex: 63
+      outputNodeIndex: 64
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 73
+    pTag: Cire
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: After a few hours of gambling, Nora has not won anything.
+      extraData: ExtraData
+      inputSetIndex: 64
+      outputNodeIndex: 65
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 74
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Is this machine rigged?! I\u2019ve been at it for hours and haven\u2019t
+        won a dime! Who runs this place anyway?"
+      extraData: ExtraData
+      inputSetIndex: 65
+      outputNodeIndex: 66
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 75
+    pTag: Nora
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Well-dressed S\u2019Necks slither from the shadows."
+      extraData: ExtraData
+      inputSetIndex: 66
+      outputNodeIndex: 67
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 76
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Hiss Hiss? (Does there seem to be a problem, miss?)
+      extraData: ExtraData
+      inputSetIndex: 67
+      outputNodeIndex: 68
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 77
+    pTag: Casino Owner S'Necks
+    sprite: {fileID: 21300000, guid: e0c757f9089bc7c4bb179806845d1544, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "This Casino is run by S\u2019Necks?"
+      extraData: ExtraData
+      inputSetIndex: 68
+      outputNodeIndex: 69
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 78
+    pTag: Cire
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "I bet they rigged these machines! Let\u2019s pummel them!"
+      extraData: ExtraData
+      inputSetIndex: 69
+      outputNodeIndex: 70
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 79
+    pTag: Nora
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Hiss? (????)
+      extraData: ExtraData
+      inputSetIndex: 70
+      outputNodeIndex: -1
+      outActionIndex: 5
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 80
+    pTag: Casino Owner S'Necks
+    sprite: {fileID: 21300000, guid: e0c757f9089bc7c4bb179806845d1544, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 2
+    s_comment:
+    - text: After the fight, Cactus Kid decides to play the slots before they leave
+        the casino.
+      extraData: ExtraData
+      inputSetIndex: 71
+      outputNodeIndex: 72
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: '*Celebratory Music*'
+      extraData: ExtraData
+      inputSetIndex: 71
+      outputNodeIndex: -1
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 82
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: YOU WON?!
+      extraData: ExtraData
+      inputSetIndex: 72
+      outputNodeIndex: 73
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 83
+    pTag: Nora
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: How much did you win?!
+      extraData: ExtraData
+      inputSetIndex: 73
+      outputNodeIndex: 74
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 84
+    pTag: Cire
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: A slip of a paper is deposited from the machine, which is the next hint.
+      extraData: ExtraData
+      inputSetIndex: 74
+      outputNodeIndex: 83
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 85
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "H-hisss. (You guys are so weak I\u2019m getting secondhand embarrassment.)"
+      extraData: ExtraData
+      inputSetIndex: 75
+      outputNodeIndex: 76
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 86
+    pTag: King Shydra
+    sprite: {fileID: 21300000, guid: 0943c65ba1c3a7549831d01269829486, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "I @#&!ing hate S\u2019Necks."
+      extraData: ExtraData
+      inputSetIndex: 76
+      outputNodeIndex: -1
+      outActionIndex: 4
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 87
+    pTag: Nora
+    sprite: {fileID: 21300000, guid: 0454d3737579bcc4a8eb0098d49e5732, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Let\u2019s grab the crown and book it to the Prince. I need to pay tuition
+        soon."
+      extraData: ExtraData
+      inputSetIndex: 77
+      outputNodeIndex: 78
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 88
+    pTag: Cire
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: 'Oh. You actually made it. Well, congrats. Give me my hats. '
+      extraData: ExtraData
+      inputSetIndex: 78
+      outputNodeIndex: 79
+      outActionIndex: -1
+      sprites: {fileID: 21300000, guid: cdfabbf6878bb824a88026cfa9587748, type: 3}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 89
+    pTag: Prince of Ainor Filac
+    sprite: {fileID: 21300000, guid: d47a40d2e57141f46ac48d6830aa18c7, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Cire hands over a smelly beanie, Masno\u2019s cowboy hat, the casino
+        owner S\u2019Necks\u2019 fedora, and the King Shydra\u2019s crown. "
+      extraData: ExtraData
+      inputSetIndex: 79
+      outputNodeIndex: 80
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 90
+    pTag: 
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Splendid. Here are your checks. Oh, and Cire, is it? I heard that you\u2019re
+        actually an upcoming student at my university? "
+      extraData: ExtraData
+      inputSetIndex: 80
+      outputNodeIndex: 82
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 91
+    pTag: Prince of Ainor Filac
+    sprite: {fileID: 21300000, guid: d47a40d2e57141f46ac48d6830aa18c7, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Wonderful, fantastic! Well, seeing as you\u2019ll probably need more
+        money to pay for tuition next year, I expect you\u2019ll be collecting more
+        items for me next year. I do need some new shoes."
+      extraData: ExtraData
+      inputSetIndex: 81
+      outputNodeIndex: 84
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 92
+    pTag: Prince of Ainor Filac
+    sprite: {fileID: 21300000, guid: d47a40d2e57141f46ac48d6830aa18c7, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Oh, yeah actually-
+      extraData: ExtraData
+      inputSetIndex: 82
+      outputNodeIndex: 81
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 93
+    pTag: Cire
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "You\u2019ve collected the last hint! Finish your travels to Ainor Filac
+        to receive the grand prize! "
+      extraData: ExtraData
+      inputSetIndex: 83
+      outputNodeIndex: -1
+      outActionIndex: 6
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 94
+    pTag: Hint
+    sprite: {fileID: 21300000, guid: 68ef6d98bec7781459dbd5e2430afd40, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: What
+      extraData: ExtraData
+      inputSetIndex: 84
+      outputNodeIndex: -1
+      outActionIndex: 7
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 96
+    pTag: Cire
+    sprite: {fileID: 21300000, guid: e828473fdf701244fabc7c4cb3f1dfce, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: 'Hey there, you, the player. Before you spacebar/mouse-click into battle,
+        you''ll need to know a little about the game. '
+      extraData: ExtraData
+      inputSetIndex: 85
+      outputNodeIndex: 86
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 29
+    pTag: Armor Tutorial
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: In this game, damage is indicated by color. When dragging a card over
+        an enemy, a number will appear displaying how much damage it will do. The
+        color of that number will indicate a few things.
+      extraData: ExtraData
+      inputSetIndex: 86
+      outputNodeIndex: 87
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 62
+    pTag: Armor Tutorial
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: 'BLUE means that the card will deal damage to their ARMOR.
+
+        RED means that the card will deal damage to their HEALTH, which is reduced
+        by ARMOR.
+
+        PURPLE means that the card will deal damage to their HEALTH, not reduced by
+        ARMOR. '
+      extraData: ExtraData
+      inputSetIndex: 87
+      outputNodeIndex: 88
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 63
+    pTag: Armor Tutorial
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: You're ready now. Beat those s'necks up.
+      extraData: ExtraData
+      inputSetIndex: 88
+      outputNodeIndex: -1
+      outActionIndex: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 98
+    pTag: Armor Tutorial
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  S_actionNodes:
+  - pauseHere: 0
+    gameObjectName: GM
+    methodName: startGame
+    paramType: 3
+    gotoNode: -1
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    ID: 30
+    outPlayerIndex: -1
+    outActionIndex: -1
+    ovrStartNode: -1
+    renameDialogue: 
+  - pauseHere: 0
+    gameObjectName: GM
+    methodName: startGame
+    paramType: 3
+    gotoNode: -1
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    ID: 35
+    outPlayerIndex: 33
+    outActionIndex: -1
+    ovrStartNode: -1
+    renameDialogue: 
+  - pauseHere: 0
+    gameObjectName: '[No object]'
+    methodName: '[No method]'
+    paramType: -1
+    gotoNode: -1
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    ID: 56
+    outPlayerIndex: 52
+    outActionIndex: -1
+    ovrStartNode: -1
+    renameDialogue: 
+  - pauseHere: 0
+    gameObjectName: GM
+    methodName: startGame
+    paramType: 3
+    gotoNode: -1
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    ID: 64
+    outPlayerIndex: -1
+    outActionIndex: -1
+    ovrStartNode: -1
+    renameDialogue: 
+  - pauseHere: 0
+    gameObjectName: GM
+    methodName: startGame
+    paramType: 3
+    gotoNode: -1
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    ID: 72
+    outPlayerIndex: 77
+    outActionIndex: -1
+    ovrStartNode: -1
+    renameDialogue: 
+  - pauseHere: 0
+    gameObjectName: GM
+    methodName: startGame
+    paramType: 3
+    gotoNode: -1
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    ID: 81
+    outPlayerIndex: 71
+    outActionIndex: -1
+    ovrStartNode: -1
+    renameDialogue: 
+  - pauseHere: 0
+    gameObjectName: GM
+    methodName: startGame
+    paramType: 3
+    gotoNode: -1
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    ID: 95
+    outPlayerIndex: -1
+    outActionIndex: -1
+    ovrStartNode: -1
+    renameDialogue: 
+  - pauseHere: 0
+    gameObjectName: GM
+    methodName: startGame
+    paramType: 3
+    gotoNode: -1
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    ID: 97
+    outPlayerIndex: -1
+    outActionIndex: -1
+    ovrStartNode: -1
+    renameDialogue: 
+  - pauseHere: 0
+    gameObjectName: GM
+    methodName: startGame
+    paramType: 3
+    gotoNode: -1
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    ID: 44
+    outPlayerIndex: -1
+    outActionIndex: -1
+    ovrStartNode: -1
+    renameDialogue: 
 --- !u!1 &1456998024
 GameObject:
   m_ObjectHideFlags: 0
