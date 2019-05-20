@@ -144,7 +144,7 @@ public class HighlightTiles : MonoBehaviour
         foreach (Vector3Int tile in tilesFilled.Keys)
         {
             Character c = map.GetCharacter(tile);
-            if (c != null)
+            if (c != null && c.team != Card.TargetType.PassableObstacle)
             {
                 targets.Add(c);
             }

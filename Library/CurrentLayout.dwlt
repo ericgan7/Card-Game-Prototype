@@ -112,10 +112,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 711, y: 498}
-  m_MaxSize: {x: 18006, y: 14048}
+  m_MinSize: {x: 713, y: 498}
+  m_MaxSize: {x: 18008, y: 14048}
   vertical: 0
-  controlID: 9693
+  controlID: 3484
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 424}
   m_MaxSize: {x: 4002, y: 8024}
   vertical: 1
-  controlID: 9856
+  controlID: 3504
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 498}
   m_MaxSize: {x: 10004, y: 14048}
   vertical: 1
-  controlID: 9694
+  controlID: 3525
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -567,7 +567,7 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 52404
+  m_LastSelectedObjectID: -22126
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -597,9 +597,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 1c110000
       m_LastClickedID: 0
-      m_ExpandedIDs: 32cafeff46cafeff18cffeff4ed2feff8ad5feff20d9feff7ad9feff60dafeff64dafeffb0dafeff90dcfeff7cddfeff84ddfeffdeddfeff86e3feff42e9feff42eefeff60f3feff2cfafeffd41effff5421ffff4023ffff7433ffff8833ffff7e35ffffb438fffff03bffff863fffff5c42ffff4843ffff5043ffffac43ffff50acffffc6afffff3ab4ffff42b9ffff2ebeffff20c2ffff58c6ffff46caffff8ccafffff4ccffffe8e4ffffaeecfffff2f0ffff26f4ffff08fbffff9c390000f03a0000e43b00006e3c0000d448000010490000924a0000ce4a0000f65400009c5a0000a0600000a6670000146e0000e47300007674000072c1000080c10000bcc100002ccb0000e0d200001ad6000058d90000b0dc000008e00000
+      m_ExpandedIDs: 1aa2ffff66a5ffff1aaaffffbab9ffffbafbffff50140000303a0000e23a0000464e0000784e0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -661,20 +661,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/ScriptableObjects/Cards/Warrior
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/ScriptableObjects/Cards/Warrior
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\kyzar\UnityProjects\Card-Game-Prototype
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 14280000
-    m_LastClickedID: 10260
-    m_ExpandedIDs: 00000000d4270000f42b0000ba2d00003e2e000000ca9a3b
+    m_SelectedIDs: 8c0e0000
+    m_LastClickedID: 3724
+    m_ExpandedIDs: 00000000040b0000820b0000000c0000a60e00002a0f0000f21000007611000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -702,7 +702,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d4270000f42b0000ba2d00003e2e000000ca9a3b
+    m_ExpandedIDs: 00000000040b0000820b0000000c0000a60e00002a0f0000f21000007611000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -729,7 +729,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0

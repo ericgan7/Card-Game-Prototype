@@ -29,10 +29,10 @@ MonoBehaviour:
   armor: 4
   damage: 5
   cards:
-  - {fileID: 11400000, guid: 3d64c6157a7a2154bb4886105eb850e8, type: 2}
-  - {fileID: 11400000, guid: 0ab73425d1d2c8042a8df8f2a34fd55c, type: 2}
+  - {fileID: 11400000, guid: 122d3ac69d9b7bd4e80622f9cd36a3ca, type: 2}
+  - {fileID: 11400000, guid: 122d3ac69d9b7bd4e80622f9cd36a3ca, type: 2}
   - {fileID: 11400000, guid: dca7aa619a0331a448216c24fbc521f8, type: 2}
-  - {fileID: 11400000, guid: fc9f9a942a1cb0c43936e0ff69a1f41e, type: 2}
+  - {fileID: 11400000, guid: dca7aa619a0331a448216c24fbc521f8, type: 2}
   - {fileID: 11400000, guid: ec0677e4421e7e341bbcbb7f16282592, type: 2}
   - {fileID: 11400000, guid: ec0677e4421e7e341bbcbb7f16282592, type: 2}
   - {fileID: 11400000, guid: a9636ad9a4521164bb11eeb106c031f2, type: 2}

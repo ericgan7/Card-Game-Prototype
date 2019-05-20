@@ -163,6 +163,10 @@ public class Character : MonoBehaviour
     //Settors
     public int ChangeHealth(int amount)
     {
+        if (team == Card.TargetType.PassableObstacle)
+        {
+            return 0;
+        }
         int temp = currentHealth;
         currentHealth = Mathf.Clamp(amount + currentHealth, 0, stats.health);
         if (currentHealth <= 0)
