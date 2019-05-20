@@ -10,7 +10,7 @@ public class DialoguePanel : MonoBehaviour
     DialogueManager dm;
     public TextMeshProUGUI dialogue;
     public RectTransform dialoguePos;
-    public Text characterName;
+    public TextMeshProUGUI characterName;
     public Image portrait;
     public List<Button> buttons;
     public Button buttonPrefab;

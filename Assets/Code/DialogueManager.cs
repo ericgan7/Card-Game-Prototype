@@ -9,6 +9,9 @@ public class DialogueManager : MonoBehaviour
 {
     public DialoguePanel left;
     public DialoguePanel right;
+    public string[] names;
+    public Sprite[] portraits;
+    Dictionary<string, Sprite> chars;
     VIDE_Assign story;
 
     void Start()
@@ -21,6 +24,11 @@ public class DialogueManager : MonoBehaviour
         }
         else {
             story = GetComponent<VIDE_Assign>();
+        }
+        chars = new Dictionary<string, Sprite>();
+        for (int i = 0; i < names.Length; ++i)
+        {
+            chars[names[i]] = portraits[i];
         }
         //VD.LoadDialogues();
         Begin();
@@ -57,6 +65,8 @@ public class DialogueManager : MonoBehaviour
         {
             left.gameObject.SetActive(true);
             left.SetText(data.comments[0]);
+            left.SetName(data.tag);
+            left.SetPortrait(chars[data.tag]);
             for (int i = 1; i < data.comments.Length; ++i)
             { 
                 left.CreateChoice(data.comments[i], i);
@@ -66,6 +76,8 @@ public class DialogueManager : MonoBehaviour
         {
             right.gameObject.SetActive(true);
             right.SetText(data.comments[0]);
+            right.SetName(data.tag);
+            right.SetPortrait(chars[data.tag]);
         }
     }
 
