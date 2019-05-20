@@ -3,7 +3,11 @@ guid: d53fd3873f6f1264e972a45bf0f11add
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - left: {instanceID: 0}
+  - right: {instanceID: 0}
+  - bgPrefab: {fileID: 8877534923396287108, guid: b16195198d628c84a903e7e11824387b,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

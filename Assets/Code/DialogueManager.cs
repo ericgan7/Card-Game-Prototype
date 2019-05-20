@@ -9,9 +9,7 @@ public class DialogueManager : MonoBehaviour
 {
     public DialoguePanel left;
     public DialoguePanel right;
-    public string[] names;
-    public Sprite[] portraits;
-    Dictionary<string, Sprite> chars;
+    public GameObject bg;
     VIDE_Assign story;
 
     void Start()
@@ -63,6 +61,9 @@ public class DialogueManager : MonoBehaviour
         right.gameObject.SetActive(false);
         if (data.isPlayer)
         {
+            Image img = left.gameObject.GetComponentInChildren<Image>();
+            if (data.sprite)
+                img.sprite = data.sprite;
             left.gameObject.SetActive(true);
             left.SetText(data.comments[0]);
             left.SetName(data.tag);
@@ -74,10 +75,22 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
+            Image img = right.gameObject.GetComponentInChildren<Image>();
+            if (data.sprite){
+                img.color = new Color (1, 1, 1, 1);
+                img.sprite = data.sprite;
+            }
+            else
+                img.color = new Color (0, 0, 0, 0);
             right.gameObject.SetActive(true);
             right.SetText(data.comments[0]);
             right.SetName(data.tag);
             right.SetPortrait(chars[data.tag]);
+        }
+
+        if (data.sprites[0] != null){
+            Image background = bg.gameObject.GetComponentInChildren<Image>();
+            background.sprite = data.sprites[0];
         }
     }
 
