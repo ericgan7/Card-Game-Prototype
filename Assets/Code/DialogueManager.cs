@@ -16,13 +16,8 @@ public class DialogueManager : MonoBehaviour
     {
         //VD.LoadDialogues();
         GM gm = FindObjectOfType<GM>();
-        if (gm != null)
-        {
-            story = gm.GetComponent<VIDE_Assign>();
-        }
-        else {
-            story = GetComponent<VIDE_Assign>();
-        }
+        story = GetComponent<VIDE_Assign>();
+        story.overrideStartNode = gm.nodes[gm.GetIndex()];
         //VD.LoadDialogues();
         Begin();
     
@@ -63,22 +58,24 @@ public class DialogueManager : MonoBehaviour
             left.SetText(data.comments[0]);
             left.SetName(data.tag);
             for (int i = 1; i < data.comments.Length; ++i)
-            { 
+            {
                 left.CreateChoice(data.comments[i], i);
             }
         }
         else
         {
             Image img = right.gameObject.GetComponentInChildren<Image>();
-            if (data.sprite){
-                img.color = new Color (1, 1, 1, 1);
+            if (data.sprite)
+            {
+                img.color = new Color(1, 1, 1, 1);
                 img.sprite = data.sprite;
             }
             else
-                img.color = new Color (0, 0, 0, 0);
+                img.color = new Color(0, 0, 0, 0);
             right.gameObject.SetActive(true);
             right.SetText(data.comments[0]);
             right.SetName(data.tag);
+
         }
 
         if (data.sprites[0] != null){

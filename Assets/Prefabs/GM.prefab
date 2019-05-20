@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1385577278281681046}
   - component: {fileID: 1385577278281681041}
-  - component: {fileID: 1385577278281681047}
+  - component: {fileID: 7876093280189469170}
   m_Layer: 0
   m_Name: GM
   m_TagString: Untagged
@@ -48,10 +48,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fd2d17d9af681e846b96713cadb44c96, type: 2}
   - {fileID: 11400000, guid: 2b99ac395e99b144b9c7dde111d0921b, type: 2}
   - {fileID: 11400000, guid: cf9445b3f987a4948a06fef324d3345f, type: 2}
-  VA: {fileID: 1385577278281681047}
+  VA: {fileID: 0}
   diag: {fileID: 0}
   nodes: 000000000100000024000000390000005200000058000000
---- !u!114 &1385577278281681047
+  levels:
+  - Scene 1
+  - Scene 2
+  - Scene 3
+  - Scene 4
+  - Scene 5
+--- !u!114 &7876093280189469170
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

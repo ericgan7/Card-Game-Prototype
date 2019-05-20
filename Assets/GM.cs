@@ -12,6 +12,7 @@ public class GM : MonoBehaviour
     public VIDEUIManager1 diag;
     //temp test
     public List<int> nodes;
+    public List<string> levels;
     int index = 0;
 
     public void Next()
@@ -37,18 +38,19 @@ public class GM : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(this.gameObject);
+            VA = GetComponent<VIDE_Assign>();
         }
     }
     public void setupChar(int chara) {
 
     }
     public void startGame() {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene(levels[index]);
     }
     public void loadDialogue()
     {
         Debug.Log(index);
-        VA.overrideStartNode = nodes[index];
+        //VA.overrideStartNode = nodes[index];
         SceneManager.LoadScene("Dialogue");
     }
     public void loadRewards()
