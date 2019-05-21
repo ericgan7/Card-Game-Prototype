@@ -13874,6 +13874,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6145213765128560552, guid: e9e4ec326dab68b4598e469fd152ffb8,
         type: 3}
+      propertyPath: options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6145213765128560552, guid: e9e4ec326dab68b4598e469fd152ffb8,
+        type: 3}
       propertyPath: menuSize
       value: 1.5
       objectReference: {fileID: 0}

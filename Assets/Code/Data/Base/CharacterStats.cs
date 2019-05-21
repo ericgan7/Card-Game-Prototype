@@ -29,8 +29,10 @@ public class CharacterStats : ScriptableObject
 
     public void AddCard(Reward r)
     {
+        Debug.Log("add reward");
         if (r.GetType() == typeof(StatReward))
         {
+            Debug.Log("stats");
             StatReward c = (StatReward)r;
             health += c.healthBonus;
             energy += c.energyBonus;

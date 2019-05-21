@@ -34,6 +34,14 @@ public class GameController : MonoBehaviour
         turns = new List<Character>();
         allyTurn = new Queue<Character>(allies);
         enemyTurn = new Queue<Character>(enemies);
+        if( GM.instance != null)
+        {
+            for (int i = 0; i < allies.Length; ++i)
+            {
+                allies[i].stats = GM.instance.characters[i];
+                allies[i].Start();
+            }
+        }
         StartGame();
         ai = GetComponent<EnemyAI>();
         ai.game = this;
